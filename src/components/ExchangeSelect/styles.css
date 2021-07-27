@@ -1,0 +1,62 @@
+.exchange-select_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 325px; 
+    height: 45px;  
+    background-color:transparent;
+    border: solid 1px #dadce1;
+    border-radius: 4px;    
+    color: #909090;
+}
+
+.exchange-select_container:hover{
+    cursor: pointer;
+    border: solid 1px #105efb;
+    color: #105efb;
+}
+
+.exchange-select_title{
+    font-size: 14px;
+    padding-left: 10px;
+    color: #909090;
+}
+
+.exchange-option_container{
+    position: absolute;
+    width: 325px; 
+    border: solid 1px #dadce1;
+    border-top: none;
+    background-color: #fafafa;
+}
+
+.exchange-option_item{
+    display: flex;
+    width: 325px; 
+    height: 45px;   
+    padding-left: 10px;   
+    align-items: center;
+    background-color:transparent;
+    border: none;
+}
+
+.exchange-option_item:hover{
+    cursor: pointer;
+    background-color: #eaf0fa;
+}
+
+.exchange-option_item_selected{
+    display: flex;
+    width: 220px; 
+    height: 45px;   
+    padding-left: 10px;   
+    align-items: center;
+    background-color:transparent;
+    border: none;
+}
+
+.exchange-option_title{
+    font-size: 14px;
+    padding-left: 10px;
+    color: #516078;
+}

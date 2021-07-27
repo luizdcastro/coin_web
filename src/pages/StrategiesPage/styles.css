@@ -1,0 +1,127 @@
+.strategies-page{
+    display: flex;
+    height: 100vh;
+    margin-left: 240px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.strategies-container{
+    width: 100vw;
+    margin-top: 40px;
+}
+
+.strategies-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.strategies-page-title{
+    margin-bottom: 20px;
+}
+
+.add-bot-button{
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #105efb;
+    padding: 15px;
+    padding-left: 12px;
+    border-radius: 3px;
+    color: #fafafa;
+    font-size: 15px;    
+    font-weight: 500;
+}
+
+.add-bot-button:hover{
+    background-color: #266fff;    
+    cursor: pointer;
+}
+
+.strategies-no-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    padding-bottom: 7%;
+}
+
+.strategies-list-header{
+    display: flex;
+    min-width: 500px;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 12px 8px 20px 8px;
+    border-bottom: 1px solid rgb(235, 236, 240);
+}
+
+.strategies_col_name{
+    flex: 1 ;
+    font-size: 13px;    
+    color: #516078;
+    font-weight: 500;
+}
+
+.strategies_col_exchange{    
+     flex: 1;
+     font-size: 13px;  
+     color: #516078;
+     font-weight: 500;
+}
+
+.strategies_col_status{
+     flex: 1;
+     font-size: 13px;    
+     color: #516078;
+     font-weight: 500;
+}
+
+.strategies_col_actions{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    align-self: flex-end;
+}
+
+.strategies-list-content{
+    display: flex;
+    min-width: 500px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgb(235, 236, 240);
+    padding: 12px 8px 12px 8px;
+}
+
+.strategies-list-content:hover{
+    background-color: #eaf0fa;
+}
+
+.strategies_row_name{
+    flex: 1 ;
+    font-size: 13px;    
+    color: #516078;
+}
+
+.strategies_row_exchange{    
+     flex: 1;
+     font-size: 13px;  
+     color: #516078;
+}
+
+.strategies_row_status{
+     flex: 1;
+     font-size: 13px;    
+     color: #516078;
+}
+
+.strategies_row_actions{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    align-self: flex-end;
+}
+
+
+
+
