@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react'
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import React, { useEffect, useState } from 'react'
+import * as MdIcons from 'react-icons/md'
 
 const Supertrend = ({ indicator, setIndicator, setNextIndicator }) => {
+    const [open, setOpen] = useState("")
 
     const addContidionalList = [
         { value: "and", label: "AND" },
@@ -16,46 +16,58 @@ const Supertrend = ({ indicator, setIndicator, setNextIndicator }) => {
     ]  
 
     useEffect(() => {
-        if (indicator.addConditional === "final") {
+        if (indicator.addConditional === "Final") {
             setNextIndicator({})
         }
     }, [indicator, setNextIndicator])
 
     return (        
+        <React.Fragment>
+        <div style={{ marginRight: 20 }}>
+            <button className="condition-select_container" onClick={() => { open === "conditional" ? setOpen("") : setOpen("conditional") }}>
+                {indicator?.conditional ?
+                    <p className="condition-option_title">{indicator.conditional === ">" ? "In uptrend" : "In downtrend"}</p>
+                    :
+                    <p className="condition-select_title">Conditional</p>
+                }
+                {open === "conditional" ?
+                    <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
+                    <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
+                }
+            </button>
+            {open === "conditional" && (
+                <div className="condition-option_container">
+                    {contidionalList.map((item) => (
+                        <button key={item.label} className="condition-option_item" onClick={() => { setIndicator({ ...indicator, conditional: item.value }); setOpen("") }}>
+                            <p className="condition-option_title">{item.label}</p>
+                        </button>
+                    ))}
+                </div>
+            )}
+        </div>     
         <div>
-            <TextField
-                select
-                id="select"
-                label="Conditional"
-                variant="outlined"
-                value={indicator?.conditional || ""}
-                onChange={(e) => setIndicator({ ...indicator, conditional: e.target.value })}
-                style={{ width: 150, marginRight: 20 }}
-                InputLabelProps={{ style: { fontSize: 14 } }}
-            >
-                {contidionalList.map((option) => (
-                    <MenuItem key={option.value} value={option.value} style={{ fontSize: 14 }}>
-                        {option.label}
-                    </MenuItem>
-                ))}
-            </TextField>          
-            <TextField
-                select
-                id="select"
-                label="Add Conditional"
-                variant="outlined"
-                value={indicator?.addConditional || ""}
-                onChange={(e) => setIndicator({ ...indicator, addConditional: e.target.value })}
-                style={{ width: 150 }}
-                InputLabelProps={{ style: { fontSize: 14 } }}
-            >
-                {addContidionalList.map((option) => (
-                    <MenuItem key={option.value} value={option.value} style={{ fontSize: 14 }}>
-                        {option.label}
-                    </MenuItem>
-                ))}
-            </TextField>
+            <button className="condition-select_container" onClick={() => { open === "addConditional" ? setOpen("") : setOpen("addConditional") }}>
+                {indicator?.addConditional ?
+                    <p className="condition-option_title">{indicator.addConditional}</p>
+                    :
+                    <p className="condition-select_title">Sequence</p>
+                }
+                {open === "addConditional" ?
+                    <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
+                    <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
+                }
+            </button>
+            {open === "addConditional" && (
+                <div className="condition-option_container">
+                    {addContidionalList.map((item) => (
+                        <button key={item.label} className="condition-option_item" onClick={() => { setIndicator({ ...indicator, addConditional: item.label }); setOpen("") }}>
+                            <p className="condition-option_title">{item.label}</p>
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
+    </React.Fragment>
     )
 }
 

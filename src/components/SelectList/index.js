@@ -16,10 +16,10 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
             <div style={{ marginRight: 20 }}>
                 {!!indicator?.indicator ?
                     <button className="modal-select_container" onClick={() => { setModalName("indicators") }}>
-                        <p className="modal-option_title">{indicator.indicator}</p>
+                        <p className="option_title">{indicator.indicator}</p>
                     </button> :
                     <button className="modal-select_container" onClick={() => { setModalName("indicators") }}>
-                        <p className="modal-option_title">Indicator</p>
+                        <p className="option_title">Indicator</p>
                     </button>
                 }
             </div>
@@ -28,7 +28,7 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
                     <div className="modal-container">
                         <div style={{ display: 'block' }}>
                             <MdIcons.MdClose className="modal-close-icon" onClick={() => setModalName("")} />
-                            <h3 className="modal-title">Please select indicator</h3>
+                            <h3 className="modal-title">Select your indicator</h3>
                             {indicators.map((item) => (
                                 <button className="modal-item" key={item.label} onClick={() => { setIndicator({ indicator: item.label }); setModalName("") }}>
                                     <p className="modal-option_title">{item.label}</p>

@@ -22,6 +22,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [symbol, setSymbol] = useState("")
     const [timeframe, setTimeframe] = useState("")
     const [modalName, setModalName] = useState("")
+    const [modalNameClose, setModalNameClose] = useState("")
 
     const [openIndicator_01, setOpenIndicator_01] = useState({})
     const [openIndicator_02, setOpenIndicator_02] = useState({})
@@ -39,24 +40,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
 
     const settings = { exchange, symbol, timeframe }
     const history = useHistory();
-
-    const exchangeList = [
-        { value: "binance", label: "Binance" },
-        { value: "coinbase", label: "Coinbase" },
-    ]
-
-    const symbolsList = [
-        { value: "BTCUSDT", label: "BTC/USDT" },
-        { value: "ETHUSDT", label: "ETH/USDT" },
-        { value: "ADAUSDT", label: "ADA/USDT" },
-    ]
-
-    const timeframeList = [
-        { value: "5", label: "5 min" },
-        { value: "15", label: "15 min" },
-        { value: "30", label: "30 min" },
-    ]
-
+ 
     function openBotPayload() {
         let payload = []
         const indicators = [openIndicator_01, openIndicator_02, openIndicator_03, openIndicator_04, openIndicator_05, openIndicator_06]
@@ -113,8 +97,8 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
         )
     }
 
-    console.log(openIndicator_01)
-
+    console.log(exchange)
+   
     return (
         <div className="bots-page">
             <div style={{ marginTop: 40 }}>
@@ -128,9 +112,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                         setExchange={setExchange}
                         setSymbol={setSymbol}
                         setTimeframe={setTimeframe}
-                        setModalName={setModalName} 
-                        modalName={modalName}
-                        />
+                    />
                 </div>
                 <h3 className="bots-condition-title">Open long condition</h3>
                 <div className="bots-condition-container">
@@ -194,10 +176,10 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 {openIndicator_03?.addConditional === "OR" || openIndicator_03?.addConditional === "AND" ?
                     <div className="bots-condition-container">
                         <SelectList
-                           indicator={openIndicator_04}
-                           setIndicator={setOpenIndicator_04}
-                           setModalName={setModalName}
-                           modalName={modalName}                    
+                            indicator={openIndicator_04}
+                            setIndicator={setOpenIndicator_04}
+                            setModalName={setModalName}
+                            modalName={modalName}
                         />
                         {openIndicator_04.indicator === 'RSI' ?
                             <RSI indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
@@ -213,11 +195,11 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {openIndicator_04?.addConditional === "OR" || openIndicator_04?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                      <SelectList
-                           indicator={openIndicator_05}
-                           setIndicator={setOpenIndicator_05}
-                           setModalName={setModalName}
-                           modalName={modalName}                    
+                        <SelectList
+                            indicator={openIndicator_05}
+                            setIndicator={setOpenIndicator_05}
+                            setModalName={setModalName}
+                            modalName={modalName}
                         />
                         {openIndicator_05.indicator === 'RSI' ?
                             <RSI indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
@@ -234,7 +216,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 <h3 className="bots-condition-title">Close long condition</h3>
 
                 <div className="bots-condition-container">
-                    <SelectList indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} />
+                    <SelectList
+                        indicator={closeIndicator_01}
+                        setIndicator={setCloseIndicator_01}
+                        setModalName={setModalNameClose}
+                        modalName={modalNameClose}
+                    />
                     {closeIndicator_01.indicator === 'RSI' ?
                         <RSI indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
                         : closeIndicator_01.indicator === 'Supertrend' ?
@@ -248,7 +235,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 </div>
                 {closeIndicator_01?.addConditional === "OR" || closeIndicator_01?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} />
+                        <SelectList
+                            indicator={closeIndicator_02}
+                            setIndicator={setCloseIndicator_02}
+                            setModalName={setModalNameClose}
+                            modalName={modalNameClose}
+                        />
                         {closeIndicator_02.indicator === 'RSI' ?
                             <RSI indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
                             : closeIndicator_02.indicator === 'Supertrend' ?
@@ -263,7 +255,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {closeIndicator_02?.addConditional === "OR" || closeIndicator_02?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} />
+                        <SelectList
+                            indicator={closeIndicator_03}
+                            setIndicator={setCloseIndicator_03}
+                            setModalName={setModalNameClose}
+                            modalName={modalNameClose}
+                        />
                         {closeIndicator_03.indicator === 'RSI' ?
                             <RSI indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
                             : closeIndicator_03.indicator === 'Supertrend' ?
@@ -278,7 +275,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {closeIndicator_03?.addConditional === "OR" || closeIndicator_03?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} />
+                        <SelectList
+                            indicator={closeIndicator_04}
+                            setIndicator={setCloseIndicator_04}
+                            setModalName={setModalNameClose}
+                            modalName={modalNameClose}
+                        />
                         {closeIndicator_04.indicator === 'RSI' ?
                             <RSI indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
                             : closeIndicator_04.indicator === 'Supertrend' ?
@@ -293,7 +295,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {closeIndicator_04?.addConditional === "OR" || closeIndicator_04?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} />
+                        <SelectList
+                            indicator={closeIndicator_05}
+                            setIndicator={setCloseIndicator_05}
+                            setModalName={setModalNameClose}
+                            modalName={modalNameClose}
+                        />
                         {closeIndicator_05.indicator === 'RSI' ?
                             <RSI indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
                             : closeIndicator_05.indicator === 'Supertrend' ?
@@ -315,45 +322,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     :
                     <button className="create-bot-button_disabled" disabled>Create Bot</button>
                 }
-            </div>
-            {modalName === "exchange" ?
-                <div className="modal-container">
-                    <div style={{ display: 'block' }}>
-                        <MdIcons.MdClose className="modal-close-icon" onClick={() => setModalName("")} />
-                        <h3 className="modal-title">Please select exchange</h3>
-                        {exchangeList.map((item) => (
-                            <button className="modal-item" key={item.label} onClick={() => { setExchange({ label: item.label }); setModalName("") }}>
-                                <p className="modal-option_title">{item.label}</p>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-                : modalName === "symbol" ?
-                    <div className="modal-container">
-                        <div style={{ display: 'block' }}>
-                            <MdIcons.MdClose className="modal-close-icon" onClick={() => setModalName("")} />
-                            <h3 className="modal-title">Please select symbol</h3>
-                            {symbolsList.map((item) => (
-                                <button className="modal-item" key={item.label} onClick={() => { setSymbol({ label: item.label }); setModalName("") }}>
-                                    <p className="modal-option_title">{item.label}</p>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                    : modalName === "timeframe" ?
-                        <div className="modal-container">
-                            <div style={{ display: 'block' }}>
-                                <MdIcons.MdClose className="modal-close-icon" onClick={() => setModalName("")} />
-                                <h3 className="modal-title">Please select timeframe</h3>
-                                {timeframeList.map((item) => (
-                                    <button className="modal-item" key={item.label} onClick={() => { setTimeframe({ label: item.label }); setModalName("") }}>
-                                        <p className="modal-option_title">{item.label}</p>
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                        : null
-            }
+            </div>           
         </div>
     )
 }
