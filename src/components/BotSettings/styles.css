@@ -1,75 +1,73 @@
-.modal-select_container{
+.bot-settings-select_container{
     display: flex;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center;
     width: 150px; 
     height: 45px;  
     background-color:transparent;
     border: solid 1px #dadce1;
     border-radius: 4px 4px 0 0;    
+    color: #909090;    
+}
+
+.bot-settings-select_container:hover{
+    cursor: pointer;
+    border: solid 1px #1d75de;
+    color: #1d75de;
+}
+
+.bot-settings-option_title{
+    font-size: 14px;
+    padding-left: 10px;
+    color: #516078;
+}
+
+.bot-settings-input_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px; 
+    height: 45px;  
+    background-color:transparent;
+    border: solid 1px #dadce1;
+    border-radius: 4px 4px 0 0;    
+    color: #516078;    
+    padding-left: 10px;
+}
+
+.bot-settings-input_container:focus{
+    outline: none;
+}
+
+.bot-settings-select_title{
+    font-size: 14px;
+    padding-left: 10px;
     color: #909090;
 }
 
-.modal-select_container:hover{
-    cursor: pointer;
-    border: solid 1px #105efb;
-    color: #105efb;
-}
-
-.modal-container{
+.bot-settings-option_container{
     position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    width: 320px;
-    background-color: #f0f0f0;   
-    padding-top: 60px;
+    z-index: 3;
+    width: 150px; 
+    border: solid 1px #dadce1;
+    border-top: none;
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+    padding: 4px;
 }
 
-.modal-title{
-    font-size: 16px;
-    padding-left: 10px;
-    height: 38px;
-    color: #516078;
-}
-
-.modal-item{
+.bot-settings-option_item{
     display: flex;
-    width: 280px; 
-    height: 40px;   
+    width: 140px; 
+    height: 45px;   
     align-items: center;
     background-color:transparent;
     border: none;
-    margin-bottom: 3px;
 }
 
-.modal-item:hover{
+.bot-settings-option_item:hover{
     cursor: pointer;
-    background-color:#e6e6e6;
-    border-radius: 8px;
+    background-color: #F5F5F5;   
 }
 
-.modal-option_title{
-    font-size: 14px;
-    padding-left: 10px;
-    color: #516078;
-}
-
-.option_title{
-    font-size: 14px;
-    padding-left: 10px;
-    color: #516078;
-}
-
-.modal-close-icon{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    color: #516078;
-    font-size: 25px;
-}
 

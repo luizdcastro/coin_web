@@ -8,4 +8,7 @@ export const GET_BOT = "GET_BOT";
 export const GET_ALL_BOTS = "GET_ALL_BOTS";
 export const UPDATE_BOT = "UPDATE_BOT";
 export const DELETE_BOT = "DELETE_BOT"; 
+export const CREATE_EXCHANGE = "CREATE_EXCHANGE";
+export const GET_EXCHANGE = "GET_EXCHANGE";
+export const DELETE_EXCHANGE = "DELETE_EXCHANGE"; 
 

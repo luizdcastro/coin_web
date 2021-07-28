@@ -50,10 +50,10 @@ const RSI = ({ indicator, setIndicator, setNextIndicator }) => {
             <div style={{ marginRight: 20 }}>
                 <input
                     className="condition-input_container"
-                    type='text'
                     maxLength={3}
                     value={indicator?.value || ""}
                     onChange={(e) => setIndicator({ ...indicator, value: e.target.value })}
+                    placeholder="Value"
                 />
             </div>
             <div>

@@ -6,19 +6,19 @@
 }
 
 .bots-page-title{
-    margin-bottom: 20px;
-    
+    margin-bottom: 40px;    
 }
 
 .bots-condition-title{
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    color: #516078;
 }
 
 .bots-condition-container{
     display: flex;
     width: 900px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #select{
@@ -50,14 +50,14 @@
     margin-top: 15px;
     font-size: 14px;
     font-weight: 500;
-    border: solid 1px #105efb;
-    background-color: #105efb;
+    border: solid 1px #1d75de;
+    background-color: #1d75de;
     border-radius: 3px;
     color: #fafafa;
 }
 
 .create-bot-button_active:hover{
-    background-color: #266fff;  
+    filter: brightness(108%);
     cursor: pointer;
 }
 

@@ -25,7 +25,7 @@
     height: 40px;
     justify-content: center;
     align-items: center;
-    background-color: #105efb;
+    background-color: #1d75de;
     padding: 15px;
     padding-left: 12px;
     border-radius: 3px;
@@ -35,7 +35,7 @@
 }
 
 .add-bot-button:hover{
-    background-color: #266fff;    
+    filter: brightness(108%);
     cursor: pointer;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .strategies-list-content:hover{
-    background-color: #eaf0fa;
+    background-color: #F5F5F5;    
 }
 
 .strategies_row_name{
@@ -121,6 +121,68 @@
     flex: 1;
     align-self: flex-end;
 }
+
+.strategies_action-menu{
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid rgb(235, 236, 240);
+    width: 130px;
+    right: 40px;
+    margin-top: 125px;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.strategies_action-menu-option{
+    display: flex;
+    width: 130px; 
+    height: 35px;   
+    align-items: center;
+    background-color:transparent;
+    border: none;
+    margin-left: 4px; 
+    margin-right: 4px;  
+}
+
+.strategies_action-menu-option:hover{
+    cursor: pointer;
+    background-color: #F5F5F5; 
+    margin-left: 4px; 
+    margin-right: 4px;  
+}
+
+.strategy-option_title{
+    font-size: 13px;
+    color: #516078;
+    padding-left: 15px;
+}
+
+.strategy-get-started{
+    display: flex;
+    width: 280px;
+    height: 45px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #1d75de;
+    padding: 15px;
+    padding-left: 12px;
+    border-radius: 3px;
+    color: #fafafa;
+    font-size: 15px;    
+    font-weight: 500;
+}
+
+.strategy-get-started:hover{
+  cursor: pointer;
+  filter: brightness(108%);
+
+}
+
 
 
 

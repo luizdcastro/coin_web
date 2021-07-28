@@ -33,13 +33,13 @@
 
 .exchanges-input:hover{
     cursor: pointer;
-    border: solid 1px #105efb;
+    border: solid 1px #1d75de;
 }
 
 .exchanges-input:focus{
     outline: none;
     cursor: pointer;
-    border: solid 1px #105efb;
+    border: solid 1px #1d75de;
 }
 
 .exchanges-bot-button_disabled{
@@ -58,16 +58,16 @@
     width: 325px;
     height: 45px;
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
-    border: solid 1px #105efb;
-    background-color: #105efb;
+    border: solid 1px #1d75de;
+    background-color: #1d75de;
     border-radius: 3px;
     color: #fafafa;
 }
 
 .exchanges-bot-button_active:hover{
-    background-color: #266fff;  
+    filter: brightness(108%);
     cursor: pointer;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .exchanges-list-content:hover{
-    background-color: #eaf0fa;
+    background-color: #F5F5F5;
 }
 
 .exchanges_row_name{

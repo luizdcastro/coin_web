@@ -12,8 +12,8 @@
 
 .exchange-select_container:hover{
     cursor: pointer;
-    border: solid 1px #105efb;
-    color: #105efb;
+    border: solid 1px #1d75de;
+    color: #1d75de;
 }
 
 .exchange-select_title{
@@ -27,22 +27,23 @@
     width: 325px; 
     border: solid 1px #dadce1;
     border-top: none;
-    background-color: #fafafa;
+    background-color: #fff;
 }
 
 .exchange-option_item{
     display: flex;
-    width: 325px; 
+    width: 310px; 
     height: 45px;   
     padding-left: 10px;   
     align-items: center;
     background-color:transparent;
     border: none;
+    margin: 6px;
 }
 
 .exchange-option_item:hover{
     cursor: pointer;
-    background-color: #eaf0fa;
+    background-color: #F5F5F5; 
 }
 
 .exchange-option_item_selected{

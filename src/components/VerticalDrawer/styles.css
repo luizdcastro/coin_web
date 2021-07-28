@@ -33,7 +33,7 @@
     height: 40px;
     margin-bottom: 5px;
     padding-left: 20px;
-    color: #105efb;
+    color: #1d75de;
     background-color:#e6e6e6;
     border-radius: 8px;
 }
@@ -45,7 +45,7 @@
 .vertical-menu-item:hover {
     background-color:#e6e6e6;
     border-radius: 8px;
-    color: #105efb;
+    color: #1d75de;
 }
 
 .vertical-menu-title{  

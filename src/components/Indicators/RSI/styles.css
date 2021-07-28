@@ -12,8 +12,14 @@
 
 .condition-select_container:hover{
     cursor: pointer;
-    border: solid 1px #105efb;
-    color: #105efb;
+    border: solid 1px #1d75de;
+    color: #1d75de;
+}
+
+.condition-option_title{
+    font-size: 14px;
+    padding-left: 10px;
+    color: #516078;
 }
 
 .condition-input_container{
@@ -45,13 +51,14 @@
     width: 150px; 
     border: solid 1px #dadce1;
     border-top: none;
-    background-color: #fafafa;
+    background-color: #fff;
     border-radius: 0 0 4px 4px;
+    padding: 4px;
 }
 
 .condition-option_item{
     display: flex;
-    width: 150px; 
+    width: 140px; 
     height: 45px;   
     align-items: center;
     background-color:transparent;
@@ -60,11 +67,5 @@
 
 .condition-option_item:hover{
     cursor: pointer;
-    background-color: #eaf0fa;
-}
-
-.condition-option_title{
-    font-size: 14px;
-    padding-left: 10px;
-    color: #516078;
+    background-color: #F5F5F5;   
 }

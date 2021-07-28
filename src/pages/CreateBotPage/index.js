@@ -3,9 +3,8 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { createBot } from '../../redux/actions/BotActions';
 import { Ellipsis } from 'react-css-spinners';
-import * as MdIcons from 'react-icons/md'
 
-import SelectList from '../../components/SelectList';
+import IndicatorsList from '../../components/IndicatorsList';
 import BotSettings from '../../components/BotSettings'
 import RSI from '../../components/Indicators/RSI';
 import Supertrend from '../../components/Indicators/Supertrend';
@@ -96,14 +95,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
             }
         )
     }
-
-    console.log(exchange)
    
     return (
         <div className="bots-page">
-            <div style={{ marginTop: 40 }}>
-                <h2 className="bots-page-title">Strategies / Create Bot</h2>
-                <h3 className="bots-condition-title">Bot Settings</h3>
+            <div style={{ marginTop: 40 }} >
+                <h2 className="bots-page-title">Create Bot</h2>
+                <h3 className="bots-condition-title">Settings</h3>
                 <div className="bots-condition-container">
                     <BotSettings
                         exchange={exchange}
@@ -116,7 +113,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 </div>
                 <h3 className="bots-condition-title">Open long condition</h3>
                 <div className="bots-condition-container">
-                    <SelectList
+                    <IndicatorsList
                         indicator={openIndicator_01}
                         setIndicator={setOpenIndicator_01}
                         setModalName={setModalName}
@@ -135,7 +132,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 </div>
                 {openIndicator_01?.addConditional === "OR" || openIndicator_01?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={openIndicator_02}
                             setIndicator={setOpenIndicator_02}
                             setModalName={setModalName}
@@ -155,7 +152,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {openIndicator_02?.addConditional === "OR" || openIndicator_02?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={openIndicator_03}
                             setIndicator={setOpenIndicator_03}
                             setModalName={setModalName}
@@ -175,7 +172,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {openIndicator_03?.addConditional === "OR" || openIndicator_03?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={openIndicator_04}
                             setIndicator={setOpenIndicator_04}
                             setModalName={setModalName}
@@ -195,7 +192,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {openIndicator_04?.addConditional === "OR" || openIndicator_04?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={openIndicator_05}
                             setIndicator={setOpenIndicator_05}
                             setModalName={setModalName}
@@ -216,7 +213,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 <h3 className="bots-condition-title">Close long condition</h3>
 
                 <div className="bots-condition-container">
-                    <SelectList
+                    <IndicatorsList
                         indicator={closeIndicator_01}
                         setIndicator={setCloseIndicator_01}
                         setModalName={setModalNameClose}
@@ -235,7 +232,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 </div>
                 {closeIndicator_01?.addConditional === "OR" || closeIndicator_01?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={closeIndicator_02}
                             setIndicator={setCloseIndicator_02}
                             setModalName={setModalNameClose}
@@ -255,7 +252,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {closeIndicator_02?.addConditional === "OR" || closeIndicator_02?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={closeIndicator_03}
                             setIndicator={setCloseIndicator_03}
                             setModalName={setModalNameClose}
@@ -275,7 +272,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {closeIndicator_03?.addConditional === "OR" || closeIndicator_03?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={closeIndicator_04}
                             setIndicator={setCloseIndicator_04}
                             setModalName={setModalNameClose}
@@ -295,7 +292,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     : null}
                 {closeIndicator_04?.addConditional === "OR" || closeIndicator_04?.addConditional === "AND" ?
                     <div className="bots-condition-container">
-                        <SelectList
+                        <IndicatorsList
                             indicator={closeIndicator_05}
                             setIndicator={setCloseIndicator_05}
                             setModalName={setModalNameClose}

@@ -12,8 +12,8 @@
 
 .condition-select_container:hover{
     cursor: pointer;
-    border: solid 1px #105efb;
-    color: #105efb;
+    border: solid 1px #1d75de;
+    color: #1d75de;
 }
 
 .condition-input_container{
@@ -60,7 +60,7 @@
 
 .condition-option_item:hover{
     cursor: pointer;
-    background-color: #eaf0fa;
+    filter: brightness(108%);
 }
 
 .condition-option_title{

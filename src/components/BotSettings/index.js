@@ -26,11 +26,11 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
     return (
         <React.Fragment>
         <div style={{ marginRight: 20 }}>
-            <button className="condition-select_container" onClick={() => { open === "exchange" ? setOpen("") : setOpen("exchange") }}>
-                {!!exchange?.exchange ?
-                    <p className="condition-option_title">{exchange.exchange}</p>
+            <button className="bot-settings-select_container" onClick={() => { open === "exchange" ? setOpen("") : setOpen("exchange") }}>
+                {!!exchange ?
+                    <p className="bot-settings-option_title">{exchange}</p>
                     :
-                    <p className="condition-select_title">Exchange</p>
+                    <p className="bot-settings-select_title">Exchange</p>
                 }
                 {open === "exchange" ?
                     <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
@@ -38,21 +38,21 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
                 }
             </button>
             {open === "exchange" && (
-                <div className="condition-option_container">
+                <div className="bot-settings-option_container">
                     {exchangeList.map((item) => (
-                        <button key={item.label} className="condition-option_item" onClick={() => { setExchange({ exchange: item.label }); setOpen("") }}>
-                            <p className="condition-option_title">{item.label}</p>
+                        <button key={item.label} className="bot-settings-option_item" onClick={() => { setExchange(item.label); setOpen("") }}>
+                            <p className="bot-settings-option_title">{item.label}</p>
                         </button>
                     ))}
                 </div>
             )}
         </div>
         <div style={{ marginRight: 20 }}>
-            <button className="condition-select_container" onClick={() => { open === "symbol" ? setOpen("") : setOpen("symbol") }}>
-                {!!symbol?.symbol ?
-                    <p className="condition-option_title">{symbol.symbol}</p>
+            <button className="bot-settings-select_container" onClick={() => { open === "symbol" ? setOpen("") : setOpen("symbol") }}>
+                {!!symbol ?
+                    <p className="bot-settings-option_title">{symbol}</p>
                     :
-                    <p className="condition-select_title">Symbol</p>
+                    <p className="bot-settings-select_title">Symbol</p>
                 }
                 {open === "symbol" ?
                     <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
@@ -60,21 +60,21 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
                 }
             </button>
             {open === "symbol" && (
-                <div className="condition-option_container">
+                <div className="bot-settings-option_container">
                     {symbolsList.map((item) => (
-                        <button key={item.label} className="condition-option_item" onClick={() => { setSymbol({ symbol: item.label }); setOpen("") }}>
-                            <p className="condition-option_title">{item.label}</p>
+                        <button key={item.label} className="bot-settings-option_item" onClick={() => { setSymbol(item.label); setOpen("") }}>
+                            <p className="bot-settings-option_title">{item.label}</p>
                         </button>
                     ))}
                 </div>
             )}
         </div>
         <div style={{ marginRight: 20 }}>
-            <button className="condition-select_container" onClick={() => { open === "timeframe" ? setOpen("") : setOpen("timeframe") }}>
-                {!!timeframe?.timeframe ?
-                    <p className="condition-option_title">{timeframe.timeframe}</p>
+            <button className="bot-settings-select_container" onClick={() => { open === "timeframe" ? setOpen("") : setOpen("timeframe") }}>
+                {!!timeframe ?
+                    <p className="bot-settings-option_title">{timeframe}</p>
                     :
-                    <p className="condition-select_title">Timeframe</p>
+                    <p className="bot-settings-select_title">Timeframe</p>
                 }
                 {open === "timeframe" ?
                     <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
@@ -82,10 +82,10 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
                 }
             </button>
             {open === "timeframe" && (
-                <div className="condition-option_container">
+                <div className="bot-settings-option_container">
                     {timeframeList.map((item) => (
-                        <button key={item.label} className="condition-option_item" onClick={() => { setTimeframe({ timeframe: item.label }); setOpen("") }}>
-                            <p className="condition-option_title">{item.label}</p>
+                        <button key={item.label} className="bot-settings-option_item" onClick={() => { setTimeframe( item.label); setOpen("") }}>
+                            <p className="bot-settings-option_title">{item.label}</p>
                         </button>
                     ))}
                 </div>
