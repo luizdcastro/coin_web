@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as MdIcons from 'react-icons/md'
+import { getMe } from '../../redux/actions/UserActions'
+import { connect } from "react-redux";
 
 import './styles.css'
 
-const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setTimeframe }) => {
+const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setTimeframe, disptachGetMe, getme }) => {
     const [open, setOpen] = useState("")
+    const [exchangeList, setExchangeList] = useState([])
 
-    const exchangeList = [
-        { value: "binance", label: "Binance" },
-        { value: "coinbase", label: "Coinbase" },
-    ]
+    useEffect(() => disptachGetMe(),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [])
+
+    useEffect(() => {
+            setExchangeList(getme.exchanges)        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const symbolsList = [
         { value: "BTCUSDT", label: "BTC/USDT" },
@@ -25,74 +32,83 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
 
     return (
         <React.Fragment>
-        <div style={{ marginRight: 20 }}>
-            <button className="bot-settings-select_container" onClick={() => { open === "exchange" ? setOpen("") : setOpen("exchange") }}>
-                {!!exchange ?
-                    <p className="bot-settings-option_title">{exchange}</p>
-                    :
-                    <p className="bot-settings-select_title">Exchange</p>
-                }
-                {open === "exchange" ?
-                    <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
-                    <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
-                }
-            </button>
-            {open === "exchange" && (
-                <div className="bot-settings-option_container">
-                    {exchangeList.map((item) => (
-                        <button key={item.label} className="bot-settings-option_item" onClick={() => { setExchange(item.label); setOpen("") }}>
-                            <p className="bot-settings-option_title">{item.label}</p>
-                        </button>
-                    ))}
-                </div>
-            )}
-        </div>
-        <div style={{ marginRight: 20 }}>
-            <button className="bot-settings-select_container" onClick={() => { open === "symbol" ? setOpen("") : setOpen("symbol") }}>
-                {!!symbol ?
-                    <p className="bot-settings-option_title">{symbol}</p>
-                    :
-                    <p className="bot-settings-select_title">Symbol</p>
-                }
-                {open === "symbol" ?
-                    <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
-                    <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
-                }
-            </button>
-            {open === "symbol" && (
-                <div className="bot-settings-option_container">
-                    {symbolsList.map((item) => (
-                        <button key={item.label} className="bot-settings-option_item" onClick={() => { setSymbol(item.label); setOpen("") }}>
-                            <p className="bot-settings-option_title">{item.label}</p>
-                        </button>
-                    ))}
-                </div>
-            )}
-        </div>
-        <div style={{ marginRight: 20 }}>
-            <button className="bot-settings-select_container" onClick={() => { open === "timeframe" ? setOpen("") : setOpen("timeframe") }}>
-                {!!timeframe ?
-                    <p className="bot-settings-option_title">{timeframe}</p>
-                    :
-                    <p className="bot-settings-select_title">Timeframe</p>
-                }
-                {open === "timeframe" ?
-                    <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
-                    <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
-                }
-            </button>
-            {open === "timeframe" && (
-                <div className="bot-settings-option_container">
-                    {timeframeList.map((item) => (
-                        <button key={item.label} className="bot-settings-option_item" onClick={() => { setTimeframe( item.label); setOpen("") }}>
-                            <p className="bot-settings-option_title">{item.label}</p>
-                        </button>
-                    ))}
-                </div>
-            )}
-        </div>                                              
-    </React.Fragment>
+            <div style={{ marginRight: 20 }}>
+                <button className="bot-settings-select_container" onClick={() => { open === "exchange" ? setOpen("") : setOpen("exchange") }}>
+                    {!!exchange.name ?
+                        <p className="bot-settings-option_title">{exchange.name}</p>
+                        :
+                        <p className="bot-settings-select_title">Exchange</p>
+                    }
+                    {open === "exchange" ?
+                        <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
+                        <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
+                    }
+                </button>
+                {open === "exchange" && (
+                    <div className="bot-settings-option_container">
+                        {exchangeList.map((item) => (
+                            <button key={item?.id} className="bot-settings-option_item" onClick={() => { setExchange({ name: item?.exchange, id: item.id }); setOpen("") }}>
+                                <p className="bot-settings-option_title">{item?.exchange}</p>
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
+            <div style={{ marginRight: 20 }}>
+                <button className="bot-settings-select_container" onClick={() => { open === "symbol" ? setOpen("") : setOpen("symbol") }}>
+                    {!!symbol ?
+                        <p className="bot-settings-option_title">{symbol}</p>
+                        :
+                        <p className="bot-settings-select_title">Symbol</p>
+                    }
+                    {open === "symbol" ?
+                        <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
+                        <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
+                    }
+                </button>
+                {open === "symbol" && (
+                    <div className="bot-settings-option_container">
+                        {symbolsList.map((item) => (
+                            <button key={item.label} className="bot-settings-option_item" onClick={() => { setSymbol(item.value); setOpen("") }}>
+                                <p className="bot-settings-option_title">{item.label}</p>
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
+            <div style={{ marginRight: 20 }}>
+                <button className="bot-settings-select_container" onClick={() => { open === "timeframe" ? setOpen("") : setOpen("timeframe") }}>
+                    {!!timeframe ?
+                        <p className="bot-settings-option_title">{timeframe}</p>
+                        :
+                        <p className="bot-settings-select_title">Timeframe</p>
+                    }
+                    {open === "timeframe" ?
+                        <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
+                        <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
+                    }
+                </button>
+                {open === "timeframe" && (
+                    <div className="bot-settings-option_container">
+                        {timeframeList.map((item) => (
+                            <button key={item.label} className="bot-settings-option_item" onClick={() => { setTimeframe(item.value); setOpen("") }}>
+                                <p className="bot-settings-option_title">{item.label}</p>
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </React.Fragment>
     );
 };
 
-export default BotSettings;
+const mapDispatchToProps = (dispatch) => ({
+    disptachGetMe: () => dispatch(getMe())
+});
+
+const mapStateToProps = (state) => ({
+    getme: state.getme,
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BotSettings);

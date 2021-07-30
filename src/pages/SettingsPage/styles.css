@@ -2,6 +2,60 @@
     display: flex;
     height: 100vh;
     margin-left: 240px;
-    padding-top: 40px;  
-    padding-left: 40px;
+    padding: 40px
+
+}
+
+.settings-container{
+    width: 100vw;
+}
+
+.seetings-title{
+    font-weight: 500;
+    color: #425466;    
+}
+
+.settings-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.settings-avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5149dd;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;   
+}
+
+.settings-avatar-name{
+    color: #fafafa;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.settings-header-name{
+    margin-left: 30px;
+    font-size: 14px;
+    color: #425466;    
+    padding-bottom: 5px;
+}
+
+.settings-list-header{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 12px 8px 20px 8px;
+    border-bottom: 1px solid rgb(235, 236, 240);
+}
+
+.settings-header-col-name{
+    flex: 1 ;
+    font-size: 15px;
+    font-weight: 500;
+    color: #425466;
 }

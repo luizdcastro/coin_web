@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import * as GoIcons from 'react-icons/go'
 import * as MdIcons from 'react-icons/md'
-import { Ripple } from 'react-css-spinners'
+import { SwishSpinner  } from "react-spinners-kit";
 
 import { getMe } from '../../redux/actions/UserActions'
 
@@ -27,24 +27,27 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                     </Link>
                 </div>
                 <div className="strategies-list-header">
-                    <span style={{ width: 50 }}></span>
                     <p className="strategies_col_name">Name</p>
                     <p className="strategies_col_status">Status</p>
                     <p className="strategies_col_status">Growth</p>
                     <p className="strategies_col_status">Net Profit</p>
-                    <span className="strategies_col_actions"><MdIcons.MdRefresh size={22} color="#516078" style={{ cursor: 'pointer' }} /></span>
+                    <span className="strategies_col_actions"><MdIcons.MdRefresh size={22} color="#425466" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.bots?.length >= 1 ?
                     <React.Fragment>
                         {getme.bots.map((item) => (
                             <div key={item.id} className="strategies-list-content">
-                                <Ripple color="#1DB954" size={40} thickness={2} style={{ width: 50 }} />
-                                <p className="strategies_row_name">Teste Bot</p>
-                                <p className="strategies_row_status">Inactive</p>
-                                <p className="strategies_row_status">+22,00%</p>
-                                <p className="strategies_row_status">$ 350,00</p>
+                                <div style={{ display: 'flex', flex: 1, alignItems: 'center' }}>
+                                    <SwishSpinner size={18} frontColor="#A19CFF" backColor="#A19CFF" />
+                                    <p style={{ fontSize: 13, fontWeight:500, color: "#425466", paddingLeft: 12 }}> Bot MACD</p>
+                                </div>
+                                <div style={{flex: 1}}>
+                                <p className="strategies_row_status-active">{item.active ? 'Active' : 'Inactive'}</p>
+                                </div>
+                                <p className="strategies_row_status">0,00%</p>
+                                <p className="strategies_row_status">$0,00</p>
                                 <span className="strategies_row_actions">
-                                    <MdIcons.MdMoreHoriz size={22} color="#516078" style={{ cursor: 'pointer' }} onClick={() => { open === item.id ? setOpen("") : setOpen(item.id) }} />
+                                    <MdIcons.MdMoreHoriz size={22} color="#425466" style={{ cursor: 'pointer' }} onClick={() => { open === item.id ? setOpen("") : setOpen(item.id) }} />
                                 </span>
                                 {open === item.id && (
                                     <div className="strategies_action-menu">
@@ -62,8 +65,8 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                     :
                     <div className="strategies-no-result">
                         <div>
-                            <p style={{ fontWeight: 400, color: '#516078', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No bots were found!</p>
-                            <p style={{ fontWeight: 300, color: '#516078', fontSize: 14, textAlign: 'center' }}>You haven't created any trading strategies yet.</p>
+                            <p style={{ fontWeight: 400, color: '#425466', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No bots were found!</p>
+                            <p style={{ fontWeight: 300, color: '#425466', fontSize: 14, textAlign: 'center' }}>You haven't created any trading strategy yet.</p>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
                                 <Link className="strategy-get-started" to="/create-bot">Get Started</Link>
                             </div>

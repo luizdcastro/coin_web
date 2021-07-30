@@ -11,7 +11,20 @@
 
 .vertical-menu-container{ 
     margin-top: 40px;
+}
 
+.vertical-menu-logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.vertical-menu-logo{
+    font-weight: 700;
+    margin-left: 4px;
+    color: #425466;
+    font-family: 'Ubuntu';
 }
 
 .vertical-menu-item{
@@ -21,7 +34,7 @@
     height: 40px;
     margin-bottom: 5px;
     padding-left: 20px;
-    color: #516078;
+    color: #425466;
     font-weight: 500;
     font-size: 20px ;
 }
@@ -33,9 +46,9 @@
     height: 40px;
     margin-bottom: 5px;
     padding-left: 20px;
-    color: #1d75de;
+    color: #635bff;
     background-color:#e6e6e6;
-    border-radius: 8px;
+    border-radius: 3px;
 }
 
 .vertical-drop-icon{
@@ -44,8 +57,8 @@
 
 .vertical-menu-item:hover {
     background-color:#e6e6e6;
-    border-radius: 8px;
-    color: #1d75de;
+    border-radius: 3px;
+    color: #635bff;
 }
 
 .vertical-menu-title{  
@@ -55,12 +68,34 @@
 
 .vertical-menu-footer{    
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-self: flex-end;
     width: 200px;
     margin-bottom: 15px;
     border-top: solid 1px #dadce1;
 }
+
+.vertical-menu-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #635bff;
+    border: solid 1px #635bff;
+    width: 200px;
+    height: 40px;
+    border-radius: 3px;
+    color: #635bff;
+    font-size: 15px;    
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.vertical-menu-button:hover {
+    color: #fafafa;
+    background-color: #635bff;
+}
+
 
 .vertical-menu-separator{
     border-top: solid 1px #dadce1;
@@ -69,6 +104,6 @@
 .vertical-footer-text{
     text-align: center;
     font-size: 12px;
-    color: #516078;
+    color: #425466;
     padding-top: 15px;
 }

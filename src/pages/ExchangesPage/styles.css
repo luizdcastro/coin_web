@@ -10,12 +10,12 @@
     margin-bottom: 20px;
     font-size: 15px;
     font-weight: 500;
-    color: #516078;
+    color: #425466;
 }
 
 .exchanges-label{
     font-size: 14px;
-    color: #516078;
+    color: #425466;
     margin-top: 15px;
 }
 
@@ -27,19 +27,20 @@
     background-color: transparent;
     border-radius: 4px;    
     color: #909090;
-    padding-left: 10px;   
+    padding-left: 10px;      
+    padding-right: 10px;   
     margin-top: 7px;
 }
 
 .exchanges-input:hover{
     cursor: pointer;
-    border: solid 1px #1d75de;
+    border: solid 1px #635bff;
 }
 
 .exchanges-input:focus{
     outline: none;
     cursor: pointer;
-    border: solid 1px #1d75de;
+    border: solid 1px #635bff;
 }
 
 .exchanges-bot-button_disabled{
@@ -60,8 +61,8 @@
     margin-top: 20px;
     font-size: 15px;
     font-weight: 500;
-    border: solid 1px #1d75de;
-    background-color: #1d75de;
+    border: solid 1px #635bff;
+    background-color: #635bff;
     border-radius: 3px;
     color: #fafafa;
 }
@@ -83,21 +84,21 @@
 .exchanges_col_name{
     flex: 1 ;
     font-size: 13px;    
-    color: #516078;
+    color: #425466;
     font-weight: 500;
 }
 
 .exchanges_col_exchange{    
      flex: 1;
      font-size: 13px;  
-     color: #516078;
+     color: #425466;
      font-weight: 500;
 }
 
 .exchanges_col_status{
      flex: 1;
      font-size: 13px;    
-     color: #516078;
+     color: #425466;
      font-weight: 500;
 }
 
@@ -124,25 +125,59 @@
 .exchanges_row_name{
     flex: 1 ;
     font-size: 13px;    
-    color: #516078;
+    color: #425466;
 }
 
 .exchanges_row_exchange{    
      flex: 1;
-     font-size: 13px;  
-     color: #516078;
+     font-size: 14px;  
+     color: #425466;
 }
 
 .exchanges_row_status{
      flex: 1;
-     font-size: 13px;    
-     color: #516078;
+     font-size: 14px;    
+     color: #425466;
+     margin-right: 15px;
+}
+
+.exchanges_row_status{
+    flex: 1;
+    color: #425466;
+    margin-right: 15px;
+}
+
+.exchanges_row_status-active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #635bff;
+    color: #635bff;
+    width: 75px;
+    height: 25px;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .exchanges_row_actions{
+    flex: 1;
     display: flex;
     justify-content: flex-end;
-    flex: 1;
     align-self: flex-end;
+}
+
+.exchange-error{
+    margin-top: 10px;
+    width: 325px;
+    font-size: 13px;
+    color: #e53935;
+}
+
+.exchange-success{
+    margin-top: 10px;
+    width: 325px;
+    font-size: 13px;
+    color: #1DB954;
 }
 

@@ -19,6 +19,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
     const [apiKey, setApiKy] = useState("")
     const [secretKey, setSecretKey] = useState("")
     const [exchange, setExchange] = useState({})
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,23 +47,24 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
 
     const handleSubmmit = () => {
         setLoading(true)
+        setError("")
+        setSuccess("")
         dispatchCreateExchange(
             exchange.name,
             getme.id,
             apiKey,
             secretKey,
-            (response) => {
-                console.log(response);
+            () => {
+                setSuccess("Exchange successfully connected!");
                 setLoading(false);
-                disptachGetMe()
+                disptachGetMe()               
             },
             (error) => {
-                console.log(error);
+                setError(error.error);
                 setLoading(false);
             }
         )
     }
-
 
     const handleDelete = (exchangeId) => {
         dispatchDeleteExchange(
@@ -77,7 +80,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
     return (
         <div className="exchanges-page">
             <div style={{ flex: 1, paddingRight: 30 }}>
-                <h2 style={{ marginBottom: 30 }}>Exchanges</h2>
+                <h2 style={{ marginBottom: 40, fontWeight: 500, color: '#425466' }}>Exchanges</h2>
                 <p className="exchanges-subtitle">Connect new exchange</p>
                 <ExchangeSelect exchange={exchange} setExchange={setExchange} exchangesList={exchangesList} />
                 <p className="exchanges-label">API Key</p>
@@ -93,14 +96,20 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     :
                     <button className="exchanges-bot-button_disabled" disabled>Connect</button>
                 }
+                {!!error ?
+                    <p className="exchange-error">{error}</p>
+                    : !!success ?
+                        <p className="exchange-success">{success}</p>
+                        : null
+                }
             </div>
-            <div style={{ flex: 2, paddingTop: 60, paddingRight: 40 }}>
+            <div style={{ flex: 2, paddingTop: 70, paddingRight: 40 }}>
                 <p className="exchanges-subtitle">Connected exchanges</p>
                 <div className="exchanges-list-header">
                     <p className="exchanges_col_exchange">Exchange</p>
                     <p className="exchanges_col_status">API Key</p>
                     <p className="exchanges_col_status">Status</p>
-                    <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="#516078" style={{ cursor: 'pointer' }} /></span>
+                    <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="#425466" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.exchanges?.length >= 1 ?
                     <React.Fragment>
@@ -123,12 +132,14 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                         <p className="exchanges_row_exchange">{item.exchange}</p>
                                     </span>
                                 </div>
-                                <p className="exchanges_row_status">{item.api_key.slice(0, 7) + "*******"}</p>
-                                <p className="exchanges_row_status">Active</p>
+                                <p className="exchanges_row_status">{item.api_key.slice(0, 10) + "*******"}</p>
+                                <span className="exchanges_row_status">
+                                    <p className="exchanges_row_status-active">Connected</p>
+                                </span>
                                 <span className="exchanges_row_actions">
                                     <FiIcons.FiTrash
                                         size={17}
-                                        color="#516078"
+                                        color="#425466"
                                         style={{ cursor: 'pointer', marginBottom: 5 }}
                                         onClick={() => handleDelete(item.id)} />
                                 </span>
@@ -138,8 +149,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     :
                     <div className="strategies-no-result">
                         <div >
-                            <p style={{ fontWeight: 400, color: '#516078', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No API keys were found!</p>
-                            <p style={{ fontWeight: 300, color: '#516078', fontSize: 14, textAlign: 'center' }}>You haven't connected your exchanges yet.</p>
+                            <p style={{ fontWeight: 400, color: '#425466', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No API keys were found!</p>
+                            <p style={{ fontWeight: 300, color: '#425466', fontSize: 14, textAlign: 'center' }}>You haven't connected your exchanges yet.</p>
                         </div>
                     </div>
                 }

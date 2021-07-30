@@ -12,8 +12,8 @@
 
 .condition-select_container:hover{
     cursor: pointer;
-    border: solid 1px #1d75de;
-    color: #1d75de;
+    border: solid 1px #635bff;
+    color: #635bff;
 }
 
 .condition-input_container{
@@ -25,8 +25,10 @@
     background-color:transparent;
     border: solid 1px #dadce1;
     border-radius: 4px 4px 0 0;    
-    color: #516078;    
+    color: #425466;    
     padding-left: 10px;
+    font-size: 14px;
+
 }
 
 .condition-input_container:focus{
@@ -66,5 +68,5 @@
 .condition-option_title{
     font-size: 14px;
     padding-left: 10px;
-    color: #516078;
+    color: #425466;
 }
