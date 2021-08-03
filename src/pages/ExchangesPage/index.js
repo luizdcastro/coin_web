@@ -114,7 +114,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 {getme.exchanges?.length >= 1 ?
                     <React.Fragment>
                         {getme.exchanges.map((item) => (
-                            <div className="exchanges-list-content">
+                            <div key={item.id} className="exchanges-list-content">
                                 <div className="exchanges_row_exchange">
                                     <span style={{ display: 'flex', alignItems: 'center' }}>
                                         <img
@@ -126,7 +126,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                                 item.exchange === 'Binance' ? 'Binance'
                                                     : item.exchange === 'Coinbase' ? 'Coinbase'
                                                         : item.exchange === 'Kraken' ? 'Kraken'
-                                                            : item.exchange === 'Bybit' ? 'Bybit' : null}
+                                                            : item.exchange === 'Bybit' ? 'Bybit' : 'null'}
                                             style={{ width: 30, height: 30, borderRadius: 5, marginRight: 8 }}
                                         />
                                         <p className="exchanges_row_exchange">{item.exchange}</p>

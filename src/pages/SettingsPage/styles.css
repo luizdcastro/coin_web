@@ -3,7 +3,6 @@
     height: 100vh;
     margin-left: 240px;
     padding: 40px
-
 }
 
 .settings-container{
@@ -15,47 +14,49 @@
     color: #425466;    
 }
 
-.settings-header{
+.settings-list-header{  
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 40px;
+    margin-top: 35px;
+    justify-content: space-between;
 }
 
-.settings-avatar{
+.settings-header-col-name_active{
     display: flex;
-    justify-content: center;
+    width: 100%;
     align-items: center;
-    background-color: #5149dd;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;   
-}
-
-.settings-avatar-name{
-    color: #fafafa;
-    font-weight: 500;
-    font-size: 24px;
-}
-
-.settings-header-name{
-    margin-left: 30px;
     font-size: 14px;
-    color: #425466;    
-    padding-bottom: 5px;
-}
+    font-weight: 500;
+    color: #635bff;
+    cursor: pointer;
+    border-bottom: solid 1px #635bff;
+    height: 35px;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-weight: 600;
 
-.settings-list-header{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    padding: 12px 8px 20px 8px;
-    border-bottom: 1px solid rgb(235, 236, 240);
 }
 
 .settings-header-col-name{
-    flex: 1 ;
-    font-size: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
     font-weight: 500;
-    color: #425466;
+    color: grey;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    height: 35px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.settings-main-content{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.settings-page-content{
+    display: flex;
 }

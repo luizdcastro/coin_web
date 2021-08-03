@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import * as GoIcons from 'react-icons/go'
 import * as MdIcons from 'react-icons/md'
-import { SwishSpinner  } from "react-spinners-kit";
+import * as FiIcons from 'react-icons/fi'
+import BotDetails from '../../components/BotDetails';
 
 import { getMe } from '../../redux/actions/UserActions'
 
 import './styles.css'
 
 const StrategiesPage = ({ disptachGetMe, getme }) => {
-    const [open, setOpen] = useState("")
+    const [open, setOpen] = useState(false)
+    const [botDetails, setBotDetails] = useState({})
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [])
+        [open])
 
     return (
         <div className="strategies-page">
@@ -28,37 +30,28 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                 </div>
                 <div className="strategies-list-header">
                     <p className="strategies_col_name">Name</p>
-                    <p className="strategies_col_status">Status</p>
-                    <p className="strategies_col_status">Growth</p>
-                    <p className="strategies_col_status">Net Profit</p>
-                    <span className="strategies_col_actions"><MdIcons.MdRefresh size={22} color="#425466" style={{ cursor: 'pointer' }} /></span>
+                    <p className="strategies_col_name">Status</p>
+                    <p className="strategies_col_name">Growth</p>
+                    <p className="strategies_col_name">Net Profit</p>
+                    <span><MdIcons.MdRefresh size={22} color="#425466" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.bots?.length >= 1 ?
                     <React.Fragment>
                         {getme.bots.map((item) => (
-                            <div key={item.id} className="strategies-list-content">
+                            <div key={item.id} className="strategies-list-content" onClick={() => { setOpen(true); setBotDetails(item) }}>
                                 <div style={{ display: 'flex', flex: 1, alignItems: 'center' }}>
-                                    <SwishSpinner size={18} frontColor="#A19CFF" backColor="#A19CFF" />
-                                    <p style={{ fontSize: 13, fontWeight:500, color: "#425466", paddingLeft: 12 }}> Bot MACD</p>
+                                    <FiIcons.FiBarChart size={22} color={item.active ? "#635bff" : "#425466"} />
+                                    <p style={{ fontSize: 13, color: "#425466", paddingLeft: 8 }}> Bot MACD</p>
                                 </div>
-                                <div style={{flex: 1}}>
-                                <p className="strategies_row_status-active">{item.active ? 'Active' : 'Inactive'}</p>
+                                <div style={{ flex: 1 }}>
+                                    <p className="strategies_row_status-active" 
+                                    style={!item.active ? {color: "#425466", borderColor: "#425466"} : {color: "#635bff"}}>
+                                        {item.active ? 'Active' : 'Inactive'}
+                                        </p>
                                 </div>
-                                <p className="strategies_row_status">0,00%</p>
-                                <p className="strategies_row_status">$0,00</p>
-                                <span className="strategies_row_actions">
-                                    <MdIcons.MdMoreHoriz size={22} color="#425466" style={{ cursor: 'pointer' }} onClick={() => { open === item.id ? setOpen("") : setOpen(item.id) }} />
-                                </span>
-                                {open === item.id && (
-                                    <div className="strategies_action-menu">
-                                        <button className="strategies_action-menu-option" onClick={() => { setOpen("") }}>
-                                            <p className="strategy-option_title">Pause</p>
-                                        </button>
-                                        <button className="strategies_action-menu-option" onClick={() => { setOpen("") }}>
-                                            <p className="strategy-option_title">Delete</p>
-                                        </button>
-                                    </div>
-                                )}
+                                <p className="strategies_row_name">{item.growth.toFixed(2)}%</p>
+                                <p className="strategies_row_name">${item.profit.toFixed(2)}</p>     
+                                <span style={{width: 22}} />                           
                             </div>
                         ))}
                     </React.Fragment>
@@ -72,6 +65,11 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                             </div>
                         </div>
                     </div>
+                }
+                {
+                    open && (
+                        <BotDetails setOpen={setOpen} botDetails={botDetails} />
+                    )
                 }
             </div>
         </div>

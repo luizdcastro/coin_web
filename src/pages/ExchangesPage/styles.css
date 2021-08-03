@@ -9,12 +9,11 @@
 .exchanges-subtitle{
     margin-bottom: 20px;
     font-size: 15px;
-    font-weight: 500;
     color: #425466;
 }
 
 .exchanges-label{
-    font-size: 14px;
+    font-size: 15px;
     color: #425466;
     margin-top: 15px;
 }
@@ -155,7 +154,6 @@
     color: #635bff;
     width: 75px;
     height: 25px;
-    font-weight: 500;
     border-radius: 5px;
     font-size: 13px;
 }

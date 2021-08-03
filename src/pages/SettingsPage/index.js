@@ -1,35 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { getMe } from '../../redux/actions/UserActions'
 
 import './styles.css'
 
 const SettingsPage = ({ disptachGetMe, getme }) => {
+    const [activeMenu, setActiveMenu] = useState("profile")
 
     useEffect(() => {
         disptachGetMe()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    console.log(getme)
-
     return (
         <div className="settings-page">
             <div className="settings-container">
                 <h2 className="seetings-title">Settings</h2>
-                <div className="settings-header">
-                    <div className="settings-avatar">
-                        <p className="settings-avatar-name">{getme?.name.slice(0, 1).toUpperCase()}</p>
-                    </div>
-                    <div>
-                        <p className="settings-header-name">{getme?.name}</p>
-                        <p className="settings-header-name">{getme?.email}</p>
-                    </div>
-                </div>
                 <div className="settings-list-header">
-                    <p className="settings-header-col-name">Plan</p>
-                    <p className="settings-header-col-name">Billing</p>
-                    <p className="settings-header-col-name">Profile</p>
+                    <p className={activeMenu === 'profile' ? 'settings-header-col-name_active' : 'settings-header-col-name'}
+                        onClick={() => setActiveMenu('profile')}>Profile</p>
+                    <p className={activeMenu === 'plan' ? 'settings-header-col-name_active' : 'settings-header-col-name'}
+                        onClick={() => setActiveMenu('plan')}>Plan</p>
+                    <p className={activeMenu === 'billing' ? 'settings-header-col-name_active' : 'settings-header-col-name'}
+                        onClick={() => setActiveMenu('billing')}>Billing</p>
+                </div>
+                <div className="settings-page-content">
+                 
                 </div>
             </div>
         </div>
