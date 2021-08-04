@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as MdIcons from 'react-icons/md'
 import { getMe } from '../../redux/actions/UserActions'
 import { connect } from "react-redux";
@@ -8,6 +8,22 @@ import './styles.css'
 const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setTimeframe, disptachGetMe, getme }) => {
     const [open, setOpen] = useState("")
     const [exchangeList, setExchangeList] = useState([])
+
+    let menuRef = useRef()
+
+    useEffect(() => {
+        let handler = (event) => {
+            if (!menuRef.current.contains(event.target)) {
+                setOpen("")
+            }
+        };
+
+        document.addEventListener("mousedown", handler)
+
+        return () => {
+            document.removeEventListener("mousedown", handler)
+        }
+    })
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,7 +48,7 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
 
     return (
         <React.Fragment>
-            <div style={{ marginRight: 20 }}>
+            <div style={{ marginRight: 20 }} ref={menuRef}>
                 <button className="bot-settings-select_container" onClick={() => { open === "exchange" ? setOpen("") : setOpen("exchange") }}>
                     {!!exchange.name ?
                         <p className="bot-settings-option_title">{exchange.name}</p>
@@ -54,7 +70,7 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
                     </div>
                 )}
             </div>
-            <div style={{ marginRight: 20 }}>
+            <div style={{ marginRight: 20 }}  ref={menuRef}>
                 <button className="bot-settings-select_container" onClick={() => { open === "symbol" ? setOpen("") : setOpen("symbol") }}>
                     {!!symbol ?
                         <p className="bot-settings-option_title">{symbol}</p>
@@ -76,7 +92,7 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
                     </div>
                 )}
             </div>
-            <div style={{ marginRight: 20 }}>
+            <div style={{ marginRight: 20 }}  ref={menuRef}>
                 <button className="bot-settings-select_container" onClick={() => { open === "timeframe" ? setOpen("") : setOpen("timeframe") }}>
                     {!!timeframe ?
                         <p className="bot-settings-option_title">{timeframe}</p>

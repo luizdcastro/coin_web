@@ -7,6 +7,7 @@ import Kraken from '../../assets/images/kraken.png'
 import Bybit from '../../assets/images/bybit.png'
 import * as MdIcons from 'react-icons/md'
 import * as FiIcons from 'react-icons/fi'
+import * as IoIcons from 'react-icons/io5'
 import { createExchange, deleteExchange } from '../../redux/actions/ExchangeActions';
 import { getMe } from '../../redux/actions/UserActions'
 import { connect } from "react-redux";
@@ -57,7 +58,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
             () => {
                 setSuccess("Exchange successfully connected!");
                 setLoading(false);
-                disptachGetMe()               
+                disptachGetMe()
             },
             (error) => {
                 setError(error.error);
@@ -81,7 +82,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         <div className="exchanges-page">
             <div style={{ flex: 1, paddingRight: 30 }}>
                 <h2 style={{ marginBottom: 40, fontWeight: 500, color: '#425466' }}>Exchanges</h2>
-                <p className="exchanges-subtitle">Connect new exchange</p>
+                <p className="exchanges-subtitle">Connect New Exchange</p>
                 <ExchangeSelect exchange={exchange} setExchange={setExchange} exchangesList={exchangesList} />
                 <p className="exchanges-label">API Key</p>
                 <input className="exchanges-input" placeholder="eg. 51859tjd55896j885" onChange={(e) => setApiKy(e.target.value)} />
@@ -102,9 +103,16 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                         <p className="exchange-success">{success}</p>
                         : null
                 }
+                <div style={{display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
+                    <div style={{width: 125}}>
+                        <IoIcons.IoShieldCheckmark size={42} color="#5149dd" style={{marginLeft: 4}}/>
+                        <p style={{fontSize: 12, color: '#425466'}}>AES 256</p>
+                    </div>
+                    <p style={{fontSize: 13, paddingLeft: 25, textAlign: 'left', lineHeight: 1.6}}>We store API keys in encrypted form AES-256 with dedicated private keys which are generated for each user separately.</p>
+                </div>
             </div>
             <div style={{ flex: 2, paddingTop: 70, paddingRight: 40 }}>
-                <p className="exchanges-subtitle">Connected exchanges</p>
+                <p className="exchanges-subtitle">Connected Exchanges</p>
                 <div className="exchanges-list-header">
                     <p className="exchanges_col_exchange">Exchange</p>
                     <p className="exchanges_col_status">API Key</p>
@@ -149,8 +157,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     :
                     <div className="strategies-no-result">
                         <div >
-                            <p style={{ fontWeight: 400, color: '#425466', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No API keys were found!</p>
-                            <p style={{ fontWeight: 300, color: '#425466', fontSize: 14, textAlign: 'center' }}>You haven't connected your exchanges yet.</p>
+                            <p style={{ fontWeight: 500, color: 'grey', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No API keys were found</p>
+                            <p style={{ fontWeight: 400, color: 'grey', fontSize: 14, textAlign: 'center' }}>You haven't connected your exchanges yet.</p>
                         </div>
                     </div>
                 }

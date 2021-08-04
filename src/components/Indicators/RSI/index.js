@@ -4,7 +4,7 @@ import * as MdIcons from 'react-icons/md'
 import './styles.css'
 
 const RSI = ({ indicator, setIndicator, setNextIndicator }) => {
-    const [open, setOpen] = useState("")
+    const [open, setOpen] = useState("")  
 
     const addContidionalList = [
         { value: "and", label: "AND" },

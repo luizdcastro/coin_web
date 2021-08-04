@@ -58,8 +58,8 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                     :
                     <div className="strategies-no-result">
                         <div>
-                            <p style={{ fontWeight: 400, color: '#425466', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No bots were found!</p>
-                            <p style={{ fontWeight: 300, color: '#425466', fontSize: 14, textAlign: 'center' }}>You haven't created any trading strategy yet.</p>
+                            <p style={{ fontWeight: 500, color: 'grey', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No bots were found</p>
+                            <p style={{ fontWeight: 400, color: 'grey', fontSize: 14, textAlign: 'center' }}>You haven't created any trading strategy yet.</p>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
                                 <Link className="strategy-get-started" to="/create-bot">Get Started</Link>
                             </div>

@@ -44,22 +44,8 @@
 .indicator-modal-container{
     padding:40px;
     background-color: #fafafa;
-    width: 35%;
+    width: 42%;
     height: 100%;   
-}
-
-.indicator-modal-title{
-    margin-top: 30px;
-    color: #425466;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.indicator-modal-close{
-    position: absolute;
-    font-size: 26px;
-    right: 40px;   
-    color: #425466;
 }
 
 .indicator-modal-close:hover{
@@ -68,19 +54,65 @@
     color: #635bff;
 }
 
+.indicator-list-header{
+    display: flex;
+    margin-top: 35px;
+    justify-content: space-between;
+}
+
+.indicator_col{
+    display: flex;
+    width: 100%;
+    min-width: 200px;
+    align-items: center;
+    font-size: 14px;
+    color: grey;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    height: 35px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.indicator_col_active{
+    display: flex;
+    width: 100%;
+    min-width: 200px;
+    align-items: center;
+    font-size: 14px;
+    color: #635bff;
+    cursor: pointer;
+    border-bottom: solid 1px #635bff;
+    height: 35px;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.indicator-list-content{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 .indicator-modal-button{
     display: flex;
+    width: 200px;
+    min-width: 200px;
     justify-content: center;
     align-items: center;
     background-color:transparent;
     border: solid 1px #dadce1;
     border-radius: 5px;
     padding: 8px;
-    margin-right: 12px;
-    margin-bottom: 12px;
+    margin-right: 11px;
+    margin-bottom: 11px;
     color: #425466;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
+    height: 35px;
+
 }
 
 .indicator-modal-button:hover{
@@ -94,7 +126,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-    margin-top: 20px;
+
 }
 
 .indicator-modal-search-icon{
@@ -107,7 +139,7 @@
 
 .indicator-modal-search-input{
     height: 40px;
-    width: 320px;
+    width: 100%;
     border: solid 1px #dadce1;
     border-radius: 4px;
     padding-left: 35px;

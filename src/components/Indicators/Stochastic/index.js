@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import * as MdIcons from 'react-icons/md'
 
 const Stochastic = ({ indicator, setIndicator, setNextIndicator }) => {
-
     const [open, setOpen] = useState("")
-
+    
     const addContidionalList = [
         { value: "and", label: "AND" },
         { value: "or", label: "OR" },
@@ -54,7 +53,7 @@ const Stochastic = ({ indicator, setIndicator, setNextIndicator }) => {
                     placeholder="Value"
                 />
             </div>
-            <div>
+            <div >
                 <button className="condition-select_container" onClick={() => { open === "addConditional" ? setOpen("") : setOpen("addConditional") }}>
                     {indicator?.addConditional ?
                         <p className="condition-option_title">{indicator.addConditional}</p>

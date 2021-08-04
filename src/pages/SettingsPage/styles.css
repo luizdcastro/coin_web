@@ -23,32 +23,30 @@
 .settings-header-col-name_active{
     display: flex;
     width: 100%;
+    min-width: 300px;
     align-items: center;
     font-size: 14px;
-    font-weight: 500;
     color: #635bff;
     cursor: pointer;
     border-bottom: solid 1px #635bff;
     height: 35px;
     justify-content: center;
     margin-bottom: 20px;
-    font-weight: 600;
-
+    font-weight: 500;
 }
 
 .settings-header-col-name{
     display: flex;
     width: 100%;
+    min-width: 300px;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    font-weight: 500;
     color: grey;
     cursor: pointer;
     border-bottom: 1px solid rgb(226, 226, 226);
     height: 35px;
     margin-bottom: 20px;
-    font-weight: 500;
 }
 
 .settings-main-content{

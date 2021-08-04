@@ -27,7 +27,7 @@ const VerticalDrawer = () => {
     return (
         <div className="vertical-container" >
             <ul className="vertical-menu-container">
-                <div style={{ marginBottom: 75 }} ref={menuRef} >
+                <div style={{ marginBottom: 95 }} ref={menuRef} >
                     <div className={activeMenu === 'avatar' ? 'menu-item-active' : 'vertical-menu-item'} onClick={() => { setSubnav(!subnav); setActiveMenu('avatar') }}>
                         <div className="vertical-avatar">
                             <p className="vertical-avatar-name">L</p>
@@ -42,35 +42,35 @@ const VerticalDrawer = () => {
                     {subnav ?
                         <div className="vertical-expanded-menu">
                             <Link className="vertical-expanded-option" to="/settings" onClick={() => setSubnav(false)}>
-                                <p className="vertical-expanded-title">Settings</p>
+                                <p className="vertical-expanded-title">Account Settings</p>
                             </Link>
                             <Link className="vertical-expanded-option" to="#" onClick={() => setSubnav(false)}>
-                                <p className="vertical-expanded-title">Logout</p>
+                                <p className="vertical-expanded-title">Sign out</p>
                             </Link>
                         </div>
                         : null}
                 </div>
                 <li>
                     <Link className={activeMenu === 'dashboard' ? 'menu-item-active' : 'vertical-menu-item'} to="/dashboard" onClick={() => setActiveMenu('dashboard')}>
-                        <FiIcons.FiGrid size={20} />
+                        <FiIcons.FiGrid size={22} />
                         <p className="vertical-menu-title">Dashbard</p>
                     </Link>
                 </li>
                 <li>
                     <Link className={activeMenu === 'strategies' ? 'menu-item-active' : 'vertical-menu-item'} to="/strategies" onClick={() => setActiveMenu('strategies')}>
-                        <FiIcons.FiBarChart2 size={20} />
+                        <FiIcons.FiBarChart2 size={22} />
                         <p className="vertical-menu-title">Strategies</p>
                     </Link>
                 </li>
                 <li>
                     <Link className={activeMenu === 'bot' ? 'menu-item-active' : 'vertical-menu-item'} to="/create-bot" onClick={() => setActiveMenu('bot')}>
-                        <FiIcons.FiServer size={20} />
+                        <FiIcons.FiServer size={22} />
                         <p className="vertical-menu-title">Create Bot</p>
                     </Link>
                 </li>
                 <li>
                     <Link className={activeMenu === 'exchanges' ? 'menu-item-active' : 'vertical-menu-item'} to="/exchanges" onClick={() => setActiveMenu('exchanges')}>
-                        <FiIcons.FiShare2 size={20} />
+                        <FiIcons.FiShare2 size={22} />
                         <p className="vertical-menu-title">Exchanges</p>
                     </Link>
                 </li>
@@ -80,7 +80,7 @@ const VerticalDrawer = () => {
                     Upgrade Now
                 </Link>
                 <div className="vertical-menu-separator" />
-                <p className="vertical-footer-text"></p>
+                <p className="vertical-footer-text">coinfive</p>
             </ul>
         </div>
     )
