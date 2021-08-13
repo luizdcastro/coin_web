@@ -31,11 +31,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         {
             icon: Binance,
             name: "Binance"
-        },
-        {
-            icon: Bybit,
-            name: "Bybit"
-        },
+        },     
         {
             icon: Coinbase,
             name: "Coinbase"
@@ -84,10 +80,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 <h2 style={{ marginBottom: 40, fontWeight: 500, color: '#425466' }}>Exchanges</h2>
                 <p className="exchanges-subtitle">Connect New Exchange</p>
                 <ExchangeSelect exchange={exchange} setExchange={setExchange} exchangesList={exchangesList} />
-                <p className="exchanges-label">API Key</p>
-                <input className="exchanges-input" placeholder="eg. 51859tjd55896j885" onChange={(e) => setApiKy(e.target.value)} />
-                <p className="exchanges-label">Secret Key</p>
-                <input className="exchanges-input" placeholder="eg. 71859tjd88697j896" onChange={(e) => setSecretKey(e.target.value)} />
+                <input className="exchanges-input" placeholder="API key" onChange={(e) => setApiKy(e.target.value)} />
+                <input className="exchanges-input" placeholder="Secret key" onChange={(e) => setSecretKey(e.target.value)} />
                 {!!apiKey & !!secretKey & exchange.hasOwnProperty('name') ?
                     <button className="exchanges-bot-button_active" disabled={loading ? true : false} onClick={() => handleSubmmit()}>
                         {
@@ -105,10 +99,10 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 }
                 <div style={{display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
                     <div style={{width: 125}}>
-                        <IoIcons.IoShieldCheckmark size={42} color="#5149dd" style={{marginLeft: 4}}/>
-                        <p style={{fontSize: 12, color: '#425466'}}>AES 256</p>
+                        <IoIcons.IoShieldCheckmark size={42} color="#707070" style={{marginLeft: 4}}/>
+                        <p style={{fontSize: 12, color: 'grey'}}>AES 256</p>
                     </div>
-                    <p style={{fontSize: 13, paddingLeft: 25, textAlign: 'left', lineHeight: 1.6}}>We store API keys in encrypted form AES-256 with dedicated private keys which are generated for each user separately.</p>
+                    <p style={{fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6, color: 'grey'}}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>
                 </div>
             </div>
             <div style={{ flex: 2, paddingTop: 70, paddingRight: 40 }}>
@@ -117,7 +111,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     <p className="exchanges_col_exchange">Exchange</p>
                     <p className="exchanges_col_status">API Key</p>
                     <p className="exchanges_col_status">Status</p>
-                    <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="#425466" style={{ cursor: 'pointer' }} /></span>
+                    <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="grey" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.exchanges?.length >= 1 ?
                     <React.Fragment>
@@ -146,7 +140,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                 </span>
                                 <span className="exchanges_row_actions">
                                     <FiIcons.FiTrash
-                                        size={17}
+                                        size={16}
                                         color="#425466"
                                         style={{ cursor: 'pointer', marginBottom: 5 }}
                                         onClick={() => handleDelete(item.id)} />

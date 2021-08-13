@@ -1,8 +1,7 @@
 .bots-page{
     display: flex;
-    height: 100vh;
     margin-left: 240px;
-    padding-left: 40px;
+    padding:30px
 }
 
 .bots-page-title{
@@ -12,15 +11,16 @@
 }
 
 .bots-condition-title{
-    margin-bottom: 10px;
-    font-size: 15px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
     color: #425466;
 }
 
 .bots-condition-container{
     display: flex;
     width: 900px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 #select{
@@ -36,7 +36,7 @@
 
 .create-bot-button_disabled{
     width: 320px;
-    height: 45px;
+    height: 40px;
     margin-top: 15px;
     font-size: 14px;
     font-weight: 500;
@@ -49,12 +49,12 @@
 
 .create-bot-button_active{
     width: 320px;
-    height: 45px;
+    height: 40px;
     margin-top: 15px;
     font-size: 14px;
     font-weight: 500;
-    border: solid 1px #635bff;
-    background-color: #635bff;
+    border: solid 1px rgb(27, 39, 51);
+    background-color: rgb(27, 39, 51);
     border-radius: 3px;
     color: #fafafa;
     margin-bottom: 40px;
@@ -62,7 +62,15 @@
 }
 
 .create-bot-button_active:hover{
-    filter: brightness(108%);
+    background-color: #635bff;
+    border: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+    .bots-page {
+      margin-left: 0;
+      padding-top: 70px
+    }   
+  }
 

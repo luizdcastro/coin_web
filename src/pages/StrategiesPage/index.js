@@ -33,7 +33,7 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                     <p className="strategies_col_name">Status</p>
                     <p className="strategies_col_name">Growth</p>
                     <p className="strategies_col_name">Net Profit</p>
-                    <span><MdIcons.MdRefresh size={22} color="#425466" style={{ cursor: 'pointer' }} /></span>
+                    <span><MdIcons.MdRefresh size={22} color="grey" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.bots?.length >= 1 ?
                     <React.Fragment>

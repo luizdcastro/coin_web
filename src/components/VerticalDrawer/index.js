@@ -1,91 +1,164 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+
 import * as FiIcons from 'react-icons/fi'
 import './styles.css'
 
-const VerticalDrawer = () => {
-    const [activeMenu, setActiveMenu] = useState("dashboard")
-    const [subnav, setSubnav] = useState(false)
+const drawerWidth = 240;
 
-    let menuRef = useRef()
+const useStyles = makeStyles((theme) => ({
+    drawer: {
+        [theme.breakpoints.up('sm')]: {
+            width: drawerWidth,
+        },
+    },
+    drawerPaper: {
+        width: drawerWidth,
+        backgroundColor: '#f0f0f0',
+        border: 'none',
+        paddingTop: 30,
+        paddingBottom: 30,
+        zIndex: 1
+    },
+}));
 
-    useEffect(() => {
-        let handler = (event) => {
-            if (!menuRef.current.contains(event.target)) {
-                setSubnav(false)
-            }
-        };
+function VericalDrawer(props) {
+    const { window } = props;
+    const classes = useStyles();
+    const theme = useTheme();
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [activeMenu, setActiveMenu] = useState("strategies");
+    const [open, setOpen] = useState(false);
 
-        document.addEventListener("mousedown", handler)
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };    
 
-        return () => {
-            document.removeEventListener("mousedown", handler)
-        }
-    })
+    const drawer = (
+        <React.Fragment>
+            <div style={{ marginBottom: 85}}>
+                <div
+                    className={activeMenu === 'settings' ? 'vertical-menu_item_active' : 'menu-item-avatar'}
+                    onClick={() => { setOpen(!open); setActiveMenu('settings') }}>
+                    <div className="vertical-avatar">
+                        <p className="vertical-avatar-name">L</p>
+                    </div>
+                    <p className="vertical-menu-title">Luiz</p>
+                    {!open ?
+                        <FiIcons.FiChevronDown className="vertical-drop-icon" size={18} />
+                        :
+                        <FiIcons.FiX className="vertical-drop-icon" size={18} />
+                    }
+                </div>
+                {open ?
+                    <div className="expanded-vertical_menu">
+                        <div className="expanded-vertical_menu-header">
+                            <div>
+                                <div className="vertical-avatar">
+                                    <p className="vertical-avatar-name">L</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="expanded-vertical_menu-name">Luiz Castro</p>
+                                <p className="expanded-vertical_menu-email">luizf.dcastro@gmail.com</p>
+                            </div>
+                        </div>
+                        <div className="expanded-vertical_menu-footer">
+                            <div className="expanded-vertical_item">
+                                <Link className="expanded-vertical_link" to="/settings" onClick={() => setOpen(false)}>Account settings</Link>
+                            </div>
+                            <div className="expanded-vertical_item">
+                                <Link className="expanded-vertical_link" onClick={() => alert('logout')}>Sign out</Link>
+                            </div>
+                        </div>
+                    </div>
+                    : null}
+            </div>
 
+            <ul>               
+                <li>
+                    <Link
+                        className={activeMenu === 'strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                        to="/strategies"
+                        onClick={() => setActiveMenu('strategies')}>
+                        <FiIcons.FiBarChart2 size={23} />
+                        <p className="vertical-menu_item-text">Strategies</p>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className={activeMenu === 'create-bot' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                        to="/create-bot"
+                        onClick={() => setActiveMenu('create-bot')}>
+                        <FiIcons.FiServer size={23} />
+                        <p className="vertical-menu_item-text">Create Bot</p>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className={activeMenu === 'exchanges' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                        to="/exchanges"
+                        onClick={() => setActiveMenu('exchanges')}>
+                        <FiIcons.FiShare2 size={23} />
+                        <p className="vertical-menu_item-text">Exchanges</p>
+                    </Link>
+                </li>
+            </ul>         
+            <div className="vertical-menu_footer">
+            </div>
+        </React.Fragment>
+    );
+
+    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <div className="vertical-container" >
-            <ul className="vertical-menu-container">
-                <div style={{ marginBottom: 95 }} ref={menuRef} >
-                    <div className={activeMenu === 'avatar' ? 'menu-item-active' : 'vertical-menu-item'} onClick={() => { setSubnav(!subnav); setActiveMenu('avatar') }}>
-                        <div className="vertical-avatar">
-                            <p className="vertical-avatar-name">L</p>
-                        </div>
-                        <p className="vertical-menu-title">Luiz</p>
-                        {!subnav ?
-                            <FiIcons.FiChevronDown className="vertical-drop-icon" size={20} />
-                            :
-                            <FiIcons.FiChevronUp className="vertical-drop-icon" size={20} />
-                        }
-                    </div>
-                    {subnav ?
-                        <div className="vertical-expanded-menu">
-                            <Link className="vertical-expanded-option" to="/settings" onClick={() => setSubnav(false)}>
-                                <p className="vertical-expanded-title">Account Settings</p>
-                            </Link>
-                            <Link className="vertical-expanded-option" to="#" onClick={() => setSubnav(false)}>
-                                <p className="vertical-expanded-title">Sign out</p>
-                            </Link>
-                        </div>
-                        : null}
+        <div>
+            <div className="vertical-menu_bar">
+                <div onClick={handleDrawerToggle} className="vertical-menu_button">
+                    <FiIcons.FiMenu color="#425466" size={23} />
                 </div>
-                <li>
-                    <Link className={activeMenu === 'dashboard' ? 'menu-item-active' : 'vertical-menu-item'} to="/dashboard" onClick={() => setActiveMenu('dashboard')}>
-                        <FiIcons.FiGrid size={22} />
-                        <p className="vertical-menu-title">Dashbard</p>
-                    </Link>
-                </li>
-                <li>
-                    <Link className={activeMenu === 'strategies' ? 'menu-item-active' : 'vertical-menu-item'} to="/strategies" onClick={() => setActiveMenu('strategies')}>
-                        <FiIcons.FiBarChart2 size={22} />
-                        <p className="vertical-menu-title">Strategies</p>
-                    </Link>
-                </li>
-                <li>
-                    <Link className={activeMenu === 'bot' ? 'menu-item-active' : 'vertical-menu-item'} to="/create-bot" onClick={() => setActiveMenu('bot')}>
-                        <FiIcons.FiServer size={22} />
-                        <p className="vertical-menu-title">Create Bot</p>
-                    </Link>
-                </li>
-                <li>
-                    <Link className={activeMenu === 'exchanges' ? 'menu-item-active' : 'vertical-menu-item'} to="/exchanges" onClick={() => setActiveMenu('exchanges')}>
-                        <FiIcons.FiShare2 size={22} />
-                        <p className="vertical-menu-title">Exchanges</p>
-                    </Link>
-                </li>
-            </ul>
-            <ul className="vertical-menu-footer">
-                <Link className="vertical-menu-button" to="/settings">
-                    Upgrade Now
-                </Link>
-                <div className="vertical-menu-separator" />
-                <p className="vertical-footer-text">coinfive</p>
-            </ul>
+            </div>
+            <nav className={classes.drawer} aria-label="mailbox folders">
+                <Hidden smUp implementation="css">
+                    <Drawer
+                        container={container}
+                        variant="temporary"
+                        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        ModalProps={{
+                            keepMounted: true,
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+                <Hidden xsDown implementation="css">
+                    <Drawer
+                        container={container}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        variant="permanent"
+                        open
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+            </nav>
         </div>
-    )
+    );
 }
 
+VericalDrawer.propTypes = {
+    window: PropTypes.func,
+};
 
-
-export default VerticalDrawer;
+export default VericalDrawer;

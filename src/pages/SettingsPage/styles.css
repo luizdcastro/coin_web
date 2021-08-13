@@ -1,8 +1,7 @@
 .settings-page{
     display: flex;
-    height: 100vh;
     margin-left: 240px;
-    padding: 40px
+    padding:30px;
 }
 
 .settings-container{
@@ -11,33 +10,33 @@
 
 .seetings-title{
     font-weight: 500;
-    color: #425466;    
+    color: #425466;  
+    margin-bottom: 20px;  
 }
 
 .settings-list-header{  
     display: flex;
-    margin-top: 35px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .settings-header-col-name_active{
     display: flex;
-    width: 100%;
+    width: 50%;
     min-width: 300px;
     align-items: center;
     font-size: 14px;
-    color: #635bff;
+    color: rgb(27, 39, 51);
     cursor: pointer;
-    border-bottom: solid 1px #635bff;
+    border-bottom: solid 1px rgb(27, 39, 51);
     height: 35px;
     justify-content: center;
-    margin-bottom: 20px;
     font-weight: 500;
 }
 
 .settings-header-col-name{
     display: flex;
-    width: 100%;
+    width: 50%;
     min-width: 300px;
     justify-content: center;
     align-items: center;
@@ -51,10 +50,16 @@
 
 .settings-main-content{
     display: flex;
-    width: 100%;
-    justify-content: center;
 }
 
 .settings-page-content{
     display: flex;
+
 }
+
+@media screen and (max-width: 600px) {
+    .settings-page {
+      margin-left: 0;
+      padding-top: 70px;
+    }   
+  }

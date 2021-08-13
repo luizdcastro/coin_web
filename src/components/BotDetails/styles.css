@@ -7,8 +7,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
-    background-color: rgba(27,39,51,.45); 
+    z-index: 5;
+    background-color: rgba(0,0,0,.5); 
 }
 
 .bot-modal-container{
@@ -35,7 +35,7 @@
 
 .bot-modal-close:hover{
     cursor: pointer;
-    font-size: 27px;
+    font-size: 26px;
     color: #635bff;
 }
 
@@ -57,13 +57,15 @@
     margin-bottom: 5px;
     padding-left: 8px;
     border-radius: 3px;
+    border: solid 1px #dadce1;
+    color: #425466;
 }
 
 .bot-model-icon-container:hover{
     border-radius: 3px;
     cursor: pointer;
     color: #635bff;
-    border: solid 1px #635bff;;
+    border: solid 1px #635bff;
 
 }
 

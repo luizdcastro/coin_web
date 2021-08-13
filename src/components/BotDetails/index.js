@@ -10,6 +10,7 @@ import './styles.css'
 
 const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot, disptachGetMe }) => {
     let moment = require('moment');
+    
     const data = [
         {
             uv: 0.5,
@@ -74,7 +75,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                         </li>
                         <li style={{ display: 'flex' }}>
                             <p className="bot-model-data-name">Exchange:</p>
-                            <p className="bot-model-data-name">{botDetails.settings.exchange.name}</p>
+                            <p className="bot-model-data-name">{botDetails.settings.exchange}</p>
                         </li>
                         <li style={{ display: 'flex' }}>
                             <p className="bot-model-data-name">Started:</p>
@@ -84,16 +85,16 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                     <ul>
                         {botDetails.active ?
                             <li className="bot-model-icon-container" onClick={() => { handleUpdate(botDetails.id, false); setOpen(false); }}>
-                                <FiIcons.FiPause size={20} color="#635bff" style={{marginRight: 5}} />
+                                <FiIcons.FiPause size={16} style={{marginRight: 5}} />
                                 <p className="bot-model-icon-name">Pause</p>
                             </li>
                             : <li className="bot-model-icon-container" onClick={() => { handleUpdate(botDetails.id, true); setOpen(false) }}>
-                                <FiIcons.FiPlay size={20} color="#635bff" style={{marginRight: 5}} />
+                                <FiIcons.FiPlay size={16} style={{marginRight: 5}} />
                                 <p className="bot-model-icon-name">Start</p>
                             </li>
                         }                       
                         <li className="bot-model-icon-container" onClick={() => { handleDelete(botDetails.id); setOpen(false) }} >
-                            <FiIcons.FiTrash size={20} color="#635bff" style={{marginRight: 5}} />
+                            <FiIcons.FiTrash size={16} style={{marginRight: 5}} />
                             <p className="bot-model-icon-name">Delete</p>
                         </li>
                     </ul>

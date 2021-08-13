@@ -3,12 +3,35 @@
     justify-content: space-between;
     align-items: center;
     width: 150px; 
-    height: 45px;  
+    height: 40px;  
     background-color:transparent;
     border: solid 1px #dadce1;
     border-radius: 4px 4px 0 0;    
     color: #909090;    
 }
+
+.custom_select{
+    width: 150px; 
+    height: 40px; 
+    border-radius: 3px 3px 0 0;    
+    padding-left: 10px;
+    font-weight: 15px;
+    background-color: #fafafa;
+    border: solid 1px #dadce1;
+    color: #696969;
+
+}
+
+.custom_select:hover{
+    cursor: pointer;
+    border: solid 1px #635bff;
+}
+
+.custom_select:focus{
+    outline: none;
+}
+
+
 
 .bot-settings-select_container:hover{
     cursor: pointer;
@@ -27,7 +50,7 @@
     justify-content: space-between;
     align-items: center;
     width: 150px; 
-    height: 45px;  
+    height: 40px;  
     background-color:transparent;
     border: solid 1px #dadce1;
     border-radius: 4px 4px 0 0;    
@@ -59,7 +82,7 @@
 .bot-settings-option_item{
     display: flex;
     width: 140px; 
-    height: 45px;   
+    height: 40px;   
     align-items: center;
     background-color:transparent;
     border: none;
@@ -69,5 +92,3 @@
     cursor: pointer;
     background-color: #F5F5F5;   
 }
-
-

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Ellipsis } from 'react-css-spinners'
 
 import { loginUser } from '../../redux/actions/AuthActions';
-import FormInput from '../../components/FormInput';
+import Input from '../../components/Input';
 import './styles.css'
 
 const Login = ({ dispatchLoginAction }) => {
@@ -33,7 +33,7 @@ const Login = ({ dispatchLoginAction }) => {
           <form onSubmit={handleOnSubmmit}>
             <h1 className="login-title">Acessar minha conta</h1>
             <p className="login-label">Email</p>
-            <FormInput
+            <Input
               id="login-input"
               type="email"
               name="email"
@@ -42,7 +42,7 @@ const Login = ({ dispatchLoginAction }) => {
               handleChange={(e) => setEmail(e.target.value)}
             />
             <p className="login-label">Senha</p>
-            <FormInput
+            <Input
               id="login-input__password"
               type="password"
               name="password"

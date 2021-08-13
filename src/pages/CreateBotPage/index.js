@@ -6,10 +6,9 @@ import { Ellipsis } from 'react-css-spinners';
 
 import IndicatorsList from '../../components/IndicatorsList';
 import BotSettings from '../../components/BotSettings'
-import RSI from '../../components/Indicators/RSI';
-import Supertrend from '../../components/Indicators/Supertrend';
-import MACD from '../../components/Indicators/MACD';
-import Stochastic from '../../components/Indicators/Stochastic';
+import MovingAverage from '../../components/Indicators/MovingAverage';
+import Indicator from '../../components/Indicators/Indicator';
+import CandlePattern from '../../components/Indicators/CandlePattern';
 
 import './styles.css'
 
@@ -39,7 +38,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
 
     const settings = { exchange, symbol, timeframe }
     const history = useHistory();
- 
+
     function openBotPayload() {
         let payload = []
         const indicators = [openIndicator_01, openIndicator_02, openIndicator_03, openIndicator_04, openIndicator_05, openIndicator_06]
@@ -95,12 +94,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
             }
         )
     }
-   
+
     return (
         <div className="bots-page">
-            <div style={{ marginTop: 40 }} >
+            <div>
                 <h2 className="bots-page-title">Create Bot</h2>
-                <h3 className="bots-condition-title">Settings</h3>
+                <h3 className="bots-condition-title">Bot Settings</h3>
                 <div className="bots-condition-container">
                     <BotSettings
                         exchange={exchange}
@@ -111,7 +110,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                         setTimeframe={setTimeframe}
                     />
                 </div>
-                <h3 className="bots-condition-title">Open long condition</h3>
+                <h3 className="bots-condition-title">Open Condition</h3>
                 <div className="bots-condition-container">
                     <IndicatorsList
                         indicator={openIndicator_01}
@@ -119,16 +118,14 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                         setModalName={setModalName}
                         modalName={modalName}
                     />
-                    {openIndicator_01.indicator === 'RSI' ?
-                        <RSI indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                        : openIndicator_01.indicator === 'Supertrend' ?
-                            <Supertrend indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                            : openIndicator_01.indicator === 'MACD' ?
-                                <MACD indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                                : openIndicator_01.indicator === 'Stochastic' ?
-                                    <Stochastic indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                                    : null
-                    }
+                    {openIndicator_01.type === "ma" ?
+                        <MovingAverage indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
+                        : openIndicator_01.type === "indicator" ?
+                            <Indicator indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
+                            : openIndicator_01.type === "candle" ?
+                                <CandlePattern indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
+                                : null}
+
                 </div>
                 {openIndicator_01?.addConditional === "OR" || openIndicator_01?.addConditional === "AND" ?
                     <div className="bots-condition-container">
@@ -138,16 +135,13 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalName}
                             modalName={modalName}
                         />
-                        {openIndicator_02.indicator === 'RSI' ?
-                            <RSI indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                            : openIndicator_02.indicator === 'Supertrend' ?
-                                <Supertrend indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                                : openIndicator_02.indicator === 'MACD' ?
-                                    <MACD indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                                    : openIndicator_02.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                                        : null
-                        }
+                        {openIndicator_02.type === "ma" ?
+                            <MovingAverage indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
+                            : openIndicator_02.type === "indicator" ?
+                                <Indicator indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
+                                : openIndicator_02.type === "candle" ?
+                                    <CandlePattern indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
+                                    : null}
                     </div>
                     : null}
                 {openIndicator_02?.addConditional === "OR" || openIndicator_02?.addConditional === "AND" ?
@@ -158,16 +152,13 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalName}
                             modalName={modalName}
                         />
-                        {openIndicator_03.indicator === 'RSI' ?
-                            <RSI indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                            : openIndicator_03.indicator === 'Supertrend' ?
-                                <Supertrend indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                                : openIndicator_03.indicator === 'MACD' ?
-                                    <MACD indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                                    : openIndicator_03.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                                        : null
-                        }
+                        {openIndicator_03.type === "ma" ?
+                            <MovingAverage indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
+                            : openIndicator_03.type === "indicator" ?
+                                <Indicator indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
+                                : openIndicator_03.type === "candle" ?
+                                    <CandlePattern indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
+                                    : null}
                     </div>
                     : null}
                 {openIndicator_03?.addConditional === "OR" || openIndicator_03?.addConditional === "AND" ?
@@ -178,16 +169,13 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalName}
                             modalName={modalName}
                         />
-                        {openIndicator_04.indicator === 'RSI' ?
-                            <RSI indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                            : openIndicator_04.indicator === 'Supertrend' ?
-                                <Supertrend indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                                : openIndicator_04.indicator === 'MACD' ?
-                                    <MACD indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                                    : openIndicator_04.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                                        : null
-                        }
+                        {openIndicator_04.type === "ma" ?
+                            <MovingAverage indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
+                            : openIndicator_04.type === "indicator" ?
+                                <Indicator indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
+                                : openIndicator_04.type === "candle" ?
+                                    <CandlePattern indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
+                                    : null}
                     </div>
                     : null}
                 {openIndicator_04?.addConditional === "OR" || openIndicator_04?.addConditional === "AND" ?
@@ -198,19 +186,16 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalName}
                             modalName={modalName}
                         />
-                        {openIndicator_05.indicator === 'RSI' ?
-                            <RSI indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                            : openIndicator_05.indicator === 'Supertrend' ?
-                                <Supertrend indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                                : openIndicator_05.indicator === 'MACD' ?
-                                    <MACD indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                                    : openIndicator_05.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                                        : null
-                        }
+                        {openIndicator_05.type === "ma" ?
+                            <MovingAverage indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
+                            : openIndicator_05.type === "indicator" ?
+                                <Indicator indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
+                                : openIndicator_05.type === "candle" ?
+                                    <CandlePattern indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
+                                    : null}
                     </div>
                     : null}
-                <h3 className="bots-condition-title">Close long condition</h3>
+                <h3 className="bots-condition-title">Close Condition</h3>
 
                 <div className="bots-condition-container">
                     <IndicatorsList
@@ -219,16 +204,14 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                         setModalName={setModalNameClose}
                         modalName={modalNameClose}
                     />
-                    {closeIndicator_01.indicator === 'RSI' ?
-                        <RSI indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                        : closeIndicator_01.indicator === 'Supertrend' ?
-                            <Supertrend indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                            : closeIndicator_01.indicator === 'MACD' ?
-                                <MACD indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                                : closeIndicator_01.indicator === 'Stochastic' ?
-                                    <Stochastic indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                                    : null
-                    }
+
+                    {closeIndicator_01.type === "ma" ?
+                        <MovingAverage indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
+                        : closeIndicator_01.type === "indicator" ?
+                            <Indicator indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
+                            : closeIndicator_01.type === "candle" ?
+                                <CandlePattern indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
+                                : null}
                 </div>
                 {closeIndicator_01?.addConditional === "OR" || closeIndicator_01?.addConditional === "AND" ?
                     <div className="bots-condition-container">
@@ -238,16 +221,14 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalNameClose}
                             modalName={modalNameClose}
                         />
-                        {closeIndicator_02.indicator === 'RSI' ?
-                            <RSI indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                            : closeIndicator_02.indicator === 'Supertrend' ?
-                                <Supertrend indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                                : closeIndicator_02.indicator === 'MACD' ?
-                                    <MACD indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                                    : closeIndicator_02.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                                        : null
-                        }
+
+                        {closeIndicator_02.type === "ma" ?
+                            <MovingAverage indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
+                            : closeIndicator_02.type === "indicator" ?
+                                <Indicator indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
+                                : closeIndicator_02.type === "candle" ?
+                                    <CandlePattern indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
+                                    : null}
                     </div>
                     : null}
                 {closeIndicator_02?.addConditional === "OR" || closeIndicator_02?.addConditional === "AND" ?
@@ -258,16 +239,13 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalNameClose}
                             modalName={modalNameClose}
                         />
-                        {closeIndicator_03.indicator === 'RSI' ?
-                            <RSI indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                            : closeIndicator_03.indicator === 'Supertrend' ?
-                                <Supertrend indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                                : closeIndicator_03.indicator === 'MACD' ?
-                                    <MACD indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                                    : closeIndicator_03.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                                        : null
-                        }
+                        {closeIndicator_03.type === "ma" ?
+                            <MovingAverage indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
+                            : closeIndicator_03.type === "indicator" ?
+                                <Indicator indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
+                                : closeIndicator_03.type === "candle" ?
+                                    <CandlePattern indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
+                                    : null}
                     </div>
                     : null}
                 {closeIndicator_03?.addConditional === "OR" || closeIndicator_03?.addConditional === "AND" ?
@@ -278,16 +256,13 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalNameClose}
                             modalName={modalNameClose}
                         />
-                        {closeIndicator_04.indicator === 'RSI' ?
-                            <RSI indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                            : closeIndicator_04.indicator === 'Supertrend' ?
-                                <Supertrend indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                                : closeIndicator_04.indicator === 'MACD' ?
-                                    <MACD indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                                    : closeIndicator_04.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                                        : null
-                        }
+                        {closeIndicator_04.type === "ma" ?
+                            <MovingAverage indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
+                            : closeIndicator_04.type === "indicator" ?
+                                <Indicator indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
+                                : closeIndicator_04.type === "candle" ?
+                                    <CandlePattern indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
+                                    : null}
                     </div>
                     : null}
                 {closeIndicator_04?.addConditional === "OR" || closeIndicator_04?.addConditional === "AND" ?
@@ -298,16 +273,13 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setModalName={setModalNameClose}
                             modalName={modalNameClose}
                         />
-                        {closeIndicator_05.indicator === 'RSI' ?
-                            <RSI indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                            : closeIndicator_05.indicator === 'Supertrend' ?
-                                <Supertrend indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                                : closeIndicator_05.indicator === 'MACD' ?
-                                    <MACD indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                                    : closeIndicator_05.indicator === 'Stochastic' ?
-                                        <Stochastic indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                                        : null
-                        }
+                        {closeIndicator_05.type === "ma" ?
+                            <MovingAverage indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
+                            : closeIndicator_05.type === "indicator" ?
+                                <Indicator indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
+                                : closeIndicator_05.type === "candle" ?
+                                    <CandlePattern indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
+                                    : null}
                     </div>
                     : null}
                 {!!exchange & !!symbol & !!timeframe & closeFinal & openFinal ?
@@ -319,7 +291,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                     :
                     <button className="create-bot-button_disabled" disabled>Create Bot</button>
                 }
-            </div>           
+            </div>
         </div>
     )
 }

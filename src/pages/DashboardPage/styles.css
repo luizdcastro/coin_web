@@ -1,8 +1,7 @@
 .dashboard-page{
     display: flex;
-    height: 100vh;
     margin-left: 240px;
-    padding:40px
+    padding: 30px;    
 }
 
 .dashboard-title{
@@ -13,3 +12,10 @@
 .dashboard-container{
     width: 100vw;
 }
+
+@media screen and (max-width: 600px) {
+    .dashboard-page {
+      margin-left: 0;
+      padding-top: 70px
+    }   
+  }
