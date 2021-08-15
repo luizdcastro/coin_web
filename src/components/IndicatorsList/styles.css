@@ -49,9 +49,14 @@
 
 }
 
+.indicator-modal-close{
+    font-size: 24px;
+    color: #606060;
+}
+
 .indicator-modal-close:hover{
     cursor: pointer;
-    font-size: 27px;
+    font-size: 24px;
     color: #635bff;
 }
 
@@ -145,7 +150,6 @@
 }
 
 .indicator-modal-title{
-    margin-top: 40px;
     color: #425466;
     font-size: 18px;
     font-weight: 500;

@@ -27,7 +27,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
-    const exchangesList = [
+    const exchangesList = [     
         {
             icon: Binance,
             name: "Binance"
@@ -100,9 +100,9 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 <div style={{display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
                     <div style={{width: 125}}>
                         <IoIcons.IoShieldCheckmark size={42} color="#707070" style={{marginLeft: 4}}/>
-                        <p style={{fontSize: 12, color: 'grey'}}>AES 256</p>
+                        <p style={{fontSize: 12}}>AES 256</p>
                     </div>
-                    <p style={{fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6, color: 'grey'}}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>
+                    <p style={{fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6}}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>
                 </div>
             </div>
             <div style={{ flex: 2, paddingTop: 70, paddingRight: 40 }}>

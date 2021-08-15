@@ -3,7 +3,6 @@ import { getMe } from '../../redux/actions/UserActions'
 import { connect } from "react-redux";
 
 import Select from '../Select';
-
 import './styles.css'
 
 const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setTimeframe, disptachGetMe, getme }) => {
@@ -21,9 +20,9 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
     }, [])
 
     const symbolsList = [
-        { value: "BTCUSDT", label: "BTC/USDT" },
-        { value: "ETHUSDT", label: "ETH/USDT" },
-        { value: "ADAUSDT", label: "ADA/USDT" },
+        { value: "BTC/USDT", label: "BTC/USDT" },
+        { value: "ETH/USDT", label: "ETH/USDT" },
+        { value: "ADA/USDT", label: "ADA/USDT" },
     ]
 
     const timeframeList = [
@@ -32,16 +31,25 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
         { value: "30", label: "30 min" },
     ]
 
+    const handleChange = (index) => {
+        if (index === "demo") {
+            setExchange({ name: "Demo", id: null })
+        } else {
+            setExchange({ name: exchangeList[index].exchange, id: exchangeList[index]._id })
+        }
+    }
+
     return (
         <React.Fragment>
             <Select
                 value={exchange}
                 inputLabel={"Exchange"}
                 placeholder="Exchange"
-                onChange={(e) => setExchange(e.target.value)}
+                onChange={e => handleChange(e.target.value)}
             >
-                {exchangeList.map((item) => (
-                    <option key={item?._id} value={item?.exchange}>{item?.exchange}</option>
+                <option value="demo">Demo</option>
+                {exchangeList.map((item, index) => (
+                    <option key={item?._id} value={index}>{item?.exchange}</option>
                 ))}
             </Select>
             <Select
@@ -59,7 +67,6 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
                 inputLabel={"Timeframe"}
                 placeholder="Timeframe"
                 onChange={(e) => setTimeframe(e.target.value)}
-
             >
                 {timeframeList.map((item) => (
                     <option key={item.value} value={item.value}>{item.label}</option>

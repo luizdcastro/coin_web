@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#f0f0f0',
         border: 'none',
         paddingTop: 30,
-        paddingBottom: 30,
+        paddingBottom: 10,
         zIndex: 1
     },
 }));
@@ -36,11 +36,11 @@ function VericalDrawer(props) {
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
-    };    
+    };
 
     const drawer = (
         <React.Fragment>
-            <div style={{ marginBottom: 85}}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', height: '100%' }}>
                 <div
                     className={activeMenu === 'settings' ? 'vertical-menu_item_active' : 'menu-item-avatar'}
                     onClick={() => { setOpen(!open); setActiveMenu('settings') }}>
@@ -77,39 +77,44 @@ function VericalDrawer(props) {
                         </div>
                     </div>
                     : null}
+                <ul>
+                    <li>
+                        <Link
+                            className={activeMenu === 'strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/strategies"
+                            onClick={() => setActiveMenu('strategies')}>
+                            <FiIcons.FiBarChart2 size={23} />
+                            <p className="vertical-menu_item-text">Strategies</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            className={activeMenu === 'create-bot' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/create-bot"
+                            onClick={() => setActiveMenu('create-bot')}>
+                            <FiIcons.FiServer size={23} />
+                            <p className="vertical-menu_item-text">Create Bot</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            className={activeMenu === 'exchanges' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/exchanges"
+                            onClick={() => setActiveMenu('exchanges')}>
+                            <FiIcons.FiShare2 size={23} />
+                            <p className="vertical-menu_item-text">Exchanges</p>
+                        </Link>
+                    </li>
+                </ul>
+                <div className="vertical-menu_footer">
+                    <Link to="/settings" className="vertical-menu_upgrade">Upgrade Now</Link>
+                    <div className="vertical-menu_divider" />
+                    <div>
+                        <p style={{fontSize: 16, fontWeight: 700, color: '#606060', marginTop: 15, textAlign: 'center'}}>cointarget <span style={{fontSize: 14}}>| BETA</span></p>
+                    </div>
+                </div>
             </div>
 
-            <ul>               
-                <li>
-                    <Link
-                        className={activeMenu === 'strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                        to="/strategies"
-                        onClick={() => setActiveMenu('strategies')}>
-                        <FiIcons.FiBarChart2 size={23} />
-                        <p className="vertical-menu_item-text">Strategies</p>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        className={activeMenu === 'create-bot' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                        to="/create-bot"
-                        onClick={() => setActiveMenu('create-bot')}>
-                        <FiIcons.FiServer size={23} />
-                        <p className="vertical-menu_item-text">Create Bot</p>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        className={activeMenu === 'exchanges' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                        to="/exchanges"
-                        onClick={() => setActiveMenu('exchanges')}>
-                        <FiIcons.FiShare2 size={23} />
-                        <p className="vertical-menu_item-text">Exchanges</p>
-                    </Link>
-                </li>
-            </ul>         
-            <div className="vertical-menu_footer">
-            </div>
         </React.Fragment>
     );
 

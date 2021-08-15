@@ -12,12 +12,14 @@ export const createBot= (data, onSuccess, onError) => ({
     },
 });
 
-export const getBot= (botId) => ({
+export const getBot= (botId, onSuccess, onError) => ({
     type: constants.API,
     payload: {
         method: 'GET',
         url: `/bot/${botId}`,
         success: (response) => fetchBot(response),
+        postProccessSuccess: onSuccess,
+        postProccessError: onError,
     },
 });
 

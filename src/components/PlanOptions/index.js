@@ -8,7 +8,7 @@ const PlanOptions = () => {
             <div className="plan_container">
                 <div className="plan_header">
                     <p className="plan_header-title">Starter</p>
-                    <p className="plan_header-price">$39,90 <span style={{ color: 'grey' }}>/ mo</span></p>
+                    <p className="plan_header-price">$49,90 <span style={{ color: 'grey' }}>/ mo</span></p>
                 </div>
                 <div className="plan_content">
                     <p>5 Live Bots</p>
@@ -24,7 +24,7 @@ const PlanOptions = () => {
             <div className="plan_container">
                 <div className="plan_header">
                     <p className="plan_header-title">Trader</p>
-                    <p className="plan_header-price">$79,90 <span style={{ color: 'grey' }}>/ mo</span></p>
+                    <p className="plan_header-price">$89,90 <span style={{ color: 'grey' }}>/ mo</span></p>
                 </div>
                 <div className="plan_content">
                     <p>15 Live Bots</p>
@@ -41,7 +41,7 @@ const PlanOptions = () => {
             <div className="plan_container">
                 <div className="plan_header">
                     <p className="plan_header-title">Premium</p>
-                    <p className="plan_header-price">$239,90 <span style={{ color: 'grey' }}>/ mo</span></p>
+                    <p className="plan_header-price">$179,90 <span style={{ color: 'grey' }}>/ mo</span></p>
                 </div>
                 <div className="plan_content">
                     <p>40 Live Bots</p>

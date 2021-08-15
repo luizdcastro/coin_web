@@ -17,25 +17,31 @@
     min-width: 450px;
     width: 35%;
     height: 100%;   
+    overflow-y: scroll
 }
 
 .bot-modal-title{
-    margin-top: 40px;
     color: #425466;
     font-size: 18px;
     font-weight: 500;
 }
 
-.bot-modal-close{
-    position: absolute;
-    font-size: 26px;
-    right: 40px;   
+
+.bot-modal-order_title{
     color: #425466;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.bot-modal-close{
+    font-size: 24px;
+    color: #606060;
 }
 
 .bot-modal-close:hover{
     cursor: pointer;
-    font-size: 26px;
+    font-size: 24px;
     color: #635bff;
 }
 
@@ -73,5 +79,12 @@
     font-size: 13px;
     text-align: left;
     margin-bottom: 3px;
-    padding-right: 8px;
+    padding-right: 3px;
 }
+
+.bot-modal-order_list{
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #dadce1;
+}
+

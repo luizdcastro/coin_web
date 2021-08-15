@@ -10,13 +10,13 @@ import { getMe } from '../../redux/actions/UserActions'
 
 import './styles.css'
 
-const StrategiesPage = ({ disptachGetMe, getme }) => {
+const StrategiesPage = ({ disptachGetMe, getme}) => {
     const [open, setOpen] = useState(false)
     const [botDetails, setBotDetails] = useState({})
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [open])
+        [open]) 
 
     return (
         <div className="strategies-page">

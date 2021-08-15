@@ -56,8 +56,10 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
                             onClick={handleOutsideClick}
                         >
                             <div className="indicator-modal-container">
-                                <MdIcons.MdClose className="bot-modal-close" onClick={() => setOpen(false)} />
-                                <h3 className="indicator-modal-title">Select your indicator</h3>
+                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <h3 className="indicator-modal-title">Select your indicator</h3>
+                                    <MdIcons.MdClose className="indicator-modal-close" onClick={() => setOpen(false)} />
+                                </div>
                                 <div className="indicator-modal-search-container">
                                     <FiIcons.FiSearch className="indicator-modal-search-icon" size={18} />
                                     <input
