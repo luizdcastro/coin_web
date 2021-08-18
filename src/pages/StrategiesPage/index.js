@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import * as GoIcons from 'react-icons/go'
 import * as MdIcons from 'react-icons/md'
-import * as FiIcons from 'react-icons/fi'
+import * as IoIcons from "react-icons/io5";
+import { GuardSpinner } from "react-spinners-kit";
 import BotDetails from '../../components/BotDetails';
-
 import { getMe } from '../../redux/actions/UserActions'
 
 import './styles.css'
 
-const StrategiesPage = ({ disptachGetMe, getme}) => {
+const StrategiesPage = ({ disptachGetMe, getme }) => {
     const [open, setOpen] = useState(false)
     const [botDetails, setBotDetails] = useState({})
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [open]) 
+        [open])
 
     return (
         <div className="strategies-page">
@@ -33,33 +33,36 @@ const StrategiesPage = ({ disptachGetMe, getme}) => {
                     <p className="strategies_col_name">Status</p>
                     <p className="strategies_col_name">Growth</p>
                     <p className="strategies_col_name">Net Profit</p>
-                    <span><MdIcons.MdRefresh size={22} color="grey" style={{ cursor: 'pointer' }} /></span>
+                    <span><MdIcons.MdRefresh size={22} color="rgba(255,255,255,0.9)" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.bots?.length >= 1 ?
                     <React.Fragment>
                         {getme.bots.map((item) => (
                             <div key={item.id} className="strategies-list-content" onClick={() => { setOpen(true); setBotDetails(item) }}>
                                 <div style={{ display: 'flex', flex: 1, alignItems: 'center' }}>
-                                    <FiIcons.FiBarChart size={22} color={item.active ? "#635bff" : "#425466"} />
-                                    <p style={{ fontSize: 13, color: "#425466", paddingLeft: 8 }}> Bot MACD</p>
+                                    <div style={{ width: 25 }}>
+                                        {item.active ?
+                                            <GuardSpinner size={20} frontColor="#bb86fc" />
+                                            : <IoIcons.IoAppsSharp size={26.5} color="rgba(255,255,255, 0.8)" style={{ marginTop: 4, paddingRight: 2 }} />}
+                                    </div>
+                                    <p className="strategies_row_name" style={{ paddingLeft: 10 }}> Bot MACD</p>
                                 </div>
                                 <div style={{ flex: 1 }}>
-                                    <p className="strategies_row_status-active" 
-                                    style={!item.active ? {color: "#425466", borderColor: "#425466"} : {color: "#635bff"}}>
+                                    <p className={item.active ? "strategies_row_status-active" : "strategies_row_status-inactive"}>
                                         {item.active ? 'Active' : 'Inactive'}
-                                        </p>
+                                    </p>
                                 </div>
                                 <p className="strategies_row_name">{item.growth.toFixed(2)}%</p>
-                                <p className="strategies_row_name">${item.profit.toFixed(2)}</p>     
-                                <span style={{width: 22}} />                           
+                                <p className="strategies_row_name">${item.profit.toFixed(2)}</p>
+                                <span style={{ width: 22 }} />
                             </div>
                         ))}
                     </React.Fragment>
                     :
                     <div className="strategies-no-result">
                         <div>
-                            <p style={{ fontWeight: 500, color: 'grey', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No bots were found</p>
-                            <p style={{ fontWeight: 400, color: 'grey', fontSize: 14, textAlign: 'center' }}>You haven't created any trading strategy yet.</p>
+                            <p style={{ fontWeight: 500, color: 'rgba(255,255,255, 0.8)', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No bots were found</p>
+                            <p style={{ fontWeight: 400, color: 'rgba(255,255,255, 0.8)', fontSize: 14, textAlign: 'center' }}>You haven't created any trading strategy yet.</p>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
                                 <Link className="strategy-get-started" to="/create-bot">Get Started</Link>
                             </div>

@@ -4,46 +4,46 @@
     align-items: center;
     width: 325px; 
     height: 40px;  
-    background-color:transparent;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
     border: none;
-    border-radius: 4px;    
-    color: #909090;
+    color: rgba(255,255,255, 0.85);
+    background-color: rgb(36, 36, 38);
 }
 
 .exchange-select_container:hover{
     cursor: pointer;
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);  
 }
 
 .exchange-select_title{
     font-size: 14px;
     padding-left: 10px;
-	color:#707070;
+    color: rgba(255,255,255, 0.85);
 }
 
 .exchange-option_container{
     position: absolute;
+    margin-top: 2px;
     width: 325px; 
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
     border-top: none;
-    background-color: #fff;
+    background-color: rgb(51, 51, 53);    
+
 }
 
 .exchange-option_item{
     display: flex;
-    width: 310px; 
+    width: 312px; 
     height: 40px;   
     padding-left: 10px;   
     align-items: center;
-    background-color:transparent;
     border: none;
     margin: 6px;
+    background-color: rgb(51, 51, 53);    
 }
 
 .exchange-option_item:hover{
     cursor: pointer;
-    background-color: #F5F5F5; 
+    background-color: rgb(36, 36, 38);
+    color: #bb86fc;
+
 }
 
 .exchange-option_item_selected{
@@ -59,5 +59,7 @@
 .exchange-option_title{
     font-size: 13px;
     padding-left: 10px;
-    color: #425466;
+    color: rgba(255,255,255, 0.85);
+    font-weight: 500;  
+
 }

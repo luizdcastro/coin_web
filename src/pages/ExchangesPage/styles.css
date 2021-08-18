@@ -5,37 +5,38 @@
     padding:30px;
 }
 
+.exchanges-page-title{
+    margin-bottom: 20px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
 .exchanges-subtitle{
     margin-bottom: 15px;
     font-size: 16px;
     font-weight: 500;
-    color: #425466;
 }
-
 
 .exchanges-input{
     display: flex;
     width: 325px;
     height: 40px;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);  
     border: none;
-    background-color: transparent;
-    border-radius: 4px;    
-    color: #909090;
+    color: rgba(255,255,255, 0.85);
     padding-left: 10px;      
     padding-right: 10px;   
     margin-top: 7px;
+    background-color: rgb(36, 36, 38);
+
 }
 
 .exchanges-input:hover{
     cursor: pointer;
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);  
 }
 
 .exchanges-input:focus{
     outline: none;
     cursor: pointer;
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);  
 }
 
 .exchanges-bot-button_disabled{
@@ -44,10 +45,10 @@
     margin-top: 30px;
     font-size: 15px;
     font-weight: 500;
-    border: solid 1px #E0E0E0;
-    background-color: #E0E0E0;
+    border: solid 1px rgb(36, 36, 38);
+    background-color: rgb(36, 36, 38);
     border-radius: 3px;
-    color: #9E9E9E;
+    color: rgba(255,255,255, 0.7);
 }
 
 .exchanges-bot-button_active{
@@ -56,14 +57,14 @@
     margin-top: 30px;
     font-size: 15px;
     font-weight: 500;
-    border: solid 1px rgb(27, 39, 51);
-    background-color:rgb(27, 39, 51);
+    border: solid 1px rgb(130, 87, 230);
+    background-color: rgb(130, 87, 230);
     border-radius: 3px;
-    color: #fafafa;
+    color: rgba(255,255,255, 0.9);
 }
 
 .exchanges-bot-button_active:hover{
-    background-color:#635bff;
+    background-color:#bb86fc;
     border: none;
     cursor: pointer;
 }
@@ -73,27 +74,27 @@
     min-width: 500px;
     justify-content: space-around;
     margin-top: 15px;
-    padding: 12px 8px 12px 8px;
+    padding: 12px 8px 10px 8px;
     margin-bottom: 15px;
-    box-shadow: 0 0.5px 0px 0 rgba(0,0,0,0.1);
+    border-bottom: solid 1px rgb(51, 51, 53);
 }
 
 .exchanges_col_name{
     flex: 1 ;
     font-size: 14px;    
-    color: #425466;
+    font-weight: 500;
 }
 
 .exchanges_col_exchange{    
      flex: 1;
      font-size: 14px;    
-     color: #425466;
+     font-weight: 500;
 }
 
 .exchanges_col_status{
      flex: 1;
      font-size: 14px;    
-     color: #425466;
+     font-weight: 500;
 }
 
 .exchanges_col_actions{
@@ -108,37 +109,37 @@
     min-width: 500px;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 1.5px 3px 0 rgba(0,0,0,0.1);
     margin-bottom: 10px;
     padding: 12px 8px 12px 8px;
+    background-color: rgb(36, 36, 38);
+    border-radius: 3px;
 }
 
 .exchanges-list-content:hover{
-    background-color: #F5F5F5;
+    background-color: rgb(51, 51, 53);    
 }
 
 .exchanges_row_name{
     flex: 1 ;
     font-size: 14px;    
-    color: #425466;
 }
 
 .exchanges_row_exchange{    
      flex: 1;
-     font-size: 13px;  
-     color: #425466;
+     font-size: 13px;
+     font-weight: 500;  
 }
 
 .exchanges_row_status{
      flex: 1;
      font-size: 12px;    
-     color: #425466;
      margin-right: 15px;
+     font-weight: 500;  
+
 }
 
 .exchanges_row_status{
     flex: 1;
-    color: #425466;
     margin-right: 15px;
 }
 
@@ -146,12 +147,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #635bff;
-    color: #635bff;
+    background-color: #bb86fc;
+    color: rgb(36, 36, 38);
     width: 70px;
     height: 23px;
-    border-radius: 3px;
     font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+
 }
 
 .exchanges_row_actions{
@@ -165,14 +168,14 @@
     margin-top: 10px;
     width: 325px;
     font-size: 13px;
-    color: #e53935;
+    color: #bb86fc;
 }
 
 .exchange-success{
     margin-top: 10px;
     width: 325px;
     font-size: 13px;
-    color: #1DB954;
+    color: #03dac5;
 }
 
 @media screen and (max-width: 600px) {

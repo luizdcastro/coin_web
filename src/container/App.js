@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import VerticalDrawer from '../components/VerticalDrawer';
 import LoginPage from '../pages/LoginPage';
-import DashboardPage from '../pages/DashboardPage';
+import RegisterPage from '../pages/RegisterPage';
 import StrategiesPage from '../pages/StrategiesPage';
 import ExchangesPage from '../pages/ExchangesPage';
 import SettingsPage from '../pages/SettingsPage';
@@ -22,16 +22,16 @@ const App = ({ user }) => {
         {!user.isLoggedIn ? (
           <Switch>
             <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/register" component={RegisterPage} />
             <Redirect to="/login" />
           </Switch>
         ) : (
           <Switch>
-            <Route exact path="/dashboard" component={DashboardPage} />
             <Route exact path="/strategies" component={StrategiesPage} />
             <Route exact path="/exchanges" component={ExchangesPage} />
             <Route exact path="/settings" component={SettingsPage} />
             <Route exact path="/create-bot" component={CreateBotPage} />
-            <Redirect to="/" />
+            <Redirect to="/strategies" />
           </Switch>
         )}
       </div>

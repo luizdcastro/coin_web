@@ -77,7 +77,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
     return (
         <div className="exchanges-page">
             <div style={{ flex: 1, paddingRight: 30 }}>
-                <h2 style={{ marginBottom: 40, fontWeight: 500, color: '#425466' }}>Exchanges</h2>
+                <h2 className="exchanges-page-title">Exchanges</h2>
                 <p className="exchanges-subtitle">Connect New Exchange</p>
                 <ExchangeSelect exchange={exchange} setExchange={setExchange} exchangesList={exchangesList} />
                 <input className="exchanges-input" placeholder="API key" onChange={(e) => setApiKy(e.target.value)} />
@@ -99,7 +99,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 }
                 <div style={{display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
                     <div style={{width: 125}}>
-                        <IoIcons.IoShieldCheckmark size={42} color="#707070" style={{marginLeft: 4}}/>
+                        <IoIcons.IoShieldCheckmark size={42} color="rgba(255,255,255, 0.2)" style={{marginLeft: 4}}/>
                         <p style={{fontSize: 12}}>AES 256</p>
                     </div>
                     <p style={{fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6}}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>
@@ -111,7 +111,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     <p className="exchanges_col_exchange">Exchange</p>
                     <p className="exchanges_col_status">API Key</p>
                     <p className="exchanges_col_status">Status</p>
-                    <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="grey" style={{ cursor: 'pointer' }} /></span>
+                    <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="rgba(255,255,255,0.9)" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.exchanges?.length >= 1 ?
                     <React.Fragment>
@@ -140,8 +140,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                 </span>
                                 <span className="exchanges_row_actions">
                                     <FiIcons.FiTrash
-                                        size={16}
-                                        color="#425466"
+                                        size={17}
+                                        color="rgba(255,255,255,0.9)"
                                         style={{ cursor: 'pointer', marginBottom: 5 }}
                                         onClick={() => handleDelete(item.id)} />
                                 </span>
@@ -151,8 +151,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     :
                     <div className="strategies-no-result">
                         <div >
-                            <p style={{ fontWeight: 500, color: 'grey', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No API keys were found</p>
-                            <p style={{ fontWeight: 400, color: 'grey', fontSize: 14, textAlign: 'center' }}>You haven't connected your exchanges yet.</p>
+                            <p style={{ fontWeight: 500, color: 'rgba(255,255,255, 0.8)', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No API keys were found</p>
+                            <p style={{ fontWeight: 400, color: 'rgba(255,255,255, 0.8)', fontSize: 14, textAlign: 'center' }}>You haven't connected your exchanges yet.</p>
                         </div>
                     </div>
                 }

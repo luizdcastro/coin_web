@@ -16,9 +16,25 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
         { value: "<", label: "Crossdown" },
     ]
 
+    const contidionalListTrend = [
+        { value: ">", label: "In Uptrend" },
+        { value: "<", label: "In Downtrend" },
+    ]
+
+
+    const contidionalListPrice = [
+        { value: ">", label: "Above Price" },
+        { value: "<", label: "Below Price" },
+    ]
+
     const contidionalListValue = [
         { value: ">", label: "Greater than" },
         { value: "<", label: "Less than" },
+    ]
+
+    const contidionalListBands = [
+        { value: ">", label: "Upperband Price" },
+        { value: "<", label: "Lowerband Price" },
     ]
 
     useEffect(() => {
@@ -30,34 +46,69 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
     return (
         <React.Fragment>
 
-            {indicator.indicator === "Supertrend" || indicator.indicator === "MACD" || indicator.indicator === "Bollinger Bands" ?
+            {indicator.indicator === "MACD" ?
                 <Select
                     value={indicator.conditional}
                     inputLabel="Conditional"
                     placeholder="Conditional"
-                    onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value}) }}>
+                    onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                     {contidionalListCross.map((item) => (
                         <option key={item.value} value={item.value}>{item.label}</option>
                     ))}
                 </Select>
-                : <Select
-                    value={indicator.conditional}
-                    inputLabel="Conditional"
-                    placeholder="Conditional"
-                    onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
-                    {contidionalListValue.map((item) => (
-                        <option key={item.value} value={item.value}>{item.label}</option>
-                    ))}
-                </Select>}
+                : indicator.indicator === "Supertrend" || indicator.indicator === "AROON" || indicator.indicator === "MOM" ?
+                    <Select
+                        value={indicator.conditional}
+                        inputLabel="Conditional"
+                        placeholder="Conditional"
+                        onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
+                        {contidionalListTrend.map((item) => (
+                            <option key={item.value} value={item.value}>{item.label}</option>
+                        ))}
+                    </Select>
+                    : indicator.indicator === "WMA" ?
+                        <Select
+                            value={indicator.conditional}
+                            inputLabel="Conditional"
+                            placeholder="Conditional"
+                            onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
+                            {contidionalListPrice.map((item) => (
+                                <option key={item.value} value={item.value}>{item.label}</option>
+                            ))}
+                        </Select>
+                        : indicator.indicator === "Bollinger Bands" ?
+                            <Select
+                                value={indicator.conditional}
+                                inputLabel="Conditional"
+                                placeholder="Conditional"
+                                onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
+                                {contidionalListBands.map((item) => (
+                                    <option key={item.value} value={item.value}>{item.label}</option>
+                                ))}
+                            </Select>
+                            : <Select
+                                value={indicator.conditional}
+                                inputLabel="Conditional"
+                                placeholder="Conditional"
+                                onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
+                                {contidionalListValue.map((item) => (
+                                    <option key={item.value} value={item.value}>{item.label}</option>
+                                ))}
+                            </Select>}
 
-            {indicator.indicator === "Supertrend" || indicator.indicator === "MACD" || indicator.indicator === "Bollinger Bands" ?
+            {indicator.indicator === "Supertrend" ||
+                indicator.indicator === "MACD" ||
+                indicator.indicator === "Bollinger Bands" ||
+                indicator.indicator === "WMA" ||
+                indicator.indicator === "MOM" ||
+                indicator.indicator === "AROON" ?
                 null
                 : <Input
                     inputLabel={"Value"}
                     onChange={(e) => setIndicator({ ...indicator, value: e.target.value })}
                     value={indicator.value}
                     placeholder="Value"
-                    maxLength={3}
+                    maxLength={4}
                 />}
 
             <Select

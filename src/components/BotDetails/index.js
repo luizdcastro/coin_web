@@ -26,7 +26,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
         if (!item.active) {
             data.push({
                 Date: moment(item.createdAt).format("DD-MM hh:mm A"),
-                Value: item.sell_price - item.buy_price
+                Value: (item.sell_price - item.buy_price).toFixed(2)
             })
         }
     }
@@ -71,7 +71,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                         <h3 className="bot-modal-title">Bot Settings</h3>
                         <MdIcons.MdClose className="indicator-modal-close" onClick={() => setOpen(false)} />
                     </div>
-                    <p style={{ fontSize: 12, marginTop: 2 }}>ID: {botDetails._id}</p>
+                    <p style={{ fontSize: 13, marginTop: 1 }}>ID: {botDetails._id}</p>
                     <div className="bot-modal-header">
                         <ul>
                             <li style={{ display: 'flex' }}>
@@ -84,7 +84,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Started:</p>
-                                <p className="bot-model-data-name">{moment(botDetails.createdAt).format("MMM DD YYYY")}</p>
+                                <p className="bot-model-data-name">{moment(botDetails.createdAt).format("MMM DD YYYY hh:mm A")}</p>
                             </li>
                         </ul>
                         <ul>
@@ -120,34 +120,42 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                                 tickFormatter={() => ""}
                             />
                             <Tooltip />
-                            <CartesianGrid opacity={0.7} strokeDasharray="3 3" />
+                            <CartesianGrid opacity={0.4} strokeDasharray="3 3" />
                         </AreaChart>
                     </ResponsiveContainer>
                     <h3 className="bot-modal-order_title">Order History</h3>
                     {orders.length >= 1 && (
                         orders.map((item) => (
-                            <ul key={item.id} className="bot-modal-order_list">
-                                <li style={{ display: 'flex' }}>
-                                    <p className="bot-model-data-name">Symbol:</p>
-                                    <p className="bot-model-data-name">{botDetails.settings.symbol}</p>
-                                </li>
-                                <li style={{ display: 'flex' }}>
-                                    <p className="bot-model-data-name">Open Time:</p>
-                                    <p className="bot-model-data-name">{moment(item.createdAt).format("DD/MM/YYYY hh:mm A")}</p>
-                                </li>
-                                <li style={{ display: 'flex' }}>
-                                    <p className="bot-model-data-name">Position Side:</p>
-                                    <p className="bot-model-data-name">{item.active ? "open" : "close"}</p>
-                                </li>
-                                <li style={{ display: 'flex' }}>
-                                    <p className="bot-model-data-name">Buy Price:</p>
-                                    <p className="bot-model-data-name">{item.buy_price?.toFixed(2)}</p>
-                                </li>
-                                <li style={{ display: 'flex' }}>
-                                    <p className="bot-model-data-name">Sell Price:</p>
-                                    <p className="bot-model-data-name">{item.sell_price?.toFixed(2)}</p>
-                                </li>
-                            </ul>
+                            <div key={item.id} className="bot-model-order_container">
+                                <ul className="bot-modal-order_list">
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Symbol:</p>
+                                        <p className="bot-model-data-name">{botDetails.settings.symbol}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Order Status:</p>
+                                        <p className="bot-model-data-name">{item.active ? "open" : "closed"}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Open Time:</p>
+                                        <p className="bot-model-data-name">{moment(item.open_time).format("MM-DD-YYYY hh:mm A")}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Buy Price:</p>
+                                        <p className="bot-model-data-name">{item.buy_price?.toFixed(2)}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Close Time:</p>
+                                        <p className="bot-model-data-name">{item.close_time && (moment(item.close_time).format("MM-DD-YYYY hh:mm A"))}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Sell Price:</p>
+                                        <p className="bot-model-data-name">{item.sell_price?.toFixed(2)}</p>
+                                    </li>
+                                </ul>
+                                <div className="bot-modal-order_percent">
+                                </div>
+                            </div>
                         )))}
                 </div>
             </div>

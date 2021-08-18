@@ -5,17 +5,16 @@
 .custom-input{
   width: 150px;
   height: 38px;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);  
   border: none;
   border-radius: 2px 2px 0 0;
-  color: #696969;
+  color: rgba(255,255,255, 0.85);
   font-size: 14px;
-  background-color: #fafafa;
-  padding-left: 5px;
+  background-color: rgb(36, 36, 38);
+  padding-left: 6px;
 }
 
 .custom-input:hover{
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);  
+  background-color: rgb(36, 36, 38);
   border: none;
 }
 
@@ -36,5 +35,5 @@
 .custom-input_label{
   height: 15px;
   font-size: 11px;
-  color: #696969;
+  color: rgba(255,255,255, 0.85);
 }

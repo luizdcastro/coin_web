@@ -7,14 +7,12 @@
 .bots-page-title{
     margin-bottom: 40px;    
     font-weight: 500;
-    color: #425466;
 }
 
 .bots-condition-title{
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 16px;
     font-weight: 500;
-    color: #425466;
 }
 
 .bots-condition-container{
@@ -27,11 +25,11 @@
     display: flex;
     font-size: 14px;
     padding: 16px;
-    background-color: #fafafa;
+    background-color: rgb(51, 51, 53);
 }
 
 #select:active{
-    background-color: #fafafa;;
+    background-color: rgb(51, 51, 53);
 }
 
 .create-bot-button_disabled{
@@ -40,10 +38,10 @@
     margin-top: 15px;
     font-size: 14px;
     font-weight: 500;
-    border: solid 1px #E0E0E0;
-    background-color: #E0E0E0;
+    border: solid 1px rgb(36, 36, 38);
+    background-color: rgb(36, 36, 38);
     border-radius: 3px;
-    color: #9E9E9E;
+    color: rgba(255,255,255, 0.7);
     margin-bottom: 40px;
 }
 
@@ -53,16 +51,16 @@
     margin-top: 15px;
     font-size: 14px;
     font-weight: 500;
-    border: solid 1px rgb(27, 39, 51);
-    background-color: rgb(27, 39, 51);
+    border: solid 1px rgb(130, 87, 230);
+    background-color: rgb(130, 87, 230);
     border-radius: 3px;
-    color: #fafafa;
+    color: rgba(255,255,255, 0.9);
     margin-bottom: 40px;
 
 }
 
 .create-bot-button_active:hover{
-    background-color: #635bff;
+    background-color: #bb86fc;
     border: none;
     cursor: pointer;
 }

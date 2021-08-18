@@ -10,8 +10,8 @@
 }
 
 body{
-    background-color:#fafafa;
-	color: #425466;	
+    background-color:rgb(18, 18, 20);
+    color: rgb(255,255,255,0.9);
 }
 
 ul {
@@ -63,16 +63,16 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: #707070;
+	color: rgba(255,255,255, 0.85);
 	opacity: 1; /* Firefox */
   }
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color: #707070;
+	color: rgba(255,255,255, 0.85);
   }
   
   ::-ms-input-placeholder { /* Microsoft Edge */
-	color:#707070;
+	color:rgba(255,255,255, 0.85);
 
   }
 
