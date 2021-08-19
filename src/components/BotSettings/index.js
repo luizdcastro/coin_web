@@ -13,7 +13,7 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
         [])
 
     useEffect(() => {
-        if (getme?.exchanges.length >= 1) {
+        if (getme.exchanges?.length >= 1) {
             setExchangeList(getme.exchanges)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -26,9 +26,12 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
     ]
 
     const timeframeList = [
-        { value: "5", label: "5 min" },
-        { value: "15", label: "15 min" },
-        { value: "30", label: "30 min" },
+        { value: "5m", label: "5m" },
+        { value: "15m", label: "15m" },
+        { value: "30m", label: "30m" },
+        { value: "1h", label: "1h" },
+        { value: "2h", label: "2h" },
+        { value: "4h", label: "4h" },
     ]
 
     const handleChange = (index) => {

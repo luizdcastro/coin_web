@@ -10,6 +10,11 @@ const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
         { value: "Final", label: "Final" }
     ]
 
+    const contidionalList = [
+        { value: "true", label: "True" },
+        { value: "false", label: "False" },
+    ]
+
     useEffect(() => {
         if (indicator.addConditional === "Final") {
             setNextIndicator({})
@@ -17,7 +22,17 @@ const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
     }, [indicator, setNextIndicator])
 
     return (
-        <React.Fragment>     
+        <React.Fragment>
+            <Select
+                value={indicator.conditional}
+                inputLabel="Conditional"
+                placeholder="Conditional"
+                onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}
+            >
+                {contidionalList.map((item) => (
+                    <option key={item.value} value={item.value}>{item.label}</option>
+                ))}
+            </Select>
 
             <Select
                 value={indicator.addConditional}
@@ -29,7 +44,7 @@ const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
                     <option key={item.value} value={item.value}>{item.label}</option>
                 ))}
             </Select>
-            
+
         </React.Fragment>
     )
 }

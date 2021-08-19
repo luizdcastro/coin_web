@@ -94,6 +94,8 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
             }
         )
     }
+    
+    console.log(openIndicator_01)
 
     return (
         <div className="bots-page">

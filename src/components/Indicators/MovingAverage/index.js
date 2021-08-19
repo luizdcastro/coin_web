@@ -20,23 +20,23 @@ const MovingAverage = ({ indicator, setIndicator, setNextIndicator }) => {
     ]
 
     const maList = [
-        { value: "ma_10", label: "MA (10)" },
-        { value: "ma_20", label: "MA (20)" },
-        { value: "ma_30", label: "MA (30)" },
-        { value: "ma_40", label: "MA (40)" },
-        { value: "ma_50", label: "MA (50)" },
-        { value: "ma_100", label: "MA (100)" },
-        { value: "ma_200", label: "MA (200)" },
+        { value: "ma_10", label: "MA(10)" },
+        { value: "ma_20", label: "MA(20)" },
+        { value: "ma_30", label: "MA(30)" },
+        { value: "ma_40", label: "MA(40)" },
+        { value: "ma_50", label: "MA(50)" },
+        { value: "ma_100", label: "MA(100)" },
+        { value: "ma_200", label: "MA(200)" },
     ]
 
     const emaList = [
-        { value: "ema_10", label: "EMA (10)" },
-        { value: "ema_20", label: "EMA (20)" },
-        { value: "ema_30", label: "EMA (30)" },
-        { value: "ema_40", label: "EMA (40)" },
-        { value: "ema_50", label: "EMA (50)" },
-        { value: "ema_100", label: "EMA (100)" },
-        { value: "ema_200", label: "EMA (200)" },
+        { value: "ema_10", label: "EMA(10)" },
+        { value: "ema_20", label: "EMA(20)" },
+        { value: "ema_30", label: "EMA(30)" },
+        { value: "ema_40", label: "EMA(40)" },
+        { value: "ema_50", label: "EMA(50)" },
+        { value: "ema_100", label: "EMA(100)" },
+        { value: "ema_200", label: "EMA(200)" },
     ]
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const MovingAverage = ({ indicator, setIndicator, setNextIndicator }) => {
                     value={indicator.ma}
                     inputLabel={"MA"}
                     placeholder="MA"
-                    onChange={(e) => { setIndicator({ ...indicator, ma: e.target.value }) }}
+                    onChange={(e) => { setIndicator({ ...indicator, value: e.target.value }) }}
                 >
                     {maList.map((item) => (
                         <option key={item.value} value={item.value}>{item.label}</option>
@@ -77,7 +77,7 @@ const MovingAverage = ({ indicator, setIndicator, setNextIndicator }) => {
                     value={indicator.ema}
                     inputLabel={"EMA"}
                     placeholder="EMA"
-                    onChange={(e) => { setIndicator({ ...indicator, ema: e.target.value }) }}
+                    onChange={(e) => { setIndicator({ ...indicator, value: e.target.value }) }}
                 >
                     {emaList.map((item) => (
                         <option key={item.value} value={item.value}>{item.label}</option>

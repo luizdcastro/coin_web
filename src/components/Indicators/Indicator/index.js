@@ -21,7 +21,6 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
         { value: "<", label: "In Downtrend" },
     ]
 
-
     const contidionalListPrice = [
         { value: ">", label: "Above Price" },
         { value: "<", label: "Below Price" },

@@ -109,6 +109,15 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
                             <p className="vertical-menu_item-text">Exchanges</p>
                         </Link>
                     </li>
+                    <li>
+                        <Link
+                            className={activeMenu === 'templates' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/templates"
+                            onClick={() => setActiveMenu('templates')}>
+                            <IoIcons.IoCopy size={23} />
+                            <p className="vertical-menu_item-text">Templates</p>
+                        </Link>
+                    </li>
                 </ul>
                 <div className="vertical-menu_footer">
                     <Link to="/settings" className="vertical-menu_upgrade">Upgrade Now</Link>
