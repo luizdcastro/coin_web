@@ -89,7 +89,7 @@ const Register = ({ dispatchLoginAction }) => {
       </div>
       <div className="register-headeline">
         <div>
-          <h1 className="register-logo">cointarget</h1>
+          <h1 className="register-logo"></h1>
           <h2 className="register-title">Level up your<br />trading strategies</h2>
         </div>
       </div>

@@ -1,0 +1,21 @@
+.templates-page{
+    display: flex;
+    margin-left: 240px;
+    padding: 30px;    
+}
+
+.templates-title{
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.templates-container{
+    width: 100vw;
+}
+
+@media screen and (max-width: 600px) {
+    .templates-page {
+      margin-left: 0;
+      padding-top: 70px
+    }   
+  }

@@ -4,7 +4,8 @@ import * as MdIcons from 'react-icons/md'
 import { connect } from "react-redux";
 import { getMe } from '../../redux/actions/UserActions'
 import { deleteBot, updateBot, getBot } from '../../redux/actions/BotActions';
-import { AreaChart, Area, CartesianGrid, Tooltip, ResponsiveContainer, XAxis } from 'recharts';
+import { AreaChart, Area, CartesianGrid, Tooltip, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { format, parseISO, subDays } from 'date-fns';
 
 import './styles.css'
 
@@ -22,11 +23,11 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
 
     const data = []
 
-    for (const item of orders) {
+    for (const item of orders?.slice(-10)) {
         if (!item.active) {
             data.push({
-                Date: moment(item.createdAt).format("DD-MM hh:mm A"),
-                Value: (item.sell_price - item.buy_price).toFixed(2)
+                date: moment(item.createdAt).format("MMM DD  hh:mm A"),
+                value: (item.sell_price - item.buy_price).toFixed(2)
             })
         }
     }
@@ -59,6 +60,20 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
             (error) => console.log(error)
         )
     }
+
+    function CustomTooltip({ active, payload, label }) {
+        if (active) {
+            return (
+                <div className="tooltip">
+                    <h4>{label}</h4>
+                    <p>${payload?.length > 0 && (payload[0].value)} USDT</p>
+                </div>
+            )
+        }
+        return null
+    }
+
+  
     return (
         <React.Fragment >
             <div
@@ -104,23 +119,30 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                             </li>
                         </ul>
                     </div>
-                    <ResponsiveContainer width="101%" height="35%">
+                    <ResponsiveContainer width="100%" height={300}>
                         <AreaChart data={data}>
                             <defs>
                                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#635bff" stopOpacity={0.75} />
-                                    <stop offset="75%" stopColor="#635bff" stopOpacity={0.3} />
+                                    <stop offset="0%" stopColor="#2451b7" stopOpacity={0.5} />
+                                    <stop offset="75%" stopColor="#2451b7" stopOpacity={0.2} />
                                 </linearGradient>
                             </defs>
-                            <Area dataKey="Value" stroke="#635bff" fill="url(#color)" />
+                            <Area dataKey="value" stroke="#2451b7" fill="url(#color)" />
+
                             <XAxis
-                                dataKey="Date"
-                                axisLine={false}
-                                tickLine={false}
-                                tickFormatter={() => ""}
+                                dataKey="date"
+                                hide={true}
                             />
-                            <Tooltip />
-                            <CartesianGrid opacity={0.4} strokeDasharray="3 3" />
+
+                            <YAxis
+                                dataKey="value"
+                                tickCount={3}
+                                hide={true}
+                            />
+
+                            <Tooltip content={<CustomTooltip />} />
+
+                            <CartesianGrid opacity={0.2} vertical={false} />
                         </AreaChart>
                     </ResponsiveContainer>
                     <h3 className="bot-modal-order_title">Order History</h3>
@@ -128,10 +150,6 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                         orders.map((item) => (
                             <div key={item.id} className="bot-model-order_container">
                                 <ul className="bot-modal-order_list">
-                                    <li style={{ display: 'flex' }}>
-                                        <p className="bot-model-data-name">Symbol:</p>
-                                        <p className="bot-model-data-name">{botDetails.settings.symbol}</p>
-                                    </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Order Status:</p>
                                         <p className="bot-model-data-name">{item.active ? "open" : "closed"}</p>
@@ -151,6 +169,14 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Sell Price:</p>
                                         <p className="bot-model-data-name">{item.sell_price?.toFixed(2)}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Percent:</p>
+                                        <p className="bot-model-data-name">{item.percent?.toFixed(2)}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Profit:</p>
+                                        <p className="bot-model-data-name">{item.profit?.toFixed(2)}</p>
                                     </li>
                                 </ul>
                                 <div className="bot-modal-order_percent">

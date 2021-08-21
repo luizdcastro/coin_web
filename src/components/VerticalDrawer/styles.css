@@ -52,7 +52,7 @@
     font-weight: 500;
     font-size: 20px ;
     cursor: pointer;
-    background-color:rgb(36, 36, 38);
+    background-color:rgb(36, 36, 37);
 }
 
 .vertical-menu_item_active{
@@ -68,7 +68,6 @@
     color: #bb86fc;
     cursor: pointer;
     background-color: rgb(36, 36, 38);   
-
 }
 
 .vertical-menu_item:hover{
@@ -96,7 +95,6 @@
 .vertical-menu_button:hover{
     background-color: rgb(36, 36, 38);
     filter: brightness(150%);
-
     cursor: pointer;
 }
 
@@ -112,6 +110,7 @@
 
 .expanded-vertical_menu{
     position: absolute;
+    box-sizing: border-box;
     margin-top: 42px;
     background-color:rgb(51, 51, 53);
     width: 210px;

@@ -3,9 +3,10 @@ import { getMe } from '../../redux/actions/UserActions'
 import { connect } from "react-redux";
 
 import Select from '../Select';
+import Input from '../Input';
 import './styles.css'
 
-const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setTimeframe, disptachGetMe, getme }) => {
+const BotSettings = ({ name, setName, exchange, symbol, timeframe, setExchange, setSymbol, setTimeframe, disptachGetMe, getme }) => {
     const [exchangeList, setExchangeList] = useState([])
 
     useEffect(() => disptachGetMe(),
@@ -44,6 +45,13 @@ const BotSettings = ({ exchange, symbol, timeframe, setExchange, setSymbol, setT
 
     return (
         <React.Fragment>
+            <Input
+                inputLabel="Bot Name"
+                placeholder="Bot Name"
+                value={name}
+                onChange={(e) => { setName(e.target.value) }}    
+                maxLength={15}        
+            />
             <Select
                 value={exchange}
                 inputLabel={"Exchange"}

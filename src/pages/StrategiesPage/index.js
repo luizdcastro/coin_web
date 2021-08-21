@@ -32,7 +32,7 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                     <p className="strategies_col_name">Name</p>
                     <p className="strategies_col_name">Status</p>
                     <p className="strategies_col_name">Growth</p>
-                    <p className="strategies_col_name">Net Profit</p>
+                    <p className="strategies_col_name">Gross Profit</p>
                     <span><MdIcons.MdRefresh size={22} color="rgba(255,255,255,0.9)" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.bots?.length >= 1 ?
@@ -45,7 +45,7 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                                             <GuardSpinner size={20} frontColor="#bb86fc" />
                                             : <IoIcons.IoAppsSharp size={26.5} color="rgba(255,255,255, 0.8)" style={{ marginTop: 4, paddingRight: 2 }} />}
                                     </div>
-                                    <p className="strategies_row_name" style={{ paddingLeft: 10 }}> Bot MACD</p>
+                                    <p className="strategies_row_name" style={{ paddingLeft: 10 }}>{item.name}</p>
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <p className={item.active ? "strategies_row_status-active" : "strategies_row_status-inactive"}>
@@ -53,7 +53,7 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                                     </p>
                                 </div>
                                 <p className="strategies_row_name">{item.growth.toFixed(2)}%</p>
-                                <p className="strategies_row_name">${item.profit.toFixed(2)}</p>
+                                <p className="strategies_row_name">$ {item.profit.toFixed(2)}</p>
                                 <span style={{ width: 22 }} />
                             </div>
                         ))}
@@ -81,7 +81,6 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
 
 const mapDispatchToProps = (dispatch) => ({
     disptachGetMe: () => dispatch(getMe()),
-
 });
 
 const mapStateToProps = (state) => ({

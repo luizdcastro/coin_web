@@ -16,6 +16,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [loading, setLoading] = useState(false)
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
+    const [name, setName] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
     const [timeframe, setTimeframe] = useState("")
@@ -80,6 +81,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
         setLoading(true)
         dispatchCreateBot(
             user.id,
+            name,
             settings,
             open_logic,
             close_logic,
@@ -94,8 +96,6 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
             }
         )
     }
-    
-    console.log(openIndicator_01)
 
     return (
         <div className="bots-page">
@@ -104,6 +104,8 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                 <h3 className="bots-condition-title">Bot Settings</h3>
                 <div className="bots-condition-container">
                     <BotSettings
+                        name={name}
+                        setName={setName}
                         exchange={exchange}
                         symbol={symbol}
                         timeframe={timeframe}
@@ -299,8 +301,8 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatchCreateBot: (user, settings, open_logic, close_logic, onSuccess, onError) =>
-        dispatch(createBot({ user, settings, open_logic, close_logic }, onSuccess, onError)),
+    dispatchCreateBot: (user, name, settings, open_logic, close_logic, onSuccess, onError) =>
+        dispatch(createBot({ user, name, settings, open_logic, close_logic }, onSuccess, onError)),
 });
 
 const mapStateToProps = (state) => ({

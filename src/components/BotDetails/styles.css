@@ -16,7 +16,7 @@
     padding: 40px;  
     background-color: rgb(29, 29, 32);
     min-width: 450px;
-    width: 35%;
+    width: 45%;
     height: 100%;   
     overflow-y: scroll
 }
@@ -30,6 +30,7 @@
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .bot-modal-close{
@@ -99,5 +100,14 @@
 
 .bot-modal-order_percent{
     flex: 1;    
+}
+
+.tooltip{
+    border-radius: 0.25rem;
+    background-color: #26313c;
+    color: rgba(255,255,255,0.9);
+    padding: 1rem;
+    box-shadow: 15px 30px 40px 5px rgba(0,0,0,0.5);
+    text-align: center;
 }
 

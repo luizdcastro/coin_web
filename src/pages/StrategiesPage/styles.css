@@ -73,7 +73,7 @@
 .strategies_row_name{
      flex: 1;
      font-size: 13px;  
-     font-weight: 500;
+     font-weight: 600;
 }
 .strategies_row_status-active{
     display: flex;
@@ -85,7 +85,7 @@
     height: 22px;
     border-radius: 3px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .strategies_row_status-inactive{
@@ -98,7 +98,7 @@
     height: 22px;
     border-radius: 3px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .strategies-no-result {

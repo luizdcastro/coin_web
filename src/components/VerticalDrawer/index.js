@@ -44,7 +44,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
 
     const drawer = (
         <React.Fragment>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', height: '100%' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-betwen', height: '100%' }}>
                 <div
                     className={activeMenu === 'settings' ? 'vertical-menu_item_active' : 'menu-item-avatar'}
                     onClick={() => { setOpen(!open); setActiveMenu('settings') }}>
@@ -58,7 +58,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
                         <FiIcons.FiX className="vertical-drop-icon" size={18} />
                     }
                 </div>
-                {open ?
+                {open && (
                     <div className="expanded-vertical_menu">
                         <div className="expanded-vertical_menu-header">
                             <div>
@@ -79,9 +79,8 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
                                 <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
                             </div>
                         </div>
-                    </div>
-                    : null}
-                <ul>
+                    </div>)}
+                <ul style={{paddingTop: 20}}>
                     <li>
                         <Link
                             className={activeMenu === 'strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
