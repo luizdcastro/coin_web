@@ -64,7 +64,7 @@
 }
 
 .exchanges-bot-button_active:hover{
-    background-color:#bb86fc;
+    filter: brightness(120%);
     border: none;
     cursor: pointer;
 }

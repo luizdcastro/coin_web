@@ -36,6 +36,12 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
         { value: "<", label: "Lowerband Price" },
     ]
 
+    const editContidionalListValue = contidionalListValue.filter(item => item.value === indicator.conditional)
+    const editContidionalListCross = contidionalListCross.filter(item => item.value === indicator.conditional)
+    const editContidionalListTrend = contidionalListTrend.filter(item => item.value === indicator.conditional)
+    const editContidionalListPrice = contidionalListPrice.filter(item => item.value === indicator.conditional)
+    const editContidionalListBands = contidionalListBands.filter(item => item.value === indicator.conditional)
+
     useEffect(() => {
         if (indicator.addConditional === "Final") {
             setNextIndicator({})
@@ -49,7 +55,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                 <Select
                     value={indicator.conditional}
                     inputLabel="Conditional"
-                    placeholder="Conditional"
+                    placeholder={editContidionalListCross[0]?.label || "Conditional"}
                     onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                     {contidionalListCross.map((item) => (
                         <option key={item.value} value={item.value}>{item.label}</option>
@@ -59,7 +65,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                     <Select
                         value={indicator.conditional}
                         inputLabel="Conditional"
-                        placeholder="Conditional"
+                        placeholder={editContidionalListTrend[0]?.label || "Conditional"}
                         onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                         {contidionalListTrend.map((item) => (
                             <option key={item.value} value={item.value}>{item.label}</option>
@@ -69,7 +75,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                         <Select
                             value={indicator.conditional}
                             inputLabel="Conditional"
-                            placeholder="Conditional"
+                            placeholder={editContidionalListPrice[0]?.label || "Conditional"}
                             onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                             {contidionalListPrice.map((item) => (
                                 <option key={item.value} value={item.value}>{item.label}</option>
@@ -79,7 +85,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                             <Select
                                 value={indicator.conditional}
                                 inputLabel="Conditional"
-                                placeholder="Conditional"
+                                placeholder={editContidionalListPrice[0]?.label || "Conditional"}
                                 onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                                 {contidionalListBands.map((item) => (
                                     <option key={item.value} value={item.value}>{item.label}</option>
@@ -88,13 +94,12 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                             : <Select
                                 value={indicator.conditional}
                                 inputLabel="Conditional"
-                                placeholder="Conditional"
+                                placeholder={editContidionalListBands[0]?.label || "Conditional"}
                                 onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                                 {contidionalListValue.map((item) => (
                                     <option key={item.value} value={item.value}>{item.label}</option>
                                 ))}
                             </Select>}
-
             {indicator.indicator === "Supertrend" ||
                 indicator.indicator === "MACD" ||
                 indicator.indicator === "Bollinger Bands" ||
@@ -113,7 +118,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
             <Select
                 value={indicator.addConditional}
                 inputLabel={"Add Condition"}
-                placeholder="Add Condition"
+                placeholder={indicator.addConditional || "Add Condition"}
                 onChange={(e) => { setIndicator({ ...indicator, addConditional: e.target.value }) }}
             >
                 {addContidionalList.map((item) => (

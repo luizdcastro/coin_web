@@ -34,7 +34,7 @@
 
 .add-bot-button:hover{
     cursor: pointer;
-    background-color: #bb86fc;
+    filter: brightness(120%);
 }
 
 .strategies-list-header{
@@ -127,7 +127,7 @@
 
 .strategy-get-started:hover{
   cursor: pointer;
-  background-color: #bb86fc;
+  filter: brightness(120%);
 }
 
 @media screen and (max-width: 600px) {

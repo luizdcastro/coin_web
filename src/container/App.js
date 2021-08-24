@@ -9,6 +9,7 @@ import StrategiesPage from '../pages/StrategiesPage';
 import ExchangesPage from '../pages/ExchangesPage';
 import SettingsPage from '../pages/SettingsPage';
 import CreateBotPage from '../pages/CreateBotPage';
+import EditBotPage from "../pages/EditBotPage";
 import TemplatesPage from '../pages/TemplatesPage'
 
 const App = ({ user }) => {
@@ -32,6 +33,7 @@ const App = ({ user }) => {
             <Route exact path="/exchanges" component={ExchangesPage} />
             <Route exact path="/settings" component={SettingsPage} />
             <Route exact path="/create-bot" component={CreateBotPage} />
+            <Route exact path="/edit-bot/:botID" component={EditBotPage} />
             <Route exact path="/templates" component={TemplatesPage} />
             <Redirect to="/strategies" />
           </Switch>

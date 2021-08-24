@@ -184,7 +184,7 @@
 }
 
 .vertical-menu_upgrade:hover{
-    background-color: #bb86fc;
+    filter: brightness(120%);
     cursor: pointer;
 }
 

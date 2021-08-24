@@ -24,8 +24,8 @@ const StrategiesPage = ({ disptachGetMe, getme }) => {
                 <div className="strategies-header">
                     <h2 className="strategies-page-title">Strategies</h2>
                     <Link className="add-bot-button" to="create-bot">
-                        <GoIcons.GoPlus size={17} style={{ marginRight: 3 }} />
-                        Add Strategy
+                        <GoIcons.GoPlus size={16} style={{ marginRight: 3 }} />
+                        New Strategy
                     </Link>
                 </div>
                 <div className="strategies-list-header">

@@ -21,9 +21,11 @@ const BotSettings = ({ name, setName, exchange, symbol, timeframe, setExchange, 
     }, [])
 
     const symbolsList = [
-        { value: "BTC/USDT", label: "BTC/USDT" },
-        { value: "ETH/USDT", label: "ETH/USDT" },
-        { value: "ADA/USDT", label: "ADA/USDT" },
+        { value: "BTCUSDT", label: "BTC/USDT" },
+        { value: "ETHUSDT", label: "ETH/USDT" },
+        { value: "ADAUSDT", label: "ADA/USDT" },
+        { value: "DOTUSDT", label: "DOT/USDT" },
+        { value: "LTCUSDT", label: "LTC/USDT" },        
     ]
 
     const timeframeList = [
@@ -53,9 +55,9 @@ const BotSettings = ({ name, setName, exchange, symbol, timeframe, setExchange, 
                 maxLength={15}        
             />
             <Select
-                value={exchange}
+                value={exchange}                
                 inputLabel={"Exchange"}
-                placeholder="Exchange"
+                placeholder={!!exchange ? exchange.name : "Exchange"}
                 onChange={e => handleChange(e.target.value)}
             >
                 <option value="demo">Demo</option>
@@ -66,7 +68,7 @@ const BotSettings = ({ name, setName, exchange, symbol, timeframe, setExchange, 
             <Select
                 value={symbol}
                 inputLabel={"Symbol"}
-                placeholder="Symbol"
+                placeholder={!!symbol ? symbol : "Symbol"}
                 onChange={(e) => setSymbol(e.target.value)}
             >
                 {symbolsList.map((item) => (
@@ -76,7 +78,7 @@ const BotSettings = ({ name, setName, exchange, symbol, timeframe, setExchange, 
             <Select
                 value={timeframe}
                 inputLabel={"Timeframe"}
-                placeholder="Timeframe"
+                placeholder={!!timeframe ? timeframe : "Timeframe"}
                 onChange={(e) => setTimeframe(e.target.value)}
             >
                 {timeframeList.map((item) => (

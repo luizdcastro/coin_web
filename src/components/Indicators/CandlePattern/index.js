@@ -21,12 +21,14 @@ const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
         }
     }, [indicator, setNextIndicator])
 
+    const editContidionalList = contidionalList.filter(item => item.value === indicator.value)
+
     return (
         <React.Fragment>
             <Select
                 value={indicator.conditional}
                 inputLabel="Conditional"
-                placeholder="Conditional"
+                placeholder={editContidionalList[0]?.label || "Conditional"}
                 onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}
             >
                 {contidionalList.map((item) => (
@@ -37,7 +39,7 @@ const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
             <Select
                 value={indicator.addConditional}
                 inputLabel={"Add Condition"}
-                placeholder="Add Condition"
+                placeholder={indicator.addConditional || "Add Condition"}
                 onChange={(e) => { setIndicator({ ...indicator, addConditional: e.target.value }) }}
             >
                 {addContidionalList.map((item) => (

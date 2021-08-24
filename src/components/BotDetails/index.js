@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import * as FiIcons from 'react-icons/fi'
 import * as MdIcons from 'react-icons/md'
 import { connect } from "react-redux";
-import { getMe } from '../../redux/actions/UserActions'
+import { getMe } from '../../redux/actions/UserActions';
+import { Link } from 'react-router-dom';
 import { deleteBot, updateBot, getBot } from '../../redux/actions/BotActions';
 import { AreaChart, Area, CartesianGrid, Tooltip, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { format, parseISO, subDays } from 'date-fns';
-
 import './styles.css'
 
 const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot, dispatchGetBot, disptachGetMe }) => {
@@ -73,7 +72,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
         return null
     }
 
-  
+
     return (
         <React.Fragment >
             <div
@@ -92,6 +91,10 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Status:</p>
                                 <p className="bot-model-data-name">{botDetails.active ? "Active" : "Inactive"}</p>
+                            </li>
+                            <li style={{ display: 'flex' }}>
+                                <p className="bot-model-data-name">Symbol:</p>
+                                <p className="bot-model-data-name">{botDetails.settings.symbol}</p>
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Exchange:</p>
@@ -113,6 +116,10 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                                     <p className="bot-model-icon-name">Start</p>
                                 </li>
                             }
+                            <Link className="bot-model-icon-container" to={`/edit-bot/${botDetails._id}`} onClick={() => { setOpen(false) }} >
+                                <FiIcons.FiEdit size={16} style={{ marginRight: 5 }} />
+                                <p className="bot-model-icon-name">Edit</p>
+                            </Link>
                             <li className="bot-model-icon-container" onClick={() => { handleDelete(botDetails.id); setOpen(false) }} >
                                 <FiIcons.FiTrash size={16} style={{ marginRight: 5 }} />
                                 <p className="bot-model-icon-name">Delete</p>
