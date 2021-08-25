@@ -37,9 +37,9 @@ const PlanOptions = () => {
                     <div className="plan_header">
                         <p className="plan_header-title">Pro</p>
                         {planType === "monthly" ?
-                            <p className="plan_header-price">$59,90 <span style={{ color: 'rgba(255,255,255,0.6)' }}>/ mo</span></p>
+                            <p className="plan_header-price">$79,90 <span style={{ color: 'rgba(255,255,255,0.6)' }}>/ mo</span></p>
                             :
-                            <p className="plan_header-price">$39,90 <span style={{ color: 'rgba(255,255,255,0.6)' }}>/ mo</span></p>
+                            <p className="plan_header-price">$59,90 <span style={{ color: 'rgba(255,255,255,0.6)' }}>/ mo</span></p>
                         }
                     </div>
                     <div className="plan_content">
@@ -52,7 +52,7 @@ const PlanOptions = () => {
                         <p>Email Support</p>
                     </div>
                     <div className="plan_footer">
-                        <button className="plan_button">Get Started</button>
+                        <button className="plan_button">Upgrade Plan</button>
                     </div>
                 </div>
             </div>

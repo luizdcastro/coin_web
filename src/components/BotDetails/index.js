@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import { getMe } from '../../redux/actions/UserActions';
 import { Link } from 'react-router-dom';
 import { deleteBot, updateBot, getBot } from '../../redux/actions/BotActions';
-import { AreaChart, Area, CartesianGrid, Tooltip, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { Line } from 'react-chartjs-2';
+
 import './styles.css'
 
 const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot, dispatchGetBot, disptachGetMe }) => {
@@ -21,15 +22,63 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
         ), [])
 
     const data = []
+    const time = []
 
     for (const item of orders?.slice(-10)) {
         if (!item.active) {
-            data.push({
-                date: moment(item.createdAt).format("MMM DD  hh:mm A"),
-                value: (item.sell_price - item.buy_price).toFixed(2)
-            })
+            data.push((item.sell_price - item.buy_price).toFixed(2))
+            time.push(moment(item.close_time).format("MMM DD hh:mm A"))
         }
     }
+
+    const chartData = {
+        labels: time,
+        datasets: [
+            {
+                label: "Closed Order",
+                data: data,
+                fill: true,
+                backgroundColor: 'rgba(130, 87, 230, 0.3)',
+                pointBorderColor: "rgba(130, 87, 230, 0.8)",
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 4,
+                pointBorderWidth: 3,
+            },
+        ],
+    };
+
+    const options = {
+        plugins: {
+            tooltip: {
+                padding: 10,
+                intersect: false,
+                usePointStyle: true,
+                footerAlign: 'right'
+            },
+           
+        },
+        scales: {
+            y: {
+                ticks: {
+                    color: 'rgba(255, 255, 255, 0.5)',
+                    maxTicksLimit: 3,
+                    beginAtZero: true,
+                },
+                grid: {
+                    display: false,
+                }
+            },
+            x: {
+                ticks: {
+                    display: false,
+                },
+                grid: {
+                    display: false,
+                }
+            }
+        },
+    };
 
     const handleOutsideClick = (e) => {
         if (e.target.id === "bot") {
@@ -126,32 +175,9 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                             </li>
                         </ul>
                     </div>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <AreaChart data={data}>
-                            <defs>
-                                <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#2451b7" stopOpacity={0.5} />
-                                    <stop offset="75%" stopColor="#2451b7" stopOpacity={0.2} />
-                                </linearGradient>
-                            </defs>
-                            <Area dataKey="value" stroke="#2451b7" fill="url(#color)" />
-
-                            <XAxis
-                                dataKey="date"
-                                hide={true}
-                            />
-
-                            <YAxis
-                                dataKey="value"
-                                tickCount={3}
-                                hide={true}
-                            />
-
-                            <Tooltip content={<CustomTooltip />} />
-
-                            <CartesianGrid opacity={0.2} vertical={false} />
-                        </AreaChart>
-                    </ResponsiveContainer>
+                    <div width="100%" height={300}>
+                        <Line data={chartData} options={options} />
+                    </div>
                     <h3 className="bot-modal-order_title">Order History</h3>
                     {orders.length >= 1 && (
                         orders.map((item) => (

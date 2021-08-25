@@ -107,9 +107,9 @@
 }
 
 .plan_button:hover{
-    cursor: pointer;
-    background-color: #bb86fc;
+    cursor: pointer;   
     color:rgba(255,255,255,0.9);
+    filter: brightness(120%);
 }
 
 .plan_button-light {

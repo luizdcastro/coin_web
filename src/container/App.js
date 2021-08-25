@@ -3,8 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import VerticalDrawer from '../components/VerticalDrawer';
+import HomePage  from "../pages/HomePage";
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
+import RecoverPasswordPage from "../pages/RecoverPassword";
 import StrategiesPage from '../pages/StrategiesPage';
 import ExchangesPage from '../pages/ExchangesPage';
 import SettingsPage from '../pages/SettingsPage';
@@ -23,9 +25,11 @@ const App = ({ user }) => {
       <div className="App">
         {!user.isLoggedIn ? (
           <Switch>
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
-            <Redirect to="/login" />
+            <Route exact path="/recover-password" component={RecoverPasswordPage} />
+            <Redirect to="/" />
           </Switch>
         ) : (
           <Switch>

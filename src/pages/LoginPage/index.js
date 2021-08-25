@@ -61,7 +61,7 @@ const Login = ({ dispatchLoginAction }) => {
             />
           </div>
           <div style={{ width: '100%', marginTop: 6 }}>
-            <Link to="" className="login-link">Forgot password</Link>
+            <Link to="/recover-password" className="login-link">Forgot password</Link>
           </div>
           {serverError ? <p className="login-error">{serverError}</p> : null}
           <button className="login-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>

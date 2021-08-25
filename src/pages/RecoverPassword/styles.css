@@ -1,0 +1,118 @@
+.recover-password-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:30px;
+    min-height: 100vh;
+}
+
+.recover-password-headeline{
+  display: flex;
+  justify-content: center;
+  margin-right: 70px;
+}
+
+.recover-password-logo{
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.recover-password-title{
+  font-weight: 700;
+  font-size: 3.4rem;
+}
+  
+.recover-password-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 420px;
+    background-color: rgb(32, 32, 36);
+    padding: 40px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    border-radius: 5px;
+  }
+  
+.recover-password-input {
+  font-size: 15px;
+    height: 45px;
+    border: none;
+    width: 100%;
+    min-width: 310px;
+    padding-left: 40px;
+    background-color:rgb(18, 18, 20);
+    border-radius: 3px;
+    margin-top: 15px;
+    color: rgba(255,255,255, 0.9);
+}
+
+.recover-password-icons{
+  position: absolute;
+  top: 27px;
+  left: 10px;
+  color: rgba(255,255,255,0.4)
+}
+
+.recover-password-icons-view{
+  position: absolute;
+  top: 27px;
+  right: 10px;
+  color: rgb(130, 87, 230);
+  cursor: pointer;
+}
+
+.recover-password-input:focus{
+  border: solid 1px red;
+}
+
+.recover-password-button{
+    width: 100%;
+    min-width: 310px;
+    height: 45px;
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    border: solid 1px rgb(130, 87, 230);
+    background-color: rgb(130, 87, 230);
+    border-radius: 3px;
+    color: rgba(255,255,255, 0.9);
+}
+
+.recover-password-button:hover{
+  filter: brightness(120%);
+  cursor: pointer;
+}
+
+.recover-password-link{
+  color: rgb(130, 87, 230);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.recover-password-link:hover{
+  color: #bb86fc;
+}
+
+.recover-password-create-account{
+  font-size: 13px;
+  margin-top: 25px;
+}
+   
+.recover-password-error {
+    font-size: 13px;
+    color: #E53935;    
+    padding-top: 5px;
+    font-weight: 400;
+}  
+
+
+  @media screen and (max-width: 600px) { 
+    .recover-password-headeline {
+      margin-right: 0px;
+      margin-bottom: 50px;
+    }
+  }
