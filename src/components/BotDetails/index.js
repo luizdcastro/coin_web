@@ -109,19 +109,6 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
         )
     }
 
-    function CustomTooltip({ active, payload, label }) {
-        if (active) {
-            return (
-                <div className="tooltip">
-                    <h4>{label}</h4>
-                    <p>${payload?.length > 0 && (payload[0].value)} USDT</p>
-                </div>
-            )
-        }
-        return null
-    }
-
-
     return (
         <React.Fragment >
             <div

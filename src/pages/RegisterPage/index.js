@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Ellipsis } from 'react-css-spinners';
 import { Link } from 'react-router-dom';
 import * as IoIcons from "react-icons/io5";
 
-import { loginUser } from '../../redux/actions/AuthActions';
+import { registerUser } from '../../redux/actions/AuthActions';
 import './styles.css';
 
-const Register = ({ dispatchLoginAction }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [serverError, setServerError] = useState('');
+const Register = ({ dispatchRegisterUser }) => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("")
+  const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false)
   const [isSecure, setIsSecure] = useState("password")
   const [isSecureConfirm, setIsSecureConfirm] = useState("password")
+  const history = useHistory();
+
 
   const handleOnSubmmit = (event) => {
     event.preventDefault();
     setLoading(true)
-    dispatchLoginAction(
+    dispatchRegisterUser(
       email,
+      name,
       password,
-      () => setLoading(false),
+      passwordConfirm,
+      () => {setLoading(false); history.push("/login");},
       (response) => { setServerError(response.error); setLoading(false) }
     );
   };
@@ -44,10 +51,10 @@ const Register = ({ dispatchLoginAction }) => {
             <IoIcons.IoPerson size={20} className="register-icons" />
             <input
               className="register-input"
-              type="email"
+              type="text"
               placeholder="Your name"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div style={{ width: "100%", position: 'relative' }}>
@@ -59,7 +66,7 @@ const Register = ({ dispatchLoginAction }) => {
             <input
               className="register-input"
               type={isSecure}
-              placeholder="Yor password"
+              placeholder="Your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -74,8 +81,8 @@ const Register = ({ dispatchLoginAction }) => {
               className="register-input"
               type={isSecureConfirm}
               placeholder="Confirm your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
             />
           </div>         
           {serverError ? <p className="register-error">{serverError}</p> : null}
@@ -85,12 +92,11 @@ const Register = ({ dispatchLoginAction }) => {
             }
           </button>
         </form>
-        <p className="register-create-account">Already have an account? <span><Link to="" className="register-link">Sign in</Link></span></p>
+        <p className="register-create-account">Already have an account? <span><Link to="/login" className="register-link">Sign in</Link></span></p>
       </div>
       <div className="register-headeline">
         <div>
-          <h1 className="register-logo"></h1>
-          <h2 className="register-title">Level up your<br />trading strategies</h2>
+          <h2 className="register-title">Level up your<br />trading strategies.</h2>
         </div>
       </div>
     </div>
@@ -98,8 +104,8 @@ const Register = ({ dispatchLoginAction }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchLoginAction: (email, password, onSuccess, onError) =>
-    dispatch(loginUser({ email, password }, onSuccess, onError)),
+  dispatchRegisterUser: (email, name, password, passwordConfirm, onSuccess, onError) =>
+    dispatch(registerUser({ email, name, password, passwordConfirm }, onSuccess, onError)),
 });
 
 export default connect(null, mapDispatchToProps)(Register);

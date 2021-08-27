@@ -4,25 +4,22 @@ import { Ellipsis } from 'react-css-spinners';
 import { Link } from 'react-router-dom';
 import * as IoIcons from "react-icons/io5";
 
-import { loginUser } from '../../redux/actions/AuthActions';
+import { forgotPassword } from '../../redux/actions/AuthActions';
 import './styles.css';
 
-const RecoverPassword = ({ dispatchLoginAction }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [serverError, setServerError] = useState('');
+const RecoverPassword = ({ dispatchForgotPassword }) => {
+  const [email, setEmail] = useState("");
+  const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false)
-  const [isSecure, setIsSecure] = useState("password")
-
+  const [success, setSuccess] = useState("")
 
   const handleOnSubmmit = (event) => {
     event.preventDefault();
     setLoading(true)
-    dispatchLoginAction(
+    dispatchForgotPassword(
       email,
-      password,
-      () => setLoading(false),
-      (response) => { setServerError(response.error); setLoading(false) }
+      () => {setSuccess("The reset link was sent to your email."); setLoading(false); setServerError("") },
+      (response) => { setServerError(response.error); setLoading(false); setSuccess("") }
     );
   };
 
@@ -30,7 +27,6 @@ const RecoverPassword = ({ dispatchLoginAction }) => {
     <div className="recover-password-page">
       <div className="recover-password-headeline">
         <div>
-          <h1 className="recover-password-logo"></h1>
           <h2 className="recover-password-title">Recover your<br />password.</h2>
         </div>
       </div>
@@ -45,8 +41,9 @@ const RecoverPassword = ({ dispatchLoginAction }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>           
+          </div>
           {serverError ? <p className="recover-password-error">{serverError}</p> : null}
+          {success ? <p className="recover-password-success">{success}</p> : null}        
           <button className="recover-password-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
             {
               !loading ? 'Send Link' : <span> <Ellipsis color="#FFF" size={38} /></span>
@@ -60,8 +57,8 @@ const RecoverPassword = ({ dispatchLoginAction }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchLoginAction: (email, password, onSuccess, onError) =>
-    dispatch(loginUser({ email, password }, onSuccess, onError)),
+  dispatchForgotPassword: (email, onSuccess, onError) =>
+    dispatch(forgotPassword({ email }, onSuccess, onError)),
 });
 
 export default connect(null, mapDispatchToProps)(RecoverPassword);

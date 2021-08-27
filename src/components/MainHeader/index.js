@@ -55,7 +55,7 @@ const MainHeader = () => {
                     <>
                         {!menuOpen ? (
                             <Link onClick={() => setMenuOpen(true)}>
-                                <IoIcons.IoMenuSharp size={32} color="rgba(255,255,255,0.8)" />
+                                <IoIcons.IoMenuSharp size={32} color="rgba(255,255,255,0.85)" />
                             </Link>
                         ) :
                             <div className="main-header_dropdown-container">

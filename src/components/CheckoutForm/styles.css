@@ -1,0 +1,25 @@
+.checkout-form{
+    margin-left: 240px;
+    padding:30px
+}
+
+.checkout-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-top: 10px;
+    width: 380px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 3px;
+    background-color: rgb(130, 87, 230);
+    color: rgb(255,255,255,0.9);
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.checkout-button:hover{
+    filter: brightness(115%);
+    cursor: pointer;
+}

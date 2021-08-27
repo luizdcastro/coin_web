@@ -4,7 +4,6 @@ import * as MdIcons from 'react-icons/md'
 import Modal from '@material-ui/core/Modal';
 
 import indicators from '../../assets/data/indicators';
-import Input from '../Input'
 
 import './styles.css'
 
@@ -41,12 +40,15 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
 
     return (
         <React.Fragment >
-            <Input
-                inputLabel={"Indicators"}
-                onClick={() => { setModalName("indicators"); handleOpen() }}
-                value={indicator.indicator}
-                placeholder="Indicators"
-            />
+
+            <div className="custom-input_container">
+                <div className="custom-input_label-container">
+                    <p className="custom-input_label">Indicators</p>
+                </div>
+                <div className="custom-input" style={{display: 'flex', alignItems: 'center'}} onClick={() => { setModalName("indicators"); handleOpen() }}>
+                    <p>{indicator.indicator || "Indicators"}</p>
+                </div>
+            </div>
             <Modal open={open} onClose={handleClose}>
                 <React.Fragment>
                     {modalName === "indicators" && (

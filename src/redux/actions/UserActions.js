@@ -21,6 +21,16 @@ export const updateUser = (data, userId, onSuccess, onError) => ({
     },
 });
 
+export const verificationUser = (token, onSuccess, onError) => ({
+    type: constants.API,
+    payload: {
+        method: 'GET',
+        url: `/user/accountVerification/${token}`,
+        postProccessSuccess: onSuccess,
+        postProccessError: onError,
+    },
+});
+
 const fetchMe = (data) => ({
     type: constants.GET_ME,
     payload: data.data,

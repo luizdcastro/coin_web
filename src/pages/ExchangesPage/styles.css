@@ -27,7 +27,6 @@
     padding-right: 10px;   
     margin-top: 7px;
     background-color: rgb(36, 36, 38);
-
 }
 
 .exchanges-input:hover{
@@ -42,7 +41,7 @@
 .exchanges-bot-button_disabled{
     width: 325px;
     height: 40px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 15px;
     font-weight: 500;
     border: solid 1px rgb(36, 36, 38);
@@ -54,7 +53,7 @@
 .exchanges-bot-button_active{
     width: 325px;
     height: 40px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 15px;
     font-weight: 500;
     border: solid 1px rgb(130, 87, 230);
@@ -154,7 +153,6 @@
     font-size: 12px;
     font-weight: 600;
     border-radius: 3px;
-
 }
 
 .exchanges_row_actions{
@@ -165,14 +163,14 @@
 }
 
 .exchange-error{
-    margin-top: 10px;
+    margin-top: 15px;
     width: 325px;
     font-size: 13px;
     color: #bb86fc;
 }
 
 .exchange-success{
-    margin-top: 10px;
+    margin-top: 15px;
     width: 325px;
     font-size: 13px;
     color: #03dac5;

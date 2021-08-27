@@ -1,0 +1,21 @@
+.checkout-page{
+    display: flex;
+    margin-left: 240px;
+    padding: 30px;    
+}
+
+.checkout-title{
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.checkout-container{
+    width: 100vw;
+}
+
+@media screen and (max-width: 600px) {
+    .checkout-page {
+      margin-left: 0;
+      padding-top: 70px
+    }   
+  }

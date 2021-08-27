@@ -99,7 +99,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 }
                 <div style={{display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
                     <div style={{width: 125}}>
-                        <IoIcons.IoShieldCheckmark size={42} color="rgba(255,255,255, 0.2)" style={{marginLeft: 4}}/>
+                        <IoIcons.IoShieldCheckmark size={42} color="rgba(255,255,255, 0.5)" style={{marginLeft: 4}}/>
                         <p style={{fontSize: 12}}>AES 256</p>
                     </div>
                     <p style={{fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6}}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>

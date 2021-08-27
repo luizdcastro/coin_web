@@ -3,16 +3,19 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import VerticalDrawer from '../components/VerticalDrawer';
-import HomePage  from "../pages/HomePage";
+import HomePage from "../pages/HomePage";
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
-import RecoverPasswordPage from "../pages/RecoverPassword";
+import RecoverPasswordPage from "../pages/RecoverPasswordPage";
 import StrategiesPage from '../pages/StrategiesPage';
 import ExchangesPage from '../pages/ExchangesPage';
 import SettingsPage from '../pages/SettingsPage';
 import CreateBotPage from '../pages/CreateBotPage';
 import EditBotPage from "../pages/EditBotPage";
 import TemplatesPage from '../pages/TemplatesPage'
+import VerificationPage from "../pages/VerificationPage";
+import ChangePasswordPage from "../pages/ChangePasswordPage";
+import CheckoutPage from "../pages/CheckoutPage";
 
 const App = ({ user }) => {
 
@@ -29,6 +32,8 @@ const App = ({ user }) => {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/recover-password" component={RecoverPasswordPage} />
+            <Route exact path="/account-verification/:token" component={VerificationPage} />
+            <Route exact path="/reset-password/:token" component={ChangePasswordPage} />
             <Redirect to="/" />
           </Switch>
         ) : (
@@ -39,6 +44,7 @@ const App = ({ user }) => {
             <Route exact path="/create-bot" component={CreateBotPage} />
             <Route exact path="/edit-bot/:botID" component={EditBotPage} />
             <Route exact path="/templates" component={TemplatesPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
             <Redirect to="/strategies" />
           </Switch>
         )}

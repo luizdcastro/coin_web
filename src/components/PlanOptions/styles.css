@@ -50,7 +50,7 @@
     flex-wrap: wrap;
     align-items: stretch;
     width: 310px;
-    height: 360px;
+    height: 400px;
     padding: 20px;
     margin-right: 30px;
     margin-bottom: 20px;
@@ -70,7 +70,7 @@
 
 .plan_header-price{
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
 }
 

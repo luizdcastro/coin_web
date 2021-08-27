@@ -1,4 +1,4 @@
-.login-page {
+.recover-password-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,24 +7,24 @@
     min-height: 100vh;
 }
 
-.login-headeline{
+.recover-password-headeline{
   display: flex;
   justify-content: center;
   margin-right: 70px;
 }
 
-.login-logo{
+.recover-password-logo{
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 30px;
 }
 
-.login-title{
+.recover-password-title{
   font-weight: 700;
   font-size: 3.4rem;
 }
   
-.login-container {
+.recover-password-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +37,7 @@
     border-radius: 5px;
   }
   
-.login-input {
+.recover-password-input {
   font-size: 15px;
     height: 45px;
     border: none;
@@ -50,14 +50,14 @@
     color: rgba(255,255,255, 0.9);
 }
 
-.login-icons{
+.recover-password-icons{
   position: absolute;
   top: 27px;
   left: 10px;
   color: rgba(255,255,255,0.4)
 }
 
-.login-icons-view{
+.recover-password-icons-view{
   position: absolute;
   top: 27px;
   right: 10px;
@@ -65,11 +65,11 @@
   cursor: pointer;
 }
 
-.login-input:focus{
+.recover-password-input:focus{
   border: solid 1px red;
 }
 
-.login-button{
+.recover-password-button{
     width: 100%;
     min-width: 310px;
     height: 45px;
@@ -82,37 +82,44 @@
     color: rgba(255,255,255, 0.9);
 }
 
-.login-button:hover{
+.recover-password-button:hover{
   filter: brightness(120%);
   cursor: pointer;
 }
 
-.login-link{
+.recover-password-link{
   color: rgb(130, 87, 230);
   font-weight: 500;
   font-size: 13px;
 }
 
-.login-link:hover{
+.recover-password-link:hover{
   color: #bb86fc;
 }
 
-.login-create-account{
+.recover-password-create-account{
   font-size: 13px;
   margin-top: 25px;
 }
    
-.login-error {
+.recover-password-error {
+    margin-top: 10px;
     font-size: 13px;
-    padding-top: 5px;
     font-weight: 400;
-    margin-top: 5px;
     color: #e74c3c;
-}  
+} 
+
+.recover-password-success{
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 400;  
+  color: #03dac5;
+
+}
 
 
   @media screen and (max-width: 600px) { 
-    .login-headeline {
+    .recover-password-headeline {
       margin-right: 0px;
       margin-bottom: 50px;
     }

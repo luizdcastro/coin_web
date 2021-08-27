@@ -30,7 +30,6 @@ const Login = ({ dispatchLoginAction }) => {
     <div className="login-page">
       <div className="login-headeline">
         <div>
-          <h1 className="login-logo"></h1>
           <h2 className="login-title">Make your login<br />on the platform.</h2>
         </div>
       </div>

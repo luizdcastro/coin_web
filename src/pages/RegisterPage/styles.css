@@ -73,7 +73,7 @@
     width: 100%;
     min-width: 310px;
     height: 45px;
-    margin-top: 25px;
+    margin-top: 15px;
     font-size: 15px;
     font-weight: 600;
     border: solid 1px rgb(130, 87, 230);
@@ -103,10 +103,11 @@
 }
    
 .register-error {
-    font-size: 13px;
-    color: #E53935;    
-    padding-top: 5px;
-    font-weight: 400;
+  margin-top: 15px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #e74c3c;
+
 }  
   
   @media screen and (max-width: 600px) { 

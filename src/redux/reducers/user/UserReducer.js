@@ -3,6 +3,8 @@ import * as constants from '../../constants';
 const defaultState = {
   id: null,
   token: null,
+  name: null,
+  email: null,
   isLoggedIn: null,
 };
 

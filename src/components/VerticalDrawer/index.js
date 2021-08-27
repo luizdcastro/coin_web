@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
@@ -7,6 +7,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { connect } from "react-redux";
 import { getMe } from '../../redux/actions/UserActions'
 import { logoutUser } from "../../redux/actions/AuthActions";
+import { useLocation } from "react-router-dom";
 
 import * as FiIcons from 'react-icons/fi'
 import * as IoIcons from "react-icons/io5";
@@ -30,13 +31,22 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
+const VericalDrawer = ({ dispatchLogout, disptachGetMe, user }) => {
     const { window } = "";
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [activeMenu, setActiveMenu] = useState("strategies");
+    const [activeMenu, setActiveMenu] = useState("/strategies");
     const [open, setOpen] = useState(false);
+    const location = useLocation()
+
+    useEffect(() => disptachGetMe(),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [])
+
+    useEffect(() => {
+        setActiveMenu(location.pathname)
+    }, [location.pathname, open])
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -46,12 +56,12 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
         <React.Fragment>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-betwen', height: '100%' }}>
                 <div
-                    className={activeMenu === 'settings' ? 'vertical-menu_item_active' : 'menu-item-avatar'}
+                    className={activeMenu === '/settings' ? 'vertical-menu_item_active' : 'menu-item-avatar'}
                     onClick={() => { setOpen(!open); setActiveMenu('settings') }}>
                     <div className="vertical-avatar">
-                        <p className="vertical-avatar-name">L</p>
+                        <p className="vertical-avatar-name">{user?.name.slice(0, 1)}</p>
                     </div>
-                    <p className="vertical-menu-title">Luiz</p>
+                    <p className="vertical-menu-title">{user?.name.split(" ")[0].slice(0, 12)}</p>
                     {!open ?
                         <FiIcons.FiChevronDown className="vertical-drop-icon" size={18} />
                         :
@@ -63,12 +73,12 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
                         <div className="expanded-vertical_menu-header">
                             <div>
                                 <div className="vertical-avatar">
-                                    <p className="vertical-avatar-name">L</p>
+                                    <p className="vertical-avatar-name">{user?.name.slice(0, 1)}</p>
                                 </div>
                             </div>
                             <div>
-                                <p className="expanded-vertical_menu-name">Luiz Castro</p>
-                                <p className="expanded-vertical_menu-email">luizf.dcastro@gmail.com</p>
+                                <p className="expanded-vertical_menu-name">{user?.name}</p>
+                                <p className="expanded-vertical_menu-email">{user?.email}</p>
                             </div>
                         </div>
                         <div className="expanded-vertical_menu-footer">
@@ -80,39 +90,35 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe }) => {
                             </div>
                         </div>
                     </div>)}
-                <ul style={{paddingTop: 20}}>
+                <ul style={{ paddingTop: 20 }}>
                     <li>
                         <Link
-                            className={activeMenu === 'strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                            to="/strategies"
-                            onClick={() => setActiveMenu('strategies')}>
+                            className={activeMenu === '/strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/strategies">
                             <IoIcons.IoStatsChart size={23} />
                             <p className="vertical-menu_item-text">Strategies</p>
                         </Link>
                     </li>
                     <li>
                         <Link
-                            className={activeMenu === 'create-bot' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                            to="/create-bot"
-                            onClick={() => setActiveMenu('create-bot')}>
+                            className={activeMenu === '/create-bot' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/create-bot">
                             <IoIcons.IoLayers size={23} />
                             <p className="vertical-menu_item-text">Create Bot</p>
                         </Link>
                     </li>
                     <li>
                         <Link
-                            className={activeMenu === 'exchanges' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                            to="/exchanges"
-                            onClick={() => setActiveMenu('exchanges')}>
+                            className={activeMenu === '/exchanges' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/exchanges">
                             <IoIcons.IoShareSocialSharp size={23} />
                             <p className="vertical-menu_item-text">Exchanges</p>
                         </Link>
                     </li>
                     <li>
                         <Link
-                            className={activeMenu === 'templates' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
-                            to="/templates"
-                            onClick={() => setActiveMenu('templates')}>
+                            className={activeMenu === '/templates' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
+                            to="/templates">
                             <IoIcons.IoCopy size={23} />
                             <p className="vertical-menu_item-text">Templates</p>
                         </Link>
@@ -184,7 +190,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 const mapStateToProps = (state) => ({
-    getme: state.getme,
+    user: state.user,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VericalDrawer);
