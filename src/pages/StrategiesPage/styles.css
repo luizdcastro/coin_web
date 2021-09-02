@@ -127,7 +127,7 @@
 
 .strategy-get-started:hover{
   cursor: pointer;
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 @media screen and (max-width: 600px) {

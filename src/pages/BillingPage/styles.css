@@ -1,0 +1,105 @@
+.billing_page{   
+    display: flex;
+    margin-left: 240px;
+    padding:30px;
+}
+
+.billing-container{
+    width: 100vw;
+}
+
+
+.billing-title{
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.billing-no-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    padding-bottom: 7%;
+}
+
+.billing-get-started{
+    display: flex;
+    width: 280px;
+    height: 35px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(130, 87, 230);;
+    padding: 15px;
+    padding-left: 12px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;    
+    font-weight: 500;
+}
+
+.billing-get-started:hover{
+  cursor: pointer;
+  filter: brightness(110%);
+}
+
+.billing-currentplan_container{
+    min-width: 500px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 29, 32);
+    margin: 30px;
+    padding: 50px;    
+}
+
+.billing-currentplan_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-top: 25px;
+    width: 380px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 3px;
+    background-color: rgb(130, 87, 230);
+    color: rgb(255,255,255,0.9);
+    padding-left: 15px;
+    font-weight: 500;
+}
+
+.billing-currentplan_button:hover{
+    filter: brightness(110%);
+    cursor: pointer;
+}
+
+.billing-currentplan_button-light{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-top: 10px;
+    width: 380px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: solid 1px rgba(255,255,255,0.9);    
+    background-color: rgba(255,255,255,0.9);
+    color: rgb(36, 36, 38);
+    padding-left: 15px;
+    font-weight: 500;
+}
+
+.billing-currentplan_button-light:hover{
+    filter: brightness(110%);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .billing_page {
+      margin-left: 0;
+      padding-top: 70px;
+    }   
+}

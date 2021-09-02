@@ -42,12 +42,12 @@ const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
 
     const settings = { exchange, symbol, timeframe }
     const [editBot, setEditBot] = useState([])
-    const { botID } = useParams()
+    const { id } = useParams()
     const history = useHistory();
 
     useEffect(() =>
         dispatchGetBot(
-            botID,
+            id,
             (response) => { setEditBot(response.data) },
             (error) => console.log(error)
             // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -193,7 +193,7 @@ const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
             settings,
             open_logic,
             close_logic,
-            botID,
+            id,
             (response) => {
                 console.log(response);
                 setLoading(false);

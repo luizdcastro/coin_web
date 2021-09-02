@@ -9,13 +9,13 @@ import RegisterPage from '../pages/RegisterPage';
 import RecoverPasswordPage from "../pages/RecoverPasswordPage";
 import StrategiesPage from '../pages/StrategiesPage';
 import ExchangesPage from '../pages/ExchangesPage';
-import SettingsPage from '../pages/SettingsPage';
 import CreateBotPage from '../pages/CreateBotPage';
 import EditBotPage from "../pages/EditBotPage";
 import TemplatesPage from '../pages/TemplatesPage'
 import VerificationPage from "../pages/VerificationPage";
 import ChangePasswordPage from "../pages/ChangePasswordPage";
-import CheckoutPage from "../pages/CheckoutPage";
+import PricingPage from "../pages/PricingPage"
+import BillingPage from '../pages/BillingPage'
 
 const App = ({ user }) => {
 
@@ -40,11 +40,11 @@ const App = ({ user }) => {
           <Switch>
             <Route exact path="/strategies" component={StrategiesPage} />
             <Route exact path="/exchanges" component={ExchangesPage} />
-            <Route exact path="/settings" component={SettingsPage} />
             <Route exact path="/create-bot" component={CreateBotPage} />
-            <Route exact path="/edit-bot/:botID" component={EditBotPage} />
+            <Route exact path="/edit-bot/:id" component={EditBotPage} />
             <Route exact path="/templates" component={TemplatesPage} />
-            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route exact path="/settings-pricing" component={PricingPage} />
+            <Route exact path="/settings-billing" component={BillingPage} />
             <Redirect to="/strategies" />
           </Switch>
         )}

@@ -83,7 +83,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user }) => {
                         </div>
                         <div className="expanded-vertical_menu-footer">
                             <div className="expanded-vertical_item">
-                                <Link className="expanded-vertical_link" to="/settings" onClick={() => setOpen(false)}>Account settings</Link>
+                                <Link className="expanded-vertical_link" to="/settings-pricing" onClick={() => setOpen(false)}>Account settings</Link>
                             </div>
                             <div className="expanded-vertical_item">
                                 <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
@@ -125,7 +125,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user }) => {
                     </li>
                 </ul>
                 <div className="vertical-menu_footer">
-                    <Link to="/settings" className="vertical-menu_upgrade">Upgrade Now</Link>
+                    <Link to="/settings-pricing" className="vertical-menu_upgrade">Upgrade Now</Link>
                     <div className="vertical-menu_divider" />
                     <div>
                         <p style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.8)', marginTop: 15, textAlign: 'center' }}>cointarget <span style={{ fontSize: 14 }}>| BETA</span></p>
