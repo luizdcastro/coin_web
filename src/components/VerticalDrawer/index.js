@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const VericalDrawer = ({ dispatchLogout, disptachGetMe, user }) => {
+const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
     const { window } = "";
     const classes = useStyles();
     const theme = useTheme();
@@ -125,7 +125,10 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user }) => {
                     </li>
                 </ul>
                 <div className="vertical-menu_footer">
-                    <Link to="/settings-pricing" className="vertical-menu_upgrade">Upgrade Now</Link>
+                    {!getme.stripe.subscription.active ?
+                        <Link to="/settings-pricing" className="vertical-menu_upgrade">Upgrade Now</Link>
+                        : null
+                    }
                     <div className="vertical-menu_divider" />
                     <div>
                         <p style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.8)', marginTop: 15, textAlign: 'center' }}>cointarget <span style={{ fontSize: 14 }}>| BETA</span></p>
@@ -191,6 +194,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
     user: state.user,
+    getme: state.getme
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VericalDrawer);

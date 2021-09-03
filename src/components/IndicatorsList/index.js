@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from "react-redux"
 import * as FiIcons from 'react-icons/fi'
 import * as MdIcons from 'react-icons/md'
-import Modal from '@material-ui/core/Modal';
+import Modal from '@material-ui/core/Modal'
 
-import indicators from '../../assets/data/indicators';
+import indicators from '../../assets/data/indicators'
 
 import './styles.css'
 
-const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) => {
+const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getme }) => {
     const [data, setData] = useState([])
     const [search, setSearch] = useState("")
     const [activeMenu, setActiveMenu] = useState("indicator")
@@ -45,7 +46,7 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
                 <div className="custom-input_label-container">
                     <p className="custom-input_label">Indicators</p>
                 </div>
-                <div className="custom-input" style={{display: 'flex', alignItems: 'center'}} onClick={() => { setModalName("indicators"); handleOpen() }}>
+                <div className="custom-input" style={{ display: 'flex', alignItems: 'center' }} onClick={() => { setModalName("indicators"); handleOpen() }}>
                     <p>{indicator.indicator || "Indicators"}</p>
                 </div>
             </div>
@@ -85,20 +86,50 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
                                         onClick={() => { setActiveMenu('candle') }}
                                     >Candle Patterns</p>
                                 </div>
-                                <div className="indicator-list-content">
-                                    {data.map((item) => (
-                                        <button
-                                            className="indicator-modal-button"
-                                            key={item.label}
-                                            onClick={() => {
-                                                setIndicator({ indicator: item.label, type: item.type });
-                                                setModalName("");
-                                                setOpen(false);
-                                            }}>
-                                            {item.label}
-                                        </button>
-                                    ))}
-                                </div>
+                                {!getme.stripe.subscription.active ?
+                                    <div className="indicator-list-content">
+                                        {data.map((item) => (
+                                            item?.permission === "all" ?
+                                                <button
+                                                    className="indicator-modal-button"
+                                                    key={item.label}
+                                                    onClick={() => {
+                                                        setIndicator({ indicator: item.label, type: item.type });
+                                                        setModalName("");
+                                                        setOpen(false);
+                                                    }}>
+                                                    {item.label}
+                                                </button>
+                                                :
+                                                <button
+                                                    className="indicator-modal-button"
+                                                    key={item.label}
+                                                    disabled
+                                                    onClick={() => {
+                                                        setIndicator({ indicator: item.label, type: item.type });
+                                                        setModalName("");
+                                                        setOpen(false);
+                                                    }}>
+                                                    {item.label}
+                                                    <span className="indicator-expert_label">Trader</span>
+                                                </button>
+                                        ))}
+                                    </div>
+                                    : <div className="indicator-list-content">
+                                        {data.map((item) => (
+                                            <button
+                                                className="indicator-modal-button"
+                                                key={item.label}
+                                                onClick={() => {
+                                                    setIndicator({ indicator: item.label, type: item.type });
+                                                    setModalName("");
+                                                    setOpen(false);
+                                                }}>
+                                                {item.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                }
                             </div>
                         </div>)}
                 </React.Fragment>
@@ -107,8 +138,11 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator }) =>
     )
 }
 
-export default IndicatorsList
+const mapStateToProps = (state) => ({
+    getme: state.getme,
+});
 
+export default connect(mapStateToProps, null)(IndicatorsList);
 
 
 

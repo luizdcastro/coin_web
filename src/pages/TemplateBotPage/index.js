@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import { createBot } from '../../redux/actions/BotActions';
 import { Ellipsis } from 'react-css-spinners';
 import { Link } from 'react-router-dom'
 import * as GoIcons from 'react-icons/go'
@@ -11,10 +10,13 @@ import BotSettings from '../../components/BotSettings'
 import MovingAverage from '../../components/Indicators/MovingAverage';
 import Indicator from '../../components/Indicators/Indicator';
 import CandlePattern from '../../components/Indicators/CandlePattern';
+import { createBot } from '../../redux/actions/BotActions';
+import { getTemplate } from '../../redux/actions/TemplateActions';
+import { useParams } from "react-router-dom";
 
 import './styles.css'
 
-const CreateBotPage = ({ dispatchCreateBot, user }) => {
+const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
     const [loading, setLoading] = useState(false)
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
@@ -24,7 +26,6 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [timeframe, setTimeframe] = useState("")
     const [modalName, setModalName] = useState("")
     const [modalNameClose, setModalNameClose] = useState("")
-    const [errorMessage, setErrorMessage] = useState("")
 
     const [openIndicator_01, setOpenIndicator_01] = useState({})
     const [openIndicator_02, setOpenIndicator_02] = useState({})
@@ -41,7 +42,114 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
     const settings = { exchange, symbol, timeframe }
+    const [template, setTemplate] = useState([])
+    const { id } = useParams()
     const history = useHistory();
+
+    useEffect(() =>
+        dispatchGetTemplate(
+            id,
+            (response) => { setTemplate(response[0]) },
+            (error) => console.log(error)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        ), [])
+
+
+    useMemo(() => {
+        if (!!template._id) {
+            setName(template.name);
+            setExchange({
+                name: template.settings.exchange.name,
+                id: template.settings.exchange.id
+            });
+            setSymbol(template.settings.symbol);
+            setTimeframe(template.settings.timeframe);
+            setOpenIndicator_01({
+                type: template.open_logic[0]?.type,
+                indicator: template.open_logic[0]?.indicator,
+                conditional: template.open_logic[0]?.conditional,
+                value: template.open_logic[0]?.value,
+                addConditional: template.open_logic[0]?.addConditional
+            });
+            setOpenIndicator_02({
+                type: template.open_logic[1]?.type,
+                indicator: template.open_logic[1]?.indicator,
+                conditional: template.open_logic[1]?.conditional,
+                value: template.open_logic[1]?.value,
+                addConditional: template.open_logic[1]?.addConditional
+            })
+            setOpenIndicator_03({
+                type: template.open_logic[2]?.type,
+                indicator: template.open_logic[2]?.indicator,
+                conditional: template.open_logic[2]?.conditional,
+                value: template.open_logic[2]?.value,
+                addConditional: template.open_logic[2]?.addConditional
+            })
+            setOpenIndicator_04({
+                type: template.open_logic[3]?.type,
+                indicator: template.open_logic[3]?.indicator,
+                conditional: template.open_logic[3]?.conditional,
+                value: template.open_logic[3]?.value,
+                addConditional: template.open_logic[3]?.addConditional
+            })
+            setOpenIndicator_05({
+                type: template.open_logic[4]?.type,
+                indicator: template.open_logic[4]?.indicator,
+                conditional: template.open_logic[4]?.conditional,
+                value: template.open_logic[4]?.value,
+                addConditional: template.open_logic[4]?.addConditional
+            })
+            setOpenIndicator_06({
+                type: template.open_logic[5]?.type,
+                indicator: template.open_logic[5]?.indicator,
+                conditional: template.open_logic[5]?.conditional,
+                value: template.open_logic[5]?.value,
+                addConditional: template.open_logic[5]?.addConditional
+            })
+            setCloseIndicator_01({
+                type: template.close_logic[0]?.type,
+                indicator: template.close_logic[0]?.indicator,
+                conditional: template.close_logic[0]?.conditional,
+                value: template.close_logic[0]?.value,
+                addConditional: template.close_logic[0]?.addConditional
+            });
+            setCloseIndicator_02({
+                type: template.close_logic[1]?.type,
+                indicator: template.close_logic[1]?.indicator,
+                conditional: template.close_logic[1]?.conditional,
+                value: template.close_logic[1]?.value,
+                addConditional: template.close_logic[1]?.addConditional
+            })
+            setCloseIndicator_03({
+                type: template.close_logic[2]?.type,
+                indicator: template.close_logic[2]?.indicator,
+                conditional: template.close_logic[2]?.conditional,
+                value: template.close_logic[2]?.value,
+                addConditional: template.close_logic[2]?.addConditional
+            })
+            setCloseIndicator_04({
+                type: template.close_logic[3]?.type,
+                indicator: template.close_logic[3]?.indicator,
+                conditional: template.close_logic[3]?.conditional,
+                value: template.close_logic[3]?.value,
+                addConditional: template.close_logic[3]?.addConditional
+            })
+            setCloseIndicator_05({
+                type: template.close_logic[4]?.type,
+                indicator: template.close_logic[4]?.indicator,
+                conditional: template.close_logic[4]?.conditional,
+                value: template.close_logic[4]?.value,
+                addConditional: template.close_logic[4]?.addConditional
+            })
+            setCloseIndicator_06({
+                type: template.close_logic[5]?.type,
+                indicator: template.close_logic[5]?.indicator,
+                conditional: template.close_logic[5]?.conditional,
+                value: template.close_logic[5]?.value,
+                addConditional: template.close_logic[5]?.addConditional
+            })
+        }
+    }, [template]);
 
     function openBotPayload() {
         let payload = []
@@ -83,17 +191,18 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const handleSubmmit = () => {
         setLoading(true)
         dispatchCreateBot(
-            user.id,
+            getme.id,
             name,
             settings,
             open_logic,
             close_logic,
-            () => {
+            (response) => {
+                console.log(response);
                 setLoading(false);
                 history.push("/strategies");
             },
             (error) => {
-                setErrorMessage(error.message)
+                console.log(error);
                 setLoading(false);
             }
         )
@@ -103,7 +212,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
         <div className="bots-page">
             <div className="strategies-container">
                 <div className="strategies-header">
-                    <h2 className="strategies-page-title">Craate Bot</h2>
+                    <h2 className="strategies-page-title">Template Bot</h2>
                     <Link className="add-bot-button" to="exchanges">
                         <GoIcons.GoPlus size={16} style={{ marginRight: 3 }} />
                         New Exchange
@@ -294,7 +403,6 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                                     : null}
                     </div>
                     : null}
-                {errorMessage ? <p className="create-bot-error">{errorMessage}</p> : null}
                 {!!exchange & !!symbol & !!timeframe & closeFinal & openFinal ?
                     <button className="create-bot-button_active" disabled={loading ? true : false} onClick={() => handleSubmmit()}>
                         {
@@ -312,11 +420,11 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
 const mapDispatchToProps = (dispatch) => ({
     dispatchCreateBot: (user, name, settings, open_logic, close_logic, onSuccess, onError) =>
         dispatch(createBot({ user, name, settings, open_logic, close_logic }, onSuccess, onError)),
+    dispatchGetTemplate: (templateId, onSuccess, onError) => dispatch(getTemplate(templateId, onSuccess, onError)),
 });
 
 const mapStateToProps = (state) => ({
-    bot: state.bot,
-    user: state.user
+    getme: state.getme,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateBotPage);
+export default connect(mapStateToProps, mapDispatchToProps)(TemplateBotPage);

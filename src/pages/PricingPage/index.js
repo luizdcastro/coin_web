@@ -28,7 +28,7 @@ const PricingPage = ({ getme }) => {
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
                     <div className="pricing_container">
                         <div className="pricing_header">
-                            <p className="pricing_header-title">Newbie</p>
+                            <p className="pricing_header-title">Starter</p>
                             <div>
                                 <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>0,00 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
                                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, marginTop: 5, fontWeight: 400 }}>Limited trading features</p>
@@ -61,7 +61,7 @@ const PricingPage = ({ getme }) => {
                     </div>
                     <div className="pricing_container">
                         <div className="pricing_header">
-                            <p className="pricing_header-title">Expert</p>
+                            <p className="pricing_header-title">Trader</p>
                             {planType === "monthly" ?
                                 <div>
                                     <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>79,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
@@ -70,7 +70,7 @@ const PricingPage = ({ getme }) => {
                                 :
                                 <div>
                                     <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>59,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
-                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, marginTop: 5, fontWeight: 400 }}>$719 will be billed annualy</p>
+                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, marginTop: 5, fontWeight: 400 }}>$719,90 will be billed annualy</p>
                                 </div>
                             }
                         </div>

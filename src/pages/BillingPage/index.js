@@ -25,9 +25,10 @@ const AccountSettings = ({ disptachGetMe, getme }) => {
         [])
 
     useEffect(() => {
-        if (state != undefined) {
+        if (state !== undefined) {
             setPlanDetails(state[0])
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleDeleteSubscription = async () => {
@@ -92,7 +93,7 @@ const AccountSettings = ({ disptachGetMe, getme }) => {
                         </div>
                     </div>
                     : null}
-                <Modal open={open}  onClose={handleClose}>
+                <Modal open={open} onClose={handleClose}>
                     <Elements stripe={stripePromise}>
                         <UpdatePayment handleClose={handleClose}/>
                     </Elements>
@@ -109,7 +110,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
     getme: state.getme,
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountSettings);

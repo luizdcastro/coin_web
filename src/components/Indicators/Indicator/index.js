@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-
 import Select from '../../Select';
 import Input from '../../Input';
 
@@ -130,4 +129,5 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
     )
 }
 
-export default Indicator
+
+export default Indicator;

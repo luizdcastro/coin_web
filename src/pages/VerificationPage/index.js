@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { verificationUser } from '../../redux/actions/UserActions'
-import * as MdIcons from 'react-icons/md'
-
 
 import './styles.css';
 
@@ -18,6 +16,7 @@ const VerificationPage = ({ dispatchVeritication }) => {
             () => setActivated("Active"),
             () => setActivated("Inactive")
         )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])
 
     return (

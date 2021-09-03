@@ -35,7 +35,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
         labels: time,
         datasets: [
             {
-                label: "Closed Order",
+                label: "Closed Orders",
                 data: data,
                 fill: true,
                 backgroundColor: 'rgba(130, 87, 230, 0.3)',

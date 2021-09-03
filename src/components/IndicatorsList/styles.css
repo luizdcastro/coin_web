@@ -109,6 +109,7 @@
 }
 
 .indicator-modal-button{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 200px;
@@ -132,6 +133,17 @@
     cursor: pointer;
     color: #bb86fc;
     filter: brightness(120%);
+}
+
+.indicator-expert_label{
+    border: solid 1px #bb86fc;
+    color: #bb86fc;
+    padding: 3px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 10px;
+    border-radius: 3px;
 }
 
 .indicator-modal-search-container{

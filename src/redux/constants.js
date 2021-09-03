@@ -11,4 +11,8 @@ export const DELETE_BOT = "DELETE_BOT";
 export const CREATE_EXCHANGE = "CREATE_EXCHANGE";
 export const GET_EXCHANGE = "GET_EXCHANGE";
 export const DELETE_EXCHANGE = "DELETE_EXCHANGE"; 
+export const GET_TEMPLATE = "GET_TEMPLATE"; 
+export const GET_ALL_TEMPLATES = "GET_ALL_TEMPLATES"; 
+
+
 
