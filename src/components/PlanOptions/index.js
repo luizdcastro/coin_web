@@ -12,17 +12,17 @@ const PlanOptions = ({ planType, setPlantype }) => {
                     <button
                         className={planType === "monthly" ? "plan-option-type_button-active" : "plan-option-type_button"}
                         onClick={() => setPlantype("monthly")}
-                        style={{ marginRight: 3 }}>Monthly</button>
+                        style={{ marginRight: 3 }}>Billed Monthly</button>
                     <button
                         className={planType === "annual" ? "plan-option-type_button-active" : "plan-option-type_button"}
                         onClick={() => setPlantype("annual")}
-                    >Annualy</button>
+                    >Billed Annualy</button>
                 </div>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center' }}>
                 <div className="plan-option_container">
                     <div className="plan-option_header">
-                        <p className="plan-option_header-title">Starter</p>
+                        <p className="plan-option_header-title">Free Tier</p>
                         <div>
                             <p className="plan-option_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>0,00 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
                             <p className="plan-option_header-description">Limited trading features</p>
@@ -61,7 +61,7 @@ const PlanOptions = ({ planType, setPlantype }) => {
                         </li>
                     </ul>
                     <div className="plan-option_footer">
-                        <button className="plan-option_button">Free Tier</button>
+                        <button className="plan-option_button">Get Starter</button>
                     </div>
                 </div>
                 <div className="plan-option_container">

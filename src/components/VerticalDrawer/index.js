@@ -125,7 +125,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                     </li>
                 </ul>
                 <div className="vertical-menu_footer">
-                    {!getme.stripe.subscription.active ?
+                    {!getme.stripe?.subscription?.active ?
                         <Link to="/settings-pricing" className="vertical-menu_upgrade">Upgrade Now</Link>
                         : null
                     }

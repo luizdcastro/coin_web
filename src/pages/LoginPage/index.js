@@ -27,11 +27,10 @@ const Login = ({ dispatchLoginAction }) => {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-banner">
-      </div>
-      <div className="login-content">
+    <div className="login-page">     
+      <div className="login-content">        
         <div className="login-container">
+        <h2 style={{fontSize: '1.7rem', fontWeight: 600, marginBottom: 15}}>Access your account</h2>
           <form onSubmit={handleOnSubmmit}>
             <div style={{ width: "100%", position: 'relative' }}>
               <IoIcons.IoMail size={20} className="login-icons" />

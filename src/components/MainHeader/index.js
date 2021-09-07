@@ -38,16 +38,16 @@ const MainHeader = () => {
                     {width >= 600 ? (
                         <ul className="main-header-menu">
                             <li >
-                                <Link className="main-header-link-middle" to="#">About</Link>
+                                <a className="main-header-link-middle" href="#about">About</a>
                             </li>
                             <li >
-                                <Link className="main-header-link-middle" to="#">Features</Link>
+                                <a className="main-header-link-middle" href="#features">Features</a>
                             </li>
                             <li >
-                                <Link className="main-header-link-middle" to="#">Pricing</Link>
+                                <a className="main-header-link-middle" href="#pricing">Pricing</a>
                             </li>
                             <li >
-                                <Link className="main-header-link-middle" to="#">Learn</Link>
+                                <a className="main-header-link-middle" href="#">Learn</a>
                             </li>
                         </ul>
                     ) : null}

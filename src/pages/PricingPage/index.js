@@ -31,28 +31,38 @@ const PricingPage = ({ getme }) => {
                             <p className="pricing_header-title">Starter</p>
                             <div>
                                 <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>0,00 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
-                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, marginTop: 5, fontWeight: 400 }}>Limited trading features</p>
+                                <p className="plan-option_header-description">Limited trading features</p>
                             </div>                    </div>
-                        <ul className="pricing_content">
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>2 Live Bots</p>
+                        <ul className="plan-option_content">
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>2 Live Bots</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>2 Demo Bots</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>2 Demo Bots</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>3 Indicators</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>3 Indicators</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>1 Connected Exchanges</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>1 Connected Exchanges</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>Limited Trading Volume</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>Limited Trading Volume</p>
                             </li>
                         </ul>
                         <div className="pricing_footer">
@@ -65,47 +75,63 @@ const PricingPage = ({ getme }) => {
                             {planType === "monthly" ?
                                 <div>
                                     <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>79,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
-                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, marginTop: 5, fontWeight: 400 }}>Up to 25% off with annual plan</p>
+                                    <p className="plan-option_header-description">Up to 25% off with annual plan</p>
                                 </div>
                                 :
                                 <div>
                                     <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>59,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
-                                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, marginTop: 5, fontWeight: 400 }}>$719,90 will be billed annualy</p>
+                                    <p className="plan-option_header-description">$719,90 will be billed annualy</p>
                                 </div>
                             }
                         </div>
-                        <ul className="pricing_content">
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>20 Live Bots</p>
+                        <ul className="plan-option_content">
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>20 Live Bots</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>20 Demo Bots</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>20 Demo Bots</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>20 Indicators</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>20 Indicators</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>25 Candle Patterns</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>25 Candle Patterns</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>3 Connected Exchanges</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>3 Connected Exchanges</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>Templates Access</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>Templates Access</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>Unlimited Trading Volume</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>Unlimited Trading Volume</p>
                             </li>
-                            <li style={{ display: 'flex', marginBottom: 3 }}>
-                                <FiIcons.FiCheck color="#bb86fc" size={17} style={{ marginRight: 5 }} />
-                                <p>Email Support</p>
+                            <li className="plan-option_item-container">
+                                <div className="plan-option_icon-container">
+                                    <FiIcons.FiCheck color="#bb86fc" size={17} />
+                                </div>
+                                <p className="plan-option_item-name" style={{fontSize: '1rem'}}>Email Support</p>
                             </li>
                         </ul>
                         <div className="pricing_footer">
@@ -118,12 +144,12 @@ const PricingPage = ({ getme }) => {
                                     <Link className="pricing_button"
                                         to={{
                                             pathname: "/settings-billing",
-                                            state: [{ id: "price_1JUxlzBlcq11oIounTo8Psb3", name: 'Expert', price: '79,90', billed: "Montly" }]
+                                            state: [{ id: "price_1JUxlzBlcq11oIounTo8Psb3", name: 'Trader', price: '79,90', billed: "Montly" }]
                                         }}>Upgrade Plan</Link> :
                                     <Link className="pricing_button"
                                         to={{
                                             pathname: "/settings-billing",
-                                            state: [{ id: "price_1JUxlzBlcq11oIou5Fot88gy", name: 'Expert', price: '719,90', billed: "Anually" }]
+                                            state: [{ id: "price_1JUxlzBlcq11oIou5Fot88gy", name: 'Trader', price: '719,90', billed: "Anually" }]
                                         }}>Upgrade Plan</Link>
                             }
                         </div>

@@ -3,17 +3,17 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  width: 100vw;
 }
 
 .login-content{  
   display: flex;
   align-items: center;
-  flex: 1;
-  width: 100vw;
   height: 100vh;
   justify-content: center;
-  padding-left: 20px ;
-  padding-right: 20px;
+  flex-wrap: wrap;
+  margin-right: 15px;
+  margin-left: 15px;
 }
   
 .login-container {
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 375px;
+    max-width: 420px;
     background-color: rgb(32, 32, 36);
     padding: 40px;
     padding-top: 45px;
@@ -66,18 +66,17 @@
 .login-button{
     width: 100%;
     min-width: 310px;
-    height: 45px;
+    height: 42px;
     margin-top: 15px;
     font-size: 15px;
     font-weight: 600;
     border: solid 1px rgb(130, 87, 230);
     background-color: rgb(130, 87, 230);
-    border-radius: 3px;
     color: rgba(255,255,255, 0.9);
 }
 
 .login-button:hover{
-  filter: brightness(120%);
+  filter: brightness(110%);
   cursor: pointer;
 }
 
@@ -106,8 +105,5 @@
 
 
   @media screen and (max-width: 600px) { 
-    .login-headeline {
-      margin-right: 0px;
-      margin-bottom: 50px;
-    }
+   
   }

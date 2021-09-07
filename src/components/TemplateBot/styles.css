@@ -1,31 +1,43 @@
 .template-bot-content{
     display: flex;
-    min-width: 500px;
+    min-width: 800px;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 10px;
     padding: 12px 8px 12px 8px;
     border-radius: 3px;
     background-color: rgb(36, 36, 38);
-    height: 65px;
+    height: 80px;
     color: rgba(255,255,255,0.85)
 }
 
 .template-bot-content:hover{
-    background-color: rgb(51, 51, 53);    
     cursor: pointer;
+    background-color: rgb(51, 51, 53);    
 }
 
-.templates_row_name{
-     flex: 1;
-     font-size: 13px;  
-     font-weight: 400;
+.templates-bot_name-container{
+    display: flex;
+    flex: 1;
+    align-items: center;
 }
 
-.templates_row_description{
-    font-size: 13px;
-    font-weight: 300;
+.template-bot_name-text{
+   padding-left: 10px;
+   font-size: 15px;
+   font-weight: 500;
 }
+
+.template-bot_description-text{
+    width: 380px;
+    font-size: 14px;
+}
+
+.template-bot_config-text{
+   font-size: 15px;
+   font-weight: 500;
+}
+
 
 @media screen and (max-width: 600px) {
     .templates-page {

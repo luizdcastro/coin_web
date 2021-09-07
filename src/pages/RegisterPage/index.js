@@ -39,6 +39,7 @@ const Register = ({ dispatchRegisterUser }) => {
       </div>
       <div className="register-content">
         <div className="register-container">
+        <h2 style={{fontSize: '1.7rem', fontWeight: 600, marginBottom: 15}}>Create your account</h2>
           <form onSubmit={handleOnSubmmit}>
             <div style={{ width: "100%", position: 'relative' }}>
               <IoIcons.IoMail size={20} className="register-icons" />

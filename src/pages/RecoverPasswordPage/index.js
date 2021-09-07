@@ -27,6 +27,7 @@ const RecoverPassword = ({ dispatchForgotPassword }) => {
     <div className="recover-password-page">
       <div className="recover-password-content">
         <div className="recover-password-container">
+        <h2 style={{fontSize: '1.7rem', fontWeight: 600, marginBottom: 15}}>Recover your password</h2>
           <form onSubmit={handleOnSubmmit}>
             <div style={{ width: "100%", position: 'relative' }}>
               <IoIcons.IoMail size={20} className="recover-password-icons" />

@@ -26,7 +26,6 @@
     background-color: rgb(130, 87, 230);
     padding: 15px;
     padding-left: 12px;
-    border-radius: 3px;
     color: rgb(255, 255, 255);
     font-size: 14px;    
     font-weight: 500;
@@ -34,7 +33,7 @@
 
 .add-bot-button:hover{
     cursor: pointer;
-    filter: brightness(120%);
+    filter: brightness(110%);
 }
 
 .strategies-list-header{
@@ -62,7 +61,7 @@
     padding: 12px 8px 12px 8px;
     border-radius: 3px;
     background-color: rgb(36, 36, 38);
-    height: 55px;
+    height: 60px;
 }
 
 .strategies-list-content:hover{

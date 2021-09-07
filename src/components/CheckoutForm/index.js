@@ -34,11 +34,11 @@ const CheckoutForm = ({ getme, planDetails, disptachGetMe }) => {
     const stripe = useStripe()
     const elements = useElements()
 
-    console.log(getme)
-
     const handleSubmmit = async (event) => {
         event.preventDefault()
         setLoading(true)
+
+        console.log(getme.stripe.id)
 
         const subscription = await axios.post('http://localhost:8000/v1/payment/create-subscription', { priceId: planDetails.id, customerId: getme.stripe.id })
 

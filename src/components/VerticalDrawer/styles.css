@@ -7,7 +7,6 @@
     margin-bottom: 5px;
     padding-left: 15px;
     color: rgb(255,255,255);    
-    border-radius: 3px;
     cursor: pointer;
     background-color:rgb(36, 36, 38);
 }
@@ -29,7 +28,7 @@
 }
 
 .vertical-menu-title{  
-    font-size: 16px;
+    font-size: 1.15rem;
     margin-left: 12px;
     color: rgb(255,255,255,0.9);
     font-weight: 500;
@@ -79,7 +78,7 @@
 
 .vertical-menu_item-text{
     margin-left: 12px;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 400;
 }
 
@@ -165,9 +164,7 @@
 .expanded-vertical_item:hover{
     cursor: pointer;
     background-color: rgb(36, 36, 38);
-
 }
-
 
 .vertical-menu_upgrade{
     display: flex;
@@ -176,8 +173,7 @@
     border: none;
     width: 210px;
     height: 35px;
-    font-size: 14px;
-    border-radius: 3px;
+    font-size: 0.9rem;
     background-color: rgb(130, 87, 230);
     color: rgb(255,255,255,0.9);
     padding-left: 15px;
@@ -194,7 +190,6 @@
     width: 220px;
     margin: 15px;
 }
-
 
 .vertical-menu_divider{
     width: 210px;

@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
-import { connect } from "react-redux";
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { connect } from "react-redux"
+import { Link, Redirect } from 'react-router-dom'
 import * as GoIcons from 'react-icons/go'
 import TemplateBot from '../../components/TemplateBot'
 import { getAllTemplates } from '../../redux/actions/TemplateActions'
 import Modal from '@material-ui/core/Modal'
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 
 import './styles.css'
 
-const TemplatesPage = ({ dispatchGetTemplates, template, getme}) => {
+const TemplatesPage = ({ dispatchGetTemplates, template, getme }) => {
+    const [open, setOpen] = useState(false)
     let history = useHistory()
 
     useEffect(() => dispatchGetTemplates(),
@@ -18,19 +19,30 @@ const TemplatesPage = ({ dispatchGetTemplates, template, getme}) => {
 
     const handleOutsideClick = (e) => {
         if (e.target.id === "modal") {
-            history.push("strategies")
+            setOpen(false)
+        }
+    }
+
+    const handleTemplates = (id) => {
+        if (getme.stripe.subscription.active === false) {
+            setOpen(true)
+        } else {
+            history.push(`/template/${id}`)
         }
     }
 
     return (
         <div className="templates-page">
-            <Modal open={getme.stripe.subscription.active ? false : true}>
+            <Modal open={open}>
                 <div className="templates-page_inactive" onClick={handleOutsideClick} id="modal">
                     <div className="templates-page_inactive-modal">
                         <div>
-                            <p>Templates are exclusive to subscribers.</p>
-                            <p>Upgrade your plan to have access to all features.</p>
-                            <Link className="update-payment-button" to="/settings-pricing">Get Started</Link>
+                            <p className="templates-modal_title">Hey {getme?.name.split(" ")[0].slice(0, 12)}!</p>
+                            <p className="templates-modal_text">Templates are avaliable to subscribers only.</p>
+                            <p className="templates-modal_text">Upgrade your plan to access all trading features.</p>
+                            <div className="templates-modal_container-button">
+                                <Link className="templates-update_button" to="/settings-pricing">Upgrade Now</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,17 +55,17 @@ const TemplatesPage = ({ dispatchGetTemplates, template, getme}) => {
                         Custom Strategy
                     </Link>
                 </div>
-                <div className="strategies-list-header">
-                    <p className="strategies_col_name">Name</p>
-                    <p className="strategies_col_name" style={{ flex: 2 }}>Description</p>
-                    <p className="strategies_col_name">Settings</p>
-                    <p className="strategies_col_name"></p>
+                <div className="templates-list-header">
+                    <p className="templates_col_name">Name</p>
+                    <p className="templates_col_name" style={{flex: 2}}>Summary</p>
+                    <p className="templates_col_name">Settings</p>
+                    <p className="templates_col_name" style={{marginRight: 20, textAlign: 'right'}}>Quick Start</p>
                 </div>
                 {template?.length >= 1 ?
                     <React.Fragment>
                         {template.map((item) => (
                             <div key={item.id}>
-                                <TemplateBot to={`/template/${item.id}`} name={item.name} description={item.description} config={item.config} />
+                                <TemplateBot onClick={() => handleTemplates(item.id)} name={item.name} description={item.description} config={item.config} />
                             </div>
                         ))}
                     </React.Fragment>
