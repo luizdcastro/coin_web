@@ -40,7 +40,7 @@ const CheckoutForm = ({ getme, planDetails, disptachGetMe }) => {
         event.preventDefault()
         setLoading(true)
 
-        const subscription = await axios.post('http://localhost:8000/v1/payment/create-subscription', { priceId: planDetails.id, customer: getme.stripe.id })
+        const subscription = await axios.post('http://localhost:8000/v1/payment/create-subscription', { priceId: planDetails.id, customerId: getme.stripe.id })
 
         if (subscription.status === 200) {
             const cardElement = elements.getElement(CardElement);

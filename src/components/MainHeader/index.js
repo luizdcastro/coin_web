@@ -30,26 +30,27 @@ const MainHeader = () => {
     return (
         <div className={navbar ? 'main-header active' : 'main-header'}>
             <nav className="main-header-nav">
-                <div>
-                    <Link className="main-header-logo" to="#">cointarget</Link>
+                <div className="main-header_logo-container">
+                    <IoIcons.IoGrid className="main-header_logo-icon"/>
+                    <Link className="main-header_logo-text" to="#">tradingrid</Link>
                 </div>
                 <div>
-                {width >= 600 ? (
-                    <ul className="main-header-menu">
-                        <li >
-                            <Link className="main-header-link-middle" to="#">About</Link>
-                        </li>
-                        <li >
-                            <Link className="main-header-link-middle" to="#">Features</Link>
-                        </li>
-                        <li >
-                            <Link className="main-header-link-middle" to="#">Pricing</Link>
-                        </li>
-                        <li >
-                            <Link className="main-header-link-middle" to="#">Learn</Link>
-                        </li>
-                    </ul>
-                ) : null}
+                    {width >= 600 ? (
+                        <ul className="main-header-menu">
+                            <li >
+                                <Link className="main-header-link-middle" to="#">About</Link>
+                            </li>
+                            <li >
+                                <Link className="main-header-link-middle" to="#">Features</Link>
+                            </li>
+                            <li >
+                                <Link className="main-header-link-middle" to="#">Pricing</Link>
+                            </li>
+                            <li >
+                                <Link className="main-header-link-middle" to="#">Learn</Link>
+                            </li>
+                        </ul>
+                    ) : null}
                 </div>
                 {width <= 600 ? (
                     <>
@@ -61,35 +62,40 @@ const MainHeader = () => {
                             <div className="main-header_dropdown-container">
                                 <div className="main-header_dropdown-menu">
                                     <Link className="main-header_close-menu__icon" onClick={() => setMenuOpen(false)}>
-                                        <IoIcons.IoCloseOutline size={35} color="grey" />
+                                        <IoIcons.IoCloseOutline size={35} color="rgba(255,255,255,0.85)" />
                                     </Link>
+                                    <div>
+                                        <Link
+                                            className="main-header_menu-item-login"
+                                            to="/login"
+                                            onClick={() => setMenuOpen(false)}>Login
+                                        </Link>
+                                    </div>
                                     <Link
                                         className="main-header_menu-item-register"
                                         to="/register"
-                                        onClick={() => setMenuOpen(false)}>Sign up
-                                        </Link>
-                                        <div>
+                                        onClick={() => setMenuOpen(false)}>Sign Up
+                                    </Link>                                   
                                     <Link
-                                        className="main-header_menu-item-login"
-                                        to="/login"
-                                        onClick={() => setMenuOpen(false)}>Entrar 
-                                        </Link>
-                                        </div>
-                                        <Link
                                         className="main-header_menu-item"
                                         to="#"
-                                        onClick={() => setMenuOpen(false)}>Home 
-                                        </Link>
-                                        <Link
+                                        onClick={() => setMenuOpen(false)}>About
+                                    </Link>
+                                    <Link
                                         className="main-header_menu-item"
                                         to="#"
-                                        onClick={() => setMenuOpen(false)}>Plataforma 
-                                        </Link>
-                                        <Link
+                                        onClick={() => setMenuOpen(false)}>Features
+                                    </Link>
+                                    <Link
                                         className="main-header_menu-item"
                                         to="#"
-                                        onClick={() => setMenuOpen(false)}>Suporte 
-                                        </Link>
+                                        onClick={() => setMenuOpen(false)}>Pricing
+                                    </Link>
+                                    <Link
+                                        className="main-header_menu-item"
+                                        to="#"
+                                        onClick={() => setMenuOpen(false)}>Learn
+                                    </Link>
                                 </div>
                             </div>
                         }

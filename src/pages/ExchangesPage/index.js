@@ -4,7 +4,8 @@ import { Ellipsis } from 'react-css-spinners'
 import Binance from '../../assets/images/binance.png'
 import Coinbase from '../../assets/images/coinbase.png'
 import Kraken from '../../assets/images/kraken.png'
-import Bybit from '../../assets/images/bybit.png'
+import Bybit from '../../assets/images/bybit.jpg'
+import OKEx from '../../assets/images/OKEx.png'
 import * as MdIcons from 'react-icons/md'
 import * as FiIcons from 'react-icons/fi'
 import * as IoIcons from 'react-icons/io5'
@@ -33,13 +34,21 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
             name: "Binance"
         },     
         {
+            icon: Bybit,
+            name: "ByBit"
+        },
+        {
             icon: Coinbase,
-            name: "Coinbase"
+            name: "Coinbase | Pro"
         },
         {
             icon: Kraken,
             name: "Kraken"
-        }
+        },
+        {
+            icon: OKEx,
+            name: "OKEx"
+        }  
     ]
 
     const handleSubmmit = () => {

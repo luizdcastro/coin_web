@@ -65,7 +65,7 @@ const Register = ({ dispatchResetPassword }) => {
                     {success ? <p className="change-password-success">{success}</p> : null}      
                     <button className="change-password-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
                         {
-                            !loading ? 'Update Password' : <span> <Ellipsis color="#FFF" size={38} /></span>
+                            !loading ? 'Update Password' : <span> <Ellipsis color="#FFF" size={38} style={{marginTop: 3}} /></span>
                         }
                     </button>
                 </form>

@@ -1,27 +1,19 @@
 .recover-password-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding:30px;
-    min-height: 100vh;
-}
-
-.recover-password-headeline{
   display: flex;
+  flex: 1;
   justify-content: center;
-  margin-right: 70px;
+  align-items: center;
 }
 
-.recover-password-logo{
-  font-weight: 500;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.recover-password-title{
-  font-weight: 700;
-  font-size: 3.4rem;
+.recover-password-content{  
+  display: flex;
+  align-items: center;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  padding-left: 20px ;
+  padding-right: 20px;
 }
   
 .recover-password-container {
@@ -121,6 +113,6 @@
   @media screen and (max-width: 600px) { 
     .recover-password-headeline {
       margin-right: 0px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
   }

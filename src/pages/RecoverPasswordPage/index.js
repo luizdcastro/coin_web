@@ -18,39 +18,36 @@ const RecoverPassword = ({ dispatchForgotPassword }) => {
     setLoading(true)
     dispatchForgotPassword(
       email,
-      () => {setSuccess("The reset link was sent to your email."); setLoading(false); setServerError("") },
+      () => { setSuccess("The reset link was sent to your email."); setLoading(false); setServerError("") },
       (response) => { setServerError(response.error); setLoading(false); setSuccess("") }
     );
   };
 
   return (
     <div className="recover-password-page">
-      <div className="recover-password-headeline">
-        <div>
-          <h2 className="recover-password-title">Recover your<br />password.</h2>
+      <div className="recover-password-content">
+        <div className="recover-password-container">
+          <form onSubmit={handleOnSubmmit}>
+            <div style={{ width: "100%", position: 'relative' }}>
+              <IoIcons.IoMail size={20} className="recover-password-icons" />
+              <input
+                className="recover-password-input"
+                type="email"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            {serverError ? <p className="recover-password-error">{serverError}</p> : null}
+            {success ? <p className="recover-password-success">{success}</p> : null}
+            <button className="recover-password-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
+              {
+                !loading ? 'Send Link' : <span> <Ellipsis color="#FFF" size={38} style={{ marginTop: 3 }} /></span>
+              }
+            </button>
+          </form>
+          <p className="recover-password-create-account">Remembered password? <span><Link to="/login" className="login-link">Sign in</Link></span></p>
         </div>
-      </div>
-      <div className="recover-password-container">
-        <form onSubmit={handleOnSubmmit}>
-          <div style={{ width: "100%", position: 'relative' }}>
-            <IoIcons.IoMail size={20} className="recover-password-icons" />
-            <input
-              className="recover-password-input"
-              type="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          {serverError ? <p className="recover-password-error">{serverError}</p> : null}
-          {success ? <p className="recover-password-success">{success}</p> : null}        
-          <button className="recover-password-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
-            {
-              !loading ? 'Send Link' : <span> <Ellipsis color="#FFF" size={38} /></span>
-            }
-          </button>
-        </form>
-        <p className="recover-password-create-account">Remembered password? <span><Link to="/login" className="login-link">Sign in</Link></span></p>
       </div>
     </div>
   );

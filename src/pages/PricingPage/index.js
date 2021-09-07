@@ -109,7 +109,7 @@ const PricingPage = ({ getme }) => {
                             </li>
                         </ul>
                         <div className="pricing_footer">
-                            {getme?.stripe?.subscription === "active" ?
+                            {getme.stripe.subscription.active ?
                                 planType === "monthly" ?
                                     <Link className="pricing_button-light" to="/settings-billing">Current Plan</Link> :
                                     <Link className="pricing_button-light" to="/settings-billing">Current Plan</Link>

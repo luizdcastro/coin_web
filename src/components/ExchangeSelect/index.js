@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import * as MdIcons from 'react-icons/md'
+import * as FiIcons from 'react-icons/fi'
 
 import './styles.css'
 
@@ -33,8 +33,8 @@ const ExchangeSelect = ({exchange, setExchange, exchangesList}) => {
                     <p className="exchange-select_title">Choose your exchange</p>
                 }
                 {open ? 
-                    <MdIcons.MdKeyboardArrowUp size={24} style={{ marginRight: 3 }} /> :
-                    <MdIcons.MdKeyboardArrowDown size={24} style={{ marginRight: 3 }} />
+                    <FiIcons.FiX size={22} style={{ marginRight: 3 }} /> :
+                    <FiIcons.FiChevronDown  size={22} style={{ marginRight: 3 }} />
                 }
             </button>
             {open && (

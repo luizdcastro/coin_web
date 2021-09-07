@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
@@ -53,43 +53,43 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
     };
 
     const drawer = (
-        <React.Fragment>
+        <React.Fragment >
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-betwen', height: '100%' }}>
-                <div
-                    className={activeMenu === '/settings' ? 'vertical-menu_item_active' : 'menu-item-avatar'}
-                    onClick={() => { setOpen(!open); setActiveMenu('settings') }}>
-                    <div className="vertical-avatar">
-                        <p className="vertical-avatar-name">{user?.name.slice(0, 1)}</p>
+                <div>
+                    <div className='menu-item-avatar' onClick={() => setOpen(!open)}>
+                        <div className="vertical-avatar">
+                            <p className="vertical-avatar-name">{user?.name.slice(0, 1)}</p>
+                        </div>
+                        <p className="vertical-menu-title">{user?.name.split(" ")[0].slice(0, 12)}</p>
+                        {!open ?
+                            <FiIcons.FiChevronDown className="vertical-drop-icon" size={18} />
+                            :
+                            <FiIcons.FiX className="vertical-drop-icon" size={18} />
+                        }
                     </div>
-                    <p className="vertical-menu-title">{user?.name.split(" ")[0].slice(0, 12)}</p>
-                    {!open ?
-                        <FiIcons.FiChevronDown className="vertical-drop-icon" size={18} />
-                        :
-                        <FiIcons.FiX className="vertical-drop-icon" size={18} />
-                    }
-                </div>
-                {open && (
-                    <div className="expanded-vertical_menu">
-                        <div className="expanded-vertical_menu-header">
-                            <div>
-                                <div className="vertical-avatar">
-                                    <p className="vertical-avatar-name">{user?.name.slice(0, 1)}</p>
+                    {open && (
+                        <div className="expanded-vertical_menu">
+                            <div className="expanded-vertical_menu-header">
+                                <div>
+                                    <div className="vertical-avatar">
+                                        <p className="vertical-avatar-name">{user?.name.slice(0, 1)}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="expanded-vertical_menu-name">{user?.name}</p>
+                                    <p className="expanded-vertical_menu-email">{user?.email}</p>
                                 </div>
                             </div>
-                            <div>
-                                <p className="expanded-vertical_menu-name">{user?.name}</p>
-                                <p className="expanded-vertical_menu-email">{user?.email}</p>
+                            <div className="expanded-vertical_menu-footer">
+                                <div className="expanded-vertical_item">
+                                    <Link className="expanded-vertical_link" to="/settings-pricing" onClick={() => setOpen(false)}>Account settings</Link>
+                                </div>
+                                <div className="expanded-vertical_item">
+                                    <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div className="expanded-vertical_menu-footer">
-                            <div className="expanded-vertical_item">
-                                <Link className="expanded-vertical_link" to="/settings-pricing" onClick={() => setOpen(false)}>Account settings</Link>
-                            </div>
-                            <div className="expanded-vertical_item">
-                                <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
-                            </div>
-                        </div>
-                    </div>)}
+                        </div>)}
+                </div>
                 <ul style={{ paddingTop: 20 }}>
                     <li>
                         <Link
@@ -131,7 +131,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                     }
                     <div className="vertical-menu_divider" />
                     <div>
-                        <p style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.8)', marginTop: 15, textAlign: 'center' }}>cointarget <span style={{ fontSize: 14 }}>| BETA</span></p>
+                        <p style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.8)', marginTop: 15, textAlign: 'center' }}>tradingrid <span style={{ fontSize: 14 }}>| BETA</span></p>
                     </div>
                 </div>
             </div>

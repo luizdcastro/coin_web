@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Ellipsis } from 'react-css-spinners';
 import { Link } from 'react-router-dom';
 import * as IoIcons from "react-icons/io5";
-
+import MainHeader from '../../components/MainHeader'
 import { loginUser } from '../../redux/actions/AuthActions';
 import './styles.css';
 
@@ -28,48 +28,47 @@ const Login = ({ dispatchLoginAction }) => {
 
   return (
     <div className="login-page">
-      <div className="login-headeline">
-        <div>
-          <h2 className="login-title">Make your login<br />on the platform.</h2>
-        </div>
+      <div className="login-banner">
       </div>
-      <div className="login-container">
-        <form onSubmit={handleOnSubmmit}>
-          <div style={{ width: "100%", position: 'relative' }}>
-            <IoIcons.IoMail size={20} className="login-icons" />
-            <input
-              className="login-input"
-              type="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div style={{ width: "100%", position: 'relative' }}>
-            <IoIcons.IoLockClosed size={20} className="login-icons" />
-            {isSecure === "password" ?
-              <IoIcons.IoEye size={20} className="login-icons-view" onClick={() => setIsSecure("text")} />
-              : <IoIcons.IoEyeOff size={20} className="login-icons-view" color="#bb86fc" onClick={() => setIsSecure("password")} />
-            }
-            <input
-              className="login-input"
-              type={isSecure}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div style={{ width: '100%', marginTop: 6 }}>
-            <Link to="/recover-password" className="login-link">Forgot password</Link>
-          </div>
-          {serverError ? <p className="login-error">{serverError}</p> : null}
-          <button className="login-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
-            {
-              !loading ? 'Sign In' : <span> <Ellipsis color="#FFF" size={38} /></span>
-            }
-          </button>
-        </form>
-        <p className="login-create-account">Don't have an account? <span><Link to="/register" className="login-link">Sign up</Link></span></p>
+      <div className="login-content">
+        <div className="login-container">
+          <form onSubmit={handleOnSubmmit}>
+            <div style={{ width: "100%", position: 'relative' }}>
+              <IoIcons.IoMail size={20} className="login-icons" />
+              <input
+                className="login-input"
+                type="email"
+                placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div style={{ width: "100%", position: 'relative' }}>
+              <IoIcons.IoLockClosed size={20} className="login-icons" />
+              {isSecure === "password" ?
+                <IoIcons.IoEye size={20} className="login-icons-view" onClick={() => setIsSecure("text")} />
+                : <IoIcons.IoEyeOff size={20} className="login-icons-view" color="#bb86fc" onClick={() => setIsSecure("password")} />
+              }
+              <input
+                className="login-input"
+                type={isSecure}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div style={{ width: '100%', marginTop: 6 }}>
+              <Link to="/recover-password" className="login-link">Forgot password</Link>
+            </div>
+            {serverError ? <p className="login-error">{serverError}</p> : null}
+            <button className="login-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
+              {
+                !loading ? 'Sign In' : <span> <Ellipsis color="#FFF" size={38} style={{ marginTop: 3 }} /></span>
+              }
+            </button>
+          </form>
+          <p className="login-create-account">Don't have an account? <span><Link to="/register" className="login-link">Sign up</Link></span></p>
+        </div>
       </div>
     </div>
   );
