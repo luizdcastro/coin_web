@@ -56,7 +56,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                 usePointStyle: true,
                 footerAlign: 'right'
             },
-           
+
         },
         scales: {
             y: {
@@ -121,43 +121,50 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                         <h3 className="bot-modal-title">Bot Settings</h3>
                         <MdIcons.MdClose className="indicator-modal-close" onClick={() => setOpen(false)} />
                     </div>
-                    <p style={{ fontSize: 13, marginTop: 1 }}>ID: {botDetails._id}</p>
+                    <div style={{ display: 'flex' }}>
+                        <p className="bot-model-data-name">Name:</p>
+                        <p className="bot-model-data-name_item">{botDetails.name}</p>
+                    </div>
                     <div className="bot-modal-header">
                         <ul>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Status:</p>
-                                <p className="bot-model-data-name">{botDetails.active ? "Active" : "Inactive"}</p>
+                                <p className="bot-model-data-name_item">{botDetails.active ? "Active" : "Inactive"}</p>
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Symbol:</p>
-                                <p className="bot-model-data-name">{botDetails.settings.symbol}</p>
+                                <p className="bot-model-data-name_item">{botDetails.settings.symbol}</p>
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Exchange:</p>
-                                <p className="bot-model-data-name">{botDetails.settings.exchange.name}</p>
+                                <p className="bot-model-data-name_item">{botDetails.settings.exchange.name}</p>
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Started:</p>
-                                <p className="bot-model-data-name">{moment(botDetails.createdAt).format("MMM DD YYYY hh:mm A")}</p>
+                                <p className="bot-model-data-name_item">{moment(botDetails.createdAt).format("MMM DD YYYY hh:mm A")}</p>
+                            </li>
+                            <li style={{ display: 'flex' }}>
+                                <p className="bot-model-data-name">Growth:</p>
+                                <p className="bot-model-data-name_item">{botDetails.growth.toFixed(2)}%</p>
                             </li>
                         </ul>
                         <ul>
                             {botDetails.active ?
                                 <li className="bot-model-icon-container" onClick={() => { handleUpdate(botDetails.id, false); setOpen(false); }}>
-                                    <FiIcons.FiPause size={16} style={{ marginRight: 5 }} />
+                                    <FiIcons.FiPause size={17} style={{ marginRight: 5 }} />
                                     <p className="bot-model-icon-name">Pause</p>
                                 </li>
                                 : <li className="bot-model-icon-container" onClick={() => { handleUpdate(botDetails.id, true); setOpen(false) }}>
-                                    <FiIcons.FiPlay size={16} style={{ marginRight: 5 }} />
+                                    <FiIcons.FiPlay size={17} style={{ marginRight: 5 }} />
                                     <p className="bot-model-icon-name">Start</p>
                                 </li>
                             }
                             <Link className="bot-model-icon-container" to={`/edit-bot/${botDetails._id}`} onClick={() => { setOpen(false) }} >
-                                <FiIcons.FiEdit size={16} style={{ marginRight: 5 }} />
+                                <FiIcons.FiEdit size={17} style={{ marginRight: 5 }} />
                                 <p className="bot-model-icon-name">Edit</p>
                             </Link>
                             <li className="bot-model-icon-container" onClick={() => { handleDelete(botDetails.id); setOpen(false) }} >
-                                <FiIcons.FiTrash size={16} style={{ marginRight: 5 }} />
+                                <FiIcons.FiTrash size={17} style={{ marginRight: 5 }} />
                                 <p className="bot-model-icon-name">Delete</p>
                             </li>
                         </ul>
@@ -165,38 +172,38 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                     <div width="100%" height={300}>
                         <Line data={chartData} options={options} />
                     </div>
-                    <h3 className="bot-modal-order_title">Order History</h3>
+                    <h3 className="bot-modal-order_title">Orders History</h3>
                     {orders.length >= 1 && (
                         orders.map((item) => (
                             <div key={item.id} className="bot-model-order_container">
                                 <ul className="bot-modal-order_list">
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Order Status:</p>
-                                        <p className="bot-model-data-name">{item.active ? "open" : "closed"}</p>
+                                        <p className="bot-model-data-name_item">{item.active ? "Open" : "Closed"}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Open Time:</p>
-                                        <p className="bot-model-data-name">{moment(item.open_time).format("MM-DD-YYYY hh:mm A")}</p>
+                                        <p className="bot-model-data-name_item">{moment(item.open_time).format("MM-DD-YYYY hh:mm A")}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Buy Price:</p>
-                                        <p className="bot-model-data-name">{item.buy_price?.toFixed(2)}</p>
+                                        <p className="bot-model-data-name_item">{item.buy_price?.toFixed(2)}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Close Time:</p>
-                                        <p className="bot-model-data-name">{item.close_time && (moment(item.close_time).format("MM-DD-YYYY hh:mm A"))}</p>
+                                        <p className="bot-model-data-name_item">{item.close_time && (moment(item.close_time).format("MM-DD-YYYY hh:mm A"))}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Sell Price:</p>
-                                        <p className="bot-model-data-name">{item.sell_price?.toFixed(2)}</p>
+                                        <p className="bot-model-data-name_item">{item.sell_price?.toFixed(2)}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Percent:</p>
-                                        <p className="bot-model-data-name">{item.percent?.toFixed(2)}</p>
+                                        <p className="bot-model-data-name_item">{item.percent?.toFixed(2)}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Profit:</p>
-                                        <p className="bot-model-data-name">{item.profit?.toFixed(2)}</p>
+                                        <p className="bot-model-data-name_item">{item.profit?.toFixed(2)}</p>
                                     </li>
                                 </ul>
                                 <div className="bot-modal-order_percent">

@@ -4,7 +4,7 @@ import { Ellipsis } from 'react-css-spinners'
 import Binance from '../../assets/images/binance.png'
 import Coinbase from '../../assets/images/coinbase.png'
 import Kraken from '../../assets/images/kraken.png'
-import Bybit from '../../assets/images/bybit.jpg'
+import ByBit from '../../assets/images/bybit.jpg'
 import OKEx from '../../assets/images/OKEx.png'
 import * as MdIcons from 'react-icons/md'
 import * as FiIcons from 'react-icons/fi'
@@ -34,7 +34,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
             name: "Binance"
         },     
         {
-            icon: Bybit,
+            icon: ByBit,
             name: "ByBit"
         },
         {
@@ -132,12 +132,12 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                             src={item.exchange === 'Binance' ? Binance
                                                 : item.exchange === 'Coinbase' ? Coinbase
                                                     : item.exchange === 'Kraken' ? Kraken
-                                                        : item.exchange === 'Bybit' ? Bybit : null}
+                                                        : item.exchange === 'ByBit' ? ByBit : null}
                                             alt={
                                                 item.exchange === 'Binance' ? 'Binance'
                                                     : item.exchange === 'Coinbase' ? 'Coinbase'
                                                         : item.exchange === 'Kraken' ? 'Kraken'
-                                                            : item.exchange === 'Bybit' ? 'Bybit' : 'null'}
+                                                            : item.exchange === 'ByBit' ? 'ByBit' : 'null'}
                                             style={{ width: 30, height: 30, borderRadius: 5, marginRight: 8 }}
                                         />
                                         <p className="exchanges_row_exchange">{item.exchange}</p>

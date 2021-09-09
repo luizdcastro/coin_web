@@ -18,6 +18,9 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [loading, setLoading] = useState(false)
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
+    const [positionSide, setPositionSide] = useState("")
+    const [amount, setAmount] = useState("")
+    const [stopLoss, setStopLoss] = useState("")
     const [name, setName] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
@@ -40,7 +43,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe }
+    const settings = { exchange, symbol, timeframe, positionSide, amount, stopLoss }
     const history = useHistory();
 
     function openBotPayload() {
@@ -120,6 +123,12 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                         setExchange={setExchange}
                         setSymbol={setSymbol}
                         setTimeframe={setTimeframe}
+                        positionSide={positionSide}
+                        stopLoss={stopLoss}
+                        setStopLoss={setStopLoss}
+                        amount={amount}
+                        setAmount={setAmount}
+                        setPositionSide={setPositionSide}
                     />
                 </div>
                 <h3 className="bots-condition-title">Open Condition</h3>

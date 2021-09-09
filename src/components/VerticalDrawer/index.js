@@ -85,6 +85,9 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                                     <Link className="expanded-vertical_link" to="/settings-pricing" onClick={() => setOpen(false)}>Account settings</Link>
                                 </div>
                                 <div className="expanded-vertical_item">
+                                    <Link className="expanded-vertical_link" to="#" onClick={() => setOpen(false)}>Support</Link>
+                                </div>                               
+                                <div className="expanded-vertical_item">
                                     <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
                                 </div>
                             </div>
