@@ -146,7 +146,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #bb86fc;
+    background-color: rgba(255,255,255,0.75);
     color: rgb(36, 36, 38);
     width: 74px;
     height: 25px;
@@ -167,14 +167,14 @@
     margin-top: 15px;
     width: 325px;
     font-size: 13px;
-    color: #bb86fc;
+    color: #fa755a;
 }
 
 .exchange-success{
     margin-top: 15px;
     width: 325px;
     font-size: 13px;
-    color: #03dac5;
+    color: #bb86fc;
 }
 
 @media screen and (max-width: 600px) {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import ExchangeSelect from '../../components/ExchangeSelect'
 import { Ellipsis } from 'react-css-spinners'
 import Binance from '../../assets/images/binance.png'
-import Coinbase from '../../assets/images/coinbase.png'
 import Kraken from '../../assets/images/kraken.png'
 import ByBit from '../../assets/images/bybit.jpg'
 import OKEx from '../../assets/images/OKEx.png'
@@ -20,6 +19,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
     const [loading, setLoading] = useState(false)
     const [apiKey, setApiKy] = useState("")
     const [secretKey, setSecretKey] = useState("")
+    const [passphrase, setPassphrase] = useState("")
     const [exchange, setExchange] = useState({})
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
@@ -28,27 +28,22 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
-    const exchangesList = [     
+    const exchangesList = [
         {
             icon: Binance,
-            name: "Binance"
-        },     
-        {
-            icon: ByBit,
-            name: "ByBit"
-        },
-        {
-            icon: Coinbase,
-            name: "Coinbase | Pro"
+            name: "binance",
+            label: "Binance"
         },
         {
             icon: Kraken,
-            name: "Kraken"
+            name: "kraken",
+            label: "Kraken"
         },
         {
             icon: OKEx,
-            name: "OKEx"
-        }  
+            name: "okex",
+            label: "OKEx"
+        }
     ]
 
     const handleSubmmit = () => {
@@ -57,9 +52,11 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         setSuccess("")
         dispatchCreateExchange(
             exchange.name,
+            exchange.label,
             getme.id,
             apiKey,
             secretKey,
+            passphrase,
             () => {
                 setSuccess("Exchange successfully connected!");
                 setLoading(false);
@@ -91,6 +88,9 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                 <ExchangeSelect exchange={exchange} setExchange={setExchange} exchangesList={exchangesList} />
                 <input className="exchanges-input" placeholder="API key" onChange={(e) => setApiKy(e.target.value)} />
                 <input className="exchanges-input" placeholder="Secret key" onChange={(e) => setSecretKey(e.target.value)} />
+                {exchange.name === "okex" ?
+                    <input className="exchanges-input" placeholder="Passphrase" onChange={(e) => setPassphrase(e.target.value)} />
+                    : null}
                 {!!apiKey & !!secretKey & exchange.hasOwnProperty('name') ?
                     <button className="exchanges-bot-button_active" disabled={loading ? true : false} onClick={() => handleSubmmit()}>
                         {
@@ -106,12 +106,12 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                         <p className="exchange-success">{success}</p>
                         : null
                 }
-                <div style={{display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
-                    <div style={{width: 125}}>
-                        <IoIcons.IoShieldCheckmark size={42} color="rgba(255,255,255, 0.5)" style={{marginLeft: 4}}/>
-                        <p style={{fontSize: 12}}>AES 256</p>
+                <div style={{ display: 'flex', width: 325, justifyContent: 'center', alignItems: 'center', marginTop: 30 }}>
+                    <div style={{ width: 125 }}>
+                        <IoIcons.IoShieldCheckmark size={42} color="rgba(255,255,255, 0.5)" style={{ marginLeft: 4 }} />
+                        <p style={{ fontSize: 12 }}>AES 256</p>
                     </div>
-                    <p style={{fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6}}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>
+                    <p style={{ fontSize: 12, paddingLeft: 12, textAlign: 'left', lineHeight: 1.6 }}>We store API keys in encrypted form AES 256 with dedicated private keys which are generated for each user separately.</p>
                 </div>
             </div>
             <div style={{ flex: 2, paddingTop: 70, paddingRight: 40 }}>
@@ -129,18 +129,18 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                 <div className="exchanges_row_exchange">
                                     <span style={{ display: 'flex', alignItems: 'center' }}>
                                         <img
-                                            src={item.exchange === 'Binance' ? Binance
-                                                : item.exchange === 'Coinbase' ? Coinbase
-                                                    : item.exchange === 'Kraken' ? Kraken
-                                                        : item.exchange === 'ByBit' ? ByBit : null}
+                                            src={item.exchange === 'binance' ? Binance
+                                                : item.exchange === 'kraken' ? Kraken
+                                                    : item.exchange === 'okex' ? OKEx
+                                                        : item.exchange === 'bybit' ? ByBit : null}
                                             alt={
-                                                item.exchange === 'Binance' ? 'Binance'
-                                                    : item.exchange === 'Coinbase' ? 'Coinbase'
-                                                        : item.exchange === 'Kraken' ? 'Kraken'
-                                                            : item.exchange === 'ByBit' ? 'ByBit' : 'null'}
+                                                item.exchange === 'binance' ? 'Binance'
+                                                    : item.exchange === 'kraken' ? 'Kraken'
+                                                        : item.exchange === 'okex' ? 'OKEx'
+                                                            : item.exchange === 'bybit' ? 'ByBit' : 'null'}
                                             style={{ width: 30, height: 30, borderRadius: 5, marginRight: 8 }}
                                         />
-                                        <p className="exchanges_row_exchange">{item.exchange}</p>
+                                        <p className="exchanges_row_exchange">{item.label}</p>
                                     </span>
                                 </div>
                                 <p className="exchanges_row_status">{item.api_key.slice(0, 10) + "*******"}</p>
@@ -172,8 +172,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
 
 const mapDispatchToProps = (dispatch) => ({
     disptachGetMe: () => dispatch(getMe()),
-    dispatchCreateExchange: (exchange, user, api_key, secret_key, onSuccess, onError) =>
-        dispatch(createExchange({ exchange, user, api_key, secret_key, }, onSuccess, onError)),
+    dispatchCreateExchange: (exchange, label, user, api_key, secret_key, passphrase, onSuccess, onError) =>
+        dispatch(createExchange({ exchange, label, user, api_key, secret_key, passphrase }, onSuccess, onError)),
     dispatchDeleteExchange: (exchangeId, onSuccess, onError) =>
         dispatch(deleteExchange(exchangeId, onSuccess, onError)),
 });

@@ -114,12 +114,12 @@ const BotSettings = ({
                     <Select
                         value={exchange}
                         inputLabel={"Exchange"}
-                        placeholder={!!exchange ? exchange.name : "Exchange"}
+                        placeholder={!!exchange ? exchange.label : "Exchange"}
                         onChange={e => handleChange(e.target.value)}
                     >
                         <option value="demo">Demo</option>
                         {exchangeList.map((item, index) => (
-                            <option key={item?._id} value={index}>{item?.exchange}</option>
+                            <option key={item?._id} value={index}>{item?.label}</option>
                         ))}
                     </Select>
                     <Select

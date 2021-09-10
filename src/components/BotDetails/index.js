@@ -133,11 +133,11 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Symbol:</p>
-                                <p className="bot-model-data-name_item">{botDetails.settings.symbol}</p>
+                                <p className="bot-model-data-name_item">{botDetails.settings.symbol.slice(0,-4) + "/" + botDetails.settings.symbol.slice(-4)}</p>
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Exchange:</p>
-                                <p className="bot-model-data-name_item">{botDetails.settings.exchange.name}</p>
+                                <p className="bot-model-data-name_item">{botDetails.settings.exchange.name.toUpperCase()}</p>
                             </li>
                             <li style={{ display: 'flex' }}>
                                 <p className="bot-model-data-name">Started:</p>
@@ -184,6 +184,10 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Open Time:</p>
                                         <p className="bot-model-data-name_item">{moment(item.open_time).format("MM-DD-YYYY hh:mm A")}</p>
+                                    </li>
+                                    <li style={{ display: 'flex' }}>
+                                        <p className="bot-model-data-name">Quantity:</p>
+                                        <p className="bot-model-data-name_item">{item.quantity?.toFixed(4)}</p>
                                     </li>
                                     <li style={{ display: 'flex' }}>
                                         <p className="bot-model-data-name">Buy Price:</p>

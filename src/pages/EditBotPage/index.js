@@ -15,10 +15,13 @@ import { useParams } from "react-router-dom";
 
 import './styles.css'
 
-const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
+const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     const [loading, setLoading] = useState(false)
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
+    const [positionSide, setPositionSide] = useState("")
+    const [amount, setAmount] = useState("")
+    const [stopLoss, setStopLoss] = useState("")
     const [name, setName] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
@@ -40,7 +43,7 @@ const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe }
+    const settings = { exchange, symbol, timeframe, positionSide, amount, stopLoss  }
     const [editBot, setEditBot] = useState([])
     const { id } = useParams()
     const history = useHistory();
@@ -75,35 +78,35 @@ const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
                 conditional: editBot.open_logic[1]?.conditional,
                 value: editBot.open_logic[1]?.value,
                 addConditional: editBot.open_logic[1]?.addConditional
-            })       
+            })
             setOpenIndicator_03({
                 type: editBot.open_logic[2]?.type,
                 indicator: editBot.open_logic[2]?.indicator,
                 conditional: editBot.open_logic[2]?.conditional,
                 value: editBot.open_logic[2]?.value,
                 addConditional: editBot.open_logic[2]?.addConditional
-            })       
+            })
             setOpenIndicator_04({
                 type: editBot.open_logic[3]?.type,
                 indicator: editBot.open_logic[3]?.indicator,
                 conditional: editBot.open_logic[3]?.conditional,
                 value: editBot.open_logic[3]?.value,
                 addConditional: editBot.open_logic[3]?.addConditional
-            })       
+            })
             setOpenIndicator_05({
                 type: editBot.open_logic[4]?.type,
                 indicator: editBot.open_logic[4]?.indicator,
                 conditional: editBot.open_logic[4]?.conditional,
                 value: editBot.open_logic[4]?.value,
                 addConditional: editBot.open_logic[4]?.addConditional
-            })     
+            })
             setOpenIndicator_06({
                 type: editBot.open_logic[5]?.type,
                 indicator: editBot.open_logic[5]?.indicator,
                 conditional: editBot.open_logic[5]?.conditional,
                 value: editBot.open_logic[5]?.value,
                 addConditional: editBot.open_logic[5]?.addConditional
-            })       
+            })
             setCloseIndicator_01({
                 type: editBot.close_logic[0]?.type,
                 indicator: editBot.close_logic[0]?.indicator,
@@ -117,35 +120,35 @@ const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
                 conditional: editBot.close_logic[1]?.conditional,
                 value: editBot.close_logic[1]?.value,
                 addConditional: editBot.close_logic[1]?.addConditional
-            })       
+            })
             setCloseIndicator_03({
                 type: editBot.close_logic[2]?.type,
                 indicator: editBot.close_logic[2]?.indicator,
                 conditional: editBot.close_logic[2]?.conditional,
                 value: editBot.close_logic[2]?.value,
                 addConditional: editBot.close_logic[2]?.addConditional
-            })       
+            })
             setCloseIndicator_04({
                 type: editBot.close_logic[3]?.type,
                 indicator: editBot.close_logic[3]?.indicator,
                 conditional: editBot.close_logic[3]?.conditional,
                 value: editBot.close_logic[3]?.value,
                 addConditional: editBot.close_logic[3]?.addConditional
-            })       
+            })
             setCloseIndicator_05({
                 type: editBot.close_logic[4]?.type,
                 indicator: editBot.close_logic[4]?.indicator,
                 conditional: editBot.close_logic[4]?.conditional,
                 value: editBot.close_logic[4]?.value,
                 addConditional: editBot.close_logic[4]?.addConditional
-            })     
+            })
             setCloseIndicator_06({
                 type: editBot.close_logic[5]?.type,
                 indicator: editBot.close_logic[5]?.indicator,
                 conditional: editBot.close_logic[5]?.conditional,
                 value: editBot.close_logic[5]?.value,
                 addConditional: editBot.close_logic[5]?.addConditional
-            })       
+            })
         }
     }, [editBot]);
 
@@ -227,6 +230,12 @@ const EditBotPage = ({ dispatchUpdateBot,  dispatchGetBot }) => {
                         setExchange={setExchange}
                         setSymbol={setSymbol}
                         setTimeframe={setTimeframe}
+                        positionSide={positionSide}
+                        stopLoss={stopLoss}
+                        setStopLoss={setStopLoss}
+                        amount={amount}
+                        setAmount={setAmount}
+                        setPositionSide={setPositionSide}
                     />
                 </div>
                 <h3 className="bots-condition-title">Open Condition</h3>
