@@ -29,7 +29,6 @@ const CARD_OPTIONS = {
 const CheckoutForm = ({ getme, planDetails, disptachGetMe }) => {
     const [loading, setLoading] = useState(false)
     const [resError, setResError] = useState("")
-    const [messages, setMessage] = useState("");
     const [name, setName] = useState("")
     const stripe = useStripe()
     const elements = useElements()
@@ -38,28 +37,31 @@ const CheckoutForm = ({ getme, planDetails, disptachGetMe }) => {
         event.preventDefault()
         setLoading(true)
 
-        console.log(getme.stripe.id)
+        const cardElement = elements.getElement(CardElement);
 
-        const subscription = await axios.post('http://localhost:8000/v1/payment/create-subscription', { priceId: planDetails.id, customerId: getme.stripe.id })
+        let { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+            billing_details: {
+                name: getme.name,
+                email: getme.email
+            },
+        })
 
-        if (subscription.status === 200) {
-            const cardElement = elements.getElement(CardElement);
+        if (error) {
+            setLoading(false)
+            setResError(error.message)
+            return
+        } else {
+            const subscription = await axios.post('http://localhost:8000/v1/payment/create-subscription', { priceId: planDetails.id, customerId: getme.stripe.id })
 
-            const { paymentMethod } = await stripe.createPaymentMethod({
-                type: 'card',
-                card: cardElement,
-                billing_details: {
-                    name: getme.name,
-                    email: getme.email
-                },
-            })
-
-            const { error, paymentIntent } = await stripe.confirmCardPayment(subscription.data.clientSecret, { payment_method: paymentMethod.id });
+            let { error, paymentIntent } = await stripe.confirmCardPayment(subscription.data.clientSecret, { payment_method: paymentMethod.id });
 
             if (error) {
-                setMessage(error.message);
                 setLoading(false)
-                return;
+                setResError(error.message)
+                return
+
             } else {
                 if (paymentIntent.status === "succeeded") {
                     await axios.patch(`http://localhost:8000/v1/user/update/${getme.id}`,
@@ -84,7 +86,6 @@ const CheckoutForm = ({ getme, planDetails, disptachGetMe }) => {
                     setLoading(false)
                 }
             }
-
         }
     }
 
@@ -108,7 +109,7 @@ const CheckoutForm = ({ getme, planDetails, disptachGetMe }) => {
                 </ul>
                 <CardElement options={CARD_OPTIONS} />
                 <div style={{ position: 'relative' }}>
-                    <IoIcons.IoPersonOutline size={22} style={{ position: 'absolute', top: 23, left: 12, color: 'rgba(255,255,255,0.3)' }} />
+                    <IoIcons.IoPersonOutline size={22} style={{ position: 'absolute', top: 25, left: 12, color: 'rgba(255,255,255,0.3)' }} />
                     <input placeholder="Cardholder name" className="checkout-input" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
                 {resError ? <p className="checkout-error">{resError}</p> : null}

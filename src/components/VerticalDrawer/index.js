@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
@@ -83,10 +83,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                             <div className="expanded-vertical_menu-footer">
                                 <div className="expanded-vertical_item">
                                     <Link className="expanded-vertical_link" to="/settings-pricing" onClick={() => setOpen(false)}>Account settings</Link>
-                                </div>
-                                <div className="expanded-vertical_item">
-                                    <Link className="expanded-vertical_link" to="#" onClick={() => setOpen(false)}>Support</Link>
-                                </div>                               
+                                </div>                                                           
                                 <div className="expanded-vertical_item">
                                     <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
                                 </div>

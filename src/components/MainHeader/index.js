@@ -47,7 +47,7 @@ const MainHeader = () => {
                                 <a className="main-header-link-middle" href="#pricing">Pricing</a>
                             </li>
                             <li >
-                                <a className="main-header-link-middle" href="#">Learn</a>
+                                <a className="main-header-link-middle" href="#pricing">Learn</a>
                             </li>
                         </ul>
                     ) : null}

@@ -8,7 +8,6 @@ import { loadStripe } from '@stripe/stripe-js'
 import SettingsHeader from '../../components/SettingsHeader'
 import { useLocation } from 'react-router-dom'
 import UpdatePayment from '../../components/UpdatePayment'
-import Modal from '@material-ui/core/Modal'
 import axios from 'axios'
 
 import './styles.css'
@@ -58,18 +57,18 @@ const AccountSettings = ({ disptachGetMe, getme }) => {
                     : null
                 }
                 {getme.stripe.subscription.active ?
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 50 }}>
+                    <div className="subscription-details_container">
                         <div className="billing-currentplan_container">
                             <div>
-                                <h2 style={{ fontSize: 22, fontWeight: 500, marginBottom: 25, color: 'rgba(255,255,255,0.8)' }}>Subscription details.</h2>
-                                <p style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 300 }}>Current plan <span style={{ fontWeight: 600 }}>{getme.stripe.subscription.plan}</span></p>
-                                <p style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 300 }}>Billing <span style={{ fontWeight: 600 }}>${getme.stripe.subscription.price}</span> / {getme.stripe.subscription.billed}</p>
+                                <h2 className="subscription-details_title">Subscription details.</h2>
+                                <p className="subscription-details_text">Current plan <span style={{ fontWeight: 600 }}>{getme.stripe.subscription.plan}</span></p>
+                                <p className="subscription-details_text">Billing <span style={{ fontWeight: 600 }}>${getme.stripe.subscription.price}</span> / {getme.stripe.subscription.billed}</p>
                                 <div>
-                                    <p style={{ marginTop: 15, marginBottom: 8, fontWeight: 300 }}>Payment method</p>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', border: 'solid 1px rgba(255,255,255,0.5)', padding: 8, borderRadius: 3 }}>
-                                        <p>{getme.stripe.payment_method.brand.toUpperCase()}</p>
-                                        <p>****{getme.stripe.payment_method.last4}</p>
-                                        <p>Expires {getme.stripe.payment_method.expire}</p>
+                                    <p className="subscription-details_subtitle">Payment method</p>
+                                    <div className="subscription-details_card">
+                                        <p className="subscription-details_card-text">{getme.stripe.payment_method.brand.toUpperCase()}</p>
+                                        <p className="subscription-details_card-text">****{getme.stripe.payment_method.last4}</p>
+                                        <p className="subscription-details_card-text">Expires {getme.stripe.payment_method.expire}</p>
                                     </div>
                                 </div>
                                 <button className="billing-currentplan_button" onClick={handleOpen}>Update credit card</button>
@@ -93,12 +92,13 @@ const AccountSettings = ({ disptachGetMe, getme }) => {
                         </div>
                     </div>
                     : null}
-                <Modal open={open} onClose={handleClose}>
-                    <Elements stripe={stripePromise}>
-                        <UpdatePayment handleClose={handleClose}/>
-                    </Elements>
-                </Modal>
-
+                {open && (
+                    <div onClose={handleClose}>
+                        <Elements stripe={stripePromise}>
+                            <UpdatePayment handleClose={handleClose} />
+                        </Elements>
+                    </div>
+                )}
             </div>
         </div>
     )

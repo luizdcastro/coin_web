@@ -29,16 +29,20 @@ const HomePage = () => {
                 </div>
                 <div className="home_flex-center">
                     <div style={{ width: 900 }}>
-                        <img src={HeroImage} className="home-image_cotainer" />
+                        <img src={HeroImage} alt="home_image" className="home-image_cotainer" />
                     </div>
                 </div>
-                <div className="home-section_container">
-                    <div className="home-section_container-exchanges">
-                        <p className="home-section_exchange-item">Binance</p>
-                        <p className="home-section_exchange-item">Coinbase<span style={{ fontWeight: 300 }}> | Pro</span></p>
-                        <p className="home-section_exchange-item">Kraken</p>
-                        <p className="home-section_exchange-item">OKEx</p>
-                        <p className="home-section_exchange-item">ByBit</p>
+                <div className="home-section_container-exchanges">
+                    <div style={{marginTop: 50, marginBottom: 50}}>
+                        <p className="home-section_exchange-title">We are connected with</p>
+                        <div className="home-section_box-exchanges">
+                            <p className="home-section_exchange-item">Binance</p>
+                            <p className="home-section_exchange-item">ByBit</p>
+                            <p className="home-section_exchange-item">FTX</p>
+                            <p className="home-section_exchange-item">Huobi</p>
+                            <p className="home-section_exchange-item">Kraken</p>
+                            <p className="home-section_exchange-item">OKEx</p>
+                        </div>
                     </div>
                 </div>
                 <div className="home-section_container" id="about">
@@ -73,7 +77,7 @@ const HomePage = () => {
                         </div>
                         <div className="home_flex-center">
                             <div style={{ maxWidth: 700 }}>
-                                <img src={HeroImage} className="home-image_cotainer" />
+                                <img src={HeroImage} alt="home_image" className="home-image_cotainer" />
                             </div>
                         </div>
                     </div>
@@ -91,14 +95,14 @@ const HomePage = () => {
                     </div>
                     <div style={{ marginBottom: 20 }}>
                         <div style={{ maxWidth: 450 }}>
-                            <img src={FeaturesImage} className="home-image_cotainer" />
+                            <img src={FeaturesImage} alt="home_image" className="home-image_cotainer" />
                         </div>
                     </div>
                 </div>
                 <div className="home-features_section-container_02">
                     <div style={{ marginTop: 20 }}>
                         <div style={{ maxWidth: 450 }}>
-                            <img src={FeaturesImage} className="home-image_cotainer" />
+                            <img src={FeaturesImage} alt="home_image" className="home-image_cotainer" />
                         </div>
                     </div>
                     <div style={{ marginTop: 20 }}>
@@ -112,7 +116,7 @@ const HomePage = () => {
                         <p className="home-price_section-subtitle">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
                     </div>
                 </div>
-                <div className="home_flex-center" style={{borderBottom: 'solid 1px rgba(255,255,255,0.15)', width: '100%', marginBottom: 50}}>
+                <div className="home_flex-center" style={{ borderBottom: 'solid 1px rgba(255,255,255,0.15)', width: '100%', marginBottom: 50 }}>
                     <PlanOptions setPlantype={setPlantype} planType={planType} />
                 </div>
                 <div className="home-footer_hero">

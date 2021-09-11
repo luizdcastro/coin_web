@@ -231,8 +231,6 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                                                 <p className="bot-model-data-name_item">{!!item.profit ? "$" + item.profit.toFixed(2) : ""}</p>
                                             </li>
                                         </ul>
-                                        <div className="bot-modal-order_percent">
-                                        </div>
                                     </div>
                                 ))
                                 :
@@ -243,9 +241,39 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                             }
                         </div>
                         :
-                        <div style={{ marginTop: 35 }}>
-                            <p style={{ fontWeight: 500, color: 'rgba(255,255,255, 0.8)', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No events were found.</p>
-                            <p style={{ fontWeight: 400, color: 'rgba(255,255,255, 0.8)', fontSize: 14, textAlign: 'center' }}>Any events or errors were tracked so far.</p>
+                        <div>
+                            {!!botDetails.events.length ?
+                                botDetails.events.map((item) => (
+                                    <div key={item.id} className="bot-model-order_container">
+                                        <ul className="bot-modal-order_list">
+                                            <li style={{ display: 'flex' }}>
+                                                <p className="bot-model-data-name">Exchange:</p>
+                                                <p className="bot-model-data-name_item">{item?.exchange.toUpperCase()}</p>
+                                            </li>
+                                            <li style={{ display: 'flex' }}>
+                                                <p className="bot-model-data-name">Side:</p>
+                                                <p className="bot-model-data-name_item">{item?.side}</p>
+                                            </li>
+                                            <li style={{ display: 'flex' }}>
+                                                <p className="bot-model-data-name">Time:</p>
+                                                <p className="bot-model-data-name_item">{moment(item?.time).format("MM-DD-YYYY hh:mm A")}</p>
+                                            </li>
+                                            <li style={{ display: 'flex' }}>
+                                                <p className="bot-model-data-name">Type:</p>
+                                                <p className="bot-model-data-name_item">{item?.type}</p>
+                                            </li>                                            
+                                            <li style={{ display: 'flex' }}>
+                                                <p className="bot-model-data-name">Details:</p>
+                                                <p className="bot-model-data-name_item">{item?.message}</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                )) :
+                                <div style={{ marginTop: 35 }}>
+                                    <p style={{ fontWeight: 500, color: 'rgba(255,255,255, 0.8)', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>No events were found.</p>
+                                    <p style={{ fontWeight: 400, color: 'rgba(255,255,255, 0.8)', fontSize: 14, textAlign: 'center' }}>Any events or errors were tracked so far.</p>
+                                </div>
+                            }
                         </div>}
                 </div>
             </div>

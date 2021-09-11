@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux"
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import * as GoIcons from 'react-icons/go'
 import TemplateBot from '../../components/TemplateBot'
 import { getAllTemplates } from '../../redux/actions/TemplateActions'

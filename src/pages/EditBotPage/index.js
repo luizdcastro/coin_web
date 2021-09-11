@@ -43,7 +43,7 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe, positionSide, amount, stopLoss  }
+    const settings = { exchange, symbol, timeframe, positionSide, amount, stopLoss }
     const [editBot, setEditBot] = useState([])
     const { id } = useParams()
     const history = useHistory();
@@ -64,6 +64,8 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                 id: editBot.settings.exchange.id
             });
             setSymbol(editBot.settings.symbol);
+            setAmount(editBot.settings.amount)
+            setStopLoss(editBot.settings.stopLoss)
             setTimeframe(editBot.settings.timeframe);
             setOpenIndicator_01({
                 type: editBot.open_logic[0]?.type,
@@ -155,7 +157,6 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     function openBotPayload() {
         let payload = []
         const indicators = [openIndicator_01, openIndicator_02, openIndicator_03, openIndicator_04, openIndicator_05, openIndicator_06]
-
         for (const item of indicators) {
             !!item.indicator && (payload.push(item))
         }
@@ -220,197 +221,202 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                     </Link>
                 </div>
                 <h3 className="bots-condition-title">Bot Settings</h3>
-                <div className="bots-condition-container">
-                    <BotSettings
-                        name={name}
-                        setName={setName}
-                        exchange={exchange}
-                        symbol={symbol}
-                        timeframe={timeframe}
-                        setExchange={setExchange}
-                        setSymbol={setSymbol}
-                        setTimeframe={setTimeframe}
-                        positionSide={positionSide}
-                        stopLoss={stopLoss}
-                        setStopLoss={setStopLoss}
-                        amount={amount}
-                        setAmount={setAmount}
-                        setPositionSide={setPositionSide}
-                    />
+                <div className="strategies-container_separator">
+                    <div className="bots-condition-container">
+                        <BotSettings
+                            name={name}
+                            setName={setName}
+                            exchange={exchange}
+                            symbol={symbol}
+                            timeframe={timeframe}
+                            setExchange={setExchange}
+                            setSymbol={setSymbol}
+                            setTimeframe={setTimeframe}
+                            positionSide={positionSide}
+                            stopLoss={stopLoss}
+                            setStopLoss={setStopLoss}
+                            amount={amount}
+                            setAmount={setAmount}
+                            setPositionSide={setPositionSide}
+                        />
+                    </div>
                 </div>
-                <h3 className="bots-condition-title">Open Condition</h3>
-                <div className="bots-condition-container">
-                    <IndicatorsList
-                        indicator={openIndicator_01}
-                        setIndicator={setOpenIndicator_01}
-                        setModalName={setModalName}
-                        modalName={modalName}
-                    />
-                    {openIndicator_01.type === "ma" ?
-                        <MovingAverage indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                        : openIndicator_01.type === "indicator" ?
-                            <Indicator indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                            : openIndicator_01.type === "candle" ?
-                                <CandlePattern indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
-                                : null}
+                <div className="strategies-container_separator">
+                    <h3 className="bots-condition-title">Open Condition</h3>
+                    <div className="bots-condition-container">
+                        <IndicatorsList
+                            indicator={openIndicator_01}
+                            setIndicator={setOpenIndicator_01}
+                            setModalName={setModalName}
+                            modalName={modalName}
+                        />
+                        {openIndicator_01.type === "ma" ?
+                            <MovingAverage indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
+                            : openIndicator_01.type === "indicator" ?
+                                <Indicator indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
+                                : openIndicator_01.type === "candle" ?
+                                    <CandlePattern indicator={openIndicator_01} setIndicator={setOpenIndicator_01} setNextIndicator={setOpenIndicator_02} />
+                                    : null}
 
+                    </div>
+                    {openIndicator_01?.addConditional === "OR" || openIndicator_01?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={openIndicator_02}
+                                setIndicator={setOpenIndicator_02}
+                                setModalName={setModalName}
+                                modalName={modalName}
+                            />
+                            {openIndicator_02.type === "ma" ?
+                                <MovingAverage indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
+                                : openIndicator_02.type === "indicator" ?
+                                    <Indicator indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
+                                    : openIndicator_02.type === "candle" ?
+                                        <CandlePattern indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
+                                        : null}
+                        </div>
+                        : null}
+                    {openIndicator_02?.addConditional === "OR" || openIndicator_02?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={openIndicator_03}
+                                setIndicator={setOpenIndicator_03}
+                                setModalName={setModalName}
+                                modalName={modalName}
+                            />
+                            {openIndicator_03.type === "ma" ?
+                                <MovingAverage indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
+                                : openIndicator_03.type === "indicator" ?
+                                    <Indicator indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
+                                    : openIndicator_03.type === "candle" ?
+                                        <CandlePattern indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
+                                        : null}
+                        </div>
+                        : null}
+                    {openIndicator_03?.addConditional === "OR" || openIndicator_03?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={openIndicator_04}
+                                setIndicator={setOpenIndicator_04}
+                                setModalName={setModalName}
+                                modalName={modalName}
+                            />
+                            {openIndicator_04.type === "ma" ?
+                                <MovingAverage indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
+                                : openIndicator_04.type === "indicator" ?
+                                    <Indicator indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
+                                    : openIndicator_04.type === "candle" ?
+                                        <CandlePattern indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
+                                        : null}
+                        </div>
+                        : null}
+                    {openIndicator_04?.addConditional === "OR" || openIndicator_04?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={openIndicator_05}
+                                setIndicator={setOpenIndicator_05}
+                                setModalName={setModalName}
+                                modalName={modalName}
+                            />
+                            {openIndicator_05.type === "ma" ?
+                                <MovingAverage indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
+                                : openIndicator_05.type === "indicator" ?
+                                    <Indicator indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
+                                    : openIndicator_05.type === "candle" ?
+                                        <CandlePattern indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
+                                        : null}
+                        </div>
+                        : null}
                 </div>
-                {openIndicator_01?.addConditional === "OR" || openIndicator_01?.addConditional === "AND" ?
+                <div className="strategies-container_separator">
+                    <h3 className="bots-condition-title">Close Condition</h3>
                     <div className="bots-condition-container">
                         <IndicatorsList
-                            indicator={openIndicator_02}
-                            setIndicator={setOpenIndicator_02}
-                            setModalName={setModalName}
-                            modalName={modalName}
+                            indicator={closeIndicator_01}
+                            setIndicator={setCloseIndicator_01}
+                            setModalName={setModalNameClose}
+                            modalName={modalNameClose}
                         />
-                        {openIndicator_02.type === "ma" ?
-                            <MovingAverage indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                            : openIndicator_02.type === "indicator" ?
-                                <Indicator indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                                : openIndicator_02.type === "candle" ?
-                                    <CandlePattern indicator={openIndicator_02} setIndicator={setOpenIndicator_02} setNextIndicator={setOpenIndicator_03} />
-                                    : null}
-                    </div>
-                    : null}
-                {openIndicator_02?.addConditional === "OR" || openIndicator_02?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={openIndicator_03}
-                            setIndicator={setOpenIndicator_03}
-                            setModalName={setModalName}
-                            modalName={modalName}
-                        />
-                        {openIndicator_03.type === "ma" ?
-                            <MovingAverage indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                            : openIndicator_03.type === "indicator" ?
-                                <Indicator indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                                : openIndicator_03.type === "candle" ?
-                                    <CandlePattern indicator={openIndicator_03} setIndicator={setOpenIndicator_03} setNextIndicator={setOpenIndicator_04} />
-                                    : null}
-                    </div>
-                    : null}
-                {openIndicator_03?.addConditional === "OR" || openIndicator_03?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={openIndicator_04}
-                            setIndicator={setOpenIndicator_04}
-                            setModalName={setModalName}
-                            modalName={modalName}
-                        />
-                        {openIndicator_04.type === "ma" ?
-                            <MovingAverage indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                            : openIndicator_04.type === "indicator" ?
-                                <Indicator indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                                : openIndicator_04.type === "candle" ?
-                                    <CandlePattern indicator={openIndicator_04} setIndicator={setOpenIndicator_04} setNextIndicator={setOpenIndicator_05} />
-                                    : null}
-                    </div>
-                    : null}
-                {openIndicator_04?.addConditional === "OR" || openIndicator_04?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={openIndicator_05}
-                            setIndicator={setOpenIndicator_05}
-                            setModalName={setModalName}
-                            modalName={modalName}
-                        />
-                        {openIndicator_05.type === "ma" ?
-                            <MovingAverage indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                            : openIndicator_05.type === "indicator" ?
-                                <Indicator indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                                : openIndicator_05.type === "candle" ?
-                                    <CandlePattern indicator={openIndicator_05} setIndicator={setOpenIndicator_05} setNextIndicator={setOpenIndicator_06} />
-                                    : null}
-                    </div>
-                    : null}
-                <h3 className="bots-condition-title">Close Condition</h3>
 
-                <div className="bots-condition-container">
-                    <IndicatorsList
-                        indicator={closeIndicator_01}
-                        setIndicator={setCloseIndicator_01}
-                        setModalName={setModalNameClose}
-                        modalName={modalNameClose}
-                    />
+                        {closeIndicator_01.type === "ma" ?
+                            <MovingAverage indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
+                            : closeIndicator_01.type === "indicator" ?
+                                <Indicator indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
+                                : closeIndicator_01.type === "candle" ?
+                                    <CandlePattern indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
+                                    : null}
+                    </div>
+                    {closeIndicator_01?.addConditional === "OR" || closeIndicator_01?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={closeIndicator_02}
+                                setIndicator={setCloseIndicator_02}
+                                setModalName={setModalNameClose}
+                                modalName={modalNameClose}
+                            />
 
-                    {closeIndicator_01.type === "ma" ?
-                        <MovingAverage indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                        : closeIndicator_01.type === "indicator" ?
-                            <Indicator indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                            : closeIndicator_01.type === "candle" ?
-                                <CandlePattern indicator={closeIndicator_01} setIndicator={setCloseIndicator_01} setNextIndicator={setCloseIndicator_02} />
-                                : null}
+                            {closeIndicator_02.type === "ma" ?
+                                <MovingAverage indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
+                                : closeIndicator_02.type === "indicator" ?
+                                    <Indicator indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
+                                    : closeIndicator_02.type === "candle" ?
+                                        <CandlePattern indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
+                                        : null}
+                        </div>
+                        : null}
+                    {closeIndicator_02?.addConditional === "OR" || closeIndicator_02?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={closeIndicator_03}
+                                setIndicator={setCloseIndicator_03}
+                                setModalName={setModalNameClose}
+                                modalName={modalNameClose}
+                            />
+                            {closeIndicator_03.type === "ma" ?
+                                <MovingAverage indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
+                                : closeIndicator_03.type === "indicator" ?
+                                    <Indicator indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
+                                    : closeIndicator_03.type === "candle" ?
+                                        <CandlePattern indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
+                                        : null}
+                        </div>
+                        : null}
+                    {closeIndicator_03?.addConditional === "OR" || closeIndicator_03?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={closeIndicator_04}
+                                setIndicator={setCloseIndicator_04}
+                                setModalName={setModalNameClose}
+                                modalName={modalNameClose}
+                            />
+                            {closeIndicator_04.type === "ma" ?
+                                <MovingAverage indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
+                                : closeIndicator_04.type === "indicator" ?
+                                    <Indicator indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
+                                    : closeIndicator_04.type === "candle" ?
+                                        <CandlePattern indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
+                                        : null}
+                        </div>
+                        : null}
+                    {closeIndicator_04?.addConditional === "OR" || closeIndicator_04?.addConditional === "AND" ?
+                        <div className="bots-condition-container">
+                            <IndicatorsList
+                                indicator={closeIndicator_05}
+                                setIndicator={setCloseIndicator_05}
+                                setModalName={setModalNameClose}
+                                modalName={modalNameClose}
+                            />
+                            {closeIndicator_05.type === "ma" ?
+                                <MovingAverage indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
+                                : closeIndicator_05.type === "indicator" ?
+                                    <Indicator indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
+                                    : closeIndicator_05.type === "candle" ?
+                                        <CandlePattern indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
+                                        : null}
+                        </div>
+                        : null}
                 </div>
-                {closeIndicator_01?.addConditional === "OR" || closeIndicator_01?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={closeIndicator_02}
-                            setIndicator={setCloseIndicator_02}
-                            setModalName={setModalNameClose}
-                            modalName={modalNameClose}
-                        />
-
-                        {closeIndicator_02.type === "ma" ?
-                            <MovingAverage indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                            : closeIndicator_02.type === "indicator" ?
-                                <Indicator indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                                : closeIndicator_02.type === "candle" ?
-                                    <CandlePattern indicator={closeIndicator_02} setIndicator={setCloseIndicator_02} setNextIndicator={setCloseIndicator_03} />
-                                    : null}
-                    </div>
-                    : null}
-                {closeIndicator_02?.addConditional === "OR" || closeIndicator_02?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={closeIndicator_03}
-                            setIndicator={setCloseIndicator_03}
-                            setModalName={setModalNameClose}
-                            modalName={modalNameClose}
-                        />
-                        {closeIndicator_03.type === "ma" ?
-                            <MovingAverage indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                            : closeIndicator_03.type === "indicator" ?
-                                <Indicator indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                                : closeIndicator_03.type === "candle" ?
-                                    <CandlePattern indicator={closeIndicator_03} setIndicator={setCloseIndicator_03} setNextIndicator={setCloseIndicator_04} />
-                                    : null}
-                    </div>
-                    : null}
-                {closeIndicator_03?.addConditional === "OR" || closeIndicator_03?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={closeIndicator_04}
-                            setIndicator={setCloseIndicator_04}
-                            setModalName={setModalNameClose}
-                            modalName={modalNameClose}
-                        />
-                        {closeIndicator_04.type === "ma" ?
-                            <MovingAverage indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                            : closeIndicator_04.type === "indicator" ?
-                                <Indicator indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                                : closeIndicator_04.type === "candle" ?
-                                    <CandlePattern indicator={closeIndicator_04} setIndicator={setCloseIndicator_04} setNextIndicator={setCloseIndicator_05} />
-                                    : null}
-                    </div>
-                    : null}
-                {closeIndicator_04?.addConditional === "OR" || closeIndicator_04?.addConditional === "AND" ?
-                    <div className="bots-condition-container">
-                        <IndicatorsList
-                            indicator={closeIndicator_05}
-                            setIndicator={setCloseIndicator_05}
-                            setModalName={setModalNameClose}
-                            modalName={modalNameClose}
-                        />
-                        {closeIndicator_05.type === "ma" ?
-                            <MovingAverage indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                            : closeIndicator_05.type === "indicator" ?
-                                <Indicator indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                                : closeIndicator_05.type === "candle" ?
-                                    <CandlePattern indicator={closeIndicator_05} setIndicator={setCloseIndicator_05} setNextIndicator={setCloseIndicator_06} />
-                                    : null}
-                    </div>
-                    : null}
-                {!!exchange & !!symbol & !!timeframe & closeFinal & openFinal ?
+                {!!exchange & !!symbol & !!timeframe & !!amount & !!stopLoss & !!name & closeFinal & openFinal ?
                     <button className="create-bot-button_active" disabled={loading ? true : false} onClick={() => handleSubmmit()}>
                         {
                             !loading ? 'Save Changes' : <span> <Ellipsis color="#FFF" size={42} /></span>
@@ -420,7 +426,7 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                     <button className="create-bot-button_disabled" disabled>Save Changes</button>
                 }
             </div>
-        </div>
+        </div >
     )
 }
 

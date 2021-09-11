@@ -46,7 +46,6 @@
     font-weight: 500;
     border: solid 1px rgb(36, 36, 38);
     background-color: rgb(36, 36, 38);
-    border-radius: 3px;
     color: rgba(255,255,255, 0.7);
 }
 
@@ -58,12 +57,11 @@
     font-weight: 500;
     border: solid 1px rgb(130, 87, 230);
     background-color: rgb(130, 87, 230);
-    border-radius: 3px;
     color: rgba(255,255,255, 0.9);
 }
 
 .exchanges-bot-button_active:hover{
-    filter: brightness(120%);
+    filter: brightness(110%);
     border: none;
     cursor: pointer;
 }
@@ -99,7 +97,6 @@
 .exchanges_col_actions{
     display: flex;
     justify-content: flex-end;
-    flex: 1;
     align-self: flex-end;
 }
 
@@ -157,7 +154,6 @@
 }
 
 .exchanges_row_actions{
-    flex: 1;
     display: flex;
     justify-content: flex-end;
     align-self: flex-end;

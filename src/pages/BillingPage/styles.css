@@ -44,14 +44,14 @@
 }
 
 .billing-currentplan_container{
-    min-width: 500px;
+    width: 480px;
     border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(29, 29, 32);
-    margin: 30px;
-    padding: 50px;    
+    margin: 25px;
+    padding: 40px;    
 }
 
 .billing-currentplan_button{
@@ -61,7 +61,7 @@
     border: none;
     margin-top: 25px;
     width: 380px;
-    height: 35px;
+    height: 40px;
     font-size: 15px;
     border-radius: 3px;
     background-color: rgb(130, 87, 230);
@@ -82,7 +82,7 @@
     border: none;
     margin-top: 10px;
     width: 380px;
-    height: 35px;
+    height: 40px;
     font-size: 15px;
     border-radius: 3px;
     border: solid 1px rgba(255,255,255,0.9);    
@@ -95,6 +95,44 @@
 .billing-currentplan_button-light:hover{
     filter: brightness(110%);
     cursor: pointer;
+}
+
+.subscription-details_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.subscription-details_title{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    color: rgba(255,255,255,0.8)
+}
+
+.subscription-details_text{
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+}
+
+.subscription-details_subtitle{
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+.subscription-details_card{
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px rgba(255,255,255,0.3);
+    padding: 8px;
+    border-radius: 3;
+}
+
+.subscription-details_card-text{
+    font-size: 14px;
 }
 
 @media screen and (max-width: 600px) {

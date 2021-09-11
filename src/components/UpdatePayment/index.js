@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js'
-import { Ellipsis } from 'react-css-spinners';
-import { connect } from "react-redux";
-import * as IoIcons from "react-icons/io5";
+import { Ellipsis } from 'react-css-spinners'
+import { connect } from "react-redux"
+import * as IoIcons from "react-icons/io5"
 import { getMe } from '../../redux/actions/UserActions'
 import "./styles.css"
 
@@ -35,10 +35,11 @@ const CheckoutForm = ({ getme, disptachGetMe, handleClose }) => {
 
     const handleSubmmit = async (event) => {
         event.preventDefault()
+        setLoading(true)
 
         const cardElement = elements.getElement(CardElement);
 
-        const { paymentMethod } = await stripe.createPaymentMethod({
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: cardElement,
             billing_details: {
@@ -47,15 +48,21 @@ const CheckoutForm = ({ getme, disptachGetMe, handleClose }) => {
             },
         })
 
-        await axios.post('http://localhost:8000/v1/payment/update-payment', {
-            userId: getme.id,
-            customerId: getme.stripe.id,
-            subscriptionId: getme.stripe.subscription.id,
-            paymentMethod: paymentMethod
-        })
-
-        disptachGetMe()
-        handleClose()
+        if (error) {
+            setLoading(false)
+            setResError(error.message)
+            return
+        } else {
+            await axios.post('http://localhost:8000/v1/payment/update-payment', {
+                userId: getme.id,
+                customerId: getme.stripe.id,
+                subscriptionId: getme.stripe.subscription.id,
+                paymentMethod: paymentMethod
+            })
+            setLoading(false)
+            disptachGetMe()
+            handleClose()
+        }
     }
 
     const handleOutsideClick = (e) => {
@@ -65,7 +72,7 @@ const CheckoutForm = ({ getme, disptachGetMe, handleClose }) => {
     }
 
     return (
-        <div className="update-payment_modal"  onClick={handleOutsideClick} id="modal">
+        <div className="update-payment_modal" onClick={handleOutsideClick} id="modal">
             <div className="update-payment_container">
                 <div>
                     <h2 style={{ fontSize: 22, fontWeight: 500, marginBottom: 25, color: 'rgba(255,255,255,0.8)' }}>Change your payment method.</h2>

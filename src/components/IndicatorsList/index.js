@@ -47,7 +47,7 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
                     <p className="custom-input_label">Indicators</p>
                 </div>
                 <div className="custom-input" style={{ display: 'flex', alignItems: 'center' }} onClick={() => { setModalName("indicators"); handleOpen() }}>
-                    <p>{indicator.indicator || "Indicators"}</p>
+                    <p>{indicator.indicator || "Select the indicators"}</p>
                 </div>
             </div>
             <Modal open={open} onClose={handleClose}>

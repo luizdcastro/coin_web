@@ -16,12 +16,10 @@ const BotSettings = ({
     setExchange,
     setSymbol,
     setTimeframe,
-    positionSide,
     amount,
     setAmount,
     stopLoss,
     setStopLoss,
-    setPositionSide,
     disptachGetMe,
     getme }) => {
     const [exchangeList, setExchangeList] = useState([])
@@ -53,21 +51,6 @@ const BotSettings = ({
         { value: "1h", label: "1h" },
         { value: "2h", label: "2h" },
         { value: "4h", label: "4h" },
-    ]
-
-    const percentList = [
-        { value: "3m", label: "3m" },
-        { value: "5m", label: "5m" },
-        { value: "15m", label: "15m" },
-        { value: "30m", label: "30m" },
-        { value: "1h", label: "1h" },
-        { value: "2h", label: "2h" },
-        { value: "4h", label: "4h" },
-    ]
-
-    const positionSideList = [
-        { value: "Long", label: "Long" },
-        { value: "Short", label: "Short" }
     ]
 
     const handleChange = (index) => {
@@ -103,18 +86,18 @@ const BotSettings = ({
     return (
         <React.Fragment>
             <div>
-                <Input
-                    inputLabel="Bot Name"
-                    placeholder="Bot Name"
-                    value={name}
-                    onChange={(e) => { setName(e.target.value) }}
-                    maxLength={15}
-                />
-                <div style={{ display: 'flex', marginTop: 15 }}>
+                <div style={{ display: 'flex' }}>
+                    <Input
+                        inputLabel="Bot Name"
+                        placeholder="Type the name"
+                        value={name}
+                        onChange={(e) => { setName(e.target.value) }}
+                        maxLength={15}
+                    />
                     <Select
                         value={exchange}
                         inputLabel={"Exchange"}
-                        placeholder={!!exchange ? exchange.label : "Exchange"}
+                        placeholder={!!exchange ? exchange.name : "Select exchange"}
                         onChange={e => handleChange(e.target.value)}
                     >
                         <option value="demo">Demo</option>
@@ -125,42 +108,22 @@ const BotSettings = ({
                     <Select
                         value={symbol}
                         inputLabel={"Symbol"}
-                        placeholder={!!symbol ? symbol : "Symbol"}
+                        placeholder={!!symbol ? symbol : "Select coin"}
                         onChange={(e) => setSymbol(e.target.value)}
                     >
                         {symbolsList.map((item) => (
                             <option key={item.value} value={item.value}>{item.label}</option>
                         ))}
-                    </Select>
-                    <Select
-                        value={timeframe}
-                        inputLabel={"Timeframe"}
-                        placeholder={!!timeframe ? timeframe : "Timeframe"}
-                        onChange={(e) => setTimeframe(e.target.value)}
-                    >
-                        {timeframeList.map((item) => (
-                            <option key={item.value} value={item.value}>{item.label}</option>
-                        ))}
-                    </Select>
+                    </Select>                  
                 </div>
-                <div style={{ display: 'flex', marginTop: 15 }}>
-                    <Select
-                        value={positionSide}
-                        inputLabel={"Position Side"}
-                        placeholder={!!positionSide ? positionSide : "Position Side"}
-                        onChange={(e) => setPositionSide(e.target.value)}
-                    >
-                        {positionSideList.map((item) => (
-                            <option key={item.value} value={item.value}>{item.label}</option>
-                        ))}
-                    </Select>
+                <div style={{ display: 'flex', marginTop: 15 }}>                  
                     <div style={{ position: 'relative' }}>
                         {!!amount && (
                             <FiIcons.FiPercent style={{ position: 'absolute', fontSize: 20, color: 'rgba(255,255,255,0.75)', top: 29, right: 20 }} />
                         )}
                         <Input
                             inputLabel="Amount"
-                            placeholder="Amount"
+                            placeholder="Type the amount"
                             type="number"
                             value={amount}
                             onChange={handleAmount}
@@ -172,12 +135,22 @@ const BotSettings = ({
                         )}
                         <Input
                             inputLabel="Stop Loss"
-                            placeholder="Stop Loss"
+                            placeholder="Type the stop loss"
                             value={stopLoss}
                             onChange={handleStop}
                             type="number"
                         />
                     </div>
+                    <Select
+                        value={timeframe}
+                        inputLabel={"Timeframe"}
+                        placeholder={!!timeframe ? timeframe : "Select timeframe"}
+                        onChange={(e) => setTimeframe(e.target.value)}
+                    >
+                        {timeframeList.map((item) => (
+                            <option key={item.value} value={item.value}>{item.label}</option>
+                        ))}
+                    </Select>
                 </div>
             </div>
         </React.Fragment>

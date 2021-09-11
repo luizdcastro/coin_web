@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Ellipsis } from 'react-css-spinners';
 import { Link } from 'react-router-dom';
 import * as IoIcons from "react-icons/io5";
-import MainHeader from '../../components/MainHeader'
 import { loginUser } from '../../redux/actions/AuthActions';
 import './styles.css';
 

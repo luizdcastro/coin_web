@@ -5,6 +5,8 @@ import Binance from '../../assets/images/binance.png'
 import Kraken from '../../assets/images/kraken.png'
 import ByBit from '../../assets/images/bybit.jpg'
 import OKEx from '../../assets/images/OKEx.png'
+import FTX from '../../assets/images/ftx.png'
+import Huobi from '../../assets/images/huobi.jpg'
 import * as MdIcons from 'react-icons/md'
 import * as FiIcons from 'react-icons/fi'
 import * as IoIcons from 'react-icons/io5'
@@ -32,18 +34,34 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         {
             icon: Binance,
             name: "binance",
-            label: "Binance"
+            label: "Binance",
+            trading: "Spot"
+        },       
+        {
+            icon: FTX,
+            name: "ftx",
+            label: "FTX",
+            trading: "Spot"
+        },
+        {
+            icon: Huobi,
+            name: "huobipro",
+            label: "Huobi",
+            trading: "Spot",
         },
         {
             icon: Kraken,
             name: "kraken",
-            label: "Kraken"
+            label: "Kraken",
+            trading: "Spot"
         },
         {
             icon: OKEx,
             name: "okex",
-            label: "OKEx"
-        }
+            label: "OKEx",
+            trading: "Spot"
+        },
+
     ]
 
     const handleSubmmit = () => {
@@ -53,6 +71,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
         dispatchCreateExchange(
             exchange.name,
             exchange.label,
+            exchange.trading,
             getme.id,
             apiKey,
             secretKey,
@@ -120,6 +139,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                     <p className="exchanges_col_exchange">Exchange</p>
                     <p className="exchanges_col_status">API Key</p>
                     <p className="exchanges_col_status">Status</p>
+                    <p className="exchanges_col_status">Trading</p>
                     <span className="exchanges_col_actions"><MdIcons.MdRefresh size={22} color="rgba(255,255,255,0.9)" style={{ cursor: 'pointer' }} /></span>
                 </div>
                 {getme.exchanges?.length >= 1 ?
@@ -132,12 +152,16 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                             src={item.exchange === 'binance' ? Binance
                                                 : item.exchange === 'kraken' ? Kraken
                                                     : item.exchange === 'okex' ? OKEx
-                                                        : item.exchange === 'bybit' ? ByBit : null}
+                                                        : item.exchange === 'ftx' ? FTX
+                                                            : item.exchange === 'huobipro' ? Huobi
+                                                                : item.exchange === 'bybit' ? ByBit : null}
                                             alt={
                                                 item.exchange === 'binance' ? 'Binance'
                                                     : item.exchange === 'kraken' ? 'Kraken'
                                                         : item.exchange === 'okex' ? 'OKEx'
-                                                            : item.exchange === 'bybit' ? 'ByBit' : 'null'}
+                                                            : item.exchange === 'ftx' ? 'FTX'
+                                                                : item.exchange === 'huobipro' ? 'FTX'
+                                                                    : item.exchange === 'bybit' ? 'ByBit' : 'null'}
                                             style={{ width: 30, height: 30, borderRadius: 5, marginRight: 8 }}
                                         />
                                         <p className="exchanges_row_exchange">{item.label}</p>
@@ -147,6 +171,7 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
                                 <span className="exchanges_row_status">
                                     <p className="exchanges_row_status-active">Connected</p>
                                 </span>
+                                <p className="exchanges_row_exchange">{item.trading}</p>
                                 <span className="exchanges_row_actions">
                                     <FiIcons.FiTrash
                                         size={17}
@@ -172,8 +197,8 @@ const ExchangesPage = ({ dispatchCreateExchange, disptachGetMe, getme, dispatchD
 
 const mapDispatchToProps = (dispatch) => ({
     disptachGetMe: () => dispatch(getMe()),
-    dispatchCreateExchange: (exchange, label, user, api_key, secret_key, passphrase, onSuccess, onError) =>
-        dispatch(createExchange({ exchange, label, user, api_key, secret_key, passphrase }, onSuccess, onError)),
+    dispatchCreateExchange: (exchange, label, trading, user, api_key, secret_key, passphrase, onSuccess, onError) =>
+        dispatch(createExchange({ exchange, label, trading, user, api_key, secret_key, passphrase }, onSuccess, onError)),
     dispatchDeleteExchange: (exchangeId, onSuccess, onError) =>
         dispatch(deleteExchange(exchangeId, onSuccess, onError)),
 });
