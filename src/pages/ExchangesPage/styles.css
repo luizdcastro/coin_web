@@ -146,9 +146,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255,255,255,0.75);
+    background-color: #bb86fc;
     color: rgb(36, 36, 38);
-    width: 74px;
+    width: 75px;
     height: 25px;
     padding-top: 1px;
     font-size: 12px;

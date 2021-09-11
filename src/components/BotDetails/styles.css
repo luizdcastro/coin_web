@@ -116,6 +116,50 @@
     flex: 1;    
 }
 
+.bot-modal_orders-button-active{
+    display: flex;
+    width: 47%;
+    align-items: center;
+    font-size: 14px;
+    color: #bb86fc;
+    cursor: pointer;
+    height: 35px;
+    justify-content: center;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #bb86fc;    
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.bot-modal_orders-button{
+    display: flex;
+    width: 47%;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255, 0.9);
+    cursor: pointer;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255, 0.8);
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.bot_model-error {
+    font-size: 13px;
+    padding-top: 5px;    
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #fa755a;
+}  
+
+
 .tooltip{
     border-radius: 0.25rem;
     background-color: #26313c;
