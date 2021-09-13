@@ -33,7 +33,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="home-section_container-exchanges">
-                    <div style={{marginTop: 50, marginBottom: 50}}>
+                    <div style={{ marginTop: 50, marginBottom: 50 }}>
                         <p className="home-section_exchange-title">We are connected with</p>
                         <div className="home-section_box-exchanges">
                             <p className="home-section_exchange-item">Binance</p>
@@ -45,8 +45,35 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="home-section_container" id="about">
+                <div className="home_flex-center" id="about">
+                    <div style={{ maxWidth: 600, marginBottom: 15 }}>
+                        <h2 className="home-features_section-title">Built for your workflow</h2>
+                        <p className="home-features_section-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                    </div>
+                </div>
+                <div className="home-section_container">
                     <ul className="home-section_about">
+                        <li className="home-section_about-list">
+                            <div className="home-section_about-icon">
+                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                            </div>
+                            <h3 className="home-section_about-title">Join the system</h3>
+                            <p className="home-section_about-description">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                        </li>
+                        <li className="home-section_about-list">
+                            <div className="home-section_about-icon">
+                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                            </div>
+                            <h3 className="home-section_about-title">Join the system</h3>
+                            <p className="home-section_about-description"> A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                        </li>
+                        <li className="home-section_about-list">
+                            <div className="home-section_about-icon">
+                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                            </div>
+                            <h3 className="home-section_about-title">Join the system</h3>
+                            <p className="home-section_about-description">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                        </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
                                 <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
@@ -108,6 +135,17 @@ const HomePage = () => {
                     <div style={{ marginTop: 20 }}>
                         <h3 className="home-features_section-subtitle">Join the system</h3>
                         <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                    </div>
+                </div>
+                <div className="home-features_section-container_03">
+                    <div>
+                        <h3 className="home-features_section-subtitle">Join the system</h3>
+                        <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                    </div>
+                    <div style={{ marginBottom: 20 }}>
+                        <div style={{ maxWidth: 450 }}>
+                            <img src={FeaturesImage} alt="home_image" className="home-image_cotainer" />
+                        </div>
                     </div>
                 </div>
                 <div className="home-price_section" id="pricing">

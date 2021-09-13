@@ -6,7 +6,7 @@ import VerticalDrawer from '../components/VerticalDrawer'
 import HomePage from "../pages/HomePage"
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
-import RecoverPasswordPage from "../pages/RecoverPasswordPage"
+import PasswordResetPage from "../pages/PasswordResetPage"
 import StrategiesPage from '../pages/StrategiesPage'
 import ExchangesPage from '../pages/ExchangesPage'
 import CreateBotPage from '../pages/CreateBotPage'
@@ -32,7 +32,7 @@ const App = ({ user }) => {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
-            <Route exact path="/recover-password" component={RecoverPasswordPage} />
+            <Route exact path="/password-reset" component={PasswordResetPage} />
             <Route exact path="/account-verification/:token" component={VerificationPage} />
             <Route exact path="/reset-password/:token" component={ChangePasswordPage} />
             <Redirect to="/" />

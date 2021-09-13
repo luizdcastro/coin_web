@@ -7,7 +7,7 @@ import * as IoIcons from "react-icons/io5";
 import { forgotPassword } from '../../redux/actions/AuthActions';
 import './styles.css';
 
-const RecoverPassword = ({ dispatchForgotPassword }) => {
+const PasswordReset = ({ dispatchForgotPassword }) => {
   const [email, setEmail] = useState("");
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false)
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(forgotPassword({ email }, onSuccess, onError)),
 });
 
-export default connect(null, mapDispatchToProps)(RecoverPassword);
+export default connect(null, mapDispatchToProps)(PasswordReset);

@@ -184,9 +184,20 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 20px;
+
+}
+
+.home-features_section-container_03{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
     border-bottom: solid 1px rgba(255,255,255,0.15);
+    margin-top: 20px;
     margin-bottom: 50px;
     padding-bottom: 50px;
+
 }
 
 .home-price_section{
