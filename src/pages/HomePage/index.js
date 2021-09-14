@@ -21,7 +21,7 @@ const HomePage = () => {
                         <h2 className="home-hero_section-subtitle" >Create your custom crypto trading bot without coding skills and never miss an opportunity or get caught in a dip.</h2>
                         <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: 40 }}>
                             <Link className="homepage-getstarted-button" to="/register">
-                                <p style={{ marginLeft: 14, fontSize: 15, fontWeight: 600 }}>Get started</p>
+                                <p style={{ marginLeft: 14, fontSize: 15, fontWeight: 500 }}>Get started</p>
                                 <MdIcons.MdChevronRight size={24} style={{ marginTop: 1 }} />
                             </Link>
                         </div>

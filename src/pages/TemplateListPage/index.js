@@ -24,7 +24,7 @@ const TemplatesPage = ({ dispatchGetTemplates, template, getme }) => {
     }
 
     const handleTemplates = (id) => {
-        if (getme.stripe.subscription.active === false) {
+        if (!!getme.stripe.subscription.active === false) {
             setOpen(true)
         } else {
             history.push(`/template/${id}`)
@@ -57,9 +57,9 @@ const TemplatesPage = ({ dispatchGetTemplates, template, getme }) => {
                 </div>
                 <div className="templates-list-header">
                     <p className="templates_col_name">Name</p>
-                    <p className="templates_col_name" style={{flex: 2}}>Summary</p>
+                    <p className="templates_col_name" style={{ flex: 2 }}>Summary</p>
                     <p className="templates_col_name">Settings</p>
-                    <p className="templates_col_name" style={{marginRight: 20, textAlign: 'right'}}>Quick Start</p>
+                    <p className="templates_col_name" style={{ marginRight: 20, textAlign: 'right' }}>Quick Start</p>
                 </div>
                 {template?.length >= 1 ?
                     <React.Fragment>

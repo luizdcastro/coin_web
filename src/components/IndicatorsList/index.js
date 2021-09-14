@@ -44,15 +44,15 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
 
             <div className="custom-input_container">
                 <div className="custom-input_label-container">
-                    <p className="custom-input_label">Indicators</p>
+                    <p className="custom-input_label">Indicator</p>
                 </div>
-                <div className="custom-input" style={{ display: 'flex', alignItems: 'center' }} onClick={() => { setModalName("indicators"); handleOpen() }}>
-                    <p>{indicator.indicator || "Select the indicators"}</p>
+                <div className="custom-input" style={{ display: 'flex', alignItems: 'center' }} onClick={() => { setModalName("indicator"); handleOpen() }}>
+                    <p>{indicator.indicator || "Select the indicator"}</p>
                 </div>
             </div>
             <Modal open={open} onClose={handleClose}>
                 <React.Fragment>
-                    {modalName === "indicators" && (
+                    {modalName === "indicator" && (
                         <div
                             id="modal"
                             className="indicator-modal"

@@ -1,0 +1,49 @@
+.input-range_contaoner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 190px;
+    height: 42px;
+    border: none;
+    border-radius: 2px 2px 0 0;
+    color: rgba(255,255,255, 0.85);
+    font-size: 14px;
+    background-color: rgb(36, 36, 38);
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 135px;
+    height: 8px;
+    outline: none;
+	border: none;
+	opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 3px;	
+}
+
+.slider:hover{
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: rgb(255,255,255);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.slider::-moz-range-thumb{
+    height: 15px;
+    width: 15px;
+    background: rgb(255,255,255);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}

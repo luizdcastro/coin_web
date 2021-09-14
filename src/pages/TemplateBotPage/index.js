@@ -21,6 +21,8 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
     const [name, setName] = useState("")
+    const [amount, setAmount] = useState("")
+    const [stopLoss, setStopLoss] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
     const [timeframe, setTimeframe] = useState("")
@@ -41,7 +43,7 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe }
+    const settings = { exchange, symbol, timeframe, amount, stopLoss }
     const [template, setTemplate] = useState([])
     const { id } = useParams()
     const history = useHistory();
@@ -64,6 +66,8 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
             });
             setSymbol(template.settings.symbol);
             setTimeframe(template.settings.timeframe);
+            setAmount(template.settings.amount)
+            setStopLoss(template.settings.stopLoss)
             setOpenIndicator_01({
                 type: template.open_logic[0]?.type,
                 indicator: template.open_logic[0]?.indicator,
@@ -229,6 +233,10 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
                         setExchange={setExchange}
                         setSymbol={setSymbol}
                         setTimeframe={setTimeframe}
+                        stopLoss={stopLoss}
+                        setStopLoss={setStopLoss}
+                        amount={amount}
+                        setAmount={setAmount}
                     />
                 </div>
                 <h3 className="bots-condition-title">Open Condition</h3>

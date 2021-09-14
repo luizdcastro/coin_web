@@ -1,7 +1,7 @@
 
 const indicatorsList = [
     { type: "indicator", value: "rsi", label: "RSI", permission: "all" },
-    { type: "indicator", value: "supertrend", label: "Supertrend", permission: "all" },
+    { type: "indicator", value: "supertrend", label: "Supertrend", permission: "all" },    
     { type: "indicator", value: "macd", label: "MACD" },
     { type: "indicator", value: "stochastic", label: "Stochastic" },
     { type: "indicator", value: "atr", label: "ATR" },
@@ -12,6 +12,8 @@ const indicatorsList = [
     { type: "indicator", value: "mfi", label: "MFI" },
     { type: "indicator", value: "mom", label: "MOM" },
     { type: "indicator", value: "willr", label: "WillR" },
+    { type: "indicator", value: "price_increased", label: "Price Increased", permission: "all" },
+    { type: "indicator", value: "price_decreased", label: "Price Decreased", permission: "all" },
     { type: "ma", value: "ma_10", label: "MA(10)",  permission: "all"  },
     { type: "ma", value: "ma_20", label: "MA(20)",  permission: "all"  },
     { type: "ma", value: "ma_30", label: "MA(30)",  permission: "all"  },

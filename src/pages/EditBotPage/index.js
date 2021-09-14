@@ -19,7 +19,6 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     const [loading, setLoading] = useState(false)
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
-    const [positionSide, setPositionSide] = useState("")
     const [amount, setAmount] = useState("")
     const [stopLoss, setStopLoss] = useState("")
     const [name, setName] = useState("")
@@ -43,7 +42,7 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe, positionSide, amount, stopLoss }
+    const settings = { exchange, symbol, timeframe, amount, stopLoss }
     const [editBot, setEditBot] = useState([])
     const { id } = useParams()
     const history = useHistory();
@@ -231,13 +230,11 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                             timeframe={timeframe}
                             setExchange={setExchange}
                             setSymbol={setSymbol}
-                            setTimeframe={setTimeframe}
-                            positionSide={positionSide}
+                            setTimeframe={setTimeframe}W
                             stopLoss={stopLoss}
                             setStopLoss={setStopLoss}
                             amount={amount}
                             setAmount={setAmount}
-                            setPositionSide={setPositionSide}
                         />
                     </div>
                 </div>

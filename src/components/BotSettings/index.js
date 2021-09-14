@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { getMe } from '../../redux/actions/UserActions'
-import { connect } from "react-redux";
-import * as FiIcons from 'react-icons/fi'
+import { connect } from "react-redux"
 
-import Select from '../Select';
-import Input from '../Input';
+import Select from '../Select'
+import Input from '../Input'
+import InputRange from '../InputRange'
 import './styles.css'
 
 const BotSettings = ({
@@ -23,6 +23,7 @@ const BotSettings = ({
     disptachGetMe,
     getme }) => {
     const [exchangeList, setExchangeList] = useState([])
+    const [test, setTest] = useState("")
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,28 +62,6 @@ const BotSettings = ({
         }
     }
 
-    const handleAmount = (e) => {
-        const value = e.target.value;
-        if (value > 0 && value <= 100) {
-            console.log("accepted")
-            setAmount(value)
-        } else {
-            console.log("value shound be betwwhen 0.1 and 100")
-            setAmount(value)
-        }
-    };
-
-    const handleStop = (e) => {
-        const value = e.target.value;
-        if (value > 0 && value <= 100) {
-            console.log("accepted")
-            setStopLoss(value)
-        } else {
-            console.log("value shound be betwwhen 0.1 and 100")
-            setStopLoss(value)
-        }
-    };
-
     return (
         <React.Fragment>
             <div>
@@ -114,33 +93,19 @@ const BotSettings = ({
                         {symbolsList.map((item) => (
                             <option key={item.value} value={item.value}>{item.label}</option>
                         ))}
-                    </Select>                  
+                    </Select>
                 </div>
-                <div style={{ display: 'flex', marginTop: 15 }}>                  
-                    <div style={{ position: 'relative' }}>
-                        {!!amount && (
-                            <FiIcons.FiPercent style={{ position: 'absolute', fontSize: 20, color: 'rgba(255,255,255,0.75)', top: 29, right: 20 }} />
-                        )}
-                        <Input
-                            inputLabel="Amount"
-                            placeholder="Type the amount"
-                            type="number"
-                            value={amount}
-                            onChange={handleAmount}
-                        />
-                    </div>
-                    <div style={{ position: 'relative' }}>
-                        {!!stopLoss && (
-                            <FiIcons.FiPercent style={{ position: 'absolute', fontSize: 20, color: 'rgba(255,255,255,0.75)', top: 29, right: 20 }} />
-                        )}
-                        <Input
-                            inputLabel="Stop Loss"
-                            placeholder="Type the stop loss"
-                            value={stopLoss}
-                            onChange={handleStop}
-                            type="number"
-                        />
-                    </div>
+                <div style={{ display: 'flex', marginTop: 15 }}>
+                    <InputRange
+                        inputLabel={"Quantity"}
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                    />
+                     <InputRange
+                        inputLabel={"Stop Loss"}
+                        value={stopLoss}
+                        onChange={(e) => setStopLoss(e.target.value)}
+                    />
                     <Select
                         value={timeframe}
                         inputLabel={"Timeframe"}

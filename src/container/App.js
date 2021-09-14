@@ -11,7 +11,7 @@ import StrategiesPage from '../pages/StrategiesPage'
 import ExchangesPage from '../pages/ExchangesPage'
 import CreateBotPage from '../pages/CreateBotPage'
 import EditBotPage from "../pages/EditBotPage"
-import TemplatesPage from '../pages/TemplatesPage'
+import TemplateListPage from '../pages/TemplateListPage'
 import VerificationPage from "../pages/VerificationPage"
 import ChangePasswordPage from "../pages/ChangePasswordPage"
 import PricingPage from "../pages/PricingPage"
@@ -44,7 +44,7 @@ const App = ({ user }) => {
             <Route exact path="/create-bot" component={CreateBotPage} />
             <Route exact path="/edit-bot/:id" component={EditBotPage} />
             <Route exact path="/template/:id" component={TemplateBotPage} />
-            <Route exact path="/templates" component={TemplatesPage} />
+            <Route exact path="/templates" component={TemplateListPage} />
             <Route exact path="/settings-pricing" component={PricingPage} />
             <Route exact path="/settings-billing" component={BillingPage} />
             <Redirect to="/strategies" />

@@ -4,6 +4,7 @@ import { Ellipsis } from 'react-css-spinners';
 import { Link } from 'react-router-dom';
 import * as IoIcons from "react-icons/io5";
 import { loginUser } from '../../redux/actions/AuthActions';
+import BasicHeader from '../../components/BasicHeader'
 import './styles.css';
 
 const Login = ({ dispatchLoginAction }) => {
@@ -26,49 +27,56 @@ const Login = ({ dispatchLoginAction }) => {
   };
 
   return (
-    <div className="login-page">     
-      <div className="login-content">        
-        <div className="login-container">
-        <h2 style={{fontSize: '1.7rem', fontWeight: 600, marginBottom: 15}}>Access your account</h2>
-          <form onSubmit={handleOnSubmmit}>
-            <div style={{ width: "100%", position: 'relative' }}>
-              <IoIcons.IoMail size={20} className="login-icons" />
-              <input
-                className="login-input"
-                type="email"
-                placeholder="E-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div style={{ width: "100%", position: 'relative' }}>
-              <IoIcons.IoLockClosed size={20} className="login-icons" />
-              {isSecure === "password" ?
-                <IoIcons.IoEye size={20} className="login-icons-view" onClick={() => setIsSecure("text")} />
-                : <IoIcons.IoEyeOff size={20} className="login-icons-view" color="#bb86fc" onClick={() => setIsSecure("password")} />
-              }
-              <input
-                className="login-input"
-                type={isSecure}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div style={{ width: '100%', marginTop: 6 }}>
-              <Link to="/password-reset" className="login-link">Forgot password</Link>
-            </div>
-            {serverError ? <p className="login-error">{serverError}</p> : null}
-            <button className="login-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
-              {
-                !loading ? 'Sign In' : <span> <Ellipsis color="#FFF" size={38} style={{ marginTop: 3 }} /></span>
-              }
-            </button>
-          </form>
-          <p className="login-create-account">Don't have an account? <span><Link to="/register" className="login-link">Sign up</Link></span></p>
+    <div className="login-page">
+      <div>
+        <div className="main-header_logo-container">
+          <IoIcons.IoGrid className="main-header_logo-icon" />
+          <Link className="main-header_logo-text" to="/">tradingrid</Link>
+        </div>
+        <div className="login-content">
+          <div className="login-container">
+            <h2 style={{ fontSize: '1.7rem', fontWeight: 600, marginBottom: 15 }}>Access your account</h2>
+            <form onSubmit={handleOnSubmmit}>
+              <div style={{ width: "100%", position: 'relative' }}>
+                <IoIcons.IoMail size={20} className="login-icons" />
+                <input
+                  className="login-input"
+                  type="email"
+                  placeholder="E-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div style={{ width: "100%", position: 'relative' }}>
+                <IoIcons.IoLockClosed size={20} className="login-icons" />
+                {isSecure === "password" ?
+                  <IoIcons.IoEye size={20} className="login-icons-view" onClick={() => setIsSecure("text")} />
+                  : <IoIcons.IoEyeOff size={20} className="login-icons-view" color="#bb86fc" onClick={() => setIsSecure("password")} />
+                }
+                <input
+                  className="login-input"
+                  type={isSecure}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div style={{ width: '100%', marginTop: 6 }}>
+                <Link to="/password-reset" className="login-link">Forgot password</Link>
+              </div>
+              {serverError ? <p className="login-error">{serverError}</p> : null}
+              <button className="login-button" disabled={loading ? true : false} onClick={handleOnSubmmit}>
+                {
+                  !loading ? 'Sign In' : <span> <Ellipsis color="#FFF" size={38} style={{ marginTop: 3 }} /></span>
+                }
+              </button>
+            </form>
+            <p className="login-create-account">Don't have an account? <span><Link to="/register" className="login-link">Sign up</Link></span></p>
+          </div>
         </div>
       </div>
     </div>
+
   );
 };
 
