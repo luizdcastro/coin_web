@@ -20,10 +20,11 @@ const BotSettings = ({
     setAmount,
     stopLoss,
     setStopLoss,
+    positionSide,
+    setPositionSide,
     disptachGetMe,
     getme }) => {
     const [exchangeList, setExchangeList] = useState([])
-    const [test, setTest] = useState("")
 
     useEffect(() => disptachGetMe(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,6 +55,11 @@ const BotSettings = ({
         { value: "4h", label: "4h" },
     ]
 
+    const positionSideList = [
+        { value: "long", label: "Long" },
+        { value: "short", label: "Short" },
+    ]
+
     const handleChange = (index) => {
         if (index === "demo") {
             setExchange({ name: "Demo", id: null })
@@ -61,6 +67,8 @@ const BotSettings = ({
             setExchange({ name: exchangeList[index].exchange, id: exchangeList[index]._id })
         }
     }
+
+    console.log(exchange)
 
     return (
         <React.Fragment>
@@ -100,11 +108,15 @@ const BotSettings = ({
                         inputLabel={"Quantity"}
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
+                        step="0.5"
+                        symbol={"%"}
                     />
-                     <InputRange
+                    <InputRange
                         inputLabel={"Stop Loss"}
                         value={stopLoss}
                         onChange={(e) => setStopLoss(e.target.value)}
+                        step="0.5"
+                        symbol={"%"}
                     />
                     <Select
                         value={timeframe}
@@ -117,6 +129,20 @@ const BotSettings = ({
                         ))}
                     </Select>
                 </div>
+                {exchange?.name === "bybit" && (
+                    <div style={{ display: 'flex', marginTop: 15 }}>
+                        <Select
+                            value={positionSide}
+                            inputLabel={"Position Side"}
+                            placeholder={!!positionSide ? positionSide : "Select side"}
+                            onChange={(e) => setPositionSide(e.target.value)}
+                        >
+                            {positionSideList.map((item) => (
+                                <option key={item.value} value={item.value}>{item.label}</option>
+                            ))}
+                        </Select>
+                    </div>
+                )}
             </div>
         </React.Fragment>
     );

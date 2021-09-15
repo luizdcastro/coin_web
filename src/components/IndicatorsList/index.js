@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import * as FiIcons from 'react-icons/fi'
 import * as MdIcons from 'react-icons/md'
 import Modal from '@material-ui/core/Modal'
+import { Link } from 'react-router-dom'
 
 import indicators from '../../assets/data/indicators'
 
@@ -13,6 +14,8 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
     const [search, setSearch] = useState("")
     const [activeMenu, setActiveMenu] = useState("indicator")
     const [open, setOpen] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
+
 
     useEffect(() => {
         setData(
@@ -28,6 +31,12 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
         if (e.target.id === "modal") {
             setModalName("")
             setOpen(false)
+        }
+    }
+
+    const handleOutsideUnlock = (e) => {
+        if (e.target.id === "modal_unlock") {
+            setOpenModal(false)
         }
     }
 
@@ -86,7 +95,7 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
                                         onClick={() => { setActiveMenu('candle') }}
                                     >Candle Patterns</p>
                                 </div>
-                                {!getme.stripe.subscription.active ?
+                                {!!getme.stripe.subscription.active === false ?
                                     <div className="indicator-list-content">
                                         {data.map((item) => (
                                             item?.permission === "all" ?
@@ -103,15 +112,10 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
                                                 :
                                                 <button
                                                     className="indicator-modal-button"
-                                                    key={item.label}
-                                                    disabled
-                                                    onClick={() => {
-                                                        setIndicator({ indicator: item.label, type: item.type });
-                                                        setModalName("");
-                                                        setOpen(false);
-                                                    }}>
+                                                    key={item.label}                                                    
+                                                    onClick={() => setOpenModal(true)}>
                                                     {item.label}
-                                                    <span className="indicator-expert_label">Trader</span>
+                                                    <span className="indicator-expert_label">Unlock</span>
                                                 </button>
                                         ))}
                                     </div>
@@ -132,7 +136,21 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
                                 }
                             </div>
                         </div>)}
-                </React.Fragment>
+                </React.Fragment>               
+            </Modal>
+            <Modal open={openModal}>
+                <div className="templates-page_inactive" onClick={handleOutsideUnlock} id="modal_unlock">
+                    <div className="templates-page_inactive-modal">
+                        <div>
+                            <p className="templates-modal_title">Hey {getme?.name.split(" ")[0].slice(0, 12)},</p>
+                            <p className="templates-modal_text">Advance indicators are avaliable to subscribers.</p>
+                            <p className="templates-modal_text">Upgrade your plan to unlock all trading features.</p>
+                            <div className="templates-modal_container-button">
+                                <Link className="templates-update_button" to="/settings-pricing">Upgrade Now</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Modal>
         </React.Fragment>
     )

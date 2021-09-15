@@ -1,31 +1,27 @@
 .recover-password-page {
   display: flex;
-  flex: 1;
   justify-content: center;
-  align-items: center;
   width: 100vw;
+  height: 100vh;
+  align-items: center;
 }
 
 .recover-password-content{  
   display: flex;
-  align-items: center;
-  height: 100vh;
   justify-content: center;
+  flex-wrap: wrap;
   margin-right: 15px;
   margin-left: 15px;
 }
   
 .recover-password-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 420px;
-    background-color: rgb(32, 32, 36);
-    padding: 40px;
-    padding-top: 45px;
-    padding-bottom: 45px;
-    border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 390px;
+  background-color: rgb(32, 32, 36);
+  padding: 25px;  
+  border-radius: 5px;
   }
   
 .recover-password-input {
@@ -37,7 +33,7 @@
   padding-left: 40px;
   background-color:rgb(18, 18, 20);
   border: solid 1px rgb(18, 18, 20);
-  border-radius: 3px;
+  border-radius: 2px;
   margin-top: 15px;
   color: rgba(255,255,255, 0.9);
 }

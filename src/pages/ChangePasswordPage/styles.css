@@ -1,41 +1,20 @@
 .change-password-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap-reverse;      
-    padding:30px;
-    min-height: 100vh;
-}
-
-.change-password-headeline{
   display: flex;
   justify-content: center;
-  margin-left: 70px;
-}
-
-.change-password-logo{
-  font-weight: 800;
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.change-password-title{
-  font-weight: 700;
-  font-size: 3.4rem;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
 }
   
 .change-password-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 420px;
-    background-color: rgb(32, 32, 36);
-    padding: 40px;
-    padding-top: 45px;
-    padding-bottom: 45px;
-    border-radius: 5px;
-    }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 390px;
+  background-color: rgb(32, 32, 36);
+  border-radius: 5px;
+  padding: 25px;
+}
   
 .change-password-input {
   font-size: 15px;

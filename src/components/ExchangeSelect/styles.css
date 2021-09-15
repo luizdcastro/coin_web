@@ -44,6 +44,17 @@
     color: #bb86fc;
 }
 
+.exchange-option_tag{
+    border: solid 1px #bb86fc;
+    color: #bb86fc;
+    padding: 3px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
 .exchange-option_item_selected{
     display: flex;
     width: 220px; 

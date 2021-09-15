@@ -28,14 +28,14 @@ const Login = ({ dispatchLoginAction }) => {
 
   return (
     <div className="login-page">
-      <div>
-        <div className="main-header_logo-container">
-          <IoIcons.IoGrid className="main-header_logo-icon" />
+      <div style={{paddingBottom: 40}}>
+        <div className="login_logo-container">
+          <IoIcons.IoGrid className="login_logo-icon" />
           <Link className="main-header_logo-text" to="/">tradingrid</Link>
         </div>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 300, marginBottom: 30, textAlign: 'center' }}>Access your account</h2>
         <div className="login-content">
           <div className="login-container">
-            <h2 style={{ fontSize: '1.7rem', fontWeight: 600, marginBottom: 15 }}>Access your account</h2>
             <form onSubmit={handleOnSubmmit}>
               <div style={{ width: "100%", position: 'relative' }}>
                 <IoIcons.IoMail size={20} className="login-icons" />

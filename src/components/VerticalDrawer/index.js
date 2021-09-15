@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgb(29, 29, 32)',
         border: 'none',
         paddingTop: 30,
-        paddingBottom: 10,
+        paddingBottom: 5,
         zIndex: 1
     },
 }));
@@ -83,14 +83,14 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                             <div className="expanded-vertical_menu-footer">
                                 <div className="expanded-vertical_item">
                                     <Link className="expanded-vertical_link" to="/settings-pricing" onClick={() => setOpen(false)}>Account settings</Link>
-                                </div>                                                           
+                                </div>
                                 <div className="expanded-vertical_item">
                                     <Link className="expanded-vertical_link" to="" onClick={() => dispatchLogout()}>Sign out</Link>
                                 </div>
                             </div>
                         </div>)}
                 </div>
-                <ul style={{ paddingTop: 20 }}>
+                <ul style={{ paddingTop: 35 }}>
                     <li>
                         <Link
                             className={activeMenu === '/strategies' ? 'vertical-menu_item_active' : 'vertical-menu_item'}
@@ -130,8 +130,13 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                         : null
                     }
                     <div className="vertical-menu_divider" />
-                    <div>
-                        <p style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.8)', marginTop: 15, textAlign: 'center' }}>tradingrid <span style={{ fontSize: 14 }}>| BETA</span></p>
+                    <div style={{marginTop: 15}}>
+                        <div style={{ display: 'flex', position: 'relative', justifyContent: 'center'}}>
+                            <IoIcons.IoGrid size={19} color="rgba(130, 87, 230, 0.8)" style={{ position: 'absolute', top: 1, left: 30 }} />
+                            <p style={{ marginLeft: 24, fontSize: 18, fontWeight: 800, color: 'rgba(255, 255, 255, 0.8)' }} to="#">tradingrid
+                                <span style={{ fontWeight: 300, fontSize: 16 }}>
+                                    <span style={{ fontSize: 18, fontWeight: 300 }}> | </span>BETA</span></p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -107,6 +107,8 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                                     onChange={(e) => setIndicator({ ...indicator, value: e.target.value })}
                                     inputLabel="Percent"
                                     value={indicator.value}
+                                    step="0.5"
+                                    symbol={"%"}
                                 />
                                 <Select
                                     value={indicator.conditional}
@@ -124,6 +126,8 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                                         onChange={(e) => setIndicator({ ...indicator, value: e.target.value })}
                                         inputLabel="Percent"
                                         value={indicator.value}
+                                        step="0.5"
+                                        symbol={"%"}
                                     />
                                     <Select
                                         value={indicator.conditional}

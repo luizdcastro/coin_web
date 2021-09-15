@@ -22,6 +22,7 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
     const [closeFinal, setCloseFinal] = useState(false)
     const [name, setName] = useState("")
     const [amount, setAmount] = useState("")
+    const [positionSide, setPositionSide] = useState("")
     const [stopLoss, setStopLoss] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
@@ -43,7 +44,7 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe, amount, stopLoss }
+    const settings = { exchange, symbol, timeframe, amount, positionSide, stopLoss }
     const [template, setTemplate] = useState([])
     const { id } = useParams()
     const history = useHistory();
@@ -64,10 +65,11 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
                 name: template.settings.exchange.name,
                 id: template.settings.exchange.id
             });
-            setSymbol(template.settings.symbol);
-            setTimeframe(template.settings.timeframe);
+            setSymbol(template.settings.symbol)
+            setTimeframe(template.settings.timeframe)
             setAmount(template.settings.amount)
             setStopLoss(template.settings.stopLoss)
+            setPositionSide(template.settings.positionSide)
             setOpenIndicator_01({
                 type: template.open_logic[0]?.type,
                 indicator: template.open_logic[0]?.indicator,
@@ -237,6 +239,8 @@ const TemplateBotPage = ({ dispatchCreateBot, dispatchGetTemplate, getme }) => {
                         setStopLoss={setStopLoss}
                         amount={amount}
                         setAmount={setAmount}
+                        positionSide={positionSide}
+                        setPositionSide={setPositionSide}
                     />
                 </div>
                 <h3 className="bots-condition-title">Open Condition</h3>

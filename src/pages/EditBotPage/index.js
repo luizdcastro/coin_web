@@ -24,6 +24,7 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     const [name, setName] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
+    const [positionSide, setPositionSide] = useState("")
     const [timeframe, setTimeframe] = useState("")
     const [modalName, setModalName] = useState("")
     const [modalNameClose, setModalNameClose] = useState("")
@@ -42,7 +43,7 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe, amount, stopLoss }
+    const settings = { exchange, symbol, timeframe, amount, positionSide, stopLoss }
     const [editBot, setEditBot] = useState([])
     const { id } = useParams()
     const history = useHistory();
@@ -62,10 +63,11 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                 name: editBot.settings.exchange.name,
                 id: editBot.settings.exchange.id
             });
-            setSymbol(editBot.settings.symbol);
+            setSymbol(editBot.settings.symbol)
             setAmount(editBot.settings.amount)
             setStopLoss(editBot.settings.stopLoss)
-            setTimeframe(editBot.settings.timeframe);
+            setTimeframe(editBot.settings.timeframe)
+            setPositionSide(editBot.settings.positionSide)
             setOpenIndicator_01({
                 type: editBot.open_logic[0]?.type,
                 indicator: editBot.open_logic[0]?.indicator,
@@ -235,6 +237,8 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                             setStopLoss={setStopLoss}
                             amount={amount}
                             setAmount={setAmount}
+                            positionSide={positionSide}
+                            setPositionSide={setPositionSide}
                         />
                     </div>
                 </div>

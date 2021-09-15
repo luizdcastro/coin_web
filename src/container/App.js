@@ -17,6 +17,7 @@ import ChangePasswordPage from "../pages/ChangePasswordPage"
 import PricingPage from "../pages/PricingPage"
 import BillingPage from '../pages/BillingPage'
 import TemplateBotPage from '../pages/TemplateBotPage'
+import ConfirmEmailPage from '../pages/ConfirmEmailPage'
 
 const App = ({ user }) => {
 
@@ -33,6 +34,7 @@ const App = ({ user }) => {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/password-reset" component={PasswordResetPage} />
+            <Route exact path="/confirm-your-email/:name/:email" component={ConfirmEmailPage} />
             <Route exact path="/account-verification/:token" component={VerificationPage} />
             <Route exact path="/reset-password/:token" component={ChangePasswordPage} />
             <Redirect to="/" />

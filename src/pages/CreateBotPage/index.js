@@ -18,8 +18,9 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [loading, setLoading] = useState(false)
     const [openFinal, setOpenFinal] = useState(false)
     const [closeFinal, setCloseFinal] = useState(false)
-    const [amount, setAmount] = useState(15)
+    const [amount, setAmount] = useState(10)
     const [stopLoss, setStopLoss] = useState(5)
+    const [positionSide, setPositionSide] = useState("")
     const [name, setName] = useState("")
     const [exchange, setExchange] = useState("")
     const [symbol, setSymbol] = useState("")
@@ -42,7 +43,7 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
     const [closeIndicator_05, setCloseIndicator_05] = useState({})
     const [closeIndicator_06, setCloseIndicator_06] = useState({})
 
-    const settings = { exchange, symbol, timeframe, amount, stopLoss }
+    const settings = { exchange, symbol, timeframe, amount, stopLoss, positionSide }
     const history = useHistory();
 
     function openBotPayload() {
@@ -52,7 +53,6 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
         for (const item of indicators) {
             !!item.indicator && (payload.push(item))
         }
-
         return payload
     }
 
@@ -63,7 +63,6 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
         for (const item of indicators) {
             !!item.indicator && (payload.push(item))
         }
-
         return payload
     }
 
@@ -127,6 +126,8 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
                             setStopLoss={setStopLoss}
                             amount={amount}
                             setAmount={setAmount}
+                            positionSide={positionSide}
+                            setPositionSide={setPositionSide}
                         />
                     </div>
                 </div>

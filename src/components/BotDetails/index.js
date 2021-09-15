@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as FiIcons from 'react-icons/fi'
-import * as MdIcons from 'react-icons/md'
+import * as IoIcons from 'react-icons/io5'
 import { connect } from "react-redux";
 import { getMe } from '../../redux/actions/UserActions';
 import { Link } from 'react-router-dom';
@@ -127,7 +127,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                 <div className="bot-modal-container">
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <h3 className="bot-modal-title">Bot Settings</h3>
-                        <MdIcons.MdClose className="indicator-modal-close" onClick={() => setOpen(false)} />
+                        <IoIcons.IoCloseSharp className="indicator-modal-close" onClick={() => setOpen(false)} />
                     </div>
                     <div style={{ display: 'flex' }}>
                         <p className="bot-model-data-name">Name:</p>

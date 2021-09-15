@@ -39,7 +39,7 @@ const TemplatesPage = ({ dispatchGetTemplates, template, getme }) => {
                         <div>
                             <p className="templates-modal_title">Hey {getme?.name.split(" ")[0].slice(0, 12)}!</p>
                             <p className="templates-modal_text">Templates are avaliable to subscribers only.</p>
-                            <p className="templates-modal_text">Upgrade your plan to access all trading features.</p>
+                            <p className="templates-modal_text">Upgrade your plan to unlock all trading features.</p>
                             <div className="templates-modal_container-button">
                                 <Link className="templates-update_button" to="/settings-pricing">Upgrade Now</Link>
                             </div>
