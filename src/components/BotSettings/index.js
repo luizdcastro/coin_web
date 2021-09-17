@@ -79,7 +79,7 @@ const BotSettings = ({
                         placeholder="Type the name"
                         value={name}
                         onChange={(e) => { setName(e.target.value) }}
-                        maxLength={15}
+                        maxLength={22}
                     />
                     <Select
                         value={exchange}
@@ -105,7 +105,7 @@ const BotSettings = ({
                 </div>
                 <div style={{ display: 'flex', marginTop: 15 }}>
                     <InputRange
-                        inputLabel={"Quantity"}
+                        inputLabel={"Fund Allocation"}
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
                         step="0.5"

@@ -61,6 +61,9 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
     const editContidionalListTrend = contidionalListTrend.filter(item => item.value === indicator.conditional)
     const editContidionalListPrice = contidionalListPrice.filter(item => item.value === indicator.conditional)
     const editContidionalListBands = contidionalListBands.filter(item => item.value === indicator.conditional)
+    const editContidionalListPriceDecreased = contidionalListPriceDecreased.filter(item => item.value === indicator.conditional)
+    const editContidionalListPriceIncreased = contidionalListPriceIncreased.filter(item => item.value === indicator.conditional)
+
 
     useEffect(() => {
         if (indicator.addConditional === "Final") {
@@ -113,7 +116,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                                 <Select
                                     value={indicator.conditional}
                                     inputLabel="From"
-                                    placeholder={contidionalListPriceIncreased[0]?.label || "From"}
+                                    placeholder={editContidionalListPriceIncreased[0]?.label || "From"}
                                     onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                                     {contidionalListPriceIncreased.map((item) => (
                                         <option key={item.value} value={item.value}>{item.label}</option>
@@ -132,7 +135,7 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                                     <Select
                                         value={indicator.conditional}
                                         inputLabel="From"
-                                        placeholder={contidionalListPriceDecreased[0]?.label || "From"}
+                                        placeholder={editContidionalListPriceDecreased[0]?.label || "From"}
                                         onChange={(e) => { setIndicator({ ...indicator, conditional: e.target.value }) }}>
                                         {contidionalListPriceDecreased.map((item) => (
                                             <option key={item.value} value={item.value}>{item.label}</option>

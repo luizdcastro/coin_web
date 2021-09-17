@@ -33,8 +33,8 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="home-section_container-exchanges">
-                    <div style={{ marginTop: 50, marginBottom: 50 }}>
-                        <p className="home-section_exchange-title">We are connected with</p>
+                    <div style={{ marginTop: 40, marginBottom: 40 }}>
+                        <p className="home-section_exchange-title">We are integrated with:</p>
                         <div className="home-section_box-exchanges">
                             <p className="home-section_exchange-item">Binance</p>
                             <p className="home-section_exchange-item">ByBit</p>
@@ -46,61 +46,61 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="home_flex-center" id="about">
-                    <div style={{ maxWidth: 600, marginBottom: 15 }}>
-                        <h2 className="home-features_section-title">Built for your workflow</h2>
-                        <p className="home-features_section-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                    <div style={{ maxWidth: 650, marginBottom: 15 }}>
+                        <h2 className="home-features_section-title">Level Up Your Trading Strategies</h2>
+                        <p className="home-features_section-description">We’ve created a modern bot builder that runs transactions according to the parameters you set, and we have connected crypto exchanges and financial protection algorithms to it.</p>
                     </div>
                 </div>
                 <div className="home-section_container">
                     <ul className="home-section_about">
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoCloudDone size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Join the system</h3>
-                            <p className="home-section_about-description">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                            <h3 className="home-section_about-title">Cloud-based</h3>
+                            <p className="home-section_about-description">Your bots run reliably 24/7 and never miss a trade, we eliminate the need to setup your own server.</p>
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoWallet size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Join the system</h3>
-                            <p className="home-section_about-description"> A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                            <h3 className="home-section_about-title">Secure</h3>
+                            <p className="home-section_about-description">Keep your funds safe on your own exchange. The communication is made by official exchange APIs.</p>
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoBagCheck size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Join the system</h3>
-                            <p className="home-section_about-description">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                            <h3 className="home-section_about-title">Encrypted</h3>
+                            <p className="home-section_about-description">We store API keys in encrypted form AES 256 and all trading operations are end-to-end encrypted.</p>
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoPlay size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Join the system</h3>
-                            <p className="home-section_about-description">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                            <h3 className="home-section_about-title">Easy to start</h3>
+                            <p className="home-section_about-description">No code skills are required, you can build your strategy easily by selecting your favorite indicators.</p>
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoStatsChart size={30} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Join the system</h3>
-                            <p className="home-section_about-description"> A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                            <h3 className="home-section_about-title">Multiple indicators</h3>
+                            <p className="home-section_about-description">We offer more than 50 advance indicators including moving averages and candle patterns detection.</p>
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoGrid size={24} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoServer size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Join the system</h3>
-                            <p className="home-section_about-description">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+                            <h3 className="home-section_about-title">High frequence</h3>
+                            <p className="home-section_about-description">Algorithms and indicators are calculated in real-time in our powerful servers based on live market data.</p>
                         </li>
                     </ul>
                 </div>
                 <div className="home_flex-center">
                     <div className="home-middle_section">
                         <div className="home_flex-center">
-                            <h2 className="home-middle_section-title">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit</h2>
+                            <h2 className="home-middle_section-title">Professional tools for automating trading on cryptocurrency exchanges</h2>
                         </div>
                         <div className="home_flex-center">
                             <div style={{ maxWidth: 700 }}>
@@ -112,12 +112,12 @@ const HomePage = () => {
                 <div className="home_flex-center" id="features">
                     <div style={{ maxWidth: 600, marginBottom: 50 }}>
                         <h2 className="home-features_section-title">Built for your workflow</h2>
-                        <p className="home-features_section-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                        <p className="home-features_section-description">Tradingrid provides all tools for the creation of your custom trade automation, allowing you to remove the emotions from your operations and get stick with the strategy as a professional.</p>
                     </div>
                 </div>
                 <div className="home-features_section-container_01">
                     <div>
-                        <h3 className="home-features_section-subtitle">Join the system</h3>
+                        <h3 className="home-features_section-subtitle">1. Setup your exchange</h3>
                         <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
                     </div>
                     <div style={{ marginBottom: 20 }}>
@@ -133,13 +133,13 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div style={{ marginTop: 20 }}>
-                        <h3 className="home-features_section-subtitle">Join the system</h3>
+                        <h3 className="home-features_section-subtitle">2. Build your strategy</h3>
                         <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
                     </div>
                 </div>
                 <div className="home-features_section-container_03">
                     <div>
-                        <h3 className="home-features_section-subtitle">Join the system</h3>
+                        <h3 className="home-features_section-subtitle">3. Analyze the results</h3>
                         <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
                     </div>
                     <div style={{ marginBottom: 20 }}>
@@ -151,7 +151,7 @@ const HomePage = () => {
                 <div className="home-price_section" id="pricing">
                     <div>
                         <h2 className="home-price_section-title">Simple, transarent pricing</h2>
-                        <p className="home-price_section-subtitle">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                        <p className="home-price_section-subtitle">Start your free tier now and upgrade to our professional trader features as you go. There are no extra fees or commissions per trade.</p>
                     </div>
                 </div>
                 <div className="home_flex-center" style={{ borderBottom: 'solid 1px rgba(255,255,255,0.15)', width: '100%', marginBottom: 50 }}>

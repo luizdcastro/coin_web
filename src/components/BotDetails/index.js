@@ -40,7 +40,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                 label: "Closed Orders",
                 data: data,
                 fill: true,
-                backgroundColor: 'rgba(130, 87, 230, 0.3)',
+                backgroundColor: 'rgba(130, 87, 230, 0.5)',
                 pointBorderColor: "rgba(130, 87, 230, 0.8)",
                 tension: 0.4,
                 borderWidth: 3,
@@ -56,16 +56,17 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                 padding: 10,
                 intersect: false,
                 usePointStyle: true,
-                footerAlign: 'right'
+                footerAlign: 'right',
+                border: 'solid 1px white'
             },
 
         },
         scales: {
             y: {
                 ticks: {
-                    color: 'rgba(255, 255, 255, 0.5)',
+                    color: 'rgba(255, 255, 255, 0.6)',
                     maxTicksLimit: 3,
-                    beginAtZero: true,
+                    beginAtZero: true
                 },
                 grid: {
                     display: false,
@@ -179,7 +180,7 @@ const BotDetails = ({ setOpen, botDetails, disptachDeleteBot, disptachUpdateBot,
                     </div>
                     {!!updateError && (<p className="bot_model-error">{updateError}</p>)}
 
-                    <div width="100%" height={300}>
+                    <div width="100%" height={300} style={{}}>
                         <Line data={chartData} options={options} />
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20, marginTop: 20 }}>
