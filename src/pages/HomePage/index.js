@@ -6,6 +6,14 @@ import { Link } from 'react-router-dom'
 import PlanOptions from '../../components/PlanOptions'
 import HeroImage from '../../assets/images/hero-image.png'
 import FeaturesImage from '../../assets/images/features.png'
+import BinanceLogo from '../../assets/images/logos/binance.png'
+import KrakenLogo from '../../assets/images/logos/kraken.png'
+import HuobiLogo from '../../assets/images/logos/huobi.png'
+import OkexLogo from '../../assets/images/logos/okex.png'
+import FtxLogo from '../../assets/images/logos/ftx.png'
+import BybitLogo from '../../assets/images/logos/bybit.png'
+
+
 import './styles.css'
 
 const HomePage = () => {
@@ -33,22 +41,34 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="home-section_container-exchanges">
-                    <div style={{ marginTop: 40, marginBottom: 40 }}>
-                        <p className="home-section_exchange-title">We are integrated with:</p>
+                    <div style={{ marginTop: 40, marginBottom: 10 }}>
+                        <p className="home-section_exchange-title">We are connected with:</p>
                         <div className="home-section_box-exchanges">
-                            <p className="home-section_exchange-item">Binance</p>
-                            <p className="home-section_exchange-item">ByBit</p>
-                            <p className="home-section_exchange-item">FTX</p>
-                            <p className="home-section_exchange-item">Huobi</p>
-                            <p className="home-section_exchange-item">Kraken</p>
-                            <p className="home-section_exchange-item">OKEx</p>
+                            <div style={{ width: 230, height: 50, marginRight: 45, marginBottom: 30 }}>
+                                <img src={BinanceLogo} className="home-exchange_logo" />
+                            </div>
+                            <div style={{ width: 110, height: 50, marginRight: 45, marginBottom: 20 }}>
+                                <img src={BybitLogo} className="home-exchange_logo" />
+                            </div>
+                            <div style={{ width: 180, height: 50, marginRight: 45, marginTop: 12, marginBottom: 20 }}>
+                                <img src={KrakenLogo} className="home-exchange_logo" />
+                            </div>
+                            <div style={{ width: 240, height: 50, marginRight: 45, marginTop: 11, marginBottom: 30 }}>
+                                <img src={HuobiLogo} className="home-exchange_logo" />
+                            </div>
+                            <div style={{ width: 140, height: 50, marginRight: 45, marginBottom: 30, marginTop: 5 }}>
+                                <img src={FtxLogo} className="home-exchange_logo" />
+                            </div>
+                            <div style={{ width: 160, height: 50, marginRight: 45, marginBottom: 30, marginTop: 3 }}>
+                                <img src={OkexLogo} className="home-exchange_logo" />
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="home_flex-center" id="about">
                     <div style={{ maxWidth: 650, marginBottom: 15 }}>
                         <h2 className="home-features_section-title">Level Up Your Trading Strategies</h2>
-                        <p className="home-features_section-description">We’ve created a modern bot builder that runs transactions according to the parameters you set, and we have connected crypto exchanges and financial protection algorithms to it.</p>
+                        <p className="home-features_section-description">We’ve created a modern bot builder that execute transactions according to the parameters you set, and we have connected crypto exchanges and financial protection algorithms to it.</p>
                     </div>
                 </div>
                 <div className="home-section_container">
@@ -62,6 +82,13 @@ const HomePage = () => {
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
+                                <IoIcons.IoStatsChart size={30} color="rgb(130, 87, 230)" />
+                            </div>
+                            <h3 className="home-section_about-title">Multiple indicators</h3>
+                            <p className="home-section_about-description">We offer more than 50 advance indicators including moving averages and candle patterns detection.</p>
+                        </li>
+                        <li className="home-section_about-list">
+                            <div className="home-section_about-icon">
                                 <IoIcons.IoWallet size={32} color="rgb(130, 87, 230)" />
                             </div>
                             <h3 className="home-section_about-title">Secure</h3>
@@ -69,10 +96,10 @@ const HomePage = () => {
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoBagCheck size={32} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoServer size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Encrypted</h3>
-                            <p className="home-section_about-description">We store API keys in encrypted form AES 256 and all trading operations are end-to-end encrypted.</p>
+                            <h3 className="home-section_about-title">High frequence</h3>
+                            <p className="home-section_about-description">Algorithms and indicators are calculated in real-time in our powerful servers based on live market data.</p>
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
@@ -83,17 +110,10 @@ const HomePage = () => {
                         </li>
                         <li className="home-section_about-list">
                             <div className="home-section_about-icon">
-                                <IoIcons.IoStatsChart size={30} color="rgb(130, 87, 230)" />
+                                <IoIcons.IoBagCheck size={32} color="rgb(130, 87, 230)" />
                             </div>
-                            <h3 className="home-section_about-title">Multiple indicators</h3>
-                            <p className="home-section_about-description">We offer more than 50 advance indicators including moving averages and candle patterns detection.</p>
-                        </li>
-                        <li className="home-section_about-list">
-                            <div className="home-section_about-icon">
-                                <IoIcons.IoServer size={32} color="rgb(130, 87, 230)" />
-                            </div>
-                            <h3 className="home-section_about-title">High frequence</h3>
-                            <p className="home-section_about-description">Algorithms and indicators are calculated in real-time in our powerful servers based on live market data.</p>
+                            <h3 className="home-section_about-title">Encrypted</h3>
+                            <p className="home-section_about-description">We store API keys in encrypted form AES 256 and all trading operations are end-to-end encrypted.</p>
                         </li>
                     </ul>
                 </div>
@@ -117,8 +137,8 @@ const HomePage = () => {
                 </div>
                 <div className="home-features_section-container_01">
                     <div>
-                        <h3 className="home-features_section-subtitle">1. Setup your exchange</h3>
-                        <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                        <h3 className="home-features_section-subtitle" style={{textAlign: 'center'}}>1. Setup your exchange</h3>
+                        <p className="home-features_section-text" style={{textAlign: 'center'}}>Start selectting your favorite exchange and connect with your API keys. We also provide an demo exchange by default for tests purposes before your strategy go live. Spot trading is avaliable with Binance, Kraken, FTX and OKEx, while Margin/Leverage is supported with ByBit.</p>
                     </div>
                     <div style={{ marginBottom: 20 }}>
                         <div style={{ maxWidth: 450 }}>
@@ -134,13 +154,13 @@ const HomePage = () => {
                     </div>
                     <div style={{ marginTop: 20 }}>
                         <h3 className="home-features_section-subtitle">2. Build your strategy</h3>
-                        <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                        <p className="home-features_section-text">After connect your exchange, you are ready to start building your strategy slecting the "Create Bot" feature and setup your entries and exits conditions based on indicators and custom settings. Subscribers have the option to quick start with "Templates" feature.</p>
                     </div>
                 </div>
                 <div className="home-features_section-container_03">
                     <div>
                         <h3 className="home-features_section-subtitle">3. Analyze the results</h3>
-                        <p className="home-features_section-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint — occaecat cupidatat non proident, sunt in culpa qui.</p>
+                        <p className="home-features_section-text">You can easely follow your bot results ont the Strategy dashboard and check in details all oppened and closed orders. Bots can be paused, edited or deleted at any time and all errors such as insufucient balance or credentials issues can be trackked in the "Event Logs" tab.</p>
                     </div>
                     <div style={{ marginBottom: 20 }}>
                         <div style={{ maxWidth: 450 }}>
@@ -158,8 +178,8 @@ const HomePage = () => {
                     <PlanOptions setPlantype={setPlantype} planType={planType} />
                 </div>
                 <div className="home-footer_hero">
-                    <h2 className="home-footer_hero-title">Leo vel fringilla est integer malesuada.</h2>
-                    <Link className="home-footer_hero-button">Get started</Link>
+                    <h2 className="home-footer_hero-title">Create your trading bots like a professional.</h2>
+                    <Link className="home-footer_hero-button">Start Now</Link>
                 </div>
                 <div className="home-footer_section-media">
                     <div className="home-footer_container_01">
@@ -179,9 +199,9 @@ const HomePage = () => {
                         <p className="home-footer_section-rights">© 2021 Tradingrid Ltd, all rights reserved</p>
                     </div>
                     <div style={{ display: 'flex' }}>
-                        <Link className="home-footer_section-link" style={{ marginLeft: 0 }}>Contact</Link>
-                        <Link className="home-footer_section-link">About</Link>
-                        <Link className="home-footer_section-link">Support</Link>
+                        <Link className="home-footer_section-link" style={{ marginLeft: 0 }}>About</Link>
+                        <Link className="home-footer_section-link">Contact</Link>
+                        <Link className="home-footer_section-link">Jobs</Link>
                     </div>
                 </div>
             </div>

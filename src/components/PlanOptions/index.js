@@ -61,7 +61,7 @@ const PlanOptions = ({ planType, setPlantype }) => {
                         </li>
                     </ul>
                     <div className="plan-option_footer">
-                        <button className="plan-option_button">Get Starter</button>
+                        <button className="plan-option_button">Get started</button>
                     </div>
                 </div>
                 <div className="plan-option_container">

@@ -74,17 +74,32 @@
 
 .home-section_exchange-title{
     text-align: center;
-    color: rgba(255,255,255,0.85);
-    font-size: 1.4rem;
+    color: rgba(255,255,255,0.80);
+    font-size: 1.5rem;
     margin-bottom: 20px;
+    font-weight: 300;
 }
 
 .home-section_box-exchanges{
     min-width: 380px;
+    max-width: 700px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-left: 45px;
 }
+
+.home-exchange_logo{
+    filter: invert(45%) sepia(100%) saturate(4%) hue-rotate(15deg) brightness(125%) contrast(96%);
+    height: auto;
+    max-width: 100%;
+}
+
+.home-exchange_logo:hover{
+    filter: invert(55%) sepia(100%) saturate(4%) hue-rotate(15deg) brightness(125%) contrast(96%);
+    cursor: pointer;
+}
+
 
 .home-section_exchange-item{
     font-size: 2rem;
@@ -118,17 +133,20 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 12px;
+    margin-left: 139px;
 }
 
 .home-section_about-title{
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .home-section_about-description{
     font-size: 1.2rem;
     color: rgba(255,255,255,0.85);
+    text-align: center;
 }
 
 .home-middle_section{
@@ -158,12 +176,14 @@
     font-size: 1.2rem;
     color: rgba(255,255,255,0.85);
     max-width: 500px;
+    text-align: center;
 }
 
 .home-features_section-subtitle{
     font-size: 1.7rem;
     margin-bottom: 8px;
     font-weight: 600;
+    text-align: center;
 }
 
 .home-features_section-description{
@@ -192,7 +212,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     border-bottom: solid 1px rgba(255,255,255,0.15);
     margin-top: 20px;
     margin-bottom: 50px;
@@ -226,10 +246,9 @@
     justify-content:space-between;
     flex-wrap: wrap;
     width: 100%;
-    height: 180px;
+    height: 210px;
     background-color: rgb(29, 29, 32);
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 30px;
     margin-bottom: 70px;
 }
 
