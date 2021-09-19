@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
-import { connect } from 'react-redux';
-import { Ellipsis } from 'react-css-spinners';
-import { Link } from 'react-router-dom';
-import * as IoIcons from "react-icons/io5";
-
-import { registerUser } from '../../redux/actions/AuthActions';
-import './styles.css';
+import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
+import { connect } from 'react-redux'
+import { Ellipsis } from 'react-css-spinners'
+import { Link } from 'react-router-dom'
+import * as IoIcons from "react-icons/io5"
+import Logo from '../../components/Logo'
+import { registerUser } from '../../redux/actions/AuthActions'
+import './styles.css'
 
 const Register = ({ dispatchRegisterUser }) => {
   const [name, setName] = useState("")
@@ -37,8 +37,7 @@ const Register = ({ dispatchRegisterUser }) => {
     <div className="register-page">
       <div style={{paddingBottom: 40}}>
         <div className="login_logo-container">
-          <IoIcons.IoGrid className="login_logo-icon" />
-          <Link className="main-header_logo-text" to="/">tradingrid</Link>
+          <Logo />         
         </div>
         <h2 style={{ fontSize: '1.8rem', fontWeight: 300, marginBottom: 30, textAlign: 'center' }}>Create your account</h2>
         <div className="register-content">

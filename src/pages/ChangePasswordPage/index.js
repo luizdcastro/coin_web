@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Ellipsis } from 'react-css-spinners'
-import { Link } from 'react-router-dom'
 import * as IoIcons from "react-icons/io5"
 import { resetPassword } from '../../redux/actions/AuthActions'
+import Logo from '../../components/Logo'
 import './styles.css';
 
 const Register = ({ dispatchResetPassword }) => {
@@ -31,10 +31,9 @@ const Register = ({ dispatchResetPassword }) => {
 
     return (
         <div className="change-password-page">
-            <div style={{ paddingBottom: 40}}>
+            <div style={{ paddingBottom: 40 }}>
                 <div className="login_logo-container">
-                    <IoIcons.IoGrid className="login_logo-icon" />
-                    <Link className="main-header_logo-text" to="/">tradingrid</Link>
+                    <Logo />
                 </div>
                 <h2 style={{ fontSize: '1.8rem', fontWeight: 300, marginBottom: 30, textAlign: 'center', marginRight: 18 }}>Change your password</h2>
                 <div className="change-password-container">

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { Ellipsis } from 'react-css-spinners';
-import { Link } from 'react-router-dom';
-import * as IoIcons from "react-icons/io5";
-import { loginUser } from '../../redux/actions/AuthActions';
-import BasicHeader from '../../components/BasicHeader'
-import './styles.css';
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { Ellipsis } from 'react-css-spinners'
+import { Link } from 'react-router-dom'
+import * as IoIcons from "react-icons/io5"
+import { loginUser } from '../../redux/actions/AuthActions'
+import Logo from '../../components/Logo'
+import './styles.css'
 
 const Login = ({ dispatchLoginAction }) => {
   const [email, setEmail] = useState('');
@@ -28,10 +28,9 @@ const Login = ({ dispatchLoginAction }) => {
 
   return (
     <div className="login-page">
-      <div style={{paddingBottom: 40}}>
+      <div style={{ paddingBottom: 40 }}>
         <div className="login_logo-container">
-          <IoIcons.IoGrid className="login_logo-icon" />
-          <Link className="main-header_logo-text" to="/">tradingrid</Link>
+          <Logo />
         </div>
         <h2 style={{ fontSize: '1.8rem', fontWeight: 300, marginBottom: 30, textAlign: 'center' }}>Access your account</h2>
         <div className="login-content">

@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { getMe } from '../../redux/actions/UserActions'
 import { logoutUser } from "../../redux/actions/AuthActions";
 import { useLocation } from "react-router-dom";
+import Logo from '../Logo'
 
 import * as FiIcons from 'react-icons/fi'
 import * as IoIcons from "react-icons/io5";
@@ -130,12 +131,10 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                         : null
                     }
                     <div className="vertical-menu_divider" />
-                    <div style={{marginTop: 15}}>
-                        <div style={{ display: 'flex', position: 'relative', justifyContent: 'center'}}>
-                            <IoIcons.IoGrid size={19} color="rgba(130, 87, 230, 0.8)" style={{ position: 'absolute', top: 1, left: 30 }} />
-                            <p style={{ marginLeft: 24, fontSize: 18, fontWeight: 800, color: 'rgba(255, 255, 255, 0.8)' }} to="#">tradingrid
-                                <span style={{ fontWeight: 300, fontSize: 16 }}>
-                                    <span style={{ fontSize: 18, fontWeight: 300 }}> | </span>BETA</span></p>
+                    <div style={{ marginTop: 15 }}>
+                        <div style={{ display: 'flex', position: 'relative', justifyContent: 'center', alignItems: 'center' }}>
+                            <Logo style={{ width: 115, marginRight: 6, marginTop: 5 }} />
+                            <p style={{ fontWeight: 300, fontSize: 18, color: 'rgba(255,255,255,0.7)' }}>| <span style={{fontSize: 16}}>BETA</span></p>
                         </div>
                     </div>
                 </div>

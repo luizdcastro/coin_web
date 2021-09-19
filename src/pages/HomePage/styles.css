@@ -2,7 +2,7 @@
    display: flex;
    flex-wrap: wrap; 
    justify-content: center;
-   margin-top: 70px;
+   margin-top: 50px;
    margin-bottom: 70px;
 }
 
@@ -17,20 +17,20 @@
 
 .home-hero_section-title{
     font-weight: 800;
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     text-align: center;
-    color: rgba(255,255,255,0.85);
-    line-height: 3.5rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 3.2rem;
 }
 
 .home-hero_section-subtitle{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.5rem;
     text-align: center;
     margin-top: 30px;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.9);
     max-width: 600px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .homepage-getstarted-button{
@@ -39,9 +39,10 @@
     align-items: center;
     max-width: 320px;
     width: 100%;
-    height: 45px;
+    height: 50px;
     background-color: rgb(130, 87, 230);
     color: rgba(255,255,255,0.85);
+    border-radius: 3px;
 }
 
 .homepage-getstarted-button:hover{
@@ -74,10 +75,10 @@
 
 .home-section_exchange-title{
     text-align: center;
-    color: rgba(255,255,255,0.80);
+    color: rgba(255,255,255,0.85);
     font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-weight: 300;
+    margin-bottom: 30px;
+    font-weight: 600;    
 }
 
 .home-section_box-exchanges{
@@ -86,7 +87,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 45px;
+    margin-left: 50px;
 }
 
 .home-exchange_logo{
@@ -147,6 +148,7 @@
     font-size: 1.2rem;
     color: rgba(255,255,255,0.85);
     text-align: center;
+    font-weight: 300;
 }
 
 .home-middle_section{
@@ -177,19 +179,23 @@
     color: rgba(255,255,255,0.85);
     max-width: 500px;
     text-align: center;
+    font-weight: 300;
 }
 
 .home-features_section-subtitle{
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     margin-bottom: 8px;
     font-weight: 600;
     text-align: center;
+    margin-bottom: 20px;
+
 }
 
 .home-features_section-description{
-   font-size: 1.3rem;
+   font-size: 1.2rem;
    color: rgba(255,255,255,0.85);
    text-align: center;
+   font-weight: 300;
 }
 
 .home-features_section-container_01{
@@ -234,10 +240,11 @@
 }
 
 .home-price_section-subtitle{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: rgba(255,255,255,0.85);
     max-width: 650px;
     text-align: center;
+    font-weight: 300;
 }
 
 .home-footer_hero{
@@ -249,7 +256,7 @@
     height: 210px;
     background-color: rgb(29, 29, 32);
     padding: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 70px;    
 }
 
 .home-footer_hero-title{
@@ -361,6 +368,12 @@
       }
     .home-footer_section-rights{
         margin-top: 15px;
+    }
+    .home-footer_hero-button{
+        margin-top: 10px;
+    }
+    .home-footer_hero{
+        height: 260px;
     }
 }
 
