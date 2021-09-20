@@ -109,6 +109,7 @@
     background-color: rgb(130, 87, 230);
     color:rgba(255,255,255,0.9);
     border: none;
+    border-radius: 3px;
 }
 
 .pricing_button:hover{
@@ -129,6 +130,7 @@
     background-color: rgba(255,255,255,0.9);
     color: rgb(36, 36, 38);
     border: none;
+    border-radius: 3px;
 }
 
 .pricing_button-light:hover{

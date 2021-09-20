@@ -66,8 +66,11 @@ const CreateBotPage = ({ dispatchCreateBot, user }) => {
         return payload
     }
 
+
     const open_logic = openBotPayload()
     const close_logic = closeBotPayload()
+
+    console.log(open_logic)
 
     useEffect(() => {
         for (const item of open_logic) {

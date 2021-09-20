@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import indicators from '../../assets/data/indicators'
 
 import './styles.css'
+import { TrendingUpTwoTone } from '@material-ui/icons'
 
 const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getme }) => {
     const [data, setData] = useState([])
@@ -103,7 +104,7 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
                                                     className="indicator-modal-button"
                                                     key={item.label}
                                                     onClick={() => {
-                                                        setIndicator({ indicator: item.label, type: item.type });
+                                                        setIndicator({ indicator: item.label, type: item.type, signal: true });
                                                         setModalName("");
                                                         setOpen(false);
                                                     }}>
@@ -125,7 +126,7 @@ const IndicatorsList = ({ indicator, modalName, setModalName, setIndicator, getm
                                                 className="indicator-modal-button"
                                                 key={item.label}
                                                 onClick={() => {
-                                                    setIndicator({ indicator: item.label, type: item.type });
+                                                    setIndicator({ indicator: item.label, type: item.type, signal: true });
                                                     setModalName("");
                                                     setOpen(false);
                                                 }}>

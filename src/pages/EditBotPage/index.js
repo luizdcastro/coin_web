@@ -73,84 +73,101 @@ const EditBotPage = ({ dispatchUpdateBot, dispatchGetBot }) => {
                 indicator: editBot.open_logic[0]?.indicator,
                 conditional: editBot.open_logic[0]?.conditional,
                 value: editBot.open_logic[0]?.value,
-                addConditional: editBot.open_logic[0]?.addConditional
+                addConditional: editBot.open_logic[0]?.addConditional,
+                signal: editBot.open_logic[0]?.signal
             });
             setOpenIndicator_02({
                 type: editBot.open_logic[1]?.type,
                 indicator: editBot.open_logic[1]?.indicator,
                 conditional: editBot.open_logic[1]?.conditional,
                 value: editBot.open_logic[1]?.value,
-                addConditional: editBot.open_logic[1]?.addConditional
+                addConditional: editBot.open_logic[1]?.addConditional,
+                signal: editBot.open_logic[1]?.signal
             })
             setOpenIndicator_03({
                 type: editBot.open_logic[2]?.type,
                 indicator: editBot.open_logic[2]?.indicator,
                 conditional: editBot.open_logic[2]?.conditional,
                 value: editBot.open_logic[2]?.value,
-                addConditional: editBot.open_logic[2]?.addConditional
+                addConditional: editBot.open_logic[2]?.addConditional,
+                signal: editBot.open_logic[2]?.signal
+
             })
             setOpenIndicator_04({
                 type: editBot.open_logic[3]?.type,
                 indicator: editBot.open_logic[3]?.indicator,
                 conditional: editBot.open_logic[3]?.conditional,
                 value: editBot.open_logic[3]?.value,
-                addConditional: editBot.open_logic[3]?.addConditional
+                addConditional: editBot.open_logic[3]?.addConditional,
+                signal: editBot.open_logic[3]?.signal
+
             })
             setOpenIndicator_05({
                 type: editBot.open_logic[4]?.type,
                 indicator: editBot.open_logic[4]?.indicator,
                 conditional: editBot.open_logic[4]?.conditional,
                 value: editBot.open_logic[4]?.value,
-                addConditional: editBot.open_logic[4]?.addConditional
+                addConditional: editBot.open_logic[4]?.addConditional,
+                signal: editBot.open_logic[4]?.signal
+
             })
             setOpenIndicator_06({
                 type: editBot.open_logic[5]?.type,
                 indicator: editBot.open_logic[5]?.indicator,
                 conditional: editBot.open_logic[5]?.conditional,
                 value: editBot.open_logic[5]?.value,
-                addConditional: editBot.open_logic[5]?.addConditional
+                addConditional: editBot.open_logic[5]?.addConditional,
+                signal: editBot.open_logic[5]?.signal
+
             })
             setCloseIndicator_01({
                 type: editBot.close_logic[0]?.type,
                 indicator: editBot.close_logic[0]?.indicator,
                 conditional: editBot.close_logic[0]?.conditional,
                 value: editBot.close_logic[0]?.value,
-                addConditional: editBot.close_logic[0]?.addConditional
+                addConditional: editBot.close_logic[0]?.addConditional,
+                signal: editBot.close_logic[0]?.signal
+
             });
             setCloseIndicator_02({
                 type: editBot.close_logic[1]?.type,
                 indicator: editBot.close_logic[1]?.indicator,
                 conditional: editBot.close_logic[1]?.conditional,
                 value: editBot.close_logic[1]?.value,
-                addConditional: editBot.close_logic[1]?.addConditional
+                addConditional: editBot.close_logic[1]?.addConditional,
+                signal: editBot.close_logic[1]?.signal
             })
             setCloseIndicator_03({
                 type: editBot.close_logic[2]?.type,
                 indicator: editBot.close_logic[2]?.indicator,
                 conditional: editBot.close_logic[2]?.conditional,
                 value: editBot.close_logic[2]?.value,
-                addConditional: editBot.close_logic[2]?.addConditional
+                addConditional: editBot.close_logic[2]?.addConditional,
+                signal: editBot.close_logic[2]?.signal
             })
             setCloseIndicator_04({
                 type: editBot.close_logic[3]?.type,
                 indicator: editBot.close_logic[3]?.indicator,
                 conditional: editBot.close_logic[3]?.conditional,
                 value: editBot.close_logic[3]?.value,
-                addConditional: editBot.close_logic[3]?.addConditional
+                addConditional: editBot.close_logic[3]?.addConditional,
+                signal: editBot.close_logic[3]?.signal
             })
             setCloseIndicator_05({
                 type: editBot.close_logic[4]?.type,
                 indicator: editBot.close_logic[4]?.indicator,
                 conditional: editBot.close_logic[4]?.conditional,
                 value: editBot.close_logic[4]?.value,
-                addConditional: editBot.close_logic[4]?.addConditional
+                addConditional: editBot.close_logic[4]?.addConditional,
+                signal: editBot.close_logic[4]?.signal
             })
             setCloseIndicator_06({
                 type: editBot.close_logic[5]?.type,
                 indicator: editBot.close_logic[5]?.indicator,
                 conditional: editBot.close_logic[5]?.conditional,
                 value: editBot.close_logic[5]?.value,
-                addConditional: editBot.close_logic[5]?.addConditional
+                addConditional: editBot.close_logic[5]?.addConditional,
+                signal: editBot.close_logic[5]?.signal
             })
         }
     }, [editBot]);

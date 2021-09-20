@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { connect } from "react-redux";
+import PropTypes from 'prop-types'
+import Drawer from '@material-ui/core/Drawer'
+import Hidden from '@material-ui/core/Hidden'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { connect } from "react-redux"
 import { getMe } from '../../redux/actions/UserActions'
-import { logoutUser } from "../../redux/actions/AuthActions";
-import { useLocation } from "react-router-dom";
+import { logoutUser } from "../../redux/actions/AuthActions"
+import { useLocation } from "react-router-dom"
 import Logo from '../Logo'
-
+import * as CgIcons from 'react-icons/cg'
 import * as FiIcons from 'react-icons/fi'
-import * as IoIcons from "react-icons/io5";
+import * as IoIcons from "react-icons/io5"
 import './styles.css'
 
 const drawerWidth = 240;
@@ -133,8 +133,10 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
                     <div className="vertical-menu_divider" />
                     <div style={{ marginTop: 15 }}>
                         <div style={{ display: 'flex', position: 'relative', justifyContent: 'center', alignItems: 'center' }}>
-                            <Logo style={{ width: 115, marginRight: 6, marginTop: 5 }} />
-                            <p style={{ fontWeight: 300, fontSize: 18, color: 'rgba(255,255,255,0.7)' }}>| <span style={{fontSize: 16}}>BETA</span></p>
+                            <div className="vertical-menu_logo">
+                                <Logo />
+                            </div>
+                            <p style={{ fontWeight: 300, fontSize: 18, color: 'rgba(255,255,255,0.7)' }}>| <span style={{ fontSize: 16 }}>BETA</span></p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +150,7 @@ const VericalDrawer = ({ dispatchLogout, disptachGetMe, user, getme }) => {
         <div>
             <div className="vertical-menu_bar">
                 <div onClick={handleDrawerToggle} className="vertical-menu_button">
-                    <FiIcons.FiMenu color="rgba(255,255,255,0.9)" size={23} />
+                    <CgIcons.CgMenuLeft size={32} color="rgb(130, 87, 230)" />
                 </div>
             </div>
             <nav className={classes.drawer} aria-label="mailbox folders">

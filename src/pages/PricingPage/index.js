@@ -74,13 +74,13 @@ const PricingPage = ({ getme }) => {
                             <p className="pricing_header-title">Trader</p>
                             {planType === "monthly" ?
                                 <div>
-                                    <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>79,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
-                                    <p className="plan-option_header-description">Up to 25% off with annual plan</p>
+                                    <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>59,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
+                                    <p className="plan-option_header-description">Up to 30% off with annual plan</p>
                                 </div>
                                 :
                                 <div>
-                                    <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>59,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
-                                    <p className="plan-option_header-description">$719,90 will be billed annualy</p>
+                                    <p className="pricing_header-price"><span style={{ fontSize: 18, marginRight: 3 }}>$</span>39,90 <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 20 }}>/ mo</span></p>
+                                    <p className="plan-option_header-description">$478,90 will be billed annualy</p>
                                 </div>
                             }
                         </div>

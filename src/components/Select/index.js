@@ -10,7 +10,7 @@ const Select = ({ inputLabel, onChange, placeholder, value, children, onClick}) 
                 <p className="custom-select_label">{inputLabel}</p>
             </div>
             <select className="custom-select" onChange={onChange} onClick={onClick}>
-                <option className="test" value={value} defaultValue hidden>{placeholder}</option>
+                <option value={value} defaultValue hidden>{placeholder}</option>
                 {children}
             </select>
         </div>

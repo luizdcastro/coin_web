@@ -11,6 +11,7 @@
     font-size: 14px;
     background-color: rgb(36, 36, 38);    
     padding-left: 4px;
+    border-radius: 3px 3px 0 0;
 }
 
 .custom-select:hover{

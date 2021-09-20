@@ -68,8 +68,6 @@ const BotSettings = ({
         }
     }
 
-    console.log(exchange)
-
     return (
         <React.Fragment>
             <div>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import Select from '../../Select';
+import InputCheck from '../../InputCheck'
 
 const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
 
@@ -38,15 +39,18 @@ const CandlePattern = ({ indicator, setIndicator, setNextIndicator }) => {
 
             <Select
                 value={indicator.addConditional}
-                inputLabel={"Add Condition"}
-                placeholder={indicator.addConditional || "Add Condition"}
+                inputLabel={"Sequence"}
+                placeholder={indicator.addConditional || "Sequence"}
                 onChange={(e) => { setIndicator({ ...indicator, addConditional: e.target.value }) }}
             >
                 {addContidionalList.map((item) => (
                     <option key={item.value} value={item.value}>{item.label}</option>
                 ))}
             </Select>
-
+            <InputCheck 
+              onChange={() => { setIndicator({ ...indicator, signal: !indicator.signal}) }}
+              checked={indicator.signal}
+            />
         </React.Fragment>
     )
 }

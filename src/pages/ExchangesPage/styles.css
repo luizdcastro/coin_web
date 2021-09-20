@@ -27,6 +27,7 @@
     padding-right: 10px;   
     margin-top: 12px;
     background-color: rgb(36, 36, 38);
+    border-radius: 3px;
 }
 
 .exchanges-input:hover{
@@ -40,24 +41,27 @@
 
 .exchanges-bot-button_disabled{
     width: 325px;
-    height: 40px;
+    height: 45px;
     margin-top: 12px;
     font-size: 15px;
     font-weight: 500;
     border: solid 1px rgb(36, 36, 38);
     background-color: rgb(36, 36, 38);
     color: rgba(255,255,255, 0.7);
+    border-radius: 3px;
 }
 
 .exchanges-bot-button_active{
     width: 325px;
-    height: 40px;
+    height: 45px;
     margin-top: 12px;
     font-size: 15px;
     font-weight: 500;
     border: solid 1px rgb(130, 87, 230);
     background-color: rgb(130, 87, 230);
     color: rgba(255,255,255, 0.9);
+    border-radius: 3px;
+
 }
 
 .exchanges-bot-button_active:hover{

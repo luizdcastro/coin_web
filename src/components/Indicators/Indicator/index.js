@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import Select from '../../Select';
-import Input from '../../Input';
-import InputRange from '../../InputRange';
+import Select from '../../Select'
+import Input from '../../Input'
+import InputRange from '../../InputRange'
+import InputCheck from '../../InputCheck'
 
 const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
 
@@ -180,14 +181,22 @@ const Indicator = ({ indicator, setIndicator, setNextIndicator }) => {
                 />}
             <Select
                 value={indicator.addConditional}
-                inputLabel={"Add Condition"}
-                placeholder={indicator.addConditional || "Add Condition"}
+                inputLabel={"Sequece"}
+                placeholder={indicator.addConditional || "Sequence"}
                 onChange={(e) => { setIndicator({ ...indicator, addConditional: e.target.value }) }}
             >
                 {addContidionalList.map((item) => (
                     <option key={item.value} value={item.value}>{item.label}</option>
                 ))}
             </Select>
+
+            {indicator.indicator === "Price Increased" || indicator.indicator === "Price Decreased" ?
+                null
+                : <InputCheck
+                    onChange={() => { setIndicator({ ...indicator, signal: !indicator.signal }) }}
+                    checked={indicator.signal}
+                />
+            }
 
         </React.Fragment>
     )

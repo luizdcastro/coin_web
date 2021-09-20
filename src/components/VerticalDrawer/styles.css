@@ -109,6 +109,12 @@
     z-index: 1;
 }
 
+.vertical-menu_logo{
+    width: 115px;
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
 .expanded-vertical_menu{
     position: absolute;
     box-sizing: border-box;
@@ -172,12 +178,13 @@
     align-items: center;
     border: none;
     width: 210px;
-    height: 35px;
+    height: 38px;
     font-size: 0.9rem;
     background-color: rgb(130, 87, 230);
     color: rgb(255,255,255,0.9);
     padding-left: 15px;
     font-weight: 500;
+    border-radius: 3px;
 }
 
 .vertical-menu_upgrade:hover{
@@ -203,5 +210,11 @@
         background-color:rgb(18, 18, 20);
         margin-bottom: 0;
         height: 30px;
-    }       
+    }     
+  }
+
+@media screen and (max-width: 600px) {
+    .vertical-menu_logo{
+        width: 115px;
+    }     
   }

@@ -28,6 +28,10 @@ option {
 	border: none;
 }
 
+input[type=checkbox] {  
+	background-color: red;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -77,4 +81,3 @@ input:-webkit-autofill {
 input:-webkit-autofill {
   -webkit-text-fill-color: rgba(255,255,255, 0.9) !important;
 }
-

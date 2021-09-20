@@ -7,6 +7,7 @@
     border: none;
     color: rgba(255,255,255, 0.85);
     background-color: rgb(36, 36, 38);
+    border-radius: 3px;
 }
 
 .exchange-select_container:hover{
