@@ -1,0 +1,297 @@
+.home_hero_section{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+ }
+ 
+ .home_width{
+    width: 70vw 
+ }
+ 
+ .home_flex_center{
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .home_hero_section_title{
+     font-weight: 800;
+     font-size: 3.2rem;
+     text-align: center;
+     color: rgba(255,255,255,0.9);
+     line-height: 3.2rem;
+ }
+ 
+ .home_hero_section_subtitle{
+     font-size: 1.4rem;
+     line-height: 1.5rem;
+     text-align: center;
+     margin-top: 25px;
+     color: rgba(255,255,255,0.9);
+     max-width: 600px;
+     font-weight: 300;
+ }
+ 
+ .homepage_getstarted_button{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     max-width: 320px;
+     width: 100%;
+     height: 45px;
+     background-color: rgb(130, 87, 230);
+     color: rgba(255,255,255,0.85);
+     border-radius: 3px;
+ }
+ 
+ .homepage_getstarted_button:hover{
+     color: rgb(255, 255, 255);
+     filter: brightness(110%);  
+     cursor: pointer;
+ }
+ 
+ .home_section_container{
+     display: flex;
+     justify-content: center;
+     margin-top: 50px;
+     margin-bottom: 50px;  
+ }
+ 
+ .home_image_cotainer{
+     width: 100%;
+     height: auto;
+ }
+ 
+ .home_section_container_exchanges{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     margin-top: 50px;
+     margin-bottom: 50px;  
+     border-top: solid 1px rgba(255,255,255,0.1);
+     border-bottom: solid 1px rgba(255,255,255,0.1);
+ }
+ 
+ .home_section_exchange_title{
+     text-align: center;
+     color: rgba(255,255,255,0.85);
+     font-size: 1.5rem;
+     margin-bottom: 30px;
+     font-weight: 600;    
+ }
+ 
+ .home_section_box_exchanges{
+     min-width: 380px;
+     max-width: 800px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-left: 50px;
+ }
+ 
+ .home_exchange_logo{
+     filter: invert(55%) sepia(100%) saturate(4%) hue-rotate(15deg) brightness(125%) contrast(96%);
+     height: auto;
+     max-width: 100%;
+ }
+ 
+ .home_exchange_logo:hover{
+     filter: invert(70%) sepia(100%) saturate(4%) hue-rotate(15deg) brightness(125%) contrast(96%);
+ }
+ 
+ 
+ .home-section_exchange-item{
+     font-size: 2rem;
+     font-weight: 800;
+     color: rgba(255,255,255,0.7);
+     margin-right: 30px;
+     margin-top: 10px;
+ }
+ 
+ .home_section_about{
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     width: 100%;
+     border-bottom: solid 1px rgba(255,255,255,0.1);
+     padding-bottom: 35px;    
+ }
+ 
+ .home_section_about_list{
+     width: 340px;
+     padding-bottom: 50px;
+     padding-right: 10px;
+ }
+ 
+ .home_section_about_icon{
+     background-color: rgb(36, 36, 38);
+     width: 62px;
+     height: 62px;
+     border-radius: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-bottom: 12px;
+     margin-left: 139px;
+ }
+ 
+ .home_section_about_title{
+     font-size: 1.5rem;
+     font-weight: 600;
+     margin-bottom: 8px;
+     text-align: center;
+ }
+ 
+ .home_section_about_description{
+     font-size: 1.2rem;
+     color: rgba(255,255,255,0.85);
+     text-align: center;
+     font-weight: 300;
+ }
+ 
+ .home_middle_section{
+     border-bottom: solid 1px rgba(255,255,255,0.1);
+     padding-bottom: 50px;
+     margin-bottom: 50px;
+     width: 100%;
+ }
+ 
+ .home_middle_section_title{
+     max-width: 650px;
+     text-align: center;
+     font-size: 2rem; 
+     font-weight: 600;
+     margin-bottom: 40px;
+     text-align: center;
+ }
+ 
+ .home_features_section_title{
+     text-align: center;
+     font-size: 2rem;
+     font-weight: 600;
+     margin-bottom: 30px;
+ }
+ 
+ .home_features_section_text{
+     font-size: 1.2rem;
+     color: rgba(255,255,255,0.85);
+     max-width: 500px;
+     text-align: center;
+     font-weight: 300;
+ }
+ 
+ .home_features_section_subtitle{
+     font-size: 1.6rem;
+     margin-bottom: 8px;
+     font-weight: 600;
+     text-align: center;
+     margin-bottom: 20px;
+ 
+ }
+ 
+ .home_features_section_description{
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    font-weight: 300;
+ }
+ 
+ .home_features_section_container_01{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: wrap-reverse;
+ }
+ 
+ .home_features_section_container_02{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: wrap;
+     margin-top: 20px;
+ 
+ }
+ 
+ .home_features_section_container_03{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: wrap-reverse;
+     border-bottom: solid 1px rgba(255,255,255,0.1);
+     margin-top: 20px;
+     margin-bottom: 50px;
+     padding-bottom: 50px;
+ 
+ }
+ 
+ .home_price_section{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ .home_price_section_title{
+     text-align: center;
+     font-size: 2rem;
+     font-weight: 600;
+     margin-bottom: 30px;
+ }
+ 
+ .home_price_section_subtitle{
+     font-size: 1.2rem;
+     color: rgba(255,255,255,0.85);
+     max-width: 650px;
+     text-align: center;
+     font-weight: 300;
+ }
+ 
+ .home_footer_hero{
+     display: flex;
+     align-items: center;
+     justify-content:space-between;
+     flex-wrap: wrap;
+     width: 100%;
+     height: 210px;
+     background-color: rgb(29, 29, 32);
+     padding: 30px;
+     margin-bottom: 70px;    
+ }
+ 
+ .home_footer_hero_title{
+     font-size: 2rem;
+     font-weight: 600;
+ }
+ 
+ .home_footer_hero_button{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1rem;
+     font-weight: 800;
+     color: rgb(29, 29, 32);
+     background-color: rgba(255,255,255,0.85);
+     width: 320px;
+     height: 45px;
+     border-radius: 3px;
+ }
+ 
+ .home_footer_hero_button:hover{
+     filter: brightness(110%);
+ }
+ 
+ 
+ @media screen and (max-width: 600px) {
+     .home_width{
+         width: 85vw;
+     }    
+     .home_section_about{
+         justify-content: center;
+     } 
+     .home_footer_hero{
+         justify-content: center;
+         text-align: center;
+         height: 270px;
+     }    
+ }
