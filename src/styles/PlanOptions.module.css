@@ -10,7 +10,7 @@
 }
 
 .plan_type_button{
-    background-color: rgb(29, 29, 32);
+    background-color: rgb(18, 18, 20);
     width: 165px;
     height: 40px;
     color: rgba(255,255,255, 0.8);
@@ -30,6 +30,7 @@
     border-radius: 4px;
     font-size: 1rem;
     font-weight: 500;
+    filter: brightness(105%);
 }
 
 .plan_type_button_active:hover{
@@ -43,10 +44,10 @@
     flex-wrap: wrap;
     align-items: stretch;
     width: 350px;
-    height: 550px;
+    height: 530px;
     padding: 15px;
     margin-bottom: 30px;
-    background-color: rgb(29, 29, 32);
+    background-color: rgb(18, 18, 20);
 }
 
 .plan_header{       
@@ -93,7 +94,7 @@
 .plan_button {
     display: flex;
     width: 100%;
-    height: 42px;
+    height: 45px;
     font-weight: 500;
     font-size: 15px;
     justify-content: center;

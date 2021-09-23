@@ -79,7 +79,7 @@ const Home = () => {
             </div>
             <div className={style.home_flex_center} id="about">
               <div style={{ maxWidth: 650, marginBottom: 10 }}>
-                <h2 className={style.home_features_section_title}>Level Up Your Trading Strategies</h2>
+                <h2 className={style.home_features_section_title}>Level up your trading strategies</h2>
                 <p className={style.home_features_section_description}>We’ve created a modern bot builder that execute transactions according to the parameters you set, and we have connected crypto exchanges and financial protection algorithms to it.</p>
               </div>
             </div>

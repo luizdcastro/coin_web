@@ -23,13 +23,14 @@ const Footer = () => {
                 <div className={style.footer_section_links}>
                     <div style={{ display: 'flex', flexDirection: 'column', marginRight: 35 }}>
                         <p className={style.footer_section_title}>Company</p>
-                        <Link href="/terms" style={{ marginLeft: 0 }}><a className={style.footer_section_link}>About</a></Link>
-                        <Link href="/privacy" ><a className={style.footer_section_link}>Contact Us</a></Link>
+                        <Link href="#about" style={{ marginLeft: 0 }}><a className={style.footer_section_link}>About</a></Link>
+                        <Link href="/contact" ><a className={style.footer_section_link}>Contact Us</a></Link>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', marginRight: 35 }}>
                         <p className={style.footer_section_title}>Services</p>
-                        <Link href="/privacy" ><a className={style.footer_section_link}>Pricing</a></Link>
-                        <Link href="/privacy" ><a className={style.footer_section_link}>Learn</a></Link>
+                        <Link href="#features" ><a className={style.footer_section_link}>Features</a></Link>
+                        <Link href="#pricing" ><a className={style.footer_section_link}>Pricing</a></Link>
+                        <Link href="/learn" ><a className={style.footer_section_link}>Learn</a></Link>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <p className={style.footer_section_title}>Legal</p>
@@ -38,15 +39,15 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className={style.footer_section_media}>
-                    <p className={style.footer_section_title}>Follow Us</p>
                     <div>
-                        <IoIcons.IoLogoTwitter className={style.footer_section_media_icon} style={{ marginLeft: 0 }} />
-                        <IoIcons.IoLogoLinkedin className={style.footer_section_media_icon} />
-                        <IoIcons.IoLogoInstagram className={style.footer_section_media_icon} />
+                        <a href="https://twitter.com/tradingrid" target="_blank"><IoIcons.IoLogoTwitter className={style.footer_section_media_icon} style={{ marginLeft: 0 }} /></a>
+                        <a href="https://www.facebook.com/tradingrid" target="_blank"><IoIcons.IoLogoFacebook className={style.footer_section_media_icon} /></a>
+                        <a href="https://www.linkedin.com/company/tradingrid" target="_blank"><IoIcons.IoLogoLinkedin className={style.footer_section_media_icon} /></a>
+                        <a href="https://www.instagram.com/tradingrid" target="_blank"><IoIcons.IoLogoInstagram className={style.footer_section_media_icon} /></a>
                     </div>
                 </div>
             </div>
-            <p className={style.footer_rights}>© 2021 Tradingrid Ltd, all rights reserved</p>
+            <p className={style.footer_rights}>© 2021 Tradingrid Ltd, all rights reserved.</p>
         </footer>
     )
 }

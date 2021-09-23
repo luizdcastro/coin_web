@@ -74,8 +74,8 @@ const Header = () => {
                     : <div>
                         <React.Fragment>
                             {!menuOpen ?
-                                <CgIcons.CgMenuRight className={style.header_icon}  onClick={() => setMenuOpen(true)} />
-                                : <CgIcons.CgClose className={style.header_icon}  onClick={() => setMenuOpen(false)} />}
+                                <CgIcons.CgMenuRight className={style.header_icon} onClick={() => setMenuOpen(true)} />
+                                : <CgIcons.CgClose className={style.header_icon} onClick={() => setMenuOpen(false)} />}
                         </React.Fragment>
                     </div>}
             </nav>
@@ -90,12 +90,12 @@ const Header = () => {
                         </div>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', marginTop: 40 }}>
+                        <a className={style.header_expanded_register} href="https://app.tradingrid.com/signup">Sign Up</a>
+                        <a className={style.header_expanded_login} href="https://app.tradingrid.com/signin">Sign In</a>
                         <a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#about">About</a>
                         <a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#featues">Features</a>
                         <a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#pricing">Pricing</a>
                         <a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="/">Learn</a>
-                        <a className={style.header_expanded_login} href="https://app.tradingrid.com/signin">Login</a>
-                        <a className={style.header_expanded_register} href="https://app.tradingrid.com/signup">Sign Up</a>
                     </div>
                 </React.Fragment>
             </Modal>
