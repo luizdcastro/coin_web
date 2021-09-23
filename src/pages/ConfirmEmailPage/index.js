@@ -14,7 +14,7 @@ const ConfirmEmailPage = () => {
                 <h2 className="confirm-email_title">Verify your email.</h2>
                 <p className="confirm-email_text"> We've sent an email to <span style={{ fontWeight: 600 }}>{email}</span> to verify <br /> your email address and activate your account.</p>
                 <div className="confirm-email_button-container">
-                    <Link to="/login" className="account-verification-button">Sign In Now</Link>
+                    <Link to="/" className="account-verification-button">Sign In Now</Link>
                 </div>
             </div>
         </div>

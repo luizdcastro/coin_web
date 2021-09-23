@@ -52,7 +52,7 @@ const PasswordReset = ({ dispatchForgotPassword }) => {
                 }
               </button>
             </form>
-            <p className="recover-password-create-account">Remembered password? <span><Link to="/login" className="login-link">Sign in</Link></span></p>
+            <p className="recover-password-create-account">Remembered password? <span><Link to="/" className="login-link">Sign in</Link></span></p>
           </div>
         </div>
       </div>

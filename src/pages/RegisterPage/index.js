@@ -98,7 +98,7 @@ const Register = ({ dispatchRegisterUser }) => {
                 }
               </button>
             </form>
-            <p className="register-create-account">Already have an account? <span><Link to="/login" className="register-link">Sign in</Link></span></p>
+            <p className="register-create-account">Already have an account? <span><Link to="/" className="register-link">Sign in</Link></span></p>
           </div>
         </div>
       </div>

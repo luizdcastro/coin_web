@@ -70,7 +70,7 @@ const Login = ({ dispatchLoginAction }) => {
                 }
               </button>
             </form>
-            <p className="login-create-account">Don't have an account? <span><Link to="/register" className="login-link">Sign up</Link></span></p>
+            <p className="login-create-account">Don't have an account? <span><Link to="/signup" className="login-link">Sign up</Link></span></p>
           </div>
         </div>
       </div>

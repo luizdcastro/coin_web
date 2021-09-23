@@ -50,10 +50,10 @@ const MainHeader = () => {
                         </div>
                         <ul className="main-header-menu" style={{ marginLeft: 20 }}>
                             <li style={{width: 75}}>
-                                <Link to="/login" className="main-header_button-login">Sign in</Link>
+                                <Link to="/" className="main-header_button-login">Sign in</Link>
                             </li>
                             <li className="main-header-register">
-                                <Link to="/register" className="main-header_button-title">Sign up</Link>
+                                <Link to="/signup" className="main-header_button-title">Sign up</Link>
                             </li>
                         </ul>
                     </React.Fragment>
@@ -78,8 +78,8 @@ const MainHeader = () => {
                         <a className="main-header_expanded-item" onClick={() => setMenuOpen(false) } href="#featues">Features</a>
                         <a className="main-header_expanded-item" onClick={() => setMenuOpen(false) } href="#pricing">Pricing</a>
                         <a className="main-header_expanded-item" onClick={() => setMenuOpen(false) } href="/">Learn</a>
-                        <Link className="main-header_expanded-item-login" to="/login">Login</Link>
-                        <Link className="main-header_expanded-item-register" to="/register">Sign Up</Link>
+                        <Link className="main-header_expanded-item-login" to="/">Login</Link>
+                        <Link className="main-header_expanded-item-register" to="/signup">Sign Up</Link>
                     </div>
                 </React.Fragment>
             </Modal>
