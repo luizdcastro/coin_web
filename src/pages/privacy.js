@@ -79,7 +79,7 @@ const Privacy = () => {
                                 <li className={style.privacy_section_subtitle}>e) Profiling</li>
                                 <li className={style.privacy_section_text}>Profiling means any form of automated processing of personal data consisting of the use of
                                     personal data to evaluate certain personal aspects relating to a natural person, in particular to
-                                    analyse or predict aspects concerning that natural person's performance at work, economic
+                                    analyse or predict aspects concerning that natural persons performance at work, economic
                                     situation, health, personal preferences, interests, reliability, behaviour, location or
                                     movements.</li>
 
@@ -118,7 +118,7 @@ const Privacy = () => {
 
                                 <li className={style.privacy_section_subtitle}>k) Consent of the data subject</li>
                                 <li className={style.privacy_section_text}>Consent of the data subject is any freely given, specific, informed and unambiguous indication
-                                    of the data subject's wishes by which he or she, by a statement or by a clear affirmative action,
+                                    of the data subjects wishes by which he or she, by a statement or by a clear affirmative action,
                                     signifies agreement to the processing of personal data relating to him or her.</li>
                             </ol>
 
@@ -127,7 +127,7 @@ const Privacy = () => {
                                 <li className={style.privacy_section_subtitlet}>Controller for the purposes of the General Data Protection Regulation (GDPR), other data
                                     protection laws applicable in Member states of the European Union and other provisions
                                     related to data protection is: </li>
-                                <li className={style.privacy_section_text} style={{ marginTop: 15, fontWeight: 400 }}>Imooby Internet Ltd "Tradingrid"</li>
+                                <li className={style.privacy_section_text} style={{ marginTop: 15, fontWeight: 400 }}>Imooby Internet Ltd Tradingrid</li>
                                 <li className={style.privacy_section_text}>Address: street Francisco Rocha, 198 Curitiba-PR | Brazil</li>
                                 <li className={style.privacy_section_text}>Contact: support@tradingrid.com</li>
                                 <li className={style.privacy_section_text}>Website: https://tradingrid.com</li>
@@ -138,7 +138,7 @@ const Privacy = () => {
                             <ol>
                                 <li className={style.privacy_section_title}>3. Name and Address of the Data Protection Officer</li>
                                 <li className={style.privacy_section_subtitlet}>The Data Protection Officer of the controller is: </li>
-                                <li className={style.privacy_section_text} style={{ marginTop: 15, fontWeight: 400 }}>Imooby Internet Ltd "Tradingrid"</li>
+                                <li className={style.privacy_section_text} style={{ marginTop: 15, fontWeight: 400 }}>Imooby Internet Ltd Tradingrid</li>
                                 <li className={style.privacy_section_text}>Address: street Francisco Rocha, 198 Curitiba-PR | Brazil</li>
                                 <li className={style.privacy_section_text}>Contact: support@tradingrid.com</li>
                                 <li className={style.privacy_section_text}>Website: https://tradingrid.com</li>
@@ -161,7 +161,7 @@ const Privacy = () => {
                                     user in mind. Cookies allow us, as previously mentioned, to recognize our website users. The
                                     purpose of this recognition is to make it easier for users to utilize our website. The website
                                     user that uses cookies, e.g. does not have to enter access data each time the website is
-                                    accessed, because this is taken over by the website, and the cookie is thus stored on the user's
+                                    accessed, because this is taken over by the website, and the cookie is thus stored on the users
                                     computer system. Another example is the cookie of a shopping cart in an online shop. The
                                     online store remembers the articles that a customer has placed in the virtual shopping cart via
                                     a cookie.</li>
@@ -226,11 +226,11 @@ const Privacy = () => {
 
                             <ol>
                                 <li className={style.privacy_section_title}>7. Subscription to our newsletters</li>
-                                <li className={style.privacy_section_text}>On the Website of Tradingrid, users are given the opportunity to subscribe to our enterprise's
+                                <li className={style.privacy_section_text}>On the Website of Tradingrid, users are given the opportunity to subscribe to our enterprises
                                     newsletter. The input mask used for this purpose determines what personal data is
                                     transmitted, as well as when the newsletter is ordered from the controller.</li>
                                 <li className={style.privacy_section_text} style={{ marginTop: 15 }}>Tradingrid informs its customers and business partners regularly by means of a newsletter
-                                    about enterprise offers. The enterprise's newsletter may only be received by the data subject
+                                    about enterprise offers. The enterprises newsletter may only be received by the data subject
                                     if (1) the data subject has a valid e-mail address and (2) the data subject registers for the
                                     newsletter shipping. A confirmation e-mail will be sent to the e-mail address registered by a
                                     data subject for the first time for newsletter shipping, for legal reasons, in the double opt-in
@@ -428,11 +428,11 @@ const Privacy = () => {
                                     decision (1) is not is necessary for entering into, or the performance of, a contract between the
                                     data subject and a data controller, or (2) is not authorised by Union or Member State law to
                                     which the controller is subject and which also lays down suitable measures to safeguard the
-                                    data subject's rights and freedoms and legitimate interests, or (3) is not based on the data
-                                    subject's explicit consent. </li>
+                                    data subjects rights and freedoms and legitimate interests, or (3) is not based on the data
+                                    subjects explicit consent. </li>
                                 <li className={style.privacy_section_text} style={{ marginTop: 15 }}>If the decision (1) is necessary for entering into, or the performance of, a contract between the
-                                    data subject and a data controller, or (2) it is based on the data subject's explicit consent,
-                                    Tradingrid shall implement suitable measures to safeguard the data subject's rights and
+                                    data subject and a data controller, or (2) it is based on the data subjects explicit consent,
+                                    Tradingrid shall implement suitable measures to safeguard the data subjects rights and
                                     freedoms and legitimate interests, at least the right to obtain human intervention on the part
                                     of the controller, to express his or her point of view and contest the decision.</li>
                                 <li className={style.privacy_section_text} style={{ marginTop: 15 }}>If the data subject wishes to exercise the rights concerning automated individual

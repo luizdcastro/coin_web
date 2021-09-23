@@ -166,13 +166,13 @@ const Home = () => {
               </div>
               <div style={{ marginTop: 20 }}>
                 <h3 className={style.home_features_section_subtitle}>Build your strategy</h3>
-                <p className={style.home_features_section_text}>After connect your exchange, you are ready to start building your strategy slecting the "Create Bot" feature and setup your entries and exits conditions based on indicators and custom settings. Subscribers have the option to quick start with "Templates" feature.</p>
+                <p className={style.home_features_section_text}>After connect your exchange, you are ready to start building your strategy slecting the Create Bot feature and setup your entries and exits conditions based on indicators and custom settings. Subscribers have the option to quick start with Templates feature.</p>
               </div>
             </div>
             <div className={style.home_features_section_container_03}>
               <div>
                 <h3 className={style.home_features_section_subtitle}>Analyze the results</h3>
-                <p className={style.home_features_section_text}>You can easely follow your bot results ont the Strategy dashboard and check in details all oppened and closed orders. Bots can be paused, edited or deleted at any time and all errors such as insufucient balance or credentials issues can be trackked in the "Event Logs" tab.</p>
+                <p className={style.home_features_section_text}>You can easely follow your bot results ont the Strategy dashboard and check in details all oppened and closed orders. Bots can be paused, edited or deleted at any time and all errors such as insufucient balance or credentials issues can be trackked in the Event Logs tab.</p>
               </div>
               <div style={{ marginBottom: 20 }}>
                 <div style={{ maxWidth: 450 }}>

@@ -13,9 +13,9 @@ const Footer = () => {
             <div className={style.footer}>
                 <div className={style.footer_section_about}>
                     <div style={{ width: 150, minWidth: 150, marginBottom: -5 }}>
-                        <a href="/">
+                        <Link><a href="/">
                             <Image src={Logo} />
-                        </a>
+                        </a></Link>
                     </div>
                     <p style={{ fontWeight: 300, fontSize: '0.95rem', width: 250 }}>Tradingrid helps people boost their trading strategies through seamless automation features.</p>
 
@@ -40,10 +40,10 @@ const Footer = () => {
                 </div>
                 <div className={style.footer_section_media}>
                     <div>
-                        <a href="https://twitter.com/tradingrid" target="_blank"><IoIcons.IoLogoTwitter className={style.footer_section_media_icon} style={{ marginLeft: 0 }} /></a>
-                        <a href="https://www.facebook.com/tradingrid" target="_blank"><IoIcons.IoLogoFacebook className={style.footer_section_media_icon} /></a>
-                        <a href="https://www.linkedin.com/company/tradingrid" target="_blank"><IoIcons.IoLogoLinkedin className={style.footer_section_media_icon} /></a>
-                        <a href="https://www.instagram.com/tradingrid" target="_blank"><IoIcons.IoLogoInstagram className={style.footer_section_media_icon} /></a>
+                        <a href="https://twitter.com/tradingrid" target="_blank" rel="noreferrer"><IoIcons.IoLogoTwitter className={style.footer_section_media_icon} style={{ marginLeft: 0 }} /></a>
+                        <a href="https://www.facebook.com/tradingrid" target="_blank" rel="noreferrer"><IoIcons.IoLogoFacebook className={style.footer_section_media_icon} /></a>
+                        <a href="https://www.linkedin.com/company/tradingrid" target="_blank" rel="noreferrer"><IoIcons.IoLogoLinkedin className={style.footer_section_media_icon} /></a>
+                        <a href="https://www.instagram.com/tradingrid" target="_blank" rel="noreferrer"><IoIcons.IoLogoInstagram className={style.footer_section_media_icon} /></a>
                     </div>
                 </div>
             </div>

@@ -129,8 +129,8 @@ const Terms = () => {
                                 <li className={style.terms_section_title}>7. Refund Policy</li>
                                 <li className={style.terms_section_text}>7.1 If the User paid for a chosen subscription plan and has consequently decided to cancel the
                                     plan following provisions of Clause 6 above, Tradingrid reserves the right to allow the User to
-                                    request a refund during the 1 week (7 days) after the end date of the User's Trial Period</li>
-                                <li className={style.terms_section_text}>7.2 Following the lapse of one week (7 days) after the end date of the User's Trial Period,
+                                    request a refund during the 1 week (7 days) after the end date of the Users Trial Period</li>
+                                <li className={style.terms_section_text}>7.2 Following the lapse of one week (7 days) after the end date of the Users Trial Period,
                                     Tradingrid reserves its full discretion to refund requested amounts to subscribers who
                                     cancelled their subscription plans in accordance with Clause 6 above and have not requested a
                                     refund in accordance with Clause 7.1.</li>
@@ -150,9 +150,8 @@ const Terms = () => {
                                 <li className={style.terms_section_text}>9.1 This is the grant of a license, not a transfer of title, meaning you are entitled to temporarily
                                     access the Software during the Free Trial, or alternatively, permanently for the duration of
                                     having a paid Subscription. Under this license you may not: modify or copy the materials; use
-                                    the materials for any commercial purpose, or for any public display (commercial or noncommercial); attempt to decompile or reverse engineer any software contained on Tradingrid
-                                    's Website; remove any copyright or other proprietary notations from the materials; or
-                                    transfer the materials to another person or "mirror" the materials on any other server. Any
+                                    the materials for any commercial purpose, or for any public display (commercial or noncommercial); attempt to decompile or reverse engineer any software contained on Tradingrid Website; remove any copyright or other proprietary notations from the materials; or
+                                    transfer the materials to another person or mirror the materials on any other server. Any
                                     intellectual property objects within Tradingrid including all information, data, products,
                                     materials, services, software applications and tools, APIs, design elements, text, images,
                                     photographs, illustrations, audio and video contents, artwork and graphics contained therein
@@ -160,8 +159,8 @@ const Terms = () => {
                                     operate the Software is licensed, not sold, to you by Tradingrid.</li>
                                 <li className={style.terms_section_text}>9.2 This license shall be automatically terminated if you violate any of these restrictions and
                                     may be terminated by Tradingrid at any time.</li>
-                                <li className={style.terms_section_text}>9.3 For all content and data, that you create or make available via the Software ("User
-                                    Tradingrid "), you grant Tradingrid free of charge a transferable, sublicensable, non-exclusive,
+                                <li className={style.terms_section_text}>9.3 For all content and data, that you create or make available via the Software (User
+                                    Tradingrid), you grant Tradingrid free of charge a transferable, sublicensable, non-exclusive,
                                     irrevocable, worldwide right of use and exploitation and for the maximum term permitted
                                     under applicable law and which is unlimited in terms of content, to use this User Content for
                                     any purpose including but not limited to amend, edit and translate, as well as to store,
@@ -229,7 +228,7 @@ const Terms = () => {
                                     or reception of infringing or unlawful information of whatever nature.</li>
                             </ol>
                             <ol>
-                                <li className={style.terms_section_text} style={{ marginTop: 15, fontWeight: 400 }}>Imooby Internet Ltd "Tradingrid"</li>
+                                <li className={style.terms_section_text} style={{ marginTop: 15, fontWeight: 400 }}>Imooby Internet Ltd Tradingrid</li>
                                 <li className={style.terms_section_text}>Address: street Francisco Rocha, 198 Curitiba-PR | Brazil</li>
                                 <li className={style.terms_section_text}>Contact: support@tradingrid.com</li>
                                 <li className={style.terms_section_text}>Website: https://tradingrid.com</li>
