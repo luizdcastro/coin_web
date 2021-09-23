@@ -41,9 +41,9 @@ const Header = () => {
     return (
         <div className={style.header}>
             <nav className={style.header_nav}>
-                <a className={style.header_logo} href="/">
+                <div className={style.header_logo} href="/">
                     <Image src={Logo} />
-                </a>
+                </div>
                 {width >= 600 ?
                     <React.Fragment>
                         <div>
@@ -90,12 +90,12 @@ const Header = () => {
                         </div>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', marginTop: 40 }}>
-                        <Link><a className={style.header_expanded_register} href="https://app.tradingrid.com/signup">Sign Up</a></Link>
-                        <Link><a className={style.header_expanded_login} href="https://app.tradingrid.com/signin">Sign In</a></Link>
-                        <Link><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#about">About</a></Link>
-                        <Link><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#featues">Features</a></Link>
-                        <Link><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#pricing">Pricing</a></Link>
-                        <Link><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="/">Learn</a></Link>
+                        <Link href="https://app.tradingrid.com/signup"><a className={style.header_expanded_register}>Sign Up</a></Link>
+                        <Link href="https://app.tradingrid.com/signin"><a className={style.header_expanded_login} >Sign In</a></Link>
+                        <Link href="#about"><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)}>About</a></Link>
+                        <Link href="#featues"><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)}>Features</a></Link>
+                        <Link href="#pricing"><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} href="#pricing">Pricing</a></Link>
+                        <Link href="/"><a className={style.header_expanded_item} onClick={() => setMenuOpen(false)} >Learn</a></Link>
                     </div>
                 </React.Fragment>
             </Modal>

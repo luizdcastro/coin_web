@@ -13,9 +13,7 @@ const Footer = () => {
             <div className={style.footer}>
                 <div className={style.footer_section_about}>
                     <div style={{ width: 150, minWidth: 150, marginBottom: -5 }}>
-                        <Link><a href="/">
-                            <Image src={Logo} />
-                        </a></Link>
+                        <div  href="/"><Image src={Logo} /></div>
                     </div>
                     <p style={{ fontWeight: 300, fontSize: '0.95rem', width: 250 }}>Tradingrid helps people boost their trading strategies through seamless automation features.</p>
 
